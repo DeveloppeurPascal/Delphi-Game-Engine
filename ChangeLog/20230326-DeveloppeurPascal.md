@@ -7,3 +7,4 @@
 * upgrading the repository with [DeveloppeurPascal/Delphi-Projects-Template](https://github.com/DeveloppeurPascal/Delphi-Projects-Template) repository template
 * updated FR/EN docs
 * updated TODO list (empty => removed file)
+* added Gamolf.FMX.MusicLoop unit from uMusicLoop.pas originally created for [DelphiFMXGameSnippets](https://github.com/DeveloppeurPascal/DelphiFMXGameSnippets) repository
