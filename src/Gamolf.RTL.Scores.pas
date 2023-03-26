@@ -103,6 +103,26 @@ type
     /// </summary>
     function GetOldScoreFileName(EditorName: string = '';
       GameName: string = ''): string;
+    /// <summary>
+    /// Sort the scores list by pseudo in alphabetical order
+    /// (and level+score if same pseudo is present more than once time)
+    /// </summary>
+    procedure SortByPseudoAsc;
+    /// <summary>
+    /// Sort the scores list by pseudo in inverse alphabetical order
+    /// (and level+score if same pseudo is present more than once time)
+    /// </summary>
+    procedure SortByPseudoDesc;
+    /// <summary>
+    /// Sort the scores list by level / points / pseudo
+    /// (bottom from top)
+    /// </summary>
+    procedure SortByPointsAsc(WithLevel: boolean = true);
+    /// <summary>
+    /// Sort the scores list by level / points / pseudo
+    /// (top from bottom)
+    /// </summary>
+    procedure SortByPointsDesc(WithLevel: boolean = true);
   end;
 
   /// <summary>
@@ -112,7 +132,8 @@ type
 
 implementation
 
-uses system.classes, system.SysUtils, system.ioutils, system.Types;
+uses system.classes, system.SysUtils, system.ioutils, system.Types,
+  system.generics.Defaults;
 
 { TScore }
 
@@ -314,6 +335,133 @@ begin
   finally
     liste.Free;
   end;
+end;
+
+procedure TScoreList<T>.SortByPointsAsc(WithLevel: boolean);
+begin
+  Sort(TComparer<T>.Construct(
+    function(const a, b: T): Integer
+    var
+      s1, s2: TScore;
+    begin
+      if a is TScore then
+        s1 := a as TScore
+      else
+        raise exception.Create('Wrong type for A.');
+      if b is TScore then
+        s2 := b as TScore
+      else
+        raise exception.Create('Wrong type for B.');
+      result := 0;
+      if WithLevel then
+        if s1.Level < s2.Level then
+          result := -1
+        else if s1.Level > s2.Level then
+          result := +1;
+      if result = 0 then
+        if s1.Points < s2.Points then
+          result := -1
+        else if s1.Points > s2.Points then
+          result := +1;
+      if result = 0 then
+        result := string.compare(s1.Pseudo, s2.Pseudo, true);
+    end));
+end;
+
+procedure TScoreList<T>.SortByPointsDesc(WithLevel: boolean);
+begin
+  Sort(TComparer<T>.Construct(
+    function(const a, b: T): Integer
+    var
+      s1, s2: TScore;
+    begin
+      if a is TScore then
+        s1 := a as TScore
+      else
+        raise exception.Create('Wrong type for A.');
+      if b is TScore then
+        s2 := b as TScore
+      else
+        raise exception.Create('Wrong type for B.');
+      result := 0;
+      if WithLevel then
+        if s1.Level < s2.Level then
+          result := -1
+        else if s1.Level > s2.Level then
+          result := +1;
+      if result = 0 then
+        if s1.Points < s2.Points then
+          result := -1
+        else if s1.Points > s2.Points then
+          result := +1;
+      if result = 0 then
+        result := string.compare(s1.Pseudo, s2.Pseudo, true);
+      // => ASC to DESC order
+      result := -result;
+    end));
+end;
+
+procedure TScoreList<T>.SortByPseudoAsc;
+begin
+  Sort(TComparer<T>.Construct(
+    function(const a, b: T): Integer
+    var
+      s1, s2: TScore;
+    begin
+      if a is TScore then
+        s1 := a as TScore
+      else
+        raise exception.Create('Wrong type for A.');
+      if b is TScore then
+        s2 := b as TScore
+      else
+        raise exception.Create('Wrong type for B.');
+      result := 0;
+      result := string.compare(s1.Pseudo, s2.Pseudo, true);
+      if result = 0 then
+        if s1.Level < s2.Level then
+          result := -1
+        else if s1.Level > s2.Level then
+          result := +1;
+      if result = 0 then
+        if s1.Points < s2.Points then
+          result := -1
+        else if s1.Points > s2.Points then
+          result := +1;
+    end));
+end;
+
+procedure TScoreList<T>.SortByPseudoDesc;
+begin
+  Sort(TComparer<T>.Construct(
+    function(const a, b: T): Integer
+    var
+      s1, s2: TScore;
+    begin
+      if a is TScore then
+        s1 := a as TScore
+      else
+        raise exception.Create('Wrong type for A.');
+      if b is TScore then
+        s2 := b as TScore
+      else
+        raise exception.Create('Wrong type for B.');
+      result := 0;
+      result := string.compare(s1.Pseudo, s2.Pseudo, true);
+      if result = 0 then
+        if s1.Level < s2.Level then
+          result := -1
+        else if s1.Level > s2.Level then
+          result := +1;
+      if result = 0 then
+        if s1.Points < s2.Points then
+          result := -1
+        else if s1.Points > s2.Points then
+          result := +1;
+
+      // => ASC to DESC order
+      result := -result;
+    end));
 end;
 
 end.

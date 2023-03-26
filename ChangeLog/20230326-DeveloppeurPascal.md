@@ -8,3 +8,4 @@
 * updated FR/EN docs
 * updated TODO list (empty => removed file)
 * added Gamolf.FMX.MusicLoop unit from uMusicLoop.pas originally created for [DelphiFMXGameSnippets](https://github.com/DeveloppeurPascal/DelphiFMXGameSnippets) repository
+* added sort features for the score list in Gamolf.RTL.Scores.pas

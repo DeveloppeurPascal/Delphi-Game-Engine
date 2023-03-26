@@ -17,12 +17,17 @@ type
     Layout1: TLayout;
     btnLoadScore: TButton;
     btnSaveScore: TButton;
+    btnSortByPoint: TButton;
+    btnSortByPseudo: TButton;
     procedure FormCreate(Sender: TObject);
     procedure btnAddScoreClick(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure btnLoadScoreClick(Sender: TObject);
     procedure btnSaveScoreClick(Sender: TObject);
+    procedure btnSortByPseudoClick(Sender: TObject);
+    procedure btnSortByPointClick(Sender: TObject);
   private
+    procedure DisplayScoreList;
     { Déclarations privées }
   public
     { Déclarations publiques }
@@ -62,10 +67,33 @@ begin
 end;
 
 procedure TForm1.btnLoadScoreClick(Sender: TObject);
-var
-  score: tscore;
 begin
   ScoreList.Load;
+  DisplayScoreList;
+end;
+
+procedure TForm1.btnSaveScoreClick(Sender: TObject);
+begin
+  ScoreList.Save;
+  Memo1.Lines.Add('Score list saved in ' + ScoreList.GetScoreFileName);
+end;
+
+procedure TForm1.btnSortByPointClick(Sender: TObject);
+begin
+  ScoreList.SortByPointsDesc;
+  DisplayScoreList;
+end;
+
+procedure TForm1.btnSortByPseudoClick(Sender: TObject);
+begin
+  ScoreList.SortByPseudoAsc;
+  DisplayScoreList;
+end;
+
+procedure TForm1.DisplayScoreList;
+var
+  score: TScore;
+begin
   Memo1.Lines.Add('**********');
   for score in ScoreList do
   begin
@@ -73,12 +101,6 @@ begin
       score.level.ToString + ')');
   end;
   Memo1.Lines.Add('**********');
-end;
-
-procedure TForm1.btnSaveScoreClick(Sender: TObject);
-begin
-  ScoreList.Save;
-  Memo1.Lines.Add('Score list saved in ' + ScoreList.GetScoreFileName);
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
