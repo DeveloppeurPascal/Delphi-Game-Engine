@@ -1,4 +1,4 @@
-# FMXGameEngine
+# FMX Game Engine
 
 FireMonkey is the cross-platform component and library framework provided with [Delphi](https://www.embarcadero.com/products/delphi). It allows to develop native (= compiled) software for Windows, Mac, iOS, Android and Linux from a single code base.
 
@@ -6,28 +6,51 @@ As this framework is based on a graphics engine it is ideal for developing 2D an
 
 This code repository offers reusable units and examples for your video game projects.
 
-It comes from years of game development for fun and live coding sessions on Twitch started in 2021.
+It comes from years of game development for fun and [live coding sessions on Twitch](https://www.twitch.tv/patrickpremartin) started in 2021 (and a long time before Twitch).
 
 You can find examples of classic game features in [Delphi FMX Game Snippets](https://github.com/DeveloppeurPascal/DelphiFMXGameSnippets) if you are looking for inspiration.
 
 A presentation of FireMonkey's "game engine" features was offered at [DelphiCon 2021](https://delphicon.embarcadero.com/) (in English, see [the replay](https://delphicon.embarcadero.com/talks/using-firemonkey-as-a-game-engine-on-demand/)) and [on Twitch](https://www.twitch.tv/patrickpremartin) on Saturday, December 11, 2021 at 3pm (in French, see [the replay](https://developpeur-pascal.fr/p/_200p-webinaire-du-11-decembre-2021-utiliser-firemonkey-comme-moteur-de-jeu-video.html)).
 
------
+Some of [my Delphi games](https://gamolf.fr) are open sourced on GitHub. Find them as submodules of [this repository](https://github.com/DeveloppeurPascal/DevPas-Games-Pack).
 
-If you are not familiar with Delphi and the Pascal language, take advantage of the Academic Edition (for students, teachers and educational institutions) or the Community Edition (free for personal use) available at Embarcadero (under the heading "free tools").
-You can also test Delphi in your company with the evaluation version.
-https://www.embarcadero.com/products/delphi
+This code repository contains a project developed in Object Pascal language under Delphi. You don't know what Delphi is and where to download it ? You'll learn more [on this web site](https://delphi-resources.developpeur-pascal.fr/).
 
-This free online course (in French) will teach you the basics of programming with Pascal and Delphi even if you have never learned to program:
-https://apprendre-delphi.fr/apprendre-la-programmation-avec-delphi/
-or look at https://learndelphi.org
+## Install
 
-Online French conferences and webinars (technical points on specific topics) are organized regularly. Check out [the schedule for these webinars](https://developpeur-pascal.fr/p/_6007-webinaires.html) and watch [Delphi webinar replays](https://serialstreameur.fr/webinaires-delphi.php) or [Embarcadero Technologies YouTube channel]() for other languages.
+To download this project you better should use "git" command but you also can download a ZIP from [its GitHub repository](https://github.com/DeveloppeurPascal/FMXGameEngine).
 
-Live coding sessions on Twitch](https://www.twitch.tv/patrickpremartin) or [the Pascal Developer YouTube channel](https://www.youtube.com/channel/UCk_LmkBB90jdEdmfF77W6qQ) are also organized regularly. For Twitch you can check [the weekly schedule](https://www.twitch.tv/patrickpremartin/schedule). You can also refer to [this article](https://developpeur-pascal.fr/p/_600e-livestreams-de-codage-en-direct-avec-delphi.html). For replays of all this, just go to the [live coding section](https://serialstreameur.fr/live-coding.php) of [Serial Streamer](https://serialstreameur.fr/) where you will find many videos in French for software developers, mobile applications, websites and video games.
+**Warning :** if the project has submodules dependencies they wont be in the ZIP file. You'll have to download them manually.
 
-Finally, if you prefer reading to video, you can find all the recent books published on Delphi and the Pascal language at [Delphi Books](https://delphi-books.com)
+## Dependencies
 
------
+This project depends on :
 
-Page translated from French with www.DeepL.com/Translator ;-)
+* none
+
+## How to ask a new feature, report a bug or a security issue ?
+
+If you want an answer from the project owner the best way to ask for a new feature or report a bug is to go to [the GitHub repository](https://github.com/DeveloppeurPascal/FMXGameEngine) and [open a new issue](https://github.com/DeveloppeurPascal/FMXGameEngine/issues).
+
+If you found a security issue please don't report it publicly before a patch is available. Explain the case by [sending a private message to the author](https://developpeur-pascal.fr/nous-contacter.php).
+
+You also can fork the repository and contribute by submitting pull requests if you want to help. Please read the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+
+## Dual licensing model
+
+This project is distributed under [AGPL 3.0 or later](https://choosealicense.com/licenses/agpl-3.0/) license.
+
+If you want to use it or a part of it in your projects but don't want to share the sources or don't want to distribute your project under the same license you can buy the right to use it under the [Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/) or a dedicated license ([contact the author](https://developpeur-pascal.fr/nous-contacter.php) to explain your needs).
+
+## Support the project and its author
+
+If you think this project is useful and want to support it, please make a donation to [its author](https://github.com/DeveloppeurPascal). It will help to maintain the code and binaries.
+
+You can use one of those services :
+
+* [GitHub Sponsors](https://github.com/sponsors/DeveloppeurPascal)
+* [Liberapay](https://liberapay.com/PatrickPremartin)
+* [Patreon](https://www.patreon.com/patrickpremartin)
+* [Paypal](https://www.paypal.com/paypalme/patrickpremartin)
+
+or if you speack french you can [subscribe to Zone Abo](https://zone-abo.fr/nos-abonnements.php) on a monthly or yearly basis and get a lot of resources as videos and articles.
