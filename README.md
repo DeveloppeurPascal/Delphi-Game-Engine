@@ -1,5 +1,7 @@
 # FMX Game Engine
 
+[Cette page en français.](LISEZMOI.md)
+
 FireMonkey is the cross-platform component and library framework provided with [Delphi](https://www.embarcadero.com/products/delphi). It allows to develop native (= compiled) software for Windows, Mac, iOS, Android and Linux from a single code base.
 
 As this framework is based on a graphics engine it is ideal for developing 2D and 3D video games without learning how to use a specialized game engine (like for example the great [Castle Game Engine](https://castle-engine.io) which also includes many tools (map editors, sprites, ...) for Pascal game developers).
