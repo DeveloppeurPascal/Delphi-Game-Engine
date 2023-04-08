@@ -30,6 +30,7 @@ type
   TMusicLoop = class
   private
     class var FCurrent: TMusicLoop;
+    function getFileName: string;
 
   var
     MediaPlayer: TMediaPlayer;
@@ -51,6 +52,7 @@ type
     property audioOn: boolean read FaudioOn write SetaudioOn;
     property audioEnBoucle: boolean read FaudioEnBoucle write SetaudioEnBoucle;
   public
+    property Filename: string read getFileName;
     /// <summary>
     /// Create an instance of a TMusicLoop or use "TMusicLoop.Current" to use the default one
     /// </summary>
@@ -235,6 +237,11 @@ begin
   if not assigned(FCurrent) then
     FCurrent := TMusicLoop.Create;
   result := FCurrent;
+end;
+
+function TMusicLoop.getFileName: string;
+begin
+  result := MediaPlayer.Filename;
 end;
 
 function TMusicLoop.getVolume: TVolumeSonore;
