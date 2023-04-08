@@ -7,3 +7,4 @@
 * added a MusicLoop function to get a singleton of TMusicLoop
 * added a SoundList function to get a singleton of TSoundList
 * added a sample project to test all features of Gamolf.FMX.MusicLoop unit
+* added a property to get the sound/music filename in TMusicLoop
