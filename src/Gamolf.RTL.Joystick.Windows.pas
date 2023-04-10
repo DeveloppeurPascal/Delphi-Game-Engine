@@ -211,8 +211,10 @@ begin
             end;
 
             if ((FTabDevCaps[JoystickID].JoyCapsW.wcaps and JOYCAPS_HASPOV) > 0)
-            then
-              Joystick.DPad := JoyInfoEx.dwpov div 100
+            then begin
+              Joystick.DPad := JoyInfoEx.dwpov div 100;
+			  if Joystick.DPad>359 then Joystick.DPad := ord(TJoystickDPad.Center);
+			  end
             else
               Joystick.DPad := ord(TJoystickDPad.Center);
           end;
