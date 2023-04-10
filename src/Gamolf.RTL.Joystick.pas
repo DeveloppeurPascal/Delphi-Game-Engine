@@ -109,16 +109,23 @@ type
     /// </summary>
     function getDPad(JoystickID: TJoystickID): word;
     /// <summary>
-    /// Check is the DPad / POV is in a standard position
+    /// Check is the DPad / POV is in a standard position for a JoystickID or in general
     /// </summary>
     function isDPad(JoystickID: TJoystickID; JoystickDPad: TJoystickDPad)
       : boolean; overload;
     function isDPad(JoystickID: TJoystickID;
       JoystickDPads: array of TJoystickDPad): boolean; overload;
+    function isDPad(DPad: word; JoystickDPad: TJoystickDPad): boolean; overload;
+    function isDPad(DPad: word; JoystickDPads: array of TJoystickDPad)
+      : boolean; overload;
     /// <summary>
     /// Get orientation (like DPad) from (x,y) axis
     /// </summary>
     function getDPadFromXY(x, y: single): TJoystickDPad;
+    /// <summary>
+    /// Get the values for (x,y) axis from a DPad/POV orientation
+    /// </summary>
+    procedure getXYFromDPad(DPad: word; var x, y: single);
   end;
 
   /// <summary>
@@ -168,16 +175,23 @@ type
     /// </summary>
     function getDPad(JoystickID: TJoystickID): word;
     /// <summary>
-    /// Check is the DPad / POV is in a standard position
+    /// Check is the DPad / POV is in a standard position for a JoystickID or in general
     /// </summary>
     function isDPad(JoystickID: TJoystickID; JoystickDPad: TJoystickDPad)
       : boolean; overload;
     function isDPad(JoystickID: TJoystickID;
       JoystickDPads: array of TJoystickDPad): boolean; overload;
+    function isDPad(DPad: word; JoystickDPad: TJoystickDPad): boolean; overload;
+    function isDPad(DPad: word; JoystickDPads: array of TJoystickDPad)
+      : boolean; overload;
     /// <summary>
     /// Get orientation (like DPad) from (x,y) axis
     /// </summary>
     function getDPadFromXY(x, y: single): TJoystickDPad;
+    /// <summary>
+    /// Get the values for (x,y) axis from a DPad/POV orientation
+    /// </summary>
+    procedure getXYFromDPad(DPad: word; var x, y: single);
   end;
 
 implementation
@@ -253,6 +267,27 @@ begin
     y := Joystick.Axes[1];
 end;
 
+procedure TGamolfCustomJoystickService.getXYFromDPad(DPad: word;
+  var x, y: single);
+begin
+  if (isDPad(DPad, [TJoystickDPad.Left, TJoystickDPad.TopLeft,
+    TJoystickDPad.BottomLeft])) then
+    x := -1
+  else if (isDPad(DPad, [TJoystickDPad.Right, TJoystickDPad.TopRight,
+    TJoystickDPad.BottomRight])) then
+    x := 1
+  else
+    x := 0;
+  if (isDPad(DPad, [TJoystickDPad.TopLeft, TJoystickDPad.Top,
+    TJoystickDPad.TopRight])) then
+    y := -1
+  else if (isDPad(DPad, [TJoystickDPad.BottomLeft, TJoystickDPad.Bottom,
+    TJoystickDPad.BottomRight])) then
+    y := 1
+  else
+    y := 0;
+end;
+
 function TGamolfCustomJoystickService.getY(JoystickID: TJoystickID): single;
 var
   Joystick: TJoystickInfo;
@@ -284,9 +319,7 @@ var
   i: integer;
 begin
   DPad := getDPad(JoystickID);
-  result := false;
-  for i := 0 to length(JoystickDPads) - 1 do
-    result := result or (DPad = ord(JoystickDPads[i]));
+  result := isDPad(DPad, JoystickDPads);
 end;
 
 function TGamolfCustomJoystickService.isPressed(JoystickID: TJoystickID;
@@ -297,6 +330,22 @@ begin
   getInfo(JoystickID, Joystick);
   result := (ButtonID >= 0) and (ButtonID < length(Joystick.Buttons)) and
     Joystick.Buttons[ButtonID];
+end;
+
+function TGamolfCustomJoystickService.isDPad(DPad: word;
+  JoystickDPads: array of TJoystickDPad): boolean;
+var
+  i: integer;
+begin
+  result := false;
+  for i := 0 to length(JoystickDPads) - 1 do
+    result := result or (DPad = ord(JoystickDPads[i]));
+end;
+
+function TGamolfCustomJoystickService.isDPad(DPad: word;
+  JoystickDPad: TJoystickDPad): boolean;
+begin
+  result := isDPad(DPad, [JoystickDPad]);
 end;
 
 end.
