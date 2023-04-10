@@ -93,6 +93,7 @@ var
   ErrNum: MMRESULT;
   btn: word;
 begin
+  // TODO : ajouter un cache de XXms pour éviter d'interroger l'API sans arrêt alors qu'il n'y a pas forcément de changement au niveau des données du Joystick et que ça prend des ressources CPU pour rien
   if (JoystickID >= 0) and (JoystickID < FNbControllers) then
   begin
     JoyInfoEx.dwSize := sizeof(JoyInfoEx);
