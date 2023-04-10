@@ -83,6 +83,10 @@ type
   IGamolfJoystickService = interface(IInterface)
     ['{74BA65B4-B468-41E2-A5FF-1FB92A79E9F4}']
     /// <summary>
+    /// Scan for availale devices (if some are already used, their ID could change)
+    /// </summary>
+    procedure StartDiscovery;
+    /// <summary>
     /// Return the number of joysticks managed by the system
     /// </summary>
     function Count: byte;
@@ -153,6 +157,10 @@ type
     constructor Create; virtual;
     destructor Destroy; override;
     /// <summary>
+    /// Scan for availale devices (if some are already used, their ID could change)
+    /// </summary>
+    procedure StartDiscovery; virtual; abstract;
+    /// <summary>
     /// Return the number of joysticks managed by the system
     /// </summary>
     function Count: byte; virtual; abstract;
@@ -221,7 +229,7 @@ implementation
 
 constructor TGamolfCustomJoystickService.Create;
 begin
-  //
+  StartDiscovery;
 end;
 
 destructor TGamolfCustomJoystickService.Destroy;

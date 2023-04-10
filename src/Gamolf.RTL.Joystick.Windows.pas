@@ -33,7 +33,10 @@ type
   protected
     FNbControllers: byte;
   public
-    constructor Create; override;
+    /// <summary>
+    /// Scan for availale devices (if some are already used, their ID could change)
+    /// </summary>
+    procedure StartDiscovery; override;
     /// <summary>
     /// Return the number of joysticks managed by the system
     /// </summary>
@@ -59,15 +62,15 @@ implementation
 {$IF Defined(MSWINDOWS) }
 { TGamolfJoystickWindowsService }
 
+procedure TGamolfJoystickWindowsService.StartDiscovery;
+begin
+  setlength(FTabDevCaps, 0);
+  FNbControllers := joyGetNumDevs;
+end;
+
 function TGamolfJoystickWindowsService.Count: byte;
 begin
   result := FNbControllers;
-end;
-
-constructor TGamolfJoystickWindowsService.Create;
-begin
-  inherited;
-  FNbControllers := joyGetNumDevs;
 end;
 
 procedure TGamolfJoystickWindowsService.getDevCaps(JoystickID: TJoystickID);
