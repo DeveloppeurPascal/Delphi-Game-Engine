@@ -7,63 +7,32 @@ interface
 uses winapi.Windows, winapi.MMSystem, System.SysUtils, Gamolf.RTL.Joystick;
 
 type
-  TLocalJoyCaps = record
+  TGamolfJoystickJoyCaps = record
     JoyCapsW: TJoyCapsW;
     XMiddle, YMiddle, ZMiddle, RMiddle, UMiddle, VMiddle: single;
   end;
 
-  TGamolfJoystickWindowsService = class(TInterfacedObject,
-    IGamolfJoystickService)
+  TGamolfJoystickWindowsService = class(TGamolfCustomJoystickService)
   private
-    FTabDevCaps: array of TLocalJoyCaps;
+    FTabDevCaps: array of TGamolfJoystickJoyCaps;
     procedure getDevCaps(JoystickID: TJoystickID);
   protected
     FNbControllers: byte;
   public
-    constructor Create; virtual;
-    destructor Destroy; override;
+    constructor Create; override;
     /// <summary>
     /// Return the number of joysticks managed by the system
     /// </summary>
-    function Count: byte;
+    function Count: byte; override;
     /// <summary>
     /// Return "true" if the JoystickID controller is connected and available
     /// </summary>
-    function isConnected(JoystickID: TJoystickID): boolean;
+    function isConnected(JoystickID: TJoystickID): boolean; override;
     /// <summary>
     /// Return a TJoystickInfo for the JoystickID controller
     /// </summary>
-    procedure getInfo(JoystickID: TJoystickID; var Joystick: TJoystickInfo);
-    /// <summary>
-    /// Check if button "ButtonID" from controller "JoystickID" is pressed or not
-    /// </summary>
-    function isPressed(JoystickID: TJoystickID; ButtonID: TButtonID): boolean;
-    /// <summary>
-    /// Return X,Y axes values for JoystickID controller
-    /// </summary>
-    procedure getXY(JoystickID: TJoystickID; var x, y: single);
-    /// <summary>
-    /// Return X axes values for JoystickID controller
-    /// </summary>
-    function getX(JoystickID: TJoystickID): single;
-    /// <summary>
-    /// Return Y axes values for JoystickID controller
-    /// </summary>
-    function getY(JoystickID: TJoystickID): single;
-    /// <summary>
-    /// Return Z axes values for JoystickID controller
-    /// </summary>
-    function getZ(JoystickID: TJoystickID): single;
-    /// <summary>
-    /// Return the DPad value between (0-359° or 65535)
-    /// Compare it to Top, TopRight/RightTop, Right, BottomRight/RightBottom, Bottom, BottomLeft/LeftBottom, Left, LeftTop/TopLeft, Center values from TJoystickDPad enumeration
-    /// </summary>
-    function getDPad(JoystickID: TJoystickID): word;
-    /// <summary>
-    /// Check is the DPad / POV of the JoystickID controller is in a standard position
-    /// </summary>
-    function isDPad(JoystickID: TJoystickID;
-      JoystickDPad: TJoystickDPad): boolean;
+    procedure getInfo(JoystickID: TJoystickID;
+      var Joystick: TJoystickInfo); override;
   end;
 {$ENDIF}
 
@@ -79,13 +48,8 @@ end;
 
 constructor TGamolfJoystickWindowsService.Create;
 begin
-  FNbControllers := joyGetNumDevs;
-end;
-
-destructor TGamolfJoystickWindowsService.Destroy;
-begin
-
   inherited;
+  FNbControllers := joyGetNumDevs;
 end;
 
 procedure TGamolfJoystickWindowsService.getDevCaps(JoystickID: TJoystickID);
@@ -120,15 +84,6 @@ begin
         (FTabDevCaps[i].JoyCapsW.wVmax - FTabDevCaps[i].JoyCapsW.wvmin) div 2;
     end;
   end;
-end;
-
-function TGamolfJoystickWindowsService.getDPad(JoystickID: TJoystickID): word;
-var
-  Joystick: TJoystickInfo;
-begin
-  getInfo(JoystickID, Joystick);
-  if (length(Joystick.Axes) > 0) then
-    result := Joystick.DPad;
 end;
 
 procedure TGamolfJoystickWindowsService.getInfo(JoystickID: TJoystickID;
@@ -230,45 +185,6 @@ begin
       ('The specified joystick identifier is invalid.');
 end;
 
-function TGamolfJoystickWindowsService.getX(JoystickID: TJoystickID): single;
-var
-  Joystick: TJoystickInfo;
-begin
-  getInfo(JoystickID, Joystick);
-  if (length(Joystick.Axes) > 0) then
-    result := Joystick.Axes[0];
-end;
-
-procedure TGamolfJoystickWindowsService.getXY(JoystickID: TJoystickID;
-  var x, y: single);
-var
-  Joystick: TJoystickInfo;
-begin
-  getInfo(JoystickID, Joystick);
-  if (length(Joystick.Axes) > 0) then
-    x := Joystick.Axes[0];
-  if (length(Joystick.Axes) > 1) then
-    y := Joystick.Axes[1];
-end;
-
-function TGamolfJoystickWindowsService.getY(JoystickID: TJoystickID): single;
-var
-  Joystick: TJoystickInfo;
-begin
-  getInfo(JoystickID, Joystick);
-  if (length(Joystick.Axes) > 1) then
-    result := Joystick.Axes[1];
-end;
-
-function TGamolfJoystickWindowsService.getZ(JoystickID: TJoystickID): single;
-var
-  Joystick: TJoystickInfo;
-begin
-  getInfo(JoystickID, Joystick);
-  if (length(Joystick.Axes) > 2) then
-    result := Joystick.Axes[2];
-end;
-
 function TGamolfJoystickWindowsService.isConnected
   (JoystickID: TJoystickID): boolean;
 var
@@ -296,22 +212,6 @@ begin
       // unknown error (device doesn't exists but is declared)
     end;
   end;
-end;
-
-function TGamolfJoystickWindowsService.isDPad(JoystickID: TJoystickID;
-  JoystickDPad: TJoystickDPad): boolean;
-begin
-  result := (getDPad(JoystickID) = ord(JoystickDPad));
-end;
-
-function TGamolfJoystickWindowsService.isPressed(JoystickID: TJoystickID;
-  ButtonID: TButtonID): boolean;
-var
-  Joystick: TJoystickInfo;
-begin
-  getInfo(JoystickID, Joystick);
-  result := (ButtonID >= 0) and (ButtonID < length(Joystick.Buttons)) and
-    Joystick.Buttons[ButtonID];
 end;
 {$ENDIF }
 

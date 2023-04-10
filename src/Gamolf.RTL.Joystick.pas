@@ -115,6 +115,136 @@ type
       JoystickDPad: TJoystickDPad): boolean;
   end;
 
+  /// <summary>
+  /// Platform service to access to joystick/gamepad controllers on a computer
+  /// </summary>
+  TGamolfCustomJoystickService = class(TInterfacedObject,
+    IGamolfJoystickService)
+  public
+    constructor Create; virtual;
+    destructor Destroy; override;
+    /// <summary>
+    /// Return the number of joysticks managed by the system
+    /// </summary>
+    function Count: byte; virtual; abstract;
+    /// <summary>
+    /// Return "true" if the JoystickID controller is connected and available
+    /// </summary>
+    function isConnected(JoystickID: TJoystickID): boolean; virtual; abstract;
+    /// <summary>
+    /// Return a TJoystick for the JoystickID controller
+    /// </summary>
+    procedure getInfo(JoystickID: TJoystickID; var Joystick: TJoystickInfo);
+      virtual; abstract;
+    /// <summary>
+    /// Check if button "ButtonID" from controller "JoystickID" is pressed or not
+    /// </summary>
+    function isPressed(JoystickID: TJoystickID; ButtonID: TButtonID): boolean;
+    /// <summary>
+    /// Return X,Y axes values for JoystickID controller
+    /// </summary>
+    procedure getXY(JoystickID: TJoystickID; var x, y: single);
+    /// <summary>
+    /// Return X axes values for JoystickID controller
+    /// </summary>
+    function getX(JoystickID: TJoystickID): single;
+    /// <summary>
+    /// Return Y axes values for JoystickID controller
+    /// </summary>
+    function getY(JoystickID: TJoystickID): single;
+    /// <summary>
+    /// Return Z axes values for JoystickID controller
+    /// </summary>
+    function getZ(JoystickID: TJoystickID): single;
+    /// <summary>
+    /// Return the DPad value between (0-359° or 65535)
+    /// Compare it to Top, TopRight/RightTop, Right, BottomRight/RightBottom, Bottom, BottomLeft/LeftBottom, Left, LeftTop/TopLeft, Center values from TJoystickDPad enumeration
+    /// </summary>
+    function getDPad(JoystickID: TJoystickID): word;
+    /// <summary>
+    /// Check is the DPad / POV is in a standard position
+    /// </summary>
+    function isDPad(JoystickID: TJoystickID;
+      JoystickDPad: TJoystickDPad): boolean;
+  end;
+
 implementation
+
+{ TGamolfCustomJoystickService }
+
+constructor TGamolfCustomJoystickService.Create;
+begin
+  //
+end;
+
+destructor TGamolfCustomJoystickService.Destroy;
+begin
+
+  inherited;
+end;
+
+function TGamolfCustomJoystickService.getDPad(JoystickID: TJoystickID): word;
+var
+  Joystick: TJoystickInfo;
+begin
+  getInfo(JoystickID, Joystick);
+  if (length(Joystick.Axes) > 0) then
+    result := Joystick.DPad;
+end;
+
+function TGamolfCustomJoystickService.getX(JoystickID: TJoystickID): single;
+var
+  Joystick: TJoystickInfo;
+begin
+  getInfo(JoystickID, Joystick);
+  if (length(Joystick.Axes) > 0) then
+    result := Joystick.Axes[0];
+end;
+
+procedure TGamolfCustomJoystickService.getXY(JoystickID: TJoystickID;
+  var x, y: single);
+var
+  Joystick: TJoystickInfo;
+begin
+  getInfo(JoystickID, Joystick);
+  if (length(Joystick.Axes) > 0) then
+    x := Joystick.Axes[0];
+  if (length(Joystick.Axes) > 1) then
+    y := Joystick.Axes[1];
+end;
+
+function TGamolfCustomJoystickService.getY(JoystickID: TJoystickID): single;
+var
+  Joystick: TJoystickInfo;
+begin
+  getInfo(JoystickID, Joystick);
+  if (length(Joystick.Axes) > 1) then
+    result := Joystick.Axes[1];
+end;
+
+function TGamolfCustomJoystickService.getZ(JoystickID: TJoystickID): single;
+var
+  Joystick: TJoystickInfo;
+begin
+  getInfo(JoystickID, Joystick);
+  if (length(Joystick.Axes) > 2) then
+    result := Joystick.Axes[2];
+end;
+
+function TGamolfCustomJoystickService.isDPad(JoystickID: TJoystickID;
+  JoystickDPad: TJoystickDPad): boolean;
+begin
+  result := (getDPad(JoystickID) = ord(JoystickDPad));
+end;
+
+function TGamolfCustomJoystickService.isPressed(JoystickID: TJoystickID;
+  ButtonID: TButtonID): boolean;
+var
+  Joystick: TJoystickInfo;
+begin
+  getInfo(JoystickID, Joystick);
+  result := (ButtonID >= 0) and (ButtonID < length(Joystick.Buttons)) and
+    Joystick.Buttons[ButtonID];
+end;
 
 end.
