@@ -111,8 +111,14 @@ type
     /// <summary>
     /// Check is the DPad / POV is in a standard position
     /// </summary>
+    function isDPad(JoystickID: TJoystickID; JoystickDPad: TJoystickDPad)
+      : boolean; overload;
     function isDPad(JoystickID: TJoystickID;
-      JoystickDPad: TJoystickDPad): boolean;
+      JoystickDPads: array of TJoystickDPad): boolean; overload;
+    /// <summary>
+    /// Get orientation (like DPad) from (x,y) axis
+    /// </summary>
+    function getDPadFromXY(x, y: single): TJoystickDPad;
   end;
 
   /// <summary>
@@ -168,6 +174,10 @@ type
       : boolean; overload;
     function isDPad(JoystickID: TJoystickID;
       JoystickDPads: array of TJoystickDPad): boolean; overload;
+    /// <summary>
+    /// Get orientation (like DPad) from (x,y) axis
+    /// </summary>
+    function getDPadFromXY(x, y: single): TJoystickDPad;
   end;
 
 implementation
@@ -192,6 +202,34 @@ begin
   getInfo(JoystickID, Joystick);
   if (length(Joystick.Axes) > 0) then
     result := Joystick.DPad;
+end;
+
+function TGamolfCustomJoystickService.getDPadFromXY(x, y: single)
+  : TJoystickDPad;
+var
+  rx, ry: integer;
+begin
+  // from -1..1 as decimal to (-1, 0, 1)
+  rx := round(x);
+  ry := round(y);
+  if (rx = 0) and (ry = -1) then
+    result := TJoystickDPad.Top
+  else if (rx = 1) and (ry = -1) then
+    result := TJoystickDPad.TopRight
+  else if (rx = 1) and (ry = 0) then
+    result := TJoystickDPad.Right
+  else if (rx = 1) and (ry = 1) then
+    result := TJoystickDPad.BottomRight
+  else if (rx = 0) and (ry = 1) then
+    result := TJoystickDPad.Bottom
+  else if (rx = -1) and (ry = 1) then
+    result := TJoystickDPad.BottomLeft
+  else if (rx = -1) and (ry = 0) then
+    result := TJoystickDPad.Left
+  else if (rx = -1) and (ry = -1) then
+    result := TJoystickDPad.TopLeft
+  else
+    result := TJoystickDPad.Center;
 end;
 
 function TGamolfCustomJoystickService.getX(JoystickID: TJoystickID): single;
