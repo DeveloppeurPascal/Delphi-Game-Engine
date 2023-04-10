@@ -1,5 +1,17 @@
 unit Gamolf.RTL.Joystick.Windows;
 
+{
+  Accès aux contrôleurs de jeu et à leurs informations
+  depuis l'API Windows.
+
+  Logiciel open source distribué sous licence AGPL.
+  Open source software distributed under the AGPL license
+
+  Copyright Patrick Prémartin
+
+  Find the original source code on
+  https://github.com/DeveloppeurPascal/FMXGameEngine
+}
 interface
 
 {$IF Defined(MSWINDOWS) }

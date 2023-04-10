@@ -1,5 +1,16 @@
 unit Gamolf.RTL.Joystick;
 
+{
+  Accès aux contrôleurs de jeu et à leurs informations.
+
+  Logiciel open source distribué sous licence AGPL.
+  Open source software distributed under the AGPL license
+
+  Copyright Patrick Prémartin
+
+  Find the original source code on
+  https://github.com/DeveloppeurPascal/FMXGameEngine
+}
 interface
 
 uses System.SysUtils;
