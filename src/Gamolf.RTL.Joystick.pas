@@ -120,6 +120,10 @@ type
     /// </summary>
     function getDPad(JoystickID: TJoystickID): word;
     /// <summary>
+    /// Check if the game controller has a DPad/POV button
+    /// </summary>
+    function hasDPad(JoystickID: TJoystickID):boolean;
+    /// <summary>
     /// Check is the DPad / POV is in a standard position for a JoystickID or in general
     /// </summary>
     function isDPad(JoystickID: TJoystickID; JoystickDPad: TJoystickDPad)
@@ -185,6 +189,10 @@ type
     /// Compare it to Top, TopRight/RightTop, Right, BottomRight/RightBottom, Bottom, BottomLeft/LeftBottom, Left, LeftTop/TopLeft, Center values from TJoystickDPad enumeration
     /// </summary>
     function getDPad(JoystickID: TJoystickID): word;
+    /// <summary>
+    /// Check if the game controller has a DPad/POV button
+    /// </summary>
+    function hasDPad(JoystickID: TJoystickID):boolean;virtual;abstract;
     /// <summary>
     /// Check is the DPad / POV is in a standard position for a JoystickID or in general
     /// </summary>

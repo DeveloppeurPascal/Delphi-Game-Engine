@@ -28,6 +28,7 @@ type
   private
     FTabDevCaps: array of TGamolfJoystickJoyCaps;
     procedure getDevCaps(JoystickID: TJoystickID);
+    procedure getJoystickCaps(JoystickID: TJoystickID);
   protected
     FNbControllers: byte;
   public
@@ -45,6 +46,10 @@ type
     /// </summary>
     procedure getInfo(JoystickID: TJoystickID;
       var Joystick: TJoystickInfo); override;
+    /// <summary>
+    /// Check if the game controller has a DPad/POV button
+    /// </summary>
+    function hasDPad(JoystickID: TJoystickID): boolean; override;
   end;
 {$ENDIF}
 
@@ -115,8 +120,7 @@ begin
     case ErrNum of
       MMSYSERR_NOERROR:
         begin
-          if (length(FTabDevCaps) <= JoystickID) then
-            getDevCaps(JoystickID);
+          getJoystickCaps(JoystickID);
 
           if (length(Joystick.Axes) < 6) then
             setlength(Joystick.Axes, 6);
@@ -225,6 +229,24 @@ begin
       // unknown error (device doesn't exists but is declared)
     end;
   end;
+end;
+
+function TGamolfJoystickWindowsService.hasDPad(JoystickID: TJoystickID)
+  : boolean;
+begin
+  result := false;
+  if (JoystickID >= 0) and (JoystickID < FNbControllers) then
+  begin
+    getJoystickCaps(JoystickID);
+    result := 0 < (FTabDevCaps[JoystickID].JoyCapsW.wcaps and JOYCAPS_HASPOV);
+  end;
+end;
+
+procedure TGamolfJoystickWindowsService.getJoystickCaps
+  (JoystickID: TJoystickID);
+begin
+  if (length(FTabDevCaps) <= JoystickID) then
+    getDevCaps(JoystickID);
 end;
 {$ENDIF }
 
