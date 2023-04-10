@@ -11,7 +11,7 @@ unit Gamolf.FMX.MusicLoop;
   Copyright Patrick Prémartin
 
   Find the original source code on
-  https://github.com/DeveloppeurPascal/FMXGameEngine
+  https://github.com/DeveloppeurPascal/Delphi-Game-Engine
 }
 interface
 
