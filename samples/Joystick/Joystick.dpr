@@ -5,7 +5,8 @@ uses
   FMX.Forms,
   fMain in 'fMain.pas' {Form2},
   Gamolf.FMX.Joystick in '..\..\src\Gamolf.FMX.Joystick.pas',
-  Gamolf.FMX.Joystick.Windows in '..\..\src\Gamolf.FMX.Joystick.Windows.pas';
+  Gamolf.RTL.Joystick.Windows in '..\..\src\Gamolf.RTL.Joystick.Windows.pas',
+  Gamolf.RTL.Joystick in '..\..\src\Gamolf.RTL.Joystick.pas';
 
 {$R *.res}
 
