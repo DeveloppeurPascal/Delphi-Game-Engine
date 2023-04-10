@@ -52,19 +52,30 @@ var
   num: integer;
   ji: TJoystickInfo;
 begin
-  for num := 0 to JoystickService.Count - 1 do
-  begin
-    try
-      JoystickService.getInfo(num, ji);
-      if length(ji.PressedButtons) > 0 then
+  // for num := 0 to JoystickService.Count - 1 do
+  // begin
+  // try
+  // JoystickService.getInfo(num, ji);
+  // if length(ji.PressedButtons) > 0 then
+  // begin
+  // Rectangle1.Position.X := Rectangle1.Position.X + ji.Axes[0];
+  // Rectangle1.Position.y := Rectangle1.Position.y + ji.Axes[1];
+  // end;
+  // except
+  // on e: EJoystickUnpluggedException do;
+  // end;
+  // end;
+  JoystickService.ForEach(ji,
+    procedure(JoystickID: TJoystickID; var JoystickInfo: TJoystickInfo;
+      hadError: boolean)
+    begin
+      if (not hadError) and JoystickService.isConnected(JoystickID) and
+        (length(ji.PressedButtons) > 0) then
       begin
         Rectangle1.Position.X := Rectangle1.Position.X + ji.Axes[0];
         Rectangle1.Position.y := Rectangle1.Position.y + ji.Axes[1];
       end;
-    except
-      on e: EJoystickUnpluggedException do;
-    end;
-  end;
+    end);
 end;
 
 end.
