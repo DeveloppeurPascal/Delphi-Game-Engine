@@ -1,13 +1,10 @@
-unit Gamolf.FMX.Joystick.Windows;
+unit Gamolf.RTL.Joystick.Windows;
 
 interface
 
-implementation
-
 {$IF Defined(MSWINDOWS) }
 
-uses winapi.Windows, winapi.MMSystem, Gamolf.FMX.Joystick, FMX.platform,
-  System.SysUtils;
+uses winapi.Windows, winapi.MMSystem, System.SysUtils, Gamolf.RTL.Joystick;
 
 type
   TLocalJoyCaps = record
@@ -68,8 +65,12 @@ type
     function isDPad(JoystickID: TJoystickID;
       JoystickDPad: TJoystickDPad): boolean;
   end;
+{$ENDIF}
 
-  { TGamolfJoystickWindowsService }
+implementation
+
+{$IF Defined(MSWINDOWS) }
+{ TGamolfJoystickWindowsService }
 
 function TGamolfJoystickWindowsService.Count: byte;
 begin
@@ -313,18 +314,5 @@ begin
     Joystick.Buttons[ButtonID];
 end;
 {$ENDIF }
-
-initialization
-
-{$IF Defined(MSWINDOWS)}
-  TPlatformServices.Current.AddPlatformService(IGamolfJoystickService,
-  TGamolfJoystickWindowsService.Create);
-{$ENDIF}
-
-finalization
-
-{$IF Defined(MSWINDOWS)}
-  TPlatformServices.Current.RemovePlatformService(IGamolfJoystickService);
-{$ENDIF}
 
 end.
