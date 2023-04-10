@@ -78,6 +78,37 @@ type
     LeftBottom = 225, Left = 270, LeftTop = 315, TopLeft = 315, Center = 65535);
 
   /// <summary>
+  /// Signature for a callback procedure used to get game controller infos
+  /// </summary>
+  TJoystickInfosCallbackProc = reference to procedure(JoystickID: TJoystickID;
+    var JoystickInfo: TJoystickInfo; hadError: boolean);
+  /// <summary>
+  /// Signature for a callback method used to get game controller infos
+  /// </summary>
+  TJoystickInfosCallbackEvent = procedure(JoystickID: TJoystickID;
+    var JoystickInfo: TJoystickInfo; hadError: boolean) of object;
+
+  /// <summary>
+  /// Signature for a callback procedure used to get connected game controller infos
+  /// </summary>
+  TJoystickInfosConnectedCallbackProc = reference to procedure
+    (JoystickID: TJoystickID; var JoystickInfo: TJoystickInfo);
+  /// <summary>
+  /// Signature for a callback method used to get connected game controller infos
+  /// </summary>
+  TJoystickInfosConnectedCallbackEvent = procedure(JoystickID: TJoystickID;
+    var JoystickInfo: TJoystickInfo) of object;
+
+  /// <summary>
+  /// Signature for a callback procedure used to signal an error for the game controller JoystickID
+  /// </summary>
+  TJoystickErrorCallbackProc = reference to procedure(JoystickID: TJoystickID);
+  /// <summary>
+  /// Signature for a callback method used to signal an error for the game controller JoystickID
+  /// </summary>
+  TJoystickErrorCallbackEvent = procedure(JoystickID: TJoystickID) of object;
+
+  /// <summary>
   /// Platform service to access to joystick/gamepad controllers on a computer
   /// </summary>
   IGamolfJoystickService = interface(IInterface)
@@ -146,6 +177,28 @@ type
     /// Get the values for (x,y) axis from a DPad/POV orientation
     /// </summary>
     procedure getXYFromDPad(DPad: word; var x, y: single);
+    /// <summary>
+    /// Loop on all game controllers and call the procedure with infos for each one
+    /// </summary>
+    procedure ForEach(var JoystickInfo: TJoystickInfo;
+      CallbackProc: TJoystickInfosCallbackProc); overload;
+    /// <summary>
+    /// Loop on all game controllers and call the method with infos for each one
+    /// </summary>
+    procedure ForEach(var JoystickInfo: TJoystickInfo;
+      CallbackEvent: TJoystickInfosCallbackEvent); overload;
+    /// <summary>
+    /// Loop on all game controllers and call the procedure with infos for each connected device
+    /// </summary>
+    procedure ForEachConnectedDevice(var JoystickInfo: TJoystickInfo;
+      CallbackProc: TJoystickInfosConnectedCallbackProc;
+      ErrorCallbackProc: TJoystickErrorCallbackProc = nil); overload;
+    /// <summary>
+    /// Loop on all game controllers and call the method with infos for each connected device
+    /// </summary>
+    procedure ForEachConnectedDevice(var JoystickInfo: TJoystickInfo;
+      CallbackEvent: TJoystickInfosConnectedCallbackEvent;
+      ErrorCallbackEvent: TJoystickErrorCallbackEvent = nil); overload;
   end;
 
   /// <summary>
@@ -221,6 +274,28 @@ type
     /// Get the values for (x,y) axis from a DPad/POV orientation
     /// </summary>
     procedure getXYFromDPad(DPad: word; var x, y: single);
+    /// <summary>
+    /// Loop on all game controllers and call the procedure with infos for each one
+    /// </summary>
+    procedure ForEach(var JoystickInfo: TJoystickInfo;
+      CallbackProc: TJoystickInfosCallbackProc); overload;
+    /// <summary>
+    /// Loop on all game controllers and call the method with infos for each one
+    /// </summary>
+    procedure ForEach(var JoystickInfo: TJoystickInfo;
+      CallbackEvent: TJoystickInfosCallbackEvent); overload;
+    /// <summary>
+    /// Loop on all game controllers and call the procedure with infos for each connected device
+    /// </summary>
+    procedure ForEachConnectedDevice(var JoystickInfo: TJoystickInfo;
+      CallbackProc: TJoystickInfosConnectedCallbackProc;
+      ErrorCallbackProc: TJoystickErrorCallbackProc = nil); overload;
+    /// <summary>
+    /// Loop on all game controllers and call the method with infos for each connected device
+    /// </summary>
+    procedure ForEachConnectedDevice(var JoystickInfo: TJoystickInfo;
+      CallbackEvent: TJoystickInfosConnectedCallbackEvent;
+      ErrorCallbackEvent: TJoystickErrorCallbackEvent = nil); overload;
   end;
 
 implementation
@@ -238,8 +313,77 @@ begin
   inherited;
 end;
 
+procedure TGamolfCustomJoystickService.ForEach(var JoystickInfo: TJoystickInfo;
+  CallbackProc: TJoystickInfosCallbackProc);
+var
+  i: integer;
+  hadError: boolean;
+begin
+  for i := 0 to Count - 1 do
+  begin
+    try
+      getInfo(i, JoystickInfo);
+      hadError := false;
+    except
+      hadError := true;
+    end;
+    if assigned(CallbackProc) then
+      CallbackProc(i, JoystickInfo, hadError);
+  end;
+end;
+
+procedure TGamolfCustomJoystickService.ForEach(var JoystickInfo: TJoystickInfo;
+  CallbackEvent: TJoystickInfosCallbackEvent);
+begin
+  ForEach(JoystickInfo,
+    procedure(JoystickID: TJoystickID; var JoystickInfo: TJoystickInfo;
+      hadError: boolean)
+    begin
+      CallbackEvent(JoystickID, JoystickInfo, hadError);
+    end);
+end;
+
+procedure TGamolfCustomJoystickService.ForEachConnectedDevice(var JoystickInfo
+  : TJoystickInfo; CallbackProc: TJoystickInfosConnectedCallbackProc;
+ErrorCallbackProc: TJoystickErrorCallbackProc);
+var
+  i: integer;
+  hadError: boolean;
+begin
+  for i := 0 to Count - 1 do
+    if (isConnected(i)) then
+    begin
+      try
+        getInfo(i, JoystickInfo);
+        hadError := false;
+      except
+        hadError := true;
+      end;
+      if (not hadError) and assigned(CallbackProc) then
+        CallbackProc(i, JoystickInfo)
+      else if (hadError) and assigned(ErrorCallbackProc) then
+        ErrorCallbackProc(i);
+    end;
+end;
+
+procedure TGamolfCustomJoystickService.ForEachConnectedDevice(var JoystickInfo
+  : TJoystickInfo; CallbackEvent: TJoystickInfosConnectedCallbackEvent;
+ErrorCallbackEvent: TJoystickErrorCallbackEvent);
+begin
+  ForEachConnectedDevice(JoystickInfo,
+    procedure(JoystickID: TJoystickID; var JoystickInfo: TJoystickInfo)
+    begin
+      CallbackEvent(JoystickID, JoystickInfo);
+    end,
+    procedure(JoystickID: TJoystickID)
+    begin
+      if assigned(ErrorCallbackEvent) then
+        ErrorCallbackEvent(JoystickID);
+    end);
+end;
+
 function TGamolfCustomJoystickService.getDPad(JoystickID: TJoystickID;
-  FromXYWhenNoDPadAvailable: boolean): word;
+FromXYWhenNoDPadAvailable: boolean): word;
 var
   Joystick: TJoystickInfo;
 begin
@@ -289,7 +433,7 @@ begin
 end;
 
 procedure TGamolfCustomJoystickService.getXY(JoystickID: TJoystickID;
-  var x, y: single);
+var x, y: single);
 var
   Joystick: TJoystickInfo;
 begin
@@ -301,7 +445,7 @@ begin
 end;
 
 procedure TGamolfCustomJoystickService.getXYFromDPad(DPad: word;
-  var x, y: single);
+var x, y: single);
 begin
   if (isDPad(DPad, [TJoystickDPad.Left, TJoystickDPad.TopLeft,
     TJoystickDPad.BottomLeft])) then
@@ -340,13 +484,13 @@ begin
 end;
 
 function TGamolfCustomJoystickService.isDPad(JoystickID: TJoystickID;
-  JoystickDPad: TJoystickDPad): boolean;
+JoystickDPad: TJoystickDPad): boolean;
 begin
   result := isDPad(JoystickID, [JoystickDPad]);
 end;
 
 function TGamolfCustomJoystickService.isDPad(JoystickID: TJoystickID;
-  JoystickDPads: array of TJoystickDPad): boolean;
+JoystickDPads: array of TJoystickDPad): boolean;
 var
   DPad: word;
   i: integer;
@@ -356,7 +500,7 @@ begin
 end;
 
 function TGamolfCustomJoystickService.isPressed(JoystickID: TJoystickID;
-  ButtonID: TButtonID): boolean;
+ButtonID: TButtonID): boolean;
 var
   Joystick: TJoystickInfo;
 begin
@@ -366,7 +510,7 @@ begin
 end;
 
 function TGamolfCustomJoystickService.isDPad(DPad: word;
-  JoystickDPads: array of TJoystickDPad): boolean;
+JoystickDPads: array of TJoystickDPad): boolean;
 var
   i: integer;
 begin
@@ -376,7 +520,7 @@ begin
 end;
 
 function TGamolfCustomJoystickService.isDPad(DPad: word;
-  JoystickDPad: TJoystickDPad): boolean;
+JoystickDPad: TJoystickDPad): boolean;
 begin
   result := isDPad(DPad, [JoystickDPad]);
 end;
