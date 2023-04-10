@@ -118,11 +118,12 @@ type
     /// Return the DPad value between (0-359° or 65535)
     /// Compare it to Top, TopRight/RightTop, Right, BottomRight/RightBottom, Bottom, BottomLeft/LeftBottom, Left, LeftTop/TopLeft, Center values from TJoystickDPad enumeration
     /// </summary>
-    function getDPad(JoystickID: TJoystickID): word;
+    function getDPad(JoystickID: TJoystickID;
+      FromXYWhenNoDPadAvailable: boolean = false): word;
     /// <summary>
     /// Check if the game controller has a DPad/POV button
     /// </summary>
-    function hasDPad(JoystickID: TJoystickID):boolean;
+    function hasDPad(JoystickID: TJoystickID): boolean;
     /// <summary>
     /// Check is the DPad / POV is in a standard position for a JoystickID or in general
     /// </summary>
@@ -136,7 +137,7 @@ type
     /// <summary>
     /// Get orientation (like DPad) from (x,y) axis
     /// </summary>
-    function getDPadFromXY(x, y: single): TJoystickDPad;
+    function getDPadFromXY(x, y: single): word;
     /// <summary>
     /// Get the values for (x,y) axis from a DPad/POV orientation
     /// </summary>
@@ -188,11 +189,12 @@ type
     /// Return the DPad value between (0-359° or 65535)
     /// Compare it to Top, TopRight/RightTop, Right, BottomRight/RightBottom, Bottom, BottomLeft/LeftBottom, Left, LeftTop/TopLeft, Center values from TJoystickDPad enumeration
     /// </summary>
-    function getDPad(JoystickID: TJoystickID): word;
+    function getDPad(JoystickID: TJoystickID;
+      FromXYWhenNoDPadAvailable: boolean = false): word;
     /// <summary>
     /// Check if the game controller has a DPad/POV button
     /// </summary>
-    function hasDPad(JoystickID: TJoystickID):boolean;virtual;abstract;
+    function hasDPad(JoystickID: TJoystickID): boolean; virtual; abstract;
     /// <summary>
     /// Check is the DPad / POV is in a standard position for a JoystickID or in general
     /// </summary>
@@ -206,7 +208,7 @@ type
     /// <summary>
     /// Get orientation (like DPad) from (x,y) axis
     /// </summary>
-    function getDPadFromXY(x, y: single): TJoystickDPad;
+    function getDPadFromXY(x, y: single): word;
     /// <summary>
     /// Get the values for (x,y) axis from a DPad/POV orientation
     /// </summary>
@@ -228,16 +230,21 @@ begin
   inherited;
 end;
 
-function TGamolfCustomJoystickService.getDPad(JoystickID: TJoystickID): word;
+function TGamolfCustomJoystickService.getDPad(JoystickID: TJoystickID;
+  FromXYWhenNoDPadAvailable: boolean): word;
 var
   Joystick: TJoystickInfo;
 begin
   getInfo(JoystickID, Joystick);
-  result := Joystick.DPad;
+  if hasDPad(JoystickID) then
+    result := Joystick.DPad
+  else if FromXYWhenNoDPadAvailable then
+    result := getDPadFromXY(Joystick.Axes[0], Joystick.Axes[1])
+  else
+    result := ord(TJoystickDPad.Center);
 end;
 
-function TGamolfCustomJoystickService.getDPadFromXY(x, y: single)
-  : TJoystickDPad;
+function TGamolfCustomJoystickService.getDPadFromXY(x, y: single): word;
 var
   rx, ry: integer;
 begin
@@ -245,23 +252,23 @@ begin
   rx := round(x);
   ry := round(y);
   if (rx = 0) and (ry = -1) then
-    result := TJoystickDPad.Top
+    result := ord(TJoystickDPad.Top)
   else if (rx = 1) and (ry = -1) then
-    result := TJoystickDPad.TopRight
+    result := ord(TJoystickDPad.TopRight)
   else if (rx = 1) and (ry = 0) then
-    result := TJoystickDPad.Right
+    result := ord(TJoystickDPad.Right)
   else if (rx = 1) and (ry = 1) then
-    result := TJoystickDPad.BottomRight
+    result := ord(TJoystickDPad.BottomRight)
   else if (rx = 0) and (ry = 1) then
-    result := TJoystickDPad.Bottom
+    result := ord(TJoystickDPad.Bottom)
   else if (rx = -1) and (ry = 1) then
-    result := TJoystickDPad.BottomLeft
+    result := ord(TJoystickDPad.BottomLeft)
   else if (rx = -1) and (ry = 0) then
-    result := TJoystickDPad.Left
+    result := ord(TJoystickDPad.Left)
   else if (rx = -1) and (ry = -1) then
-    result := TJoystickDPad.TopLeft
+    result := ord(TJoystickDPad.TopLeft)
   else
-    result := TJoystickDPad.Center;
+    result := ord(TJoystickDPad.Center);
 end;
 
 function TGamolfCustomJoystickService.getX(JoystickID: TJoystickID): single;
