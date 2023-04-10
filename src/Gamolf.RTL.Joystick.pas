@@ -225,8 +225,7 @@ var
   Joystick: TJoystickInfo;
 begin
   getInfo(JoystickID, Joystick);
-  if (length(Joystick.Axes) > 0) then
-    result := Joystick.DPad;
+  result := Joystick.DPad;
 end;
 
 function TGamolfCustomJoystickService.getDPadFromXY(x, y: single)
