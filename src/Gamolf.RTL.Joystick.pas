@@ -164,8 +164,10 @@ type
     /// <summary>
     /// Check is the DPad / POV is in a standard position
     /// </summary>
+    function isDPad(JoystickID: TJoystickID; JoystickDPad: TJoystickDPad)
+      : boolean; overload;
     function isDPad(JoystickID: TJoystickID;
-      JoystickDPad: TJoystickDPad): boolean;
+      JoystickDPads: array of TJoystickDPad): boolean; overload;
   end;
 
 implementation
@@ -179,7 +181,7 @@ end;
 
 destructor TGamolfCustomJoystickService.Destroy;
 begin
-
+  //
   inherited;
 end;
 
@@ -234,7 +236,19 @@ end;
 function TGamolfCustomJoystickService.isDPad(JoystickID: TJoystickID;
   JoystickDPad: TJoystickDPad): boolean;
 begin
-  result := (getDPad(JoystickID) = ord(JoystickDPad));
+  result := isDPad(JoystickID, [JoystickDPad]);
+end;
+
+function TGamolfCustomJoystickService.isDPad(JoystickID: TJoystickID;
+  JoystickDPads: array of TJoystickDPad): boolean;
+var
+  DPad: word;
+  i: integer;
+begin
+  DPad := getDPad(JoystickID);
+  result := false;
+  for i := 0 to length(JoystickDPads) - 1 do
+    result := result or (DPad = ord(JoystickDPads[i]));
 end;
 
 function TGamolfCustomJoystickService.isPressed(JoystickID: TJoystickID;
