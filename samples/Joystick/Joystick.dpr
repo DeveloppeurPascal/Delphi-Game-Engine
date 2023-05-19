@@ -6,7 +6,10 @@ uses
   fMain in 'fMain.pas' {Form2},
   Gamolf.FMX.Joystick in '..\..\src\Gamolf.FMX.Joystick.pas',
   Gamolf.RTL.Joystick.Windows in '..\..\src\Gamolf.RTL.Joystick.Windows.pas',
-  Gamolf.RTL.Joystick in '..\..\src\Gamolf.RTL.Joystick.pas';
+  Gamolf.RTL.Joystick in '..\..\src\Gamolf.RTL.Joystick.pas',
+  Gamolf.RTL.Joystick.Mac in '..\..\src\Gamolf.RTL.Joystick.Mac.pas',
+  Macapi.GameController in '..\..\src\Macapi.GameController.pas',
+  iOSapi.GameController in '..\..\src\iOSapi.GameController.pas';
 
 {$R *.res}
 
