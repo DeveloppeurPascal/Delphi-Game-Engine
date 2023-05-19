@@ -114,7 +114,7 @@ type
   IGamolfJoystickService = interface(IInterface)
     ['{74BA65B4-B468-41E2-A5FF-1FB92A79E9F4}']
     /// <summary>
-    /// Scan for availale devices (if some are already used, their ID could change)
+    /// Scan for available devices (if some are already used, their ID could change)
     /// </summary>
     procedure StartDiscovery;
     /// <summary>
