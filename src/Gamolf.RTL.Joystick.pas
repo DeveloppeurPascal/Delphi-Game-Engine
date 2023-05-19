@@ -16,6 +16,20 @@ interface
 uses System.SysUtils;
 
 type
+{$SCOPEDENUMS on}
+  /// <summary>
+  /// ID for game controllers buttons (when it's know by the API)
+  /// </summary>
+  TJoystickButtons = (A, B, X, Y, Home, Options, Menu, LeftShoulder,
+    RightShoulder, LeftTrigger, RightTrigger, LeftThumbStick, RightThumbStick);
+
+  /// <summary>
+  /// DPad standard values (from 0 to 365° and 65535 when not value is selected)
+  /// </summary>
+  TJoystickDPad = (Top = 0, TopRight = 45, RightTop = 45, Right = 90,
+    BottomRight = 135, RightBottom = 135, Bottom = 180, BottomLeft = 225,
+    LeftBottom = 225, Left = 270, LeftTop = 315, TopLeft = 315, Center = 65535);
+
   /// <summary>
   /// Base class for all Joystick exceptions
   /// </summary>
@@ -45,8 +59,9 @@ type
   TJoystickInfo = record
     /// <summary>
     /// Values for each axes managed by the joystick
-    /// 0 => X, 1 => Y, 2 => Z
-    /// 3 => R, 4 => U, 5 => V
+    /// 0 => X, 1 => Y,
+    /// 2 => Z, 3 => R,
+    /// 4 => U, 5 => V
     /// Values between -1 and 1.
     /// -1 means left, 0 means center, 1 means right
     /// can be around the real value and not egal the values, try round()
@@ -66,16 +81,19 @@ type
     /// for center, the value is higher than 359
     /// </summary>
     DPad: word;
+    /// <summary>
+    /// Check if a button is pressed by it's name (for compatible platforms)
+    /// </summary>
+    function isPressed(Button: TJoystickButtons): boolean;
+    /// <summary>
+    /// Used by platforms compatibles to set pressed buttons
+    /// </summary>
+    procedure setPressed(Button: TJoystickButtons; isPressed: boolean);
+    /// <summary>
+    /// Initialize the buttons list depending on TJoystickButtons list
+    /// </summary>
+    procedure initButtonsToJoystickButtons;
   end;
-
-{$SCOPEDENUMS on}
-
-  /// <summary>
-  /// DPad standard values (from 0 to 365° and 65535 when not value is selected)
-  /// </summary>
-  TJoystickDPad = (Top = 0, TopRight = 45, RightTop = 45, Right = 90,
-    BottomRight = 135, RightBottom = 135, Bottom = 180, BottomLeft = 225,
-    LeftBottom = 225, Left = 270, LeftTop = 315, TopLeft = 315, Center = 65535);
 
   /// <summary>
   /// Signature for a callback procedure used to get game controller infos
@@ -136,7 +154,7 @@ type
     /// <summary>
     /// Return X,Y axes values for JoystickID controller
     /// </summary>
-    procedure getXY(JoystickID: TJoystickID; var x, y: single);
+    procedure getXY(JoystickID: TJoystickID; var X, Y: single);
     /// <summary>
     /// Return X axes values for JoystickID controller
     /// </summary>
@@ -172,11 +190,11 @@ type
     /// <summary>
     /// Get orientation (like DPad) from (x,y) axis
     /// </summary>
-    function getDPadFromXY(x, y: single): word;
+    function getDPadFromXY(X, Y: single): word;
     /// <summary>
     /// Get the values for (x,y) axis from a DPad/POV orientation
     /// </summary>
-    procedure getXYFromDPad(DPad: word; var x, y: single);
+    procedure getXYFromDPad(DPad: word; var X, Y: single);
     /// <summary>
     /// Loop on all game controllers and call the procedure with infos for each one
     /// </summary>
@@ -210,6 +228,10 @@ type
     constructor Create; virtual;
     destructor Destroy; override;
     /// <summary>
+    /// Reset Joystick structure
+    /// </summary>
+    procedure initJoystick(var Joystick: TJoystickInfo); virtual;
+    /// <summary>
     /// Scan for availale devices (if some are already used, their ID could change)
     /// </summary>
     procedure StartDiscovery; virtual; abstract;
@@ -233,7 +255,7 @@ type
     /// <summary>
     /// Return X,Y axes values for JoystickID controller
     /// </summary>
-    procedure getXY(JoystickID: TJoystickID; var x, y: single);
+    procedure getXY(JoystickID: TJoystickID; var X, Y: single);
     /// <summary>
     /// Return X axes values for JoystickID controller
     /// </summary>
@@ -269,11 +291,11 @@ type
     /// <summary>
     /// Get orientation (like DPad) from (x,y) axis
     /// </summary>
-    function getDPadFromXY(x, y: single): word;
+    function getDPadFromXY(X, Y: single): word;
     /// <summary>
     /// Get the values for (x,y) axis from a DPad/POV orientation
     /// </summary>
-    procedure getXYFromDPad(DPad: word; var x, y: single);
+    procedure getXYFromDPad(DPad: word; var X, Y: single);
     /// <summary>
     /// Loop on all game controllers and call the procedure with infos for each one
     /// </summary>
@@ -296,6 +318,11 @@ type
     procedure ForEachConnectedDevice(var JoystickInfo: TJoystickInfo;
       CallbackEvent: TJoystickInfosConnectedCallbackEvent;
       ErrorCallbackEvent: TJoystickErrorCallbackEvent = nil); overload;
+    /// <summary>
+    /// Override this function and return true for platforms where buttons place are known.
+    /// By default, it's false;
+    /// </summary>
+    function hasJoystickButtonsAPI: boolean; virtual;
   end;
 
 implementation
@@ -326,6 +353,7 @@ begin
       hadError := false;
     except
       hadError := true;
+      initJoystick(JoystickInfo);
     end;
     if assigned(CallbackProc) then
       CallbackProc(i, JoystickInfo, hadError);
@@ -396,13 +424,13 @@ begin
     result := ord(TJoystickDPad.Center);
 end;
 
-function TGamolfCustomJoystickService.getDPadFromXY(x, y: single): word;
+function TGamolfCustomJoystickService.getDPadFromXY(X, Y: single): word;
 var
   rx, ry: integer;
 begin
   // from -1..1 as decimal to (-1, 0, 1)
-  rx := round(x);
-  ry := round(y);
+  rx := round(X);
+  ry := round(Y);
   if (rx = 0) and (ry = -1) then
     result := ord(TJoystickDPad.Top)
   else if (rx = 1) and (ry = -1) then
@@ -429,40 +457,42 @@ var
 begin
   getInfo(JoystickID, Joystick);
   if (length(Joystick.Axes) > 0) then
-    result := Joystick.Axes[0];
+    result := Joystick.Axes[0]
+  else
+    result := 0;
 end;
 
 procedure TGamolfCustomJoystickService.getXY(JoystickID: TJoystickID;
-var x, y: single);
+var X, Y: single);
 var
   Joystick: TJoystickInfo;
 begin
   getInfo(JoystickID, Joystick);
   if (length(Joystick.Axes) > 0) then
-    x := Joystick.Axes[0];
+    X := Joystick.Axes[0];
   if (length(Joystick.Axes) > 1) then
-    y := Joystick.Axes[1];
+    Y := Joystick.Axes[1];
 end;
 
 procedure TGamolfCustomJoystickService.getXYFromDPad(DPad: word;
-var x, y: single);
+var X, Y: single);
 begin
   if (isDPad(DPad, [TJoystickDPad.Left, TJoystickDPad.TopLeft,
     TJoystickDPad.BottomLeft])) then
-    x := -1
+    X := -1
   else if (isDPad(DPad, [TJoystickDPad.Right, TJoystickDPad.TopRight,
     TJoystickDPad.BottomRight])) then
-    x := 1
+    X := 1
   else
-    x := 0;
+    X := 0;
   if (isDPad(DPad, [TJoystickDPad.TopLeft, TJoystickDPad.Top,
     TJoystickDPad.TopRight])) then
-    y := -1
+    Y := -1
   else if (isDPad(DPad, [TJoystickDPad.BottomLeft, TJoystickDPad.Bottom,
     TJoystickDPad.BottomRight])) then
-    y := 1
+    Y := 1
   else
-    y := 0;
+    Y := 0;
 end;
 
 function TGamolfCustomJoystickService.getY(JoystickID: TJoystickID): single;
@@ -471,7 +501,9 @@ var
 begin
   getInfo(JoystickID, Joystick);
   if (length(Joystick.Axes) > 1) then
-    result := Joystick.Axes[1];
+    result := Joystick.Axes[1]
+  else
+    result := 0;
 end;
 
 function TGamolfCustomJoystickService.getZ(JoystickID: TJoystickID): single;
@@ -480,7 +512,14 @@ var
 begin
   getInfo(JoystickID, Joystick);
   if (length(Joystick.Axes) > 2) then
-    result := Joystick.Axes[2];
+    result := Joystick.Axes[2]
+  else
+    result := 0;
+end;
+
+function TGamolfCustomJoystickService.hasJoystickButtonsAPI: boolean;
+begin
+  result := false;
 end;
 
 function TGamolfCustomJoystickService.isDPad(JoystickID: TJoystickID;
@@ -493,7 +532,6 @@ function TGamolfCustomJoystickService.isDPad(JoystickID: TJoystickID;
 JoystickDPads: array of TJoystickDPad): boolean;
 var
   DPad: word;
-  i: integer;
 begin
   DPad := getDPad(JoystickID);
   result := isDPad(DPad, JoystickDPads);
@@ -507,6 +545,24 @@ begin
   getInfo(JoystickID, Joystick);
   result := (ButtonID >= 0) and (ButtonID < length(Joystick.Buttons)) and
     Joystick.Buttons[ButtonID];
+end;
+
+procedure TGamolfCustomJoystickService.initJoystick(var Joystick
+  : TJoystickInfo);
+var
+  i: integer;
+begin
+  for i := 0 to length(Joystick.Axes) - 1 do
+    Joystick.Axes[i] := 0;
+  if hasJoystickButtonsAPI then
+    Joystick.initButtonsToJoystickButtons
+  else
+  begin
+    for i := 0 to length(Joystick.Buttons) - 1 do
+      Joystick.Buttons[i] := false;
+    setlength(Joystick.PressedButtons, 0);
+  end;
+  Joystick.DPad := ord(TJoystickDPad.Center);
 end;
 
 function TGamolfCustomJoystickService.isDPad(DPad: word;
@@ -523,6 +579,65 @@ function TGamolfCustomJoystickService.isDPad(DPad: word;
 JoystickDPad: TJoystickDPad): boolean;
 begin
   result := isDPad(DPad, [JoystickDPad]);
+end;
+
+{ TJoystickInfo }
+
+procedure TJoystickInfo.initButtonsToJoystickButtons;
+const
+  CNBButtons = ord(high(TJoystickButtons)) + 1;
+var
+  i: integer;
+begin
+  if (length(Buttons) <> CNBButtons) then
+    setlength(Buttons, CNBButtons);
+  for i := 0 to CNBButtons - 1 do
+    Buttons[i] := false;
+  setlength(PressedButtons, 0);
+end;
+
+function TJoystickInfo.isPressed(Button: TJoystickButtons): boolean;
+var
+  idx: integer;
+begin
+  idx := ord(Button);
+  if (idx >= 0) and (idx < length(Buttons)) then
+    result := Buttons[idx]
+  else
+    result := false;
+end;
+
+procedure TJoystickInfo.setPressed(Button: TJoystickButtons;
+isPressed: boolean);
+var
+  idx: integer;
+  i: integer;
+  found: boolean;
+begin
+  idx := ord(Button);
+  if (idx >= 0) and (idx < length(Buttons)) and (Buttons[idx] <> isPressed) then
+  begin
+    Buttons[idx] := isPressed;
+    if isPressed then
+    begin
+      setlength(PressedButtons, length(PressedButtons) + 1);
+      PressedButtons[length(PressedButtons) - 1] := idx;
+    end
+    else
+    begin
+      i := 0;
+      found := false;
+      while (i < length(PressedButtons)) do
+      begin
+        if (PressedButtons[i] = idx) then
+          found := true
+        else if found then
+          PressedButtons[i - 1] := PressedButtons[i];
+      end;
+      if found then
+        setlength(PressedButtons, length(PressedButtons) - 1);
+    end;
+  end;
 end;
 
 end.
