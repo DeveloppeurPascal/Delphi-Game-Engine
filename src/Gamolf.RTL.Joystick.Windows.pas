@@ -14,7 +14,7 @@ unit Gamolf.RTL.Joystick.Windows;
 }
 interface
 
-{$IF Defined(MSWINDOWS) }
+{$IF Defined(MSWINDOWS)}
 
 uses winapi.Windows, winapi.MMSystem, System.SysUtils, Gamolf.RTL.Joystick;
 
@@ -34,7 +34,7 @@ type
     FNbControllers: byte;
   public
     /// <summary>
-    /// Scan for availale devices (if some are already used, their ID could change)
+    /// Scan for available devices (if some are already used, their ID could change)
     /// </summary>
     procedure StartDiscovery; override;
     /// <summary>
@@ -55,11 +55,9 @@ type
     /// </summary>
     function hasDPad(JoystickID: TJoystickID): boolean; override;
   end;
-{$ENDIF}
 
 implementation
 
-{$IF Defined(MSWINDOWS) }
 { TGamolfJoystickWindowsService }
 
 procedure TGamolfJoystickWindowsService.StartDiscovery;
@@ -211,10 +209,12 @@ begin
             end;
 
             if ((FTabDevCaps[JoystickID].JoyCapsW.wcaps and JOYCAPS_HASPOV) > 0)
-            then begin
+            then
+            begin
               Joystick.DPad := JoyInfoEx.dwpov div 100;
-			  if Joystick.DPad>359 then Joystick.DPad := ord(TJoystickDPad.Center);
-			  end
+              if Joystick.DPad > 359 then
+                Joystick.DPad := ord(TJoystickDPad.Center);
+            end
             else
               Joystick.DPad := ord(TJoystickDPad.Center);
           end;
@@ -277,6 +277,10 @@ begin
     (length(FTabDevCaps) <= JoystickID) then
     getDevCaps(JoystickID);
 end;
+{$ELSE}
+
+implementation
+
 {$ENDIF }
 
 end.
