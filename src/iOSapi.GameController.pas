@@ -15,6 +15,8 @@ unit iOSapi.GameController;
 
 interface
 
+{$IF Defined(IOS)}
+
 uses
   Macapi.CoreFoundation,
   Macapi.CoreServices,
@@ -3532,5 +3534,10 @@ finalization
 
 dlclose(GameControllerModule);
 {$ENDIF IOS}
+{$ELSE}
+
+implementation
+
+{$ENDIF}
 
 end.
