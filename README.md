@@ -1,4 +1,4 @@
-# FMX Game Engine
+# Delphi Game Engine
 
 [Cette page en français.](LISEZMOI.md)
 
@@ -10,7 +10,7 @@ This code repository offers reusable units and examples for your video game proj
 
 It comes from years of game development for fun and [live coding sessions on Twitch](https://www.twitch.tv/patrickpremartin) started in 2021 (and a long time before Twitch).
 
-You can find examples of classic game features in [Delphi FMX Game Snippets](https://github.com/DeveloppeurPascal/DelphiFMXGameSnippets) if you are looking for inspiration.
+You can find examples of classic game features in [Delphi FMX Game Snippets](https://github.com/DeveloppeurPascal/Delphi-FMX-Game-Snippets) if you are looking for inspiration.
 
 A presentation of FireMonkey's "game engine" features was offered at [DelphiCon 2021](https://delphicon.embarcadero.com/) (in English, see [the replay](https://delphicon.embarcadero.com/talks/using-firemonkey-as-a-game-engine-on-demand/)) and [on Twitch](https://www.twitch.tv/patrickpremartin) on Saturday, December 11, 2021 at 3pm (in French, see [the replay](https://developpeur-pascal.fr/p/_200p-webinaire-du-11-decembre-2021-utiliser-firemonkey-comme-moteur-de-jeu-video.html)).
 
@@ -20,7 +20,7 @@ This code repository contains a project developed in Object Pascal language unde
 
 ## Install
 
-To download this project you better should use "git" command but you also can download a ZIP from [its GitHub repository](https://github.com/DeveloppeurPascal/FMXGameEngine).
+To download this project you better should use "git" command but you also can download a ZIP from [its GitHub repository](https://github.com/DeveloppeurPascal/Delphi-Game-Engine).
 
 **Warning :** if the project has submodules dependencies they wont be in the ZIP file. You'll have to download them manually.
 
@@ -34,7 +34,7 @@ If you want to use game controllers features for iOS or macOS, don't forget to a
 
 ## How to ask a new feature, report a bug or a security issue ?
 
-If you want an answer from the project owner the best way to ask for a new feature or report a bug is to go to [the GitHub repository](https://github.com/DeveloppeurPascal/FMXGameEngine) and [open a new issue](https://github.com/DeveloppeurPascal/FMXGameEngine/issues).
+If you want an answer from the project owner the best way to ask for a new feature or report a bug is to go to [the GitHub repository](https://github.com/DeveloppeurPascal/Delphi-Game-Engine) and [open a new issue](https://github.com/DeveloppeurPascal/Delphi-Game-Engine/issues).
 
 If you found a security issue please don't report it publicly before a patch is available. Explain the case by [sending a private message to the author](https://developpeur-pascal.fr/nous-contacter.php).
 

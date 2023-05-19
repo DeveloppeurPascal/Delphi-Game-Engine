@@ -1,4 +1,4 @@
-# FMX Game Engine
+# Delphi Game Engine
 
 [This page in english.](README.md)
 
@@ -10,7 +10,7 @@ Ce dépôt de code propose des unités et exemples réutilisables dans vos proje
 
 Il est issu d'années de développement de jeux pour le fun et des sessions de [codage en direct sur Twitch](https://www.twitch.tv/patrickpremartin) démarrées en 2021 (et bien avant Twitch).
 
-Vous trouverez des exemples de fonctionnalités classiques sur des jeux vidéos dans [Delphi FMX Game Snippets](https://github.com/DeveloppeurPascal/DelphiFMXGameSnippets) si vous cherchez l'inspiration.
+Vous trouverez des exemples de fonctionnalités classiques sur des jeux vidéos dans [Delphi FMX Game Snippets](https://github.com/DeveloppeurPascal/Delphi-FMX-Game-Snippets) si vous cherchez l'inspiration.
 
 Une présentation des fonctionnalités "game engine" de FireMonkey a été proposée à la [DelphiCon 2021](https://delphicon.embarcadero.com/) (en anglais, voir [la rediffusion](https://delphicon.embarcadero.com/talks/using-firemonkey-as-a-game-engine-on-demand/)) et [sur Twitch](https://www.twitch.tv/patrickpremartin) le samedi 11 décembre 2021 à 15 heures (en français, voir [la rediffusion](https://developpeur-pascal.fr/p/_200p-webinaire-du-11-decembre-2021-utiliser-firemonkey-comme-moteur-de-jeu-video.html)).
 
@@ -20,7 +20,7 @@ Ce dépôt de code contient un projet développé en langage Pascal Objet sous D
 
 ## Installation
 
-Pour télécharger ce projet il est recommandé de passer par "git" mais vous pouvez aussi télécharger un ZIP directement depuis [son dépôt GitHub](https://github.com/DeveloppeurPascal/FMXGameEngine).
+Pour télécharger ce projet il est recommandé de passer par "git" mais vous pouvez aussi télécharger un ZIP directement depuis [son dépôt GitHub](https://github.com/DeveloppeurPascal/Delphi-Game-Engine).
 
 **Attention :** si le projet utilise des dépendances sous forme de sous modules ils seront absents du fichier ZIP. Vous devrez les télécharger à la main.
 
@@ -34,7 +34,7 @@ Si vous voulez utiliser les fonctionnalités de contrôleur de jeu sur iOS et ma
 
 ## Comment demander une nouvelle fonctionnalité, signaler un bogue ou une faille de sécurité ?
 
-Si vous voulez une réponse du propriétaire de ce dépôt la meilleure façon de procéder pour demander une nouvelle fonctionnalité ou signaler une anomalie est d'aller sur [le dépôt de code sur GitHub](https://github.com/DeveloppeurPascal/FMXGameEngine) et [d'ouvrir un ticket](https://github.com/DeveloppeurPascal/FMXGameEngine/issues).
+Si vous voulez une réponse du propriétaire de ce dépôt la meilleure façon de procéder pour demander une nouvelle fonctionnalité ou signaler une anomalie est d'aller sur [le dépôt de code sur GitHub](https://github.com/DeveloppeurPascal/Delphi-Game-Engine) et [d'ouvrir un ticket](https://github.com/DeveloppeurPascal/Delphi-Game-Engine/issues).
 
 Si vous avez trouvé une faille de sécurité n'en parlez pas en public avant qu'un correctif n'ait été déployé ou soit disponible. [Contactez l'auteur du dépôt en privé](https://developpeur-pascal.fr/nous-contacter.php) pour expliquer votre trouvaille.
 
