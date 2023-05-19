@@ -988,8 +988,9 @@ type
   GCDeviceHaptics = interface(NSObject)
     ['{6FF1040E-6B11-4815-B265-1EA3ADC022D5}']
     function supportedLocalities: NSSet; cdecl;
-    function createEngineWithLocality(locality: GCHapticsLocality)
-      : CHHapticEngine; cdecl;
+    (* function createEngineWithLocality(locality: GCHapticsLocality)
+      : CHHapticEngine; cdecl; *)
+    // TODO : add CoreHaptics framework and API bridge
   end;
 
   TGCDeviceHaptics = class(TOCGenericImport<GCDeviceHapticsClass,
