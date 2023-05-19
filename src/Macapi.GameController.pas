@@ -15,6 +15,8 @@ unit Macapi.GameController;
 
 interface
 
+{$IF Defined(MACOS) and not Defined(IOS)}
+
 uses
   Macapi.AppKit,
   Macapi.CocoaTypes,
@@ -3446,5 +3448,10 @@ function GCHapticDurationInfinite: Pointer;
 begin
   Result := CocoaPointerConst(libGameController, 'GCHapticDurationInfinite');
 end;
+{$ELSE}
+
+implementation
+
+{$ENDIF}
 
 end.
