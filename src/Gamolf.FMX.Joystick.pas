@@ -20,9 +20,7 @@ implementation
 uses FMX.Platform, Gamolf.RTL.Joystick,
 {$IF Defined(MSWINDOWS)}
   Gamolf.RTL.Joystick.Windows
-{$ELSEIF Defined(IOS)}
-  Gamolf.RTL.Joystick.iOS
-{$ELSEIF Defined(MACOS)}
+{$ELSEIF Defined(IOS) or Defined(MACOS)}
   Gamolf.RTL.Joystick.Mac
 {$ENDIF};
 
@@ -31,12 +29,9 @@ initialization
 {$IF Defined(MSWINDOWS)}
   TPlatformServices.Current.AddPlatformService(IGamolfJoystickService,
   TGamolfJoystickWindowsService.Create);
-{$ELSEIF Defined(IOS)}
+{$ELSEIF Defined(IOS) or Defined(MACOS)}
   TPlatformServices.Current.AddPlatformService(IGamolfJoystickService,
-  TGamolfJoystickIOSService.getinstance);
-{$ELSEIF Defined(MACOS)}
-  TPlatformServices.Current.AddPlatformService(IGamolfJoystickService,
-  TGamolfJoystickmacService.getinstance);
+  TGamolfJoystickService.Create);
 {$ENDIF}
 
 finalization
