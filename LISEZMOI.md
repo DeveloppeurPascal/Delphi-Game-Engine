@@ -30,6 +30,8 @@ Ce dépôt de code dépend des dépôts suivants :
 
 * aucune
 
+Si vous voulez utiliser les fonctionnalités de contrôleur de jeu sur iOS et macOS, pensez à ajouter le framework GameController à vos SDK(s) dans Outils/options/Déploiement/SDK puis mettre à jour leurs fichiers.
+
 ## Comment demander une nouvelle fonctionnalité, signaler un bogue ou une faille de sécurité ?
 
 Si vous voulez une réponse du propriétaire de ce dépôt la meilleure façon de procéder pour demander une nouvelle fonctionnalité ou signaler une anomalie est d'aller sur [le dépôt de code sur GitHub](https://github.com/DeveloppeurPascal/FMXGameEngine) et [d'ouvrir un ticket](https://github.com/DeveloppeurPascal/FMXGameEngine/issues).

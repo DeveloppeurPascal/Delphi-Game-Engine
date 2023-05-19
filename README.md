@@ -30,6 +30,8 @@ This project depends on :
 
 * none
 
+If you want to use game controllers features for iOS or macOS, don't forget to add the GameController framework to your SDK(s) in Tools/Options/Deployment/SDK and refresh the files.
+
 ## How to ask a new feature, report a bug or a security issue ?
 
 If you want an answer from the project owner the best way to ask for a new feature or report a bug is to go to [the GitHub repository](https://github.com/DeveloppeurPascal/FMXGameEngine) and [open a new issue](https://github.com/DeveloppeurPascal/FMXGameEngine/issues).
