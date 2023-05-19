@@ -985,8 +985,9 @@ type
   GCDeviceHaptics = interface(NSObject)
     ['{41C74B23-4FB9-4C26-BF9E-48B47A7C89ED}']
     function supportedLocalities: NSSet; cdecl;
-    function createEngineWithLocality(locality: GCHapticsLocality)
-      : CHHapticEngine; cdecl;
+    (* function createEngineWithLocality(locality: GCHapticsLocality)
+      : CHHapticEngine; cdecl; *)
+    // TODO : add CoreHaptics framework and API bridge
   end;
 
   TGCDeviceHaptics = class(TOCGenericImport<GCDeviceHapticsClass,
@@ -1002,6 +1003,7 @@ type
   GCKeyboard = interface(NSObject)
     ['{068E29D2-32EC-470D-B2D7-CA84389D00C9}']
     function keyboardInput: GCKeyboardInput; cdecl;
+
     procedure setCoalescedKeyboard(coalescedKeyboard: GCKeyboard); cdecl;
     function coalescedKeyboard: GCKeyboard; cdecl;
   end;
@@ -1019,6 +1021,7 @@ type
   GCMouse = interface(NSObject)
     ['{D4B37429-6BBF-4CA8-81BE-0E09F60BF5F5}']
     function mouseInput: GCMouseInput; cdecl;
+
     procedure setCurrent(current: GCMouse); cdecl;
     function current: GCMouse; cdecl;
   end;
@@ -1036,6 +1039,7 @@ type
     ['{DEBBB729-1221-4577-9754-2163CD97E276}']
     procedure setControllerUserInteractionEnabled
       (controllerUserInteractionEnabled: Boolean); cdecl;
+
     function controllerUserInteractionEnabled: Boolean; cdecl;
   end;
 
@@ -1052,6 +1056,7 @@ type
   GCRacingWheelInputState = interface(NSObject)
     ['{E9290D52-98EA-4493-9F24-E0A96ADC4CE9}']
     function wheel: GCSteeringWheelElement; cdecl;
+
     function acceleratorPedal: Pointer; cdecl;
     function brakePedal: Pointer; cdecl;
     function clutchPedal: Pointer; cdecl;
@@ -1071,6 +1076,7 @@ type
   GCRacingWheelInput = interface(GCRacingWheelInputState)
     ['{3A1AD0E2-DAE5-4536-8EE4-94C9BE224405}']
     function capture: GCRacingWheelInputState; cdecl;
+
     function nextInputState: GCRacingWheelInputState; cdecl;
   end;
 
@@ -1087,6 +1093,7 @@ type
   GCRacingWheel = interface(NSObject)
     ['{F90B1418-B2B3-4D34-9E77-0F5B270648A1}']
     function connectedRacingWheels: NSSet; cdecl;
+
     function acquireDeviceWithError(error: NSError): Boolean; cdecl;
     procedure relinquishDevice; cdecl;
     function isAcquired: Boolean; cdecl;
@@ -1122,6 +1129,7 @@ type
   GCGearShifterElement = interface(NSObject)
     ['{79EA387B-6577-4EF9-AF15-95BEBF945873}']
     function patternInput: Pointer; cdecl;
+
     function sequentialInput: Pointer; cdecl;
   end;
 
@@ -1136,6 +1144,7 @@ type
   GCDevice = interface(IObjectiveC)
     ['{4A7CDE07-A0D6-4A5E-8FB9-034C036BAE4E}']
     procedure setHandlerQueue(handlerQueue: dispatch_queue_t); cdecl;
+
     function handlerQueue: dispatch_queue_t; cdecl;
     function vendorName: NSString; cdecl;
     function productCategory: NSString; cdecl;
@@ -1165,6 +1174,7 @@ type
   GCPhysicalInputElement = interface(IObjectiveC)
     ['{52FAB589-B1C2-4964-8510-3CC3ABF6AB87}']
     function sfSymbolsName: NSString; cdecl;
+
     function localizedName: NSString; cdecl;
     function aliases: NSSet; cdecl;
   end;
@@ -1173,6 +1183,7 @@ type
     ['{F0335E84-F142-44E1-A60F-E5C3E3173444}']
     procedure setValueDidChangeHandler(valueDidChangeHandler
       : TGameControllerValueDidChangeHandler); cdecl;
+
     function valueDidChangeHandler: TGameControllerValueDidChangeHandler; cdecl;
     function value: Single; cdecl;
     function isAnalog: Boolean; cdecl;
