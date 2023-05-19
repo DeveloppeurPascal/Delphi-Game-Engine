@@ -17,22 +17,32 @@ interface
 
 implementation
 
+uses FMX.Platform, Gamolf.RTL.Joystick,
 {$IF Defined(MSWINDOWS)}
-
-uses FMX.Platform, Gamolf.RTL.Joystick, Gamolf.RTL.Joystick.Windows;
-{$ENDIF}
+  Gamolf.RTL.Joystick.Windows
+{$ELSEIF Defined(IOS)}
+  Gamolf.RTL.Joystick.iOS
+{$ELSEIF Defined(MACOS)}
+  Gamolf.RTL.Joystick.Mac
+{$ENDIF};
 
 initialization
 
 {$IF Defined(MSWINDOWS)}
   TPlatformServices.Current.AddPlatformService(IGamolfJoystickService,
   TGamolfJoystickWindowsService.Create);
+{$ELSEIF Defined(IOS)}
+  TPlatformServices.Current.AddPlatformService(IGamolfJoystickService,
+  TGamolfJoystickIOSService.getinstance);
+{$ELSEIF Defined(MACOS)}
+  TPlatformServices.Current.AddPlatformService(IGamolfJoystickService,
+  TGamolfJoystickmacService.getinstance);
 {$ENDIF}
 
 finalization
 
-{$IF Defined(MSWINDOWS)}
+if TPlatformServices.Current.SupportsPlatformService(IGamolfJoystickService)
+then
   TPlatformServices.Current.RemovePlatformService(IGamolfJoystickService);
-{$ENDIF}
 
 end.
