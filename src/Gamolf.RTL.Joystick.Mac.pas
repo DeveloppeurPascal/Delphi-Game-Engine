@@ -209,34 +209,13 @@ begin
       if (length(Joystick.Axes) <> 6) then
         setlength(Joystick.Axes, 6);
       // X
-      if LExtendedGamepad.leftThumbstick.left.Value <> 0 then
-        Joystick.Axes[0] := -1
-      else if LExtendedGamepad.leftThumbstick.right.Value <> 0 then
-        Joystick.Axes[0] := 1
-      else
-        Joystick.Axes[0] := 0;
+      Joystick.Axes[0] := LExtendedGamepad.leftThumbstick.xAxis.Value;
       // Y
-      if LExtendedGamepad.leftThumbstick.up.Value <> 0 then
-        Joystick.Axes[1] := -1
-      else if LExtendedGamepad.leftThumbstick.down.Value <> 0 then
-        Joystick.Axes[1] := 1
-      else
-        Joystick.Axes[1] := 0;
-      if LExtendedGamepad.rightThumbstick.left.Value <> 0 then
-        Joystick.Axes[2] := -1
-      else if LExtendedGamepad.rightThumbstick.right.Value <> 0 then
-        Joystick.Axes[2] := 1
-      else
-        Joystick.Axes[2] := 0;
+      Joystick.Axes[1] := -LExtendedGamepad.leftThumbstick.yAxis.Value;
       // Z
-      if LExtendedGamepad.rightThumbstick.up.Value <> 0 then
-        Joystick.Axes[3] := -1
-      else if LExtendedGamepad.rightThumbstick.down.Value <> 0 then
-        Joystick.Axes[3] := 1
-      else
-        Joystick.Axes[3] := 0;
+      Joystick.Axes[2] := LExtendedGamepad.rightThumbstick.xAxis.Value;
       // R
-      // TODO : test real values given by iOS/macOS SDK with distinct gamepads
+      Joystick.Axes[3] := -LExtendedGamepad.rightThumbstick.yAxis.Value;
       // U
       Joystick.Axes[4] := LExtendedGamepad.leftTrigger.Value;
       // V
