@@ -14,7 +14,7 @@ unit Gamolf.RTL.Joystick.Mac;
 }
 interface
 
-{ $IF Defined(MACOS) or Defined(IOS) }
+{$IF Defined(MACOS) or Defined(IOS)}
 
 uses
   Gamolf.RTL.Joystick;
@@ -303,13 +303,15 @@ begin
 end;
 
 procedure TGamolfJoystickService.WirelessControllerDiscoveryFinished;
-var
+(* var
   LControllers: NSArray;
   LController: GCController;
-  i: integer;
+  i: integer; *)
 begin
-  // TODO : à compléter
-  for i := 0 to 100 do;
+  // TODO : do something if needed when game controllers discovering process end
+  // in tests, this handler is never called by the GameController framework
+  // (on macOS, didn't tested on iOS)
+
   (* LControllers := TGCController.OCClass.Controllers;
     for i := 0 to LControllers.Count - 1 do
     begin
@@ -473,10 +475,9 @@ finalization
 
 ControllersNotificationHandler.Free;
 Controllers.Free;
-{ $ELSE }
-
+{$ELSE}
 // implementation
 
-{ $ENDIF }
+{$ENDIF}
 
 end.
