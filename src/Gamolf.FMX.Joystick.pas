@@ -19,7 +19,7 @@ implementation
 
 uses FMX.Platform, Gamolf.RTL.Joystick,
 {$IF Defined(MSWINDOWS)}
-  Gamolf.RTL.Joystick.Windows
+  Gamolf.RTL.Joystick.DirectInput.Win
 {$ELSEIF Defined(IOS) or Defined(MACOS)}
   Gamolf.RTL.Joystick.Mac
 {$ENDIF};
@@ -28,7 +28,7 @@ initialization
 
 {$IF Defined(MSWINDOWS)}
   TPlatformServices.Current.AddPlatformService(IGamolfJoystickService,
-  TGamolfJoystickWindowsService.Create);
+  TGamolfJoystickWinDirectInputService.Create);
 {$ELSEIF Defined(IOS) or Defined(MACOS)}
   TPlatformServices.Current.AddPlatformService(IGamolfJoystickService,
   TGamolfJoystickService.Create);

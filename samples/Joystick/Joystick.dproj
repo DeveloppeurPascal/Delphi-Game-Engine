@@ -286,7 +286,7 @@
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="..\..\src\Gamolf.FMX.Joystick.pas"/>
-        <DCCReference Include="..\..\src\Gamolf.RTL.Joystick.Windows.pas"/>
+        <DCCReference Include="..\..\src\Gamolf.RTL.Joystick.DirectInput.Win.pas"/>
         <DCCReference Include="..\..\src\Gamolf.RTL.Joystick.pas"/>
         <DCCReference Include="..\..\src\Gamolf.RTL.Joystick.Mac.pas"/>
         <DCCReference Include="..\..\src\Macapi.GameController.pas"/>

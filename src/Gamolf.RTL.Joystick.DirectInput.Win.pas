@@ -1,8 +1,8 @@
-unit Gamolf.RTL.Joystick.Windows;
+unit Gamolf.RTL.Joystick.DirectInput.Win;
 
 {
   Accès aux contrôleurs de jeu et à leurs informations
-  depuis l'API Windows.
+  depuis l'API Windows DirectInput.
 
   Logiciel open source distribué sous licence AGPL.
   Open source software distributed under the AGPL license
@@ -19,15 +19,15 @@ interface
 uses winapi.Windows, winapi.MMSystem, System.SysUtils, Gamolf.RTL.Joystick;
 
 type
-  TGamolfJoystickJoyCaps = record
+  TGamolfJoystickDirectInputJoyCaps = record
     JoyCapsW: TJoyCapsW;
     XMiddle, YMiddle, ZMiddle, RMiddle, UMiddle, VMiddle: single;
     Connected: boolean;
   end;
 
-  TGamolfJoystickWindowsService = class(TGamolfCustomJoystickService)
+  TGamolfJoystickWinDirectInputService = class(TGamolfCustomJoystickService)
   private
-    FTabDevCaps: array of TGamolfJoystickJoyCaps;
+    FTabDevCaps: array of TGamolfJoystickDirectInputJoyCaps;
     procedure getDevCaps(JoystickID: TJoystickID);
     procedure getJoystickCaps(JoystickID: TJoystickID);
   protected
@@ -60,18 +60,19 @@ implementation
 
 { TGamolfJoystickWindowsService }
 
-procedure TGamolfJoystickWindowsService.StartDiscovery;
+procedure TGamolfJoystickWinDirectInputService.StartDiscovery;
 begin
   setlength(FTabDevCaps, 0);
   FNbControllers := joyGetNumDevs;
 end;
 
-function TGamolfJoystickWindowsService.Count: byte;
+function TGamolfJoystickWinDirectInputService.Count: byte;
 begin
   result := FNbControllers;
 end;
 
-procedure TGamolfJoystickWindowsService.getDevCaps(JoystickID: TJoystickID);
+procedure TGamolfJoystickWinDirectInputService.getDevCaps
+  (JoystickID: TJoystickID);
 var
   i: TJoystickID;
   JoyInfo: tjoyinfo;
@@ -133,7 +134,7 @@ begin
     end;
 end;
 
-procedure TGamolfJoystickWindowsService.getInfo(JoystickID: TJoystickID;
+procedure TGamolfJoystickWinDirectInputService.getInfo(JoystickID: TJoystickID;
   var Joystick: TJoystickInfo);
 var
   JoyInfoEx: TJoyInfoEx;
@@ -248,7 +249,7 @@ begin
       ('The specified joystick identifier is invalid.');
 end;
 
-function TGamolfJoystickWindowsService.isConnected
+function TGamolfJoystickWinDirectInputService.isConnected
   (JoystickID: TJoystickID): boolean;
 begin
   result := false;
@@ -259,8 +260,8 @@ begin
   end;
 end;
 
-function TGamolfJoystickWindowsService.hasDPad(JoystickID: TJoystickID)
-  : boolean;
+function TGamolfJoystickWinDirectInputService.hasDPad
+  (JoystickID: TJoystickID): boolean;
 begin
   result := false;
   if (JoystickID >= 0) and (JoystickID < FNbControllers) then
@@ -270,7 +271,7 @@ begin
   end;
 end;
 
-procedure TGamolfJoystickWindowsService.getJoystickCaps
+procedure TGamolfJoystickWinDirectInputService.getJoystickCaps
   (JoystickID: TJoystickID);
 begin
   if (JoystickID >= 0) and (JoystickID < FNbControllers) and
