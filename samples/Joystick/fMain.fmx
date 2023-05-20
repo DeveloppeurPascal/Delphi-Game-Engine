@@ -62,7 +62,7 @@ object Form2: TForm2
     Size.Width = 630.000000000000000000
     Size.Height = 17.000000000000000000
     Size.PlatformDefault = False
-    Text = 'Press a gamepad button and moove stick 0 (left).'
+    Text = 'Press a gamepad button and move stick 0 (left).'
     TabOrder = 6
   end
   object Label4: TLabel
@@ -78,5 +78,61 @@ object Form2: TForm2
     Size.PlatformDefault = False
     Text = 'Label4'
     TabOrder = 9
+  end
+  object Label5: TLabel
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 86.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Label5'
+    TabOrder = 11
+  end
+  object Label6: TLabel
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 113.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Label6'
+    TabOrder = 12
+  end
+  object Label7: TLabel
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 140.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Label7'
+    TabOrder = 13
+  end
+  object Label8: TLabel
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 167.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Label8'
+    TabOrder = 14
   end
 end

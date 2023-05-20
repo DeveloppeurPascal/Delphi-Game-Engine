@@ -17,6 +17,10 @@ type
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
@@ -72,22 +76,40 @@ begin
   // end;
   Label1.Text := 'Nb : ' + JoystickService.Count.ToString;
   Label2.Text := 'Pressed buttons : ';
-  Label4.Text := 'DPad :';
+  Label4.Text := 'DPad angle :';
+  Label5.Text := 'Left stick (axes x,y) :';
+  Label6.Text := 'Right stick (axes x,y) :';
+  Label7.Text := 'Left trigger pression :';
+  Label8.Text := 'Right trigger pression :';
   JoystickService.ForEach(ji,
     procedure(JoystickID: TJoystickID; var JoystickInfo: TJoystickInfo;
       hadError: boolean)
     begin
-      Label2.Text := Label2.Text + 'J' + JoystickID.ToString + '=' +
-        length(ji.PressedButtons).ToString + ' ';
-
-      Label4.Text := Label4.Text + 'J' + JoystickID.ToString + '=' +
-        ji.DPad.ToString + ' ';
-
-      if (not hadError) and JoystickService.isConnected(JoystickID) and
-        (length(ji.PressedButtons) > 0) then
+      if (not hadError) and JoystickService.isConnected(JoystickID) then
       begin
-        Rectangle1.Position.X := Rectangle1.Position.X + ji.Axes[0];
-        Rectangle1.Position.y := Rectangle1.Position.y + ji.Axes[1];
+        Label2.Text := Label2.Text + 'J' + JoystickID.ToString + '=' +
+          length(ji.PressedButtons).ToString + ' ';
+
+        Label4.Text := Label4.Text + 'J' + JoystickID.ToString + '=' +
+          ji.DPad.ToString + ' ';
+
+        Label5.Text := Label5.Text + 'J' + JoystickID.ToString + '=' +
+          ji.Axes[0].ToString + ' | ' + ji.Axes[1].ToString + ' ';
+
+        Label6.Text := Label6.Text + 'J' + JoystickID.ToString + '=' +
+          ji.Axes[2].ToString + ' | ' + ji.Axes[3].ToString + ' ';
+
+        Label7.Text := Label7.Text + 'J' + JoystickID.ToString + '=' +
+          ji.Axes[4].ToString + ' ';
+
+        Label8.Text := Label8.Text + 'J' + JoystickID.ToString + '=' +
+          ji.Axes[5].ToString + ' ';
+
+        if (length(ji.PressedButtons) > 0) then
+        begin
+          Rectangle1.Position.X := Rectangle1.Position.X + round(ji.Axes[0]);
+          Rectangle1.Position.y := Rectangle1.Position.y + round(ji.Axes[1]);
+        end;
       end;
     end);
 end;
