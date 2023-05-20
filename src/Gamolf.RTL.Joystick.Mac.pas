@@ -14,7 +14,7 @@ unit Gamolf.RTL.Joystick.Mac;
 }
 interface
 
-{$IF Defined(MACOS) or Defined(IOS)}
+{ $IF Defined(MACOS) or Defined(IOS) }
 
 uses
   Gamolf.RTL.Joystick;
@@ -74,6 +74,38 @@ macapi.Foundation,
   macapi.CocoaTypes,
   macapi.GameController;
 {$ENDIF}
+
+/// <summary>
+/// Get the DPad direction
+/// </summary>
+function getDPadPosition(const dpad: gccontrollerdirectionpad): TJoystickDPad;
+begin
+  // choosed to used isPressed but we can check Value for pression level on compatible devices
+  if dpad.left.isPressed then
+  begin
+    if dpad.up.isPressed then
+      result := TJoystickDPad.LeftTop
+    else if dpad.down.isPressed then
+      result := TJoystickDPad.LeftBottom
+    else
+      result := TJoystickDPad.left;
+  end
+  else if dpad.right.isPressed then
+  begin
+    if dpad.up.isPressed then
+      result := TJoystickDPad.righttop
+    else if dpad.down.isPressed then
+      result := TJoystickDPad.rightBottom
+    else
+      result := TJoystickDPad.right;
+  end
+  else if dpad.up.isPressed then
+    result := TJoystickDPad.top
+  else if dpad.down.isPressed then
+    result := TJoystickDPad.bottom
+  else
+    result := TJoystickDPad.center;
+end;
 
 type
   IControllersNotificationHandler = interface(NSObject)
@@ -242,21 +274,17 @@ begin
       //
       // Initialize D-pad
       //
-      // TODO : traiter infos du DPad
-      // joystick.DPad := LExtendedGamepad.dpad
+      Joystick.dpad := ord(getDPadPosition(LExtendedGamepad.dpad));
     end
     else if assigned(LController) and assigned(LController.microGamepad) then
     begin
       LMicroGamepad := LController.microGamepad;
       initJoystick(Joystick);
-      Joystick.setPressed(TJoystickButtons.a,
-        LExtendedGamepad.buttonA.isPressed);
-      Joystick.setPressed(TJoystickButtons.x,
-        LExtendedGamepad.buttonx.isPressed);
+      Joystick.setPressed(TJoystickButtons.a, LMicroGamepad.buttonA.isPressed);
+      Joystick.setPressed(TJoystickButtons.x, LMicroGamepad.buttonx.isPressed);
       Joystick.setPressed(TJoystickButtons.Menu,
-        LExtendedGamepad.buttonMenu.isPressed);
-      // TODO : traiter infos du DPad
-      // joystick.DPad := lmicroGamepad.dpad
+        LMicroGamepad.buttonMenu.isPressed);
+      Joystick.dpad := ord(getDPadPosition(LMicroGamepad.dpad));
     end
     else
       initJoystick(Joystick);
@@ -275,7 +303,8 @@ begin
   if not assigned(LController) then
     result := false
   else
-    result := LController.extendedGamepad <> nil;
+    result := (LController.extendedGamepad <> nil) or
+      (LController.microGamepad <> nil);
 end;
 
 function TGamolfJoystickService.hasJoystickButtonsAPI: boolean;
@@ -465,10 +494,10 @@ finalization
 
 ControllersNotificationHandler.Free;
 Controllers.Free;
-{$ELSE}
+{ $ELSE }
 
-implementation
+// implementation
 
-{$ENDIF}
+{ $ENDIF }
 
 end.

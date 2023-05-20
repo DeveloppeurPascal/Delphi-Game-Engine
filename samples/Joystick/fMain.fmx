@@ -65,4 +65,18 @@ object Form2: TForm2
     Text = 'Press a gamepad button and moove stick 0 (left).'
     TabOrder = 6
   end
+  object Label4: TLabel
+    Align = Top
+    Margins.Left = 5.000000000000000000
+    Margins.Top = 5.000000000000000000
+    Margins.Right = 5.000000000000000000
+    Margins.Bottom = 5.000000000000000000
+    Position.X = 5.000000000000000000
+    Position.Y = 59.000000000000000000
+    Size.Width = 630.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Label4'
+    TabOrder = 9
+  end
 end

@@ -16,6 +16,7 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
+    Label4: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
@@ -71,12 +72,17 @@ begin
   // end;
   Label1.Text := 'Nb : ' + JoystickService.Count.ToString;
   Label2.Text := 'Pressed buttons : ';
+  Label4.Text := 'DPad :';
   JoystickService.ForEach(ji,
     procedure(JoystickID: TJoystickID; var JoystickInfo: TJoystickInfo;
       hadError: boolean)
     begin
       Label2.Text := Label2.Text + 'J' + JoystickID.ToString + '=' +
         length(ji.PressedButtons).ToString + ' ';
+
+      Label4.Text := Label4.Text + 'J' + JoystickID.ToString + '=' +
+        ji.DPad.ToString + ' ';
+
       if (not hadError) and JoystickService.isConnected(JoystickID) and
         (length(ji.PressedButtons) > 0) then
       begin
