@@ -476,7 +476,7 @@ finalization
 ControllersNotificationHandler.Free;
 Controllers.Free;
 {$ELSE}
-// implementation
+implementation
 
 {$ENDIF}
 
