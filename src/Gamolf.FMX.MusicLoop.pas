@@ -199,7 +199,9 @@ begin
     begin
       MediaPlayer.CurrentTime := 0;
       if audioEnBoucle then
-        MediaPlayer.Play;
+        MediaPlayer.Play
+      else
+        Stop;
     end
     else if (MediaPlayer.State = TMediaState.Playing) and
       (MediaPlayer.CurrentTime >= MediaPlayer.Duration) then
