@@ -30,15 +30,17 @@ type
   TMusicLoop = class
   private
     class var FCurrent: TMusicLoop;
-    function getFileName: string;
 
   var
     MediaPlayer: TMediaPlayer;
     AudioCheckTimer: TTimer;
     FaudioOn: boolean;
+    FAudioPaused: boolean;
     FaudioActif: boolean;
     FaudioEnBoucle: boolean;
     Ftag: integer;
+    function getFileName: string;
+    procedure SetAudioPaused(const Value: boolean);
     procedure Settag(const Value: integer);
     procedure SetaudioActif(const Value: boolean);
     procedure SetaudioOn(const Value: boolean);
@@ -51,6 +53,7 @@ type
     property audioActif: boolean read FaudioActif write SetaudioActif;
     property audioOn: boolean read FaudioOn write SetaudioOn;
     property audioEnBoucle: boolean read FaudioEnBoucle write SetaudioEnBoucle;
+    property AudioPaused: boolean read FAudioPaused write SetAudioPaused;
   public
     property Filename: string read getFileName;
     /// <summary>
@@ -86,6 +89,14 @@ type
     /// Stop current play (sound or music)
     /// </summary>
     procedure Stop;
+    /// <summary>
+    /// Stop the music or restart it if it was paused
+    /// </summary>
+    procedure Pause;
+    /// <summary>
+    /// Return true if the music is in pause
+    /// </summary>
+    function isPaused: boolean;
     /// <summary>
     /// Check if a sound or music is playing
     /// </summary>
@@ -193,7 +204,7 @@ end;
 
 procedure TMusicLoop.AudioCheckTimerTimer(Sender: TObject);
 begin
-  if (audioActif and audioOn) then
+  if (audioActif and audioOn and (not FAudioPaused)) then
   begin
     if (MediaPlayer.State = TMediaState.Stopped) then
     begin
@@ -256,6 +267,11 @@ begin
   result := FaudioActif;
 end;
 
+function TMusicLoop.isPaused: boolean;
+begin
+  result := FaudioActif and FaudioOn and FAudioPaused;
+end;
+
 function TMusicLoop.Load(Filename: string): TMusicLoop;
 begin
   if (not Filename.IsEmpty) and (tfile.Exists(Filename)) then
@@ -267,6 +283,11 @@ begin
       audioActif := false;
     end;
   result := self;
+end;
+
+procedure TMusicLoop.Pause;
+begin
+  AudioPaused := not AudioPaused;
 end;
 
 procedure TMusicLoop.Play(LectureEnBoucle: boolean);
@@ -290,6 +311,7 @@ begin
     Load(Filename);
   if audioActif then
   begin
+    FAudioPaused := false;
     audioEnBoucle := LectureEnBoucle;
     audioOn := true;
   end;
@@ -317,6 +339,18 @@ begin
       MediaPlayer.Stop;
 end;
 
+procedure TMusicLoop.SetAudioPaused(const Value: boolean);
+begin
+  if (FAudioPaused <> Value) then
+  begin
+    FAudioPaused := Value;
+    if FAudioPaused then
+      MediaPlayer.Stop
+    else
+      MediaPlayer.Play;
+  end;
+end;
+
 procedure TMusicLoop.Settag(const Value: integer);
 begin
   Ftag := Value;
@@ -330,6 +364,7 @@ end;
 
 procedure TMusicLoop.Stop;
 begin
+  FAudioPaused := false;
   audioOn := false;
 end;
 
