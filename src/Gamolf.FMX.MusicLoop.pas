@@ -107,6 +107,15 @@ type
     function IsActive: boolean;
 
     /// <summary>
+    /// Return current playing time in seconds
+    /// </summary>
+    function CurrentTimeInSeconds: integer;
+    /// <summary>
+    /// Return the music duration in seconds
+    /// </summary>
+    function DurationInSeconds: integer;
+
+    /// <summary>
     /// Get the instance of the default music loop to use it as a singleton
     /// </summary>
     class function Current: TMusicLoop;
@@ -245,11 +254,21 @@ begin
   inherited;
 end;
 
+function TMusicLoop.DurationInSeconds: integer;
+begin
+  result := trunc(MediaPlayer.Duration / MediaTimeScale);
+end;
+
 class function TMusicLoop.Current: TMusicLoop;
 begin
   if not assigned(FCurrent) then
     FCurrent := TMusicLoop.Create;
   result := FCurrent;
+end;
+
+function TMusicLoop.CurrentTimeInSeconds: integer;
+begin
+  result := trunc(MediaPlayer.CurrentTime / MediaTimeScale);
 end;
 
 function TMusicLoop.getFileName: string;
