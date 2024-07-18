@@ -77,61 +77,69 @@ var
   i: TJoystickID;
   JoyInfo: tjoyinfo;
   ErrNum: MMRESULT;
-begin
-  if (JoystickID >= 0) and (JoystickID < FNbControllers) then
-    for i := length(FTabDevCaps) to JoystickID do
-    begin
-      setlength(FTabDevCaps, length(FTabDevCaps) + 1);
-      case joyGetDevCapsW(i, @FTabDevCaps[i].JoyCapsW,
-        sizeof(FTabDevCaps[i].JoyCapsW)) of
-        // https://learn.microsoft.com/en-us/windows/win32/api/joystickapi/nf-joystickapi-joygetdevcapsw
-        // https://learn.microsoft.com/en-us/windows/win32/api/joystickapi/ns-joystickapi-joycapsw
-        MMSYSERR_NODRIVER:
-          raise EJoystickServiceException.Create
-            ('The joystick driver is not present.');
-        MMSYSERR_INVALPARAM:
-          raise EJoystickServiceException.Create
-            ('An invalid parameter was passed.');
-      else
-        FTabDevCaps[i].XMiddle :=
-          (FTabDevCaps[i].JoyCapsW.wXmax - FTabDevCaps[i].JoyCapsW.wXmin) div 2;
-        FTabDevCaps[i].YMiddle :=
-          (FTabDevCaps[i].JoyCapsW.wYmax - FTabDevCaps[i].JoyCapsW.wymin) div 2;
-        FTabDevCaps[i].ZMiddle :=
-          (FTabDevCaps[i].JoyCapsW.wZmax - FTabDevCaps[i].JoyCapsW.wzmin) div 2;
-        FTabDevCaps[i].RMiddle :=
-          (FTabDevCaps[i].JoyCapsW.wRmax - FTabDevCaps[i].JoyCapsW.wrmin) div 2;
-        FTabDevCaps[i].UMiddle :=
-          (FTabDevCaps[i].JoyCapsW.wUmax - FTabDevCaps[i].JoyCapsW.wumin) div 2;
-        FTabDevCaps[i].VMiddle :=
-          (FTabDevCaps[i].JoyCapsW.wVmax - FTabDevCaps[i].JoyCapsW.wvmin) div 2;
+  procedure CallAPI(const i: TJoystickID);
+  begin
+    case joyGetDevCapsW(i, @FTabDevCaps[i].JoyCapsW,
+      sizeof(FTabDevCaps[i].JoyCapsW)) of
+      // https://learn.microsoft.com/en-us/windows/win32/api/joystickapi/nf-joystickapi-joygetdevcapsw
+      // https://learn.microsoft.com/en-us/windows/win32/api/joystickapi/ns-joystickapi-joycapsw
+      MMSYSERR_NODRIVER:
+        raise EJoystickServiceException.Create
+          ('The joystick driver is not present.');
+      MMSYSERR_INVALPARAM:
+        raise EJoystickServiceException.Create
+          ('An invalid parameter was passed.');
+    else
+      FTabDevCaps[i].XMiddle :=
+        (FTabDevCaps[i].JoyCapsW.wXmax - FTabDevCaps[i].JoyCapsW.wXmin) div 2;
+      FTabDevCaps[i].YMiddle :=
+        (FTabDevCaps[i].JoyCapsW.wYmax - FTabDevCaps[i].JoyCapsW.wymin) div 2;
+      FTabDevCaps[i].ZMiddle :=
+        (FTabDevCaps[i].JoyCapsW.wZmax - FTabDevCaps[i].JoyCapsW.wzmin) div 2;
+      FTabDevCaps[i].RMiddle :=
+        (FTabDevCaps[i].JoyCapsW.wRmax - FTabDevCaps[i].JoyCapsW.wrmin) div 2;
+      FTabDevCaps[i].UMiddle :=
+        (FTabDevCaps[i].JoyCapsW.wUmax - FTabDevCaps[i].JoyCapsW.wumin) div 2;
+      FTabDevCaps[i].VMiddle :=
+        (FTabDevCaps[i].JoyCapsW.wVmax - FTabDevCaps[i].JoyCapsW.wvmin) div 2;
 
-        if (FTabDevCaps[i].JoyCapsW.wMaxButtons = 0) or
-          (FTabDevCaps[i].JoyCapsW.wMaxAxes = 0) then
-          FTabDevCaps[i].Connected := false
+      if (FTabDevCaps[i].JoyCapsW.wMaxButtons = 0) or
+        (FTabDevCaps[i].JoyCapsW.wMaxAxes = 0) then
+        FTabDevCaps[i].Connected := false
+      else
+      begin
+        ErrNum := joyGetPos(JoystickID, @JoyInfo);
+        // https://learn.microsoft.com/en-us/windows/win32/api/joystickapi/nf-joystickapi-joygetpos
+        case ErrNum of
+          MMSYSERR_NOERROR:
+            FTabDevCaps[i].Connected := true;
+          MMSYSERR_NODRIVER:
+            raise EJoystickServiceException.Create
+              ('The joystick driver is not present.');
+          MMSYSERR_INVALPARAM:
+            raise EJoystickServiceException.Create
+              ('An invalid parameter was passed.');
+          // JOYERR_UNPLUGGED:
+          // raise EJoystickUnpluggedException.Create
+          // ('Controller ' + JoystickID.tostring + ' is not available.');
         else
-        begin
-          ErrNum := joyGetPos(JoystickID, @JoyInfo);
-          // https://learn.microsoft.com/en-us/windows/win32/api/joystickapi/nf-joystickapi-joygetpos
-          case ErrNum of
-            MMSYSERR_NOERROR:
-              FTabDevCaps[i].Connected := true;
-            MMSYSERR_NODRIVER:
-              raise EJoystickServiceException.Create
-                ('The joystick driver is not present.');
-            MMSYSERR_INVALPARAM:
-              raise EJoystickServiceException.Create
-                ('An invalid parameter was passed.');
-            // JOYERR_UNPLUGGED:
-            // raise EJoystickUnpluggedException.Create
-            // ('Controller ' + JoystickID.tostring + ' is not available.');
-          else
-            // unknown error (device doesn't exists but is declared)
-            FTabDevCaps[i].Connected := false;
-          end;
+          // unknown error (device doesn't exists but is declared)
+          FTabDevCaps[i].Connected := false;
         end;
       end;
     end;
+  end;
+
+begin
+  if (JoystickID >= 0) and (JoystickID < FNbControllers) then
+    if length(FTabDevCaps) <= JoystickID then
+      for i := length(FTabDevCaps) to JoystickID do
+      begin
+        setlength(FTabDevCaps, length(FTabDevCaps) + 1);
+        CallAPI(i);
+      end
+    else
+      CallAPI(JoystickID);
 end;
 
 procedure TGamolfJoystickWinDirectInputService.getInfo(JoystickID: TJoystickID;
@@ -274,8 +282,7 @@ end;
 procedure TGamolfJoystickWinDirectInputService.getJoystickCaps
   (JoystickID: TJoystickID);
 begin
-  if (JoystickID >= 0) and (JoystickID < FNbControllers) and
-    (length(FTabDevCaps) <= JoystickID) then
+  if (JoystickID >= 0) and (JoystickID < FNbControllers) then
     getDevCaps(JoystickID);
 end;
 {$ELSE}
