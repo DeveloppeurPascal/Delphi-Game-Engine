@@ -164,38 +164,49 @@ begin
           begin
             if (length(Joystick.Axes) < 6) then
               setlength(Joystick.Axes, 6);
-            Joystick.Axes[0] :=
+            // Stick gauche - axe horizontal (sur manette Xbox)
+            Joystick.Axes[ord(tjoystickaxes.LeftStickX)] :=
               (JoyInfoEx.wXpos - FTabDevCaps[JoystickID].XMiddle) / FTabDevCaps
               [JoystickID].XMiddle;
-            Joystick.Axes[1] :=
+            // Stick gauche - axe vertical (sur manette Xbox)
+            Joystick.Axes[ord(tjoystickaxes.LeftSticky)] :=
               (JoyInfoEx.wypos - FTabDevCaps[JoystickID].YMiddle) / FTabDevCaps
               [JoystickID].YMiddle;
-            if ((FTabDevCaps[JoystickID].JoyCapsW.wcaps and joycaps_hasz) > 0)
-            then
-              Joystick.Axes[2] :=
-                (JoyInfoEx.wzpos - FTabDevCaps[JoystickID].ZMiddle) /
-                FTabDevCaps[JoystickID].ZMiddle
-            else
-              Joystick.Axes[2] := 0;
-            if ((FTabDevCaps[JoystickID].JoyCapsW.wcaps and joycaps_hasr) > 0)
-            then
-              Joystick.Axes[3] :=
-                (JoyInfoEx.dwrpos - FTabDevCaps[JoystickID].RMiddle) /
-                FTabDevCaps[JoystickID].RMiddle
-            else
-              Joystick.Axes[3] := 0;
+            // Stick droite - axe horizontal (sur manette Xbox)
             if ((FTabDevCaps[JoystickID].JoyCapsW.wcaps and joycaps_hasu) > 0)
             then
-              Joystick.Axes[4] :=
+              Joystick.Axes[ord(tjoystickaxes.RightStickX)] :=
                 (JoyInfoEx.dwupos - FTabDevCaps[JoystickID].UMiddle) /
                 FTabDevCaps[JoystickID].UMiddle
             else
-              Joystick.Axes[4] := 0;
+              Joystick.Axes[ord(tjoystickaxes.RightStickX)] := 0;
+            // Stick droite - axe vertical (sur manette Xbox)
+            if ((FTabDevCaps[JoystickID].JoyCapsW.wcaps and joycaps_hasr) > 0)
+            then
+              Joystick.Axes[ord(tjoystickaxes.RightStickY)] :=
+                (JoyInfoEx.dwrpos - FTabDevCaps[JoystickID].RMiddle) /
+                FTabDevCaps[JoystickID].RMiddle
+            else
+              Joystick.Axes[ord(tjoystickaxes.RightStickY)] := 0;
+            // triggers gauche (valeurs positives) et droite (valeurs négatives) mélangés sur le même contrôle (sur manette Xbox)
+            if ((FTabDevCaps[JoystickID].JoyCapsW.wcaps and joycaps_hasz) > 0)
+            then
+              Joystick.Axes[ord(tjoystickaxes.LeftTrigger)] :=
+                (JoyInfoEx.wzpos - FTabDevCaps[JoystickID].ZMiddle) /
+                FTabDevCaps[JoystickID].ZMiddle
+            else
+              Joystick.Axes[ord(tjoystickaxes.LeftTrigger)] := 0;
             if ((FTabDevCaps[JoystickID].JoyCapsW.wcaps and joycaps_hasv) > 0)
             then
-              Joystick.Axes[5] :=
+              Joystick.Axes[ord(tjoystickaxes.righttrigger)] :=
                 (JoyInfoEx.dwvpos - FTabDevCaps[JoystickID].VMiddle) /
                 FTabDevCaps[JoystickID].VMiddle
+            else if Joystick.Axes[ord(tjoystickaxes.LeftTrigger)] < 0 then
+            begin
+              Joystick.Axes[ord(tjoystickaxes.righttrigger)] :=
+                -Joystick.Axes[ord(tjoystickaxes.LeftTrigger)];
+              Joystick.Axes[ord(tjoystickaxes.LeftTrigger)] := 0;
+            end
             else
               Joystick.Axes[5] := 0;
 
