@@ -77,8 +77,8 @@ begin
   Label1.Text := 'Nb : ' + JoystickService.Count.ToString;
   Label2.Text := 'Pressed buttons : ';
   Label4.Text := 'DPad angle :';
-  Label5.Text := 'Left stick (axes x,y) :';
-  Label6.Text := 'Right stick (axes x,y) :';
+  Label5.Text := 'Left stick :';
+  Label6.Text := 'Right stick :';
   Label7.Text := 'Left trigger pression :';
   Label8.Text := 'Right trigger pression :';
   JoystickService.ForEach(ji,
