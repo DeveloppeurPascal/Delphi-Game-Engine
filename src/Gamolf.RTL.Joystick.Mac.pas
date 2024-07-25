@@ -208,18 +208,18 @@ begin
       //
       if (length(Joystick.Axes) <> 6) then
         setlength(Joystick.Axes, 6);
-      // X
-      Joystick.Axes[0] := LExtendedGamepad.leftThumbstick.xAxis.Value;
-      // Y
-      Joystick.Axes[1] := -LExtendedGamepad.leftThumbstick.yAxis.Value;
-      // Z
-      Joystick.Axes[2] := LExtendedGamepad.rightThumbstick.xAxis.Value;
-      // R
-      Joystick.Axes[3] := -LExtendedGamepad.rightThumbstick.yAxis.Value;
-      // U
-      Joystick.Axes[4] := LExtendedGamepad.leftTrigger.Value;
-      // V
-      Joystick.Axes[5] := LExtendedGamepad.rightTrigger.Value;
+      Joystick.Axes[ord(tjoystickaxes.LeftStickX)] :=
+        LExtendedGamepad.leftThumbstick.xAxis.Value;
+      Joystick.Axes[ord(tjoystickaxes.LeftStickY)] :=
+        -LExtendedGamepad.leftThumbstick.yAxis.Value;
+      Joystick.Axes[ord(tjoystickaxes.RightStickX)] :=
+        LExtendedGamepad.rightThumbstick.xAxis.Value;
+      Joystick.Axes[ord(tjoystickaxes.RightStickY)] :=
+        -LExtendedGamepad.rightThumbstick.yAxis.Value;
+      Joystick.Axes[ord(tjoystickaxes.LeftTrigger)] :=
+        LExtendedGamepad.LeftTrigger.Value;
+      Joystick.Axes[ord(tjoystickaxes.RightTrigger)] :=
+        LExtendedGamepad.RightTrigger.Value;
       //
       // Initialize buttons list
       //
@@ -242,10 +242,10 @@ begin
         LExtendedGamepad.leftShoulder.isPressed);
       Joystick.setPressed(TJoystickButtons.rightShoulder,
         LExtendedGamepad.rightShoulder.isPressed);
-      Joystick.setPressed(TJoystickButtons.leftTrigger,
-        LExtendedGamepad.leftTrigger.isPressed);
-      Joystick.setPressed(TJoystickButtons.rightTrigger,
-        LExtendedGamepad.rightTrigger.isPressed);
+      Joystick.setPressed(TJoystickButtons.LeftTrigger,
+        LExtendedGamepad.LeftTrigger.isPressed);
+      Joystick.setPressed(TJoystickButtons.RightTrigger,
+        LExtendedGamepad.RightTrigger.isPressed);
       Joystick.setPressed(TJoystickButtons.leftThumbstick,
         LExtendedGamepad.leftThumbstickButton.isPressed);
       Joystick.setPressed(TJoystickButtons.rightThumbstick,
@@ -476,6 +476,7 @@ finalization
 ControllersNotificationHandler.Free;
 Controllers.Free;
 {$ELSE}
+
 implementation
 
 {$ENDIF}
