@@ -17,11 +17,13 @@ interface
 
 implementation
 
-uses FMX.Platform, Gamolf.RTL.Joystick
+uses
+  FMX.Platform,
+  Gamolf.RTL.Joystick
 {$IF Defined(MSWINDOWS)}
-  ,Gamolf.RTL.Joystick.DirectInput.Win
+    , Gamolf.RTL.Joystick.DirectInput.Win
 {$ELSEIF Defined(IOS) or Defined(MACOS)}
-  ,Gamolf.RTL.Joystick.Mac
+    , Gamolf.RTL.Joystick.Mac
 {$ENDIF};
 
 initialization
