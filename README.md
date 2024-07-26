@@ -12,7 +12,7 @@ It comes from years of game development for fun and [live coding sessions on Twi
 
 You can find examples of classic game features in [Delphi FMX Game Snippets](https://github.com/DeveloppeurPascal/Delphi-FMX-Game-Snippets) if you are looking for inspiration.
 
-A presentation of FireMonkey's "game engine" features was offered at [DelphiCon 2021](https://delphicon.embarcadero.com/) (in English, see [the replay](https://delphicon.embarcadero.com/talks/using-firemonkey-as-a-game-engine-on-demand/)) and [on Twitch](https://www.twitch.tv/patrickpremartin) on Saturday, December 11, 2021 at 3pm (in French, see [the replay](https://developpeur-pascal.fr/p/_200p-webinaire-du-11-decembre-2021-utiliser-firemonkey-comme-moteur-de-jeu-video.html)).
+A presentation of FireMonkey's "game engine" features was offered at [DelphiCon 2021](https://serialstreameur.fr/delphicon2021.php) in English ([replay](https://serialstreameur.fr/delphicon-2021-fmx-game-engine.php)) and as a webinar a month after in French ([replay](https://developpeur-pascal.fr/webinaire-du-11-decembre-2021-utiliser-firemonkey-comme-moteur-de-jeu-video.html)).
 
 Some of [my Delphi games](https://gamolf.fr) are open sourced on GitHub. Find them as submodules of [this repository](https://github.com/DeveloppeurPascal/DevPas-Games-Pack).
 
