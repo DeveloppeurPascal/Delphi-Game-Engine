@@ -29,7 +29,7 @@ type
   /// ID for game controllers buttons (when it's know by the API)
   /// </summary>
   TJoystickButtons = (A, B, X, Y, Home, Options, Menu, LeftShoulder,
-    RightShoulder, LeftTrigger, RightTrigger, LeftThumbStick, RightThumbStick);
+    RightShoulder, LeftThumbStick, RightThumbStick, LeftTrigger, RightTrigger);
   TJoystickButtonsSet = set of TJoystickButtons;
 
   /// <summary>
@@ -1045,8 +1045,11 @@ procedure TGamolfCustomJoystickService.initJoystick(var Joystick
 var
   i: integer;
 begin
+  if length(Joystick.Axes) < 6 then
+    setlength(Joystick.Axes, 6);
   for i := 0 to length(Joystick.Axes) - 1 do
     Joystick.Axes[i] := 0;
+
   if hasJoystickButtonsAPI then
     Joystick.initButtonsToJoystickButtons
   else
@@ -1055,6 +1058,7 @@ begin
       Joystick.Buttons[i] := false;
     setlength(Joystick.PressedButtons, 0);
   end;
+
   Joystick.DPad := ord(TJoystickDPad.Center);
 end;
 
@@ -1082,9 +1086,9 @@ const
 var
   i: integer;
 begin
-  if (length(Buttons) <> CNBButtons) then
+  if (length(Buttons) < CNBButtons) then
     setlength(Buttons, CNBButtons);
-  for i := 0 to CNBButtons - 1 do
+  for i := 0 to length(Buttons) - 1 do
     Buttons[i] := false;
   setlength(PressedButtons, 0);
 end;
@@ -2219,7 +2223,7 @@ begin
 
   CurNb := length(FJoystickInfo.Axes);
   NewNb := length(NewJoystickInfo.Axes);
-  if CurNb <> NewNb then
+  if CurNb < NewNb then
   begin
     setlength(FJoystickInfo.Axes, NewNb);
     for i := CurNb to NewNb - 1 do
@@ -2234,7 +2238,7 @@ begin
 
   CurNb := length(FJoystickInfo.Buttons);
   NewNb := length(NewJoystickInfo.Buttons);
-  if CurNb <> NewNb then
+  if CurNb < NewNb then
   begin
     setlength(FJoystickInfo.Buttons, NewNb);
     for i := CurNb to NewNb - 1 do
