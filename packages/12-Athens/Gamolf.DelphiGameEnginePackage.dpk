@@ -33,6 +33,6 @@ requires
   rtl;
 
 contains
-  Gamolf.RTL.Joystick in 'Gamolf.RTL.Joystick.pas';
+  Gamolf.RTL.Joystick in '..\..\src\Gamolf.RTL.Joystick.pas';
 
 end.

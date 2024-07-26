@@ -166,7 +166,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="rtl.dcp"/>
-        <DCCReference Include="Gamolf.RTL.Joystick.pas"/>
+        <DCCReference Include="..\..\src\Gamolf.RTL.Joystick.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -210,7 +210,7 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\..\..\..\..\..\..\..\Public\Documents\Embarcadero\Studio\23.0\Bpl\Gamolf.DelphiGameEnginePackage.bpl" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="..\..\..\..\..\..\..\..\..\Public\Documents\Embarcadero\Studio\23.0\Bpl\Gamolf.DelphiGameEnginePackage.bpl" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Gamolf.DelphiGameEnginePackage.bpl</RemoteName>
                         <Overwrite>true</Overwrite>
