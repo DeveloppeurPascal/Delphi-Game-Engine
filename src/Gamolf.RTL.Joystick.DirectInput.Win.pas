@@ -239,6 +239,7 @@ begin
               ord(TJoystickButtons.LeftTrigger)) and
               (Joystick.Axes[ord(tjoystickaxes.LeftTrigger)] > 0.3) then
             begin
+              Joystick.Buttons[ord(TJoystickButtons.LeftTrigger)] := true;
               setlength(Joystick.PressedButtons,
                 length(Joystick.PressedButtons) + 1);
               Joystick.PressedButtons[length(Joystick.PressedButtons) - 1] :=
@@ -250,6 +251,7 @@ begin
               ord(TJoystickButtons.righttrigger)) and
               (Joystick.Axes[ord(tjoystickaxes.righttrigger)] > 0.3) then
             begin
+              Joystick.Buttons[ord(TJoystickButtons.righttrigger)] := true;
               setlength(Joystick.PressedButtons,
                 length(Joystick.PressedButtons) + 1);
               Joystick.PressedButtons[length(Joystick.PressedButtons) - 1] :=
