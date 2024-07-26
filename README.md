@@ -14,6 +14,8 @@ You can find examples of classic game features in [Delphi FMX Game Snippets](htt
 
 A presentation of FireMonkey's "game engine" features was offered at [DelphiCon 2021](https://serialstreameur.fr/delphicon2021.php) in English ([replay](https://serialstreameur.fr/delphicon-2021-fmx-game-engine.php)) and as a webinar a month after in French ([replay](https://developpeur-pascal.fr/webinaire-du-11-decembre-2021-utiliser-firemonkey-comme-moteur-de-jeu-video.html)).
 
+A previous presentation was made for the [Code Rage 2018](https://serialstreameur.fr/embarcadero-code-rage-2018.html) in English with a [how-to](https://serialstreameur.fr/coderage2018-christmasgame-howto.php) version and a [code revue](https://serialstreameur.fr/coderage2018-christmasgame-codereview.php) where a game was coded in a FireMonkey project in Delphi.
+
 Some of [my Delphi games](https://gamolf.fr) are open sourced on GitHub. Find them as submodules of [this repository](https://github.com/DeveloppeurPascal/DevPas-Games-Pack).
 
 This code repository contains a project developed in Object Pascal language under Delphi. You don't know what Delphi is and where to download it ? You'll learn more [on this web site](https://delphi-resources.developpeur-pascal.fr/).

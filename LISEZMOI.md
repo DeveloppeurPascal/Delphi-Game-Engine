@@ -14,6 +14,8 @@ Vous trouverez des exemples de fonctionnalités classiques sur des jeux vidéos 
 
 Une présentation des fonctionnalités "game engine" de FireMonkey a été proposée à la [DelphiCon 2021](https://serialstreameur.fr/delphicon2021.php) in English ([rediffusion](https://serialstreameur.fr/delphicon-2021-fmx-game-engine.php)) et comme webinaire le mois suivant en français ([rediffusion](https://developpeur-pascal.fr/webinaire-du-11-decembre-2021-utiliser-firemonkey-comme-moteur-de-jeu-video.html)).
 
+Une présentation précédente avait été faite lors du [Code Rage 2018](https://serialstreameur.fr/embarcadero-code-rage-2018.html) en anglais sous forme de [how-to](https://serialstreameur.fr/coderage2018-christmasgame-howto.php) et d'une [revue de code](https://serialstreameur.fr/coderage2018-christmasgame-codereview.php) où un jeu vidéo avait été codé dans un projet FireMonkey sous Delphi.
+
 Certain de [mes jeux en Delphi](https://gamolf.fr) sont disponibles en open source sur GitHub.Vous les trouverez en sous-modules de [ce dépôt](https://github.com/DeveloppeurPascal/DevPas-Games-Pack).
 
 Ce dépôt de code contient un projet développé en langage Pascal Objet sous Delphi. Vous ne savez pas ce qu'est Dephi ni où le télécharger ? Vous en saurez plus [sur ce site web](https://delphi-resources.developpeur-pascal.fr/).
