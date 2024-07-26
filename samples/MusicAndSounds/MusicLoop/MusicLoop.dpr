@@ -4,7 +4,7 @@ uses
   System.StartUpCopy,
   FMX.Forms,
   fMain in 'fMain.pas' {Form1},
-  Gamolf.FMX.MusicLoop in '..\..\src\Gamolf.FMX.MusicLoop.pas';
+  Gamolf.FMX.MusicLoop in '..\..\..\src\Gamolf.FMX.MusicLoop.pas';
 
 {$R *.res}
 
