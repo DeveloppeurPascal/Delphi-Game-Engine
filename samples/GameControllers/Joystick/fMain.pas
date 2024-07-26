@@ -3,10 +3,20 @@ unit fMain;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.SysUtils,
+  System.Types,
+  System.UITypes,
+  System.Classes,
   System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
-  Gamolf.FMX.Joystick, Gamolf.RTL.Joystick, FMX.Controls.Presentation,
+  FMX.Types,
+  FMX.Controls,
+  FMX.Forms,
+  FMX.Graphics,
+  FMX.Dialogs,
+  FMX.Objects,
+  Gamolf.FMX.Joystick,
+  Gamolf.RTL.Joystick,
+  FMX.Controls.Presentation,
   FMX.StdCtrls;
 
 type
