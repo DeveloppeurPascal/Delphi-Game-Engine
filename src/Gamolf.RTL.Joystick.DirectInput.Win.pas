@@ -166,8 +166,11 @@ begin
       case ErrNum of
         MMSYSERR_NOERROR:
           begin
-            if (length(Joystick.Axes) < 6) then
-              setlength(Joystick.Axes, 6);
+            if (length(Joystick.Axes) < 6) or
+              (length(Joystick.Buttons) < FTabDevCaps[JoystickID]
+              .JoyCapsW.wNumButtons) then
+              initJoystick(Joystick);
+
             // Stick gauche - axe horizontal (sur manette Xbox)
             Joystick.Axes[ord(tjoystickaxes.LeftStickX)] :=
               (JoyInfoEx.wXpos - FTabDevCaps[JoystickID].XMiddle) / FTabDevCaps
@@ -214,12 +217,11 @@ begin
             else
               Joystick.Axes[5] := 0;
 
-            if (length(Joystick.Buttons) < FTabDevCaps[JoystickID]
-              .JoyCapsW.wNumButtons) then
-              setlength(Joystick.Buttons,
-                FTabDevCaps[JoystickID].JoyCapsW.wNumButtons);
-            // TODO : optimize PressedButtons memory usage
-            setlength(Joystick.PressedButtons, 0);
+            if (length(Joystick.Buttons) < ord(high(TJoystickButtons)) + 1) then
+              Joystick.initButtonsToJoystickButtons
+            else
+              setlength(Joystick.PressedButtons, 0);
+
             for btn := 0 to FTabDevCaps[JoystickID].JoyCapsW.wNumButtons - 1 do
             begin
               Joystick.Buttons[btn] := (JoyInfoEx.wbuttons and (1 shl btn)) > 0;
@@ -230,6 +232,28 @@ begin
                 Joystick.PressedButtons[length(Joystick.PressedButtons) -
                   1] := btn;
               end;
+            end;
+
+            // simulation du clic sur gachette de gauche (quand ce n'est pas pris en charge par DirectInput)
+            if (FTabDevCaps[JoystickID].JoyCapsW.wNumButtons <
+              ord(TJoystickButtons.LeftTrigger)) and
+              (Joystick.Axes[ord(tjoystickaxes.LeftTrigger)] > 0.3) then
+            begin
+              setlength(Joystick.PressedButtons,
+                length(Joystick.PressedButtons) + 1);
+              Joystick.PressedButtons[length(Joystick.PressedButtons) - 1] :=
+                ord(TJoystickButtons.LeftTrigger);
+            end;
+
+            // simulation du clic sur gachette de droite (quand ce n'est pas pris en charge par DirectInput)
+            if (FTabDevCaps[JoystickID].JoyCapsW.wNumButtons <
+              ord(TJoystickButtons.righttrigger)) and
+              (Joystick.Axes[ord(tjoystickaxes.righttrigger)] > 0.3) then
+            begin
+              setlength(Joystick.PressedButtons,
+                length(Joystick.PressedButtons) + 1);
+              Joystick.PressedButtons[length(Joystick.PressedButtons) - 1] :=
+                ord(TJoystickButtons.righttrigger);
             end;
 
             if ((FTabDevCaps[JoystickID].JoyCapsW.wcaps and JOYCAPS_HASPOV) > 0)
