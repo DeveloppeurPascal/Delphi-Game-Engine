@@ -2261,7 +2261,8 @@ begin
     case FJoystickInfo.Buttons[AButtonID] of
       true:
         begin
-          TGamepadDevicesManager.Current.DoGamepadButtonDown(LID, LButton);
+          TGamepadDevicesManager.Current.DoGamepadButtonDown(FID,
+            TJoystickButtons(AButtonID));
 
           if assigned(FOnButtonDown) then
             if FSynchronizedEvents then
@@ -2281,7 +2282,8 @@ begin
               FOnButtonDown(FID, TJoystickButtons(AButtonID));
         end;
     else
-      TGamepadDevicesManager.Current.DoGamepadButtonUp(LID, LButton);
+      TGamepadDevicesManager.Current.DoGamepadButtonUp(FID,
+        TJoystickButtons(AButtonID));
 
       if assigned(FOnButtonUp) then
         if FSynchronizedEvents then
