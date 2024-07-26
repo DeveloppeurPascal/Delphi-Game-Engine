@@ -6,19 +6,38 @@ FireMonkey est le framework de composants et librairies multiplateforme fourni a
 
 Comme ce framework est basé sur un moteur graphique il est idéal pour développer des jeux vidéo 2D et 3D sans apprendre le fonctionnement d'un moteur de jeux spécialisé (comme par exemple le génial [Castle Game Engine](https://castle-engine.io) qui embarque en plus de nombreux outils (éditeurs de map, sprites, ...) pour les développeurs de jeux en Pascal).
 
+Vous trouverez d'autres moteurs de jeux vidéo en Pascal (Delphi, Lazarus, ...) listés sur [Awesome Pascal](https://github.com/Fr0sT-Brutal/awesome-pascal).
+
 Ce dépôt de code propose des unités et exemples réutilisables dans vos projets de jeux vidéo.
 
 Il est issu d'années de développement de jeux pour le fun et des sessions de [codage en direct sur Twitch](https://www.twitch.tv/patrickpremartin) démarrées en 2021 (et bien avant Twitch).
 
 Vous trouverez des exemples de fonctionnalités classiques sur des jeux vidéos dans [Delphi FMX Game Snippets](https://github.com/DeveloppeurPascal/Delphi-FMX-Game-Snippets) si vous cherchez l'inspiration.
 
-Une présentation des fonctionnalités "game engine" de FireMonkey a été proposée à la [DelphiCon 2021](https://serialstreameur.fr/delphicon2021.php) in English ([rediffusion](https://serialstreameur.fr/delphicon-2021-fmx-game-engine.php)) et comme webinaire le mois suivant en français ([rediffusion](https://developpeur-pascal.fr/webinaire-du-11-decembre-2021-utiliser-firemonkey-comme-moteur-de-jeu-video.html)).
-
-Une présentation précédente avait été faite lors du [Code Rage 2018](https://serialstreameur.fr/embarcadero-code-rage-2018.html) en anglais sous forme de [how-to](https://serialstreameur.fr/coderage2018-christmasgame-howto.php) et d'une [revue de code](https://serialstreameur.fr/coderage2018-christmasgame-codereview.php) où un jeu vidéo avait été codé dans un projet FireMonkey sous Delphi.
-
-Certain de [mes jeux en Delphi](https://gamolf.fr) sont disponibles en open source sur GitHub.Vous les trouverez en sous-modules de [ce dépôt](https://github.com/DeveloppeurPascal/DevPas-Games-Pack).
+Certain de [mes jeux vidéo](https://gamolf.fr) sont aussi disponibles en open source sur GitHub. Vous les trouverez en sous-modules de [ce dépôt](https://github.com/DeveloppeurPascal/DevPas-Games-Pack).
 
 Ce dépôt de code contient un projet développé en langage Pascal Objet sous Delphi. Vous ne savez pas ce qu'est Dephi ni où le télécharger ? Vous en saurez plus [sur ce site web](https://delphi-resources.developpeur-pascal.fr/).
+
+## Présentations et conférences
+
+### Code Rage 2018
+
+* [How to code a Christmas Game in Delphi with FireMonkey](https://serialstreameur.fr/coderage2018-christmasgame-howto.php) (en anglais)
+* [Code revue of the Christmas Game](https://serialstreameur.fr/coderage2018-christmasgame-codereview.php) (en anglais)
+
+### Learn To Code Summer Camp 2021
+
+* [Des resources disponibles pour apprendre et des exemples d'animations simples](https://serialstreameur.fr/ltcsc2021-04.php) (en français)
+* [Développer un casse briques avec Delphi](https://serialstreameur.fr/ltcsc2021-05.php) (en français)
+
+### DelphiCon 2021
+
+* [Using FireMonkey as a game engine](https://serialstreameur.fr/delphicon-2021-fmx-game-engine.php) (en anglais)
+* [Utiliser FireMonkey comme moteur de jeux vidéo](https://serialstreameur.fr/webinaire-20211211.php) (en français)
+
+### Twitch
+
+Suivez les streams de développement de jeux vidéo sur [ma chaîne Twitch](https://www.twitch.tv/patrickpremartin) ou en rediffusion sur [Serial Streameur](https://serialstreameur.fr/jeux-video.php) la plupart du temps en français.
 
 ## Installation des codes sources
 
