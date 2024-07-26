@@ -189,7 +189,6 @@ var
   LController: GCController;
   LExtendedGamepad: GCExtendedGamepad;
   LMicroGamepad: GCMicroGamepad;
-  i: integer;
 begin
   try
     // TODO : add something to check if this controller is the current one (last used by the user)
@@ -328,7 +327,6 @@ procedure TControllersNotificationHandler.ControllerDidConnect
 var
   LNotification: nsnotification;
   LController: GCController;
-  Index: integer;
 begin
   LNotification := TNSNotification.wrap(ANotification);
   LController := TGCController.wrap(LNotification.&object);
@@ -342,10 +340,10 @@ end;
 
 procedure TControllersNotificationHandler.ControllerDidDisconnect
   (ANotification: pointer); cdecl;
-var
-  LNotification: nsnotification;
-  LController: GCController;
-  LItem: TControllerItem;
+// var
+// LNotification: nsnotification;
+// LController: GCController;
+// LItem: TControllerItem;
 begin
   // TODO : try to get controller MAC (or other uniq id) to check if its already connected
 

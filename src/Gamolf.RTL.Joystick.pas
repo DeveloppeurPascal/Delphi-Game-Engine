@@ -1036,7 +1036,7 @@ var
   Joystick: TJoystickInfo;
 begin
   getInfo(JoystickID, Joystick);
-  result := (ButtonID >= 0) and (ButtonID < length(Joystick.Buttons)) and
+  result := (ButtonID < length(Joystick.Buttons)) and
     Joystick.Buttons[ButtonID];
 end;
 
@@ -1237,8 +1237,8 @@ begin
   result := assigned(FGamolfJoystickService);
 end;
 
-function TGamepadDevicesManager.IsGamepadConnected(const GamepadID: integer)
-  : boolean;
+function TGamepadDevicesManager.IsGamepadConnected(const GamepadID
+  : integer): boolean;
 begin
   result := assigned(FGamolfJoystickService) and
     FGamolfJoystickService.isConnected(GamepadID);

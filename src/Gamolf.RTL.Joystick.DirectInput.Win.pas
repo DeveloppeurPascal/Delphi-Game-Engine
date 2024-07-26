@@ -16,7 +16,11 @@ interface
 
 {$IF Defined(MSWINDOWS)}
 
-uses winapi.Windows, winapi.MMSystem, System.SysUtils, Gamolf.RTL.Joystick;
+uses
+  winapi.Windows,
+  winapi.MMSystem,
+  System.SysUtils,
+  Gamolf.RTL.Joystick;
 
 type
   TGamolfJoystickDirectInputJoyCaps = record
@@ -131,7 +135,7 @@ var
   end;
 
 begin
-  if (JoystickID >= 0) and (JoystickID < FNbControllers) then
+  if (JoystickID < FNbControllers) then
     if length(FTabDevCaps) <= JoystickID then
       for i := length(FTabDevCaps) to JoystickID do
       begin
@@ -150,7 +154,7 @@ var
   btn: word;
 begin
   // TODO : ajouter un cache de XXms pour éviter d'interroger l'API sans arrêt alors qu'il n'y a pas forcément de changement au niveau des données du Joystick et que ça prend des ressources CPU pour rien
-  if (JoystickID >= 0) and (JoystickID < FNbControllers) then
+  if (JoystickID < FNbControllers) then
   begin
     getJoystickCaps(JoystickID);
     if FTabDevCaps[JoystickID].Connected then
@@ -272,7 +276,7 @@ function TGamolfJoystickWinDirectInputService.isConnected
   (JoystickID: TJoystickID): boolean;
 begin
   result := false;
-  if (JoystickID >= 0) and (JoystickID < FNbControllers) then
+  if (JoystickID < FNbControllers) then
   begin
     getJoystickCaps(JoystickID);
     result := FTabDevCaps[JoystickID].Connected;
@@ -283,7 +287,7 @@ function TGamolfJoystickWinDirectInputService.hasDPad
   (JoystickID: TJoystickID): boolean;
 begin
   result := false;
-  if (JoystickID >= 0) and (JoystickID < FNbControllers) then
+  if (JoystickID < FNbControllers) then
   begin
     getJoystickCaps(JoystickID);
     result := 0 < (FTabDevCaps[JoystickID].JoyCapsW.wcaps and JOYCAPS_HASPOV);
@@ -293,7 +297,7 @@ end;
 procedure TGamolfJoystickWinDirectInputService.getJoystickCaps
   (JoystickID: TJoystickID);
 begin
-  if (JoystickID >= 0) and (JoystickID < FNbControllers) then
+  if (JoystickID < FNbControllers) then
     getDevCaps(JoystickID);
 end;
 {$ELSE}
