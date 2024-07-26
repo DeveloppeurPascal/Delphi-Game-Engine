@@ -191,7 +191,6 @@ var
   LMicroGamepad: GCMicroGamepad;
 begin
   try
-    // TODO : add something to check if this controller is the current one (last used by the user)
     // TODO : add battery level
     // TODO : add motion sensors
     LControllerItem := Controllers.ItemAt(JoystickID);
@@ -205,7 +204,7 @@ begin
       //
       // Initialize axes list
       //
-      if (length(Joystick.Axes) <> 6) then
+      if (length(Joystick.Axes) < 6) then
         setlength(Joystick.Axes, 6);
       Joystick.Axes[ord(tjoystickaxes.LeftStickX)] :=
         LExtendedGamepad.leftThumbstick.xAxis.Value;
@@ -222,7 +221,10 @@ begin
       //
       // Initialize buttons list
       //
-      Joystick.initButtonsToJoystickButtons;
+      if (length(Joystick.buttons) < ord(high(TJoystickButtons)) + 1) then
+        Joystick.initButtonsToJoystickButtons
+      else
+        setlength(Joystick.PressedButtons, 0);
       Joystick.setPressed(TJoystickButtons.a,
         LExtendedGamepad.buttonA.isPressed);
       Joystick.setPressed(TJoystickButtons.b,
@@ -257,7 +259,10 @@ begin
     else if assigned(LController) and assigned(LController.microGamepad) then
     begin
       LMicroGamepad := LController.microGamepad;
-      initJoystick(Joystick);
+      if (length(Joystick.buttons) < ord(high(TJoystickButtons)) + 1) then
+        Joystick.initButtonsToJoystickButtons
+      else
+        setlength(Joystick.PressedButtons, 0);
       Joystick.setPressed(TJoystickButtons.a, LMicroGamepad.buttonA.isPressed);
       Joystick.setPressed(TJoystickButtons.x, LMicroGamepad.buttonx.isPressed);
       Joystick.setPressed(TJoystickButtons.Menu,
