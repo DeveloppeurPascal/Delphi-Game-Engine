@@ -4,7 +4,7 @@ uses
   System.StartUpCopy,
   FMX.Forms,
   fMain in 'fMain.pas' {Form1},
-  Gamolf.RTL.Scores in '..\..\src\Gamolf.RTL.Scores.pas';
+  Gamolf.RTL.Scores in '..\..\..\src\Gamolf.RTL.Scores.pas';
 
 {$R *.res}
 
