@@ -292,6 +292,7 @@
         <DCCReference Include="..\..\..\src\Gamolf.RTL.Joystick.pas"/>
         <DCCReference Include="..\..\..\src\iOSapi.GameController.pas"/>
         <DCCReference Include="..\..\..\src\Macapi.GameController.pas"/>
+        <DCCReference Include="..\..\..\src\Gamolf.RTL.Joystick.Helpers.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

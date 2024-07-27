@@ -9,7 +9,8 @@ uses
   Gamolf.RTL.Joystick.Mac in '..\..\..\src\Gamolf.RTL.Joystick.Mac.pas',
   Gamolf.RTL.Joystick in '..\..\..\src\Gamolf.RTL.Joystick.pas',
   iOSapi.GameController in '..\..\..\src\iOSapi.GameController.pas',
-  Macapi.GameController in '..\..\..\src\Macapi.GameController.pas';
+  Macapi.GameController in '..\..\..\src\Macapi.GameController.pas',
+  Gamolf.RTL.Joystick.Helpers in '..\..\..\src\Gamolf.RTL.Joystick.Helpers.pas';
 
 {$R *.res}
 
