@@ -30,8 +30,8 @@ type
   /// <summary>
   /// ID for game controllers buttons (when it's know by the API)
   /// </summary>
-  TJoystickButtons = (A, B, X, Y, Home, Options, Menu, LeftShoulder,
-    RightShoulder, LeftThumbStick, RightThumbStick, LeftTrigger, RightTrigger);
+  TJoystickButtons = (A, B, X, Y, LeftShoulder, RightShoulder, Options, Menu,
+    LeftThumbStick, RightThumbStick, Home, LeftTrigger, RightTrigger);
   TJoystickButtonsSet = set of TJoystickButtons;
 
   /// <summary>
@@ -1240,19 +1240,19 @@ begin
 {$IFNDEF IDE}
   // Ne pas faire dans l'IDE en conception de fiche
   // *** penser au define IDE dans les packages ***
-  {$IF CompilerVersion < 32}
+{$IF CompilerVersion < 32}
   TThread.Queue(nil,
     procedure
     begin
       Enabled := IsSupported; // start the gamepad thread loop if its supported
     end);
-  {$ELSE}
+{$ELSE}
   TThread.ForceQueue(nil,
     procedure
     begin
       Enabled := IsSupported; // start the gamepad thread loop if its supported
     end);
-  {$ENDIF}
+{$ENDIF}
 {$ENDIF}
 end;
 
