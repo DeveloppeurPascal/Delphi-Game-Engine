@@ -1240,11 +1240,19 @@ begin
 {$IFNDEF IDE}
   // Ne pas faire dans l'IDE en conception de fiche
   // *** penser au define IDE dans les packages ***
+  {$IF CompilerVersion < 32}
+  TThread.Queue(nil,
+    procedure
+    begin
+      Enabled := IsSupported; // start the gamepad thread loop if its supported
+    end);
+  {$ELSE}
   TThread.ForceQueue(nil,
     procedure
     begin
       Enabled := IsSupported; // start the gamepad thread loop if its supported
     end);
+  {$ENDIF}
 {$ENDIF}
 end;
 
