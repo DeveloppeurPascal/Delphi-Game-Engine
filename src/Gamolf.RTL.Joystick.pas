@@ -244,6 +244,11 @@ type
     procedure ForEachConnectedDevice(var JoystickInfo: TJoystickInfo;
       CallbackEvent: TJoystickInfosConnectedCallbackEvent;
       ErrorCallbackEvent: TJoystickErrorCallbackEvent = nil); overload;
+    /// <summary>
+    /// Returns true for platforms where buttons place are known and mapped correctly to TJoystickButtons enumeration.
+    /// If false, you can use buttons ID to check if they are pressed or not.
+    /// </summary>
+    function hasJoystickButtonsAPI: boolean;
   end;
 
   /// <summary>
@@ -349,6 +354,10 @@ type
     /// Override this function and return true for platforms where buttons place are known.
     /// By default, it's false;
     /// </summary>
+    /// <remarks>
+    /// If "true" use TJoystickButtons enumeration to check if a button is pressed.
+    /// If "false" use buttons ID to check if a button is pressed.
+    /// </remarks>
     function hasJoystickButtonsAPI: boolean; virtual;
   end;
 
