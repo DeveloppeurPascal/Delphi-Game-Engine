@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{0C9AF66C-4F1F-4C90-9CCA-C1892515BF7A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="VCL\VCLCheckConfigProject.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FireMonkey\FMXCheckConfigProject.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="VCLCheckConfigProject">
+        <MSBuild Projects="VCL\VCLCheckConfigProject.dproj"/>
+    </Target>
+    <Target Name="VCLCheckConfigProject:Clean">
+        <MSBuild Projects="VCL\VCLCheckConfigProject.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VCLCheckConfigProject:Make">
+        <MSBuild Projects="VCL\VCLCheckConfigProject.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FMXCheckConfigProject">
+        <MSBuild Projects="FireMonkey\FMXCheckConfigProject.dproj"/>
+    </Target>
+    <Target Name="FMXCheckConfigProject:Clean">
+        <MSBuild Projects="FireMonkey\FMXCheckConfigProject.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FMXCheckConfigProject:Make">
+        <MSBuild Projects="FireMonkey\FMXCheckConfigProject.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="VCLCheckConfigProject;FMXCheckConfigProject"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="VCLCheckConfigProject:Clean;FMXCheckConfigProject:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="VCLCheckConfigProject:Make;FMXCheckConfigProject:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
