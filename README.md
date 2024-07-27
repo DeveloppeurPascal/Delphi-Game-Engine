@@ -14,8 +14,6 @@ It comes from years of game development for fun and [live coding sessions on Twi
 
 You can find examples of classic game features in [Delphi FMX Game Snippets](https://github.com/DeveloppeurPascal/Delphi-FMX-Game-Snippets) if you are looking for inspiration.
 
-A presentation of FireMonkey's "game engine" features was offered at [DelphiCon 2021](https://serialstreameur.fr/delphicon2021.php) in English ([replay](https://serialstreameur.fr/delphicon-2021-fmx-game-engine.php)) and as a webinar a month after in French ([replay](https://developpeur-pascal.fr/webinaire-du-11-decembre-2021-utiliser-firemonkey-comme-moteur-de-jeu-video.html)).
-
 Some of [my video games](https://gamolf.fr) are open sourced on GitHub. Find them as submodules of [this repository](https://github.com/DeveloppeurPascal/DevPas-Games-Pack).
 
 This code repository contains a project developed in Object Pascal language under Delphi. You don't know what Delphi is and where to download it ? You'll learn more [on this web site](https://delphi-resources.developpeur-pascal.fr/).
