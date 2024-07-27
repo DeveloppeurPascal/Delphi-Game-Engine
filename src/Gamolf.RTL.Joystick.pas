@@ -484,8 +484,12 @@ type
     property OnGamepadDirectionPadChange: TOnGamepadDirectionPadChange
       read FOnGamepadDirectionPadChange write SetOnGamepadDirectionPadChange;
     class function Current: TGamepadDevicesManager;
+{$IF CompilerVersion>33}
     class constructor Create;
+{$ENDIF}
+{$IF CompilerVersion>33}
     class destructor Destroy;
+{$ENDIF}
     /// <summary>
     /// Return the gamepad data class
     /// </summary>
@@ -1187,10 +1191,13 @@ begin
       inc(result);
 end;
 
+{$IF CompilerVersion>33}
+
 class constructor TGamepadDevicesManager.Create;
 begin
   FGamepadManager := TGamepadDevicesManager.Create;
 end;
+{$ENDIF}
 
 constructor TGamepadDevicesManager.Create;
 begin
@@ -1412,10 +1419,13 @@ begin
     FManagers.Extract(Manager);
 end;
 
+{$IF CompilerVersion>33}
+
 class destructor TGamepadDevicesManager.Destroy;
 begin
   FGamepadManager.Free;
 end;
+{$ENDIF}
 
 procedure TGamepadDevicesManager.DoGamepadAxesChange(const AGamepadID: integer;
 const AAxe: TJoystickAxes; const AValue: single);
@@ -2577,5 +2587,17 @@ begin
     if FGamepads[i] = Gamepad then
       FGamepads.Delete(i);
 end;
+
+initialization
+
+{$IF CompilerVersion<=33}
+  TGamepadDevicesManager.FGamepadManager := TGamepadDevicesManager.Create;
+{$ENDIF}
+
+finalization
+
+{$IF CompilerVersion<=33}
+  TGamepadDevicesManager.FGamepadManager.Free;
+{$ENDIF}
 
 end.
