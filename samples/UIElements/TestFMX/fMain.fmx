@@ -1,0 +1,232 @@
+object frmMain: TfrmMain
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  OnHide = FormHide
+  DesignerMasterStyle = 0
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Align = Bottom
+    Position.Y = 280.000000000000000000
+    Size.Width = 640.000000000000000000
+    Size.Height = 200.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 636.000000000000000000
+    Viewport.Height = 196.000000000000000000
+  end
+  object GridPanelLayout1: TGridPanelLayout
+    Align = Client
+    Size.Width = 640.000000000000000000
+    Size.Height = 280.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    ColumnCollection = <
+      item
+        Value = 33.500000000000000000
+      end
+      item
+        Value = 33.500000000000000000
+      end
+      item
+        Value = 33.000000000000000000
+      end>
+    ControlCollection = <
+      item
+        Column = 0
+        Control = Button1
+        Row = 0
+      end
+      item
+        Column = 1
+        Control = Button2
+        Row = 0
+      end
+      item
+        Column = 2
+        Control = Button3
+        Row = 0
+      end
+      item
+        Column = 0
+        Control = Button4
+        Row = 1
+      end
+      item
+        Column = 1
+        Control = Button5
+        Row = 1
+      end
+      item
+        Column = 2
+        Control = Button6
+        Row = 1
+      end
+      item
+        Column = 0
+        Control = Button7
+        Row = 2
+      end
+      item
+        Column = 1
+        Control = Button8
+        Row = 2
+      end
+      item
+        Column = 2
+        Control = Button9
+        Row = 2
+      end>
+    RowCollection = <
+      item
+        Value = 44.890000000000000000
+      end
+      item
+        Value = 22.110000000000000000
+      end
+      item
+        Value = 33.000000000000000000
+      end>
+    object Button1: TButton
+      Align = Client
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Size.Width = 204.399993896484400000
+      Size.Height = 115.692001342773400000
+      Size.PlatformDefault = False
+      TabOrder = 8
+      Text = 'Button1'
+      TextSettings.Trimming = None
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      Align = Client
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Size.Width = 204.399993896484400000
+      Size.Height = 115.692001342773400000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      Text = 'Button1'
+      TextSettings.Trimming = None
+      OnClick = Button1Click
+    end
+    object Button3: TButton
+      Align = Client
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Size.Width = 201.200012207031300000
+      Size.Height = 115.692001342773400000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      Text = 'Button1'
+      TextSettings.Trimming = None
+      OnClick = Button1Click
+    end
+    object Button4: TButton
+      Align = Client
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Size.Width = 204.399993896484400000
+      Size.Height = 51.908004760742190000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Button1'
+      TextSettings.Trimming = None
+      OnClick = Button1Click
+    end
+    object Button5: TButton
+      Align = Client
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Size.Width = 204.399993896484400000
+      Size.Height = 51.908004760742190000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = 'Button1'
+      TextSettings.Trimming = None
+      OnClick = Button1Click
+    end
+    object Button6: TButton
+      Align = Client
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Size.Width = 201.200012207031300000
+      Size.Height = 51.908004760742190000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      Text = 'Button1'
+      TextSettings.Trimming = None
+      OnClick = Button1Click
+    end
+    object Button7: TButton
+      Align = Client
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Size.Width = 204.399993896484400000
+      Size.Height = 82.399993896484380000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      Text = 'Button1'
+      TextSettings.Trimming = None
+      OnClick = Button1Click
+    end
+    object Button8: TButton
+      Align = Client
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Size.Width = 204.399993896484400000
+      Size.Height = 82.399993896484380000
+      Size.PlatformDefault = False
+      TabOrder = 6
+      Text = 'Button1'
+      TextSettings.Trimming = None
+      OnClick = Button1Click
+    end
+    object Button9: TButton
+      Align = Client
+      Margins.Left = 5.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 5.000000000000000000
+      Size.Width = 201.200012207031300000
+      Size.Height = 82.399993896484380000
+      Size.PlatformDefault = False
+      TabOrder = 7
+      Text = 'Button1'
+      TextSettings.Trimming = None
+      OnClick = Button1Click
+    end
+  end
+  object GamepadManager1: TGamepadManager
+    SynchronizedEvents = True
+    OnNewGamepadDetected = GamepadManager1NewGamepadDetected
+    OnGamepadLost = GamepadManager1GamepadLost
+    Left = 464
+    Top = 160
+  end
+end
