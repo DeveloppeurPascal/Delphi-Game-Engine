@@ -14,3 +14,10 @@
 * ajout d'un projet de test en 10.1 Berlin afin de s'assurer que les composants fonctionnent au moins sous Windows en FireMonkey
 * adaptation des unités de la librairie pour que la compilation fonctione avec ce projet de test et que les fonctionnalités de base soient opérationnelles dans les versions de Delphi prises en charge
 * changement de l'ordre des valeurs dans TJoystickButtons afin de mapper les boutons du contrôleur de jeu Xbox avec DirectInput sur les mêmes boutons que sur les autres plateformes (à tester sur d'autres contrôleur de jeu sous windows pour compatibilité)
+
+## Travail sur UI Elements
+
+* déplacement de uUIElements.pas depuis le dépôt OneShoTools vers Gamolf.RTL.UIElements.pas
+* renommage des classes et types "UIItems" en "UIElements"
+* ajout d'un programme de test pour valider son fonctionnement en VCL
+* ajout d'un programme de test pour valider son fonctionnement en FireMonkey
