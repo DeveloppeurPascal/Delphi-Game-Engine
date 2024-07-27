@@ -31,6 +31,7 @@ type
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
+    Label9: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
@@ -48,7 +49,8 @@ implementation
 {$R *.fmx}
 
 uses
-  FMX.Platform;
+  FMX.Platform,
+  Gamolf.RTL.Joystick.Helpers;
 
 procedure TForm2.FormCreate(Sender: TObject);
 begin
@@ -84,7 +86,8 @@ begin
   // on e: EJoystickUnpluggedException do;
   // end;
   // end;
-  Label1.Text := 'Nb : ' + JoystickService.Count.ToString;
+  Label1.Text := 'Nb devices (registered by the OS, not detected/connected) : '
+    + JoystickService.Count.ToString;
   Label2.Text := 'Pressed buttons : ';
   Label4.Text := 'DPad angle :';
   Label5.Text := 'Left stick :';
@@ -94,11 +97,18 @@ begin
   JoystickService.ForEach(ji,
     procedure(JoystickID: TJoystickID; var JoystickInfo: TJoystickInfo;
       hadError: boolean)
+    var
+      i: integer;
     begin
       if (not hadError) and JoystickService.isConnected(JoystickID) then
       begin
         Label2.Text := Label2.Text + 'J' + JoystickID.ToString + '=' +
           length(ji.PressedButtons).ToString + ' ';
+
+        Label9.Text := 'Pressed buttons : ';
+        for i := 0 to length(ji.PressedButtons) - 1 do
+          Label9.Text := Label9.Text + ji.PressedButtons[i].ToString + '-' +
+            tjoystickbuttons(ji.PressedButtons[i]).ToString + ', ';
 
         Label4.Text := Label4.Text + 'J' + JoystickID.ToString + '=' +
           ji.DPad.ToString + ' ';
