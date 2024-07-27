@@ -1195,7 +1195,11 @@ end;
 constructor TGamepadDevicesManager.Create;
 begin
   inherited;
+{$IF CompilerVersion>35}
   FGamepads := TGamepadDeviceDict.Create([TDictionaryOwnership.doOwnsValues]);
+{$ELSE}
+  FGamepads := TGamepadDeviceDict.Create([doOwnsValues]);
+{$ENDIF}
   FManagers := TGamepadManagerList.Create;
 
 {$IF Defined(FRAMEWORK_FMX)}
