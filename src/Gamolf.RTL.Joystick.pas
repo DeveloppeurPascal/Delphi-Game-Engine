@@ -563,7 +563,6 @@ type
   protected
   public
     property IsSupported: boolean read GetIsSupported;
-    property Enabled: boolean read FEnabled write SetEnabled;
     /// <summary>
     /// Return the gamepad data class
     /// </summary>
@@ -594,6 +593,7 @@ type
     /// </summary>
     property SynchronizedEvents: boolean read FSynchronizedEvents
       write SetSynchronizedEvents default false;
+    property Enabled: boolean read FEnabled write SetEnabled default true;
     property OnNewGamepadDetected: TOnNewGamepadDetected
       read FOnNewGamepadDetected write SetOnNewGamepadDetected;
     property OnGamepadLost: TOnGamepadLost read FOnGamepadLost
