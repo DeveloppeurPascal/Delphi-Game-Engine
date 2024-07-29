@@ -18,8 +18,8 @@ uses
 
 type
   TForm1 = class(TForm)
-    GamepadManager1: TGamepadManager;
-    Gamepad1: TGamepad;
+    GamepadManager1: TDGEGamepadManager;
+    Gamepad1: TDGEGamepad;
     Panel1: TPanel;
     Memo1: TMemo;
     Timer1: TTimer;

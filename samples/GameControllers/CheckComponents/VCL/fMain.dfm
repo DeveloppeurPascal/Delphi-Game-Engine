@@ -46,7 +46,7 @@ object Form1: TForm1
     Caption = 'Panel1'
     TabOrder = 0
   end
-  object GamepadManager1: TGamepadManager
+  object GamepadManager1: TDGEGamepadManager
     SynchronizedEvents = True
     OnNewGamepadDetected = GamepadManager1NewGamepadDetected
     OnGamepadLost = GamepadManager1GamepadLost
@@ -55,7 +55,7 @@ object Form1: TForm1
     Left = 248
     Top = 88
   end
-  object Gamepad1: TGamepad
+  object Gamepad1: TDGEGamepad
     SynchronizedEvents = True
     OnDirectionPadChange = Gamepad1DirectionPadChange
     OnLost = Gamepad1Lost
