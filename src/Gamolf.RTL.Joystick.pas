@@ -23,7 +23,7 @@ type
   TGamepadDevice = class;
   TGamepadDeviceDict = class;
   TDGEGamepad = class;
-  TGamepadList = class;
+  TDGEGamepadList = class;
   TDGEGamepadManager = class;
   TGamepadManagerList = class;
 
@@ -643,7 +643,7 @@ type
     /// <summary>
     /// List of gamepad components for this ID
     /// </summary>
-    FGamepads: TGamepadList;
+    FGamepads: TDGEGamepadList;
     FID: integer;
     FEnabled: boolean;
     FOnDirectionPadChange: TOnGamepadDirectionPadChange;
@@ -835,7 +835,7 @@ type
     property TagString: string read FTagString write SetTagString;
   end;
 
-  TGamepadList = class(TList<TDGEGamepad>)
+  TDGEGamepadList = class(TList<TDGEGamepad>)
   end;
 
 procedure Register;
@@ -949,14 +949,18 @@ FromXYWhenNoDPadAvailable: boolean): word;
 var
   Joystick: TJoystickInfo;
 begin
-  getInfo(JoystickID, Joystick);
-  if hasDPad(JoystickID) then
-    result := Joystick.DPad
-  else if FromXYWhenNoDPadAvailable then
-    result := getDPadFromXY(Joystick.Axes[ord(TJoystickAxes.X)],
-      Joystick.Axes[ord(TJoystickAxes.Y)])
-  else
+  try
+    getInfo(JoystickID, Joystick);
+    if hasDPad(JoystickID) then
+      result := Joystick.DPad
+    else if FromXYWhenNoDPadAvailable then
+      result := getDPadFromXY(Joystick.Axes[ord(TJoystickAxes.X)],
+        Joystick.Axes[ord(TJoystickAxes.Y)])
+    else
+      result := ord(TJoystickDPad.Center);
+  except
     result := ord(TJoystickDPad.Center);
+  end;
 end;
 
 function TGamolfCustomJoystickService.getDPadFromXY(X, Y: single): word;
@@ -990,23 +994,32 @@ function TGamolfCustomJoystickService.getX(JoystickID: TJoystickID): single;
 var
   Joystick: TJoystickInfo;
 begin
-  getInfo(JoystickID, Joystick);
-  if (length(Joystick.Axes) > 0) then
-    result := Joystick.Axes[ord(TJoystickAxes.X)]
-  else
+  try
+    getInfo(JoystickID, Joystick);
+    if (length(Joystick.Axes) > 0) then
+      result := Joystick.Axes[ord(TJoystickAxes.X)]
+    else
+      result := 0;
+  except
     result := 0;
+  end;
 end;
 
 procedure TGamolfCustomJoystickService.getXY(JoystickID: TJoystickID;
-var X, Y: single);
+var X, Y: single); // TODO : tester en "out" plutôt que "var"
 var
   Joystick: TJoystickInfo;
 begin
-  getInfo(JoystickID, Joystick);
-  if (length(Joystick.Axes) > 0) then
-    X := Joystick.Axes[ord(TJoystickAxes.X)];
-  if (length(Joystick.Axes) > 1) then
-    Y := Joystick.Axes[ord(TJoystickAxes.Y)];
+  try
+    getInfo(JoystickID, Joystick);
+    if (length(Joystick.Axes) > 0) then
+      X := Joystick.Axes[ord(TJoystickAxes.X)];
+    if (length(Joystick.Axes) > 1) then
+      Y := Joystick.Axes[ord(TJoystickAxes.Y)];
+  except
+    X := 0;
+    Y := 0;
+  end;
 end;
 
 procedure TGamolfCustomJoystickService.getXYFromDPad(DPad: word;
@@ -1034,22 +1047,30 @@ function TGamolfCustomJoystickService.getY(JoystickID: TJoystickID): single;
 var
   Joystick: TJoystickInfo;
 begin
-  getInfo(JoystickID, Joystick);
-  if (length(Joystick.Axes) > 1) then
-    result := Joystick.Axes[ord(TJoystickAxes.Y)]
-  else
+  try
+    getInfo(JoystickID, Joystick);
+    if (length(Joystick.Axes) > 1) then
+      result := Joystick.Axes[ord(TJoystickAxes.Y)]
+    else
+      result := 0;
+  except
     result := 0;
+  end;
 end;
 
 function TGamolfCustomJoystickService.getZ(JoystickID: TJoystickID): single;
 var
   Joystick: TJoystickInfo;
 begin
-  getInfo(JoystickID, Joystick);
-  if (length(Joystick.Axes) >= ord(TJoystickAxes.Z)) then
-    result := Joystick.Axes[ord(TJoystickAxes.Z)]
-  else
+  try
+    getInfo(JoystickID, Joystick);
+    if (length(Joystick.Axes) >= ord(TJoystickAxes.Z)) then
+      result := Joystick.Axes[ord(TJoystickAxes.Z)]
+    else
+      result := 0;
+  except
     result := 0;
+  end;
 end;
 
 function TGamolfCustomJoystickService.hasJoystickButtonsAPI: boolean;
@@ -1077,9 +1098,13 @@ ButtonID: TButtonID): boolean;
 var
   Joystick: TJoystickInfo;
 begin
-  getInfo(JoystickID, Joystick);
-  result := (ButtonID < length(Joystick.Buttons)) and
-    Joystick.Buttons[ButtonID];
+  try
+    getInfo(JoystickID, Joystick);
+    result := (ButtonID < length(Joystick.Buttons)) and
+      Joystick.Buttons[ButtonID];
+  except
+    result := false;
+  end;
 end;
 
 procedure TGamolfCustomJoystickService.initJoystick(var Joystick
@@ -1649,35 +1674,54 @@ begin
         procedure
         var
           LJoystickInfo: TJoystickInfo;
+          TimeBeforeConnexionCheck: integer;
         begin
           try
             try
 {$IF Defined(DEBUG) and  Defined(FRAMEWORK_FMX)}
               // log.d('GamepadManagerLoop: started');
 {$ENDIF}
+              TimeBeforeConnexionCheck := 1000;
               while not TThread.CheckTerminated do
               begin
                 TThread.Sleep(10);
-                FGamolfJoystickService.ForEach(LJoystickInfo,
+                TimeBeforeConnexionCheck := TimeBeforeConnexionCheck - 10;
+                if (TimeBeforeConnexionCheck <= 0) then
+                begin
+                  TimeBeforeConnexionCheck := 1000;
+                  FGamolfJoystickService.ForEach(LJoystickInfo,
+                    procedure(JoystickID: TJoystickID;
+                      var JoystickInfo: TJoystickInfo; hadError: boolean)
+                    var
+                      GP: TGamepadDevice;
+                    begin
+                      GP := GetGamepad(JoystickID);
+                      if hadError and GP.FIsConnected then
+                        DoLostGamepad(JoystickID)
+                      else if (not GP.FIsConnected) and
+                        IsGamepadConnected(JoystickID) then
+                        DoNewGamepadDetected(JoystickID)
+                      else if GP.FIsConnected and
+                        (not IsGamepadConnected(JoystickID)) then
+                        DoLostGamepad(JoystickID);
+                    end);
+                end;
+                FGamolfJoystickService.ForEachConnectedDevice(LJoystickInfo,
                   procedure(JoystickID: TJoystickID;
-                    var JoystickInfo: TJoystickInfo; hadError: boolean)
+                    var JoystickInfo: TJoystickInfo)
                   var
                     GP: TGamepadDevice;
                   begin
-{$IF Defined(DEBUG) and  Defined(FRAMEWORK_FMX)}
-                    // log.d('Joystick '+joystickid.ToString+ ' error ? '+haderror.ToString);
-{$ENDIF}
                     GP := GetGamepad(JoystickID);
-                    if hadError then
-                    begin
-                      if GP.isConnected then
-                        DoLostGamepad(JoystickID);
-                    end
-                    else if not GP.isConnected then
-                      // TODO : ne faire le test qu'une fois par seconde pour limiter les saturations d'API (notamment Windows) inutiles
-                      DoNewGamepadDetected(JoystickID)
-                    else
-                      GP.SetNewJoystickInfo(JoystickInfo);
+                    GP.SetNewJoystickInfo(JoystickInfo);
+                  end,
+                  procedure(JoystickID: TJoystickID)
+                  var
+                    GP: TGamepadDevice;
+                  begin
+                    GP := GetGamepad(JoystickID);
+                    if GP.isConnected then
+                      DoLostGamepad(JoystickID);
                   end);
               end;
             finally
@@ -1813,8 +1857,8 @@ begin
       FOnGamepadButtonUp(AGamepadID, AButton);
 end;
 
-procedure TDGEGamepadManager.DoGamepadDirectionPadChange(const AGamepadID: integer;
-const AValue: TJoystickDPad);
+procedure TDGEGamepadManager.DoGamepadDirectionPadChange(const AGamepadID
+  : integer; const AValue: TJoystickDPad);
 var
   LGamepadID: integer;
   LValue: TJoystickDPad;
@@ -1902,19 +1946,20 @@ begin
   FEnabled := Value;
 end;
 
-procedure TDGEGamepadManager.SetOnGamepadAxesChange(const Value
-  : TOnGamepadAxesChange);
+procedure TDGEGamepadManager.SetOnGamepadAxesChange
+  (const Value: TOnGamepadAxesChange);
 begin
   FOnGamepadAxesChange := Value;
 end;
 
-procedure TDGEGamepadManager.SetOnGamepadButtonDown(const Value
-  : TOnGamepadButtonDown);
+procedure TDGEGamepadManager.SetOnGamepadButtonDown
+  (const Value: TOnGamepadButtonDown);
 begin
   FOnGamepadButtonDown := Value;
 end;
 
-procedure TDGEGamepadManager.SetOnGamepadButtonUp(const Value: TOnGamepadButtonUp);
+procedure TDGEGamepadManager.SetOnGamepadButtonUp
+  (const Value: TOnGamepadButtonUp);
 begin
   FOnGamepadButtonUp := Value;
 end;
@@ -2199,7 +2244,7 @@ end;
 constructor TGamepadDevice.Create(const AID: integer);
 begin
   inherited Create;
-  FGamepads := TGamepadList.Create;
+  FGamepads := TDGEGamepadList.Create;
   FID := AID;
   FEnabled := true;
   FhasDPAD := false;
@@ -2403,7 +2448,7 @@ begin
       FOnLost(FID);
 
   for GP in FGamepads do
-    DoLost;
+    GP.DoLost;
 end;
 
 function TGamepadDevice.GetAxes(const AxeID: TJoystickAxes): single;
