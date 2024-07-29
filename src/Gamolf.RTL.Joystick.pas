@@ -22,9 +22,9 @@ type
 {$SCOPEDENUMS on}
   TGamepadDevice = class;
   TGamepadDeviceDict = class;
-  TGamepad = class;
+  TDGEGamepad = class;
   TGamepadList = class;
-  TGamepadManager = class;
+  TDGEGamepadManager = class;
   TGamepadManagerList = class;
 
   /// <summary>
@@ -426,8 +426,8 @@ type
     procedure Execute;
     procedure RegisterGamePadDevice(const Gamepad: TGamepadDevice);
     procedure UnRegisterGamePadDevice(const Gamepad: TGamepadDevice);
-    procedure RegisterGamePadManager(const Manager: TGamepadManager);
-    procedure UnRegisterGamePadManager(const Manager: TGamepadManager);
+    procedure RegisterGamePadManager(const Manager: TDGEGamepadManager);
+    procedure UnRegisterGamePadManager(const Manager: TDGEGamepadManager);
     procedure DoNewGamepadDetected(const AGamepadID: integer);
     procedure DoLostGamepad(const AGamepadID: integer);
     procedure DoGamepadDirectionPadChange(const AGamepadID: integer;
@@ -536,7 +536,7 @@ type
     pidAndroid64 or pidLinux64)]
 {$ENDIF}
 
-  TGamepadManager = class(TComponent)
+  TDGEGamepadManager = class(TComponent)
   private
     FTagBool: boolean;
     FTagFloat: single;
@@ -632,7 +632,7 @@ type
     property TagString: string read FTagString write SetTagString;
   end;
 
-  TGamepadManagerList = class(TList<TGamepadManager>)
+  TGamepadManagerList = class(TList<TDGEGamepadManager>)
   end;
 
   /// <summary>
@@ -685,8 +685,8 @@ type
     procedure DoButtonChanged(const AButtonID: integer);
     procedure DoDirectionPadChanged;
     procedure DoLost;
-    procedure RegisterGamePadComponent(const Gamepad: TGamepad);
-    procedure UnRegisterGamePadComponent(const Gamepad: TGamepad);
+    procedure RegisterGamePadComponent(const Gamepad: TDGEGamepad);
+    procedure UnRegisterGamePadComponent(const Gamepad: TDGEGamepad);
   public
     property ID: integer read FID;
     property IsSupported: boolean read GetIsSupported;
@@ -749,7 +749,7 @@ type
     pidAndroid64 or pidLinux64)]
 {$ENDIF}
 
-  TGamepad = class(TComponent)
+  TDGEGamepad = class(TComponent)
   private
     FID: integer;
     FEnabled: boolean;
@@ -835,7 +835,7 @@ type
     property TagString: string read FTagString write SetTagString;
   end;
 
-  TGamepadList = class(TList<TGamepad>)
+  TGamepadList = class(TList<TDGEGamepad>)
   end;
 
 procedure Register;
@@ -858,7 +858,7 @@ uses
 
 procedure Register;
 begin
-  RegisterComponents('Gamolf', [TGamepadManager, TGamepad]);
+  RegisterComponents('Gamolf', [TDGEGamepadManager, TDGEGamepad]);
 end;
 
 { TGamolfCustomJoystickService }
@@ -1319,7 +1319,7 @@ begin
 end;
 
 procedure TGamepadDevicesManager.RegisterGamePadManager(const Manager
-  : TGamepadManager);
+  : TDGEGamepadManager);
 begin
   if not assigned(self) then
     exit;
@@ -1418,7 +1418,7 @@ begin
 end;
 
 procedure TGamepadDevicesManager.UnRegisterGamePadManager
-  (const Manager: TGamepadManager);
+  (const Manager: TDGEGamepadManager);
 begin
   if not assigned(self) then
     exit;
@@ -1441,7 +1441,7 @@ var
   LGamepadID: integer;
   LAxe: TJoystickAxes;
   LValue: single;
-  LManager: TGamepadManager;
+  LManager: TDGEGamepadManager;
 begin
   if FEnabled then
   begin
@@ -1475,7 +1475,7 @@ const AButton: TJoystickButtons);
 var
   LGamepadID: integer;
   LButton: TJoystickButtons;
-  LManager: TGamepadManager;
+  LManager: TDGEGamepadManager;
 begin
   if FEnabled then
   begin
@@ -1508,7 +1508,7 @@ const AButton: TJoystickButtons);
 var
   LGamepadID: integer;
   LButton: TJoystickButtons;
-  LManager: TGamepadManager;
+  LManager: TDGEGamepadManager;
 begin
   if FEnabled then
   begin
@@ -1541,7 +1541,7 @@ procedure TGamepadDevicesManager.DoGamepadDirectionPadChange(const AGamepadID
 var
   LGamepadID: integer;
   LValue: TJoystickDPad;
-  LManager: TGamepadManager;
+  LManager: TDGEGamepadManager;
 begin
   if FEnabled then
   begin
@@ -1573,7 +1573,7 @@ procedure TGamepadDevicesManager.DoLostGamepad(const AGamepadID: integer);
 var
   GP: TGamepadDevice;
   LGamepadID: integer;
-  LManager: TGamepadManager;
+  LManager: TDGEGamepadManager;
 begin
   GP := GetGamepad(AGamepadID);
   GP.DoLost;
@@ -1604,7 +1604,7 @@ procedure TGamepadDevicesManager.DoNewGamepadDetected(const AGamepadID
 var
   LGamepadID: integer;
   GP: TGamepadDevice;
-  LManager: TGamepadManager;
+  LManager: TDGEGamepadManager;
 begin
   if FEnabled and assigned(FGamolfJoystickService) and
     FGamolfJoystickService.isConnected(AGamepadID) then
@@ -1706,12 +1706,12 @@ end;
 
 { TGamepadManager }
 
-function TGamepadManager.ConnectedGamepadCount: integer;
+function TDGEGamepadManager.ConnectedGamepadCount: integer;
 begin
   result := TGamepadDevicesManager.Current.ConnectedGamepadCount;
 end;
 
-constructor TGamepadManager.Create(AOwner: TComponent);
+constructor TDGEGamepadManager.Create(AOwner: TComponent);
 begin
   inherited;
   FTagBool := false;
@@ -1730,13 +1730,13 @@ begin
   TGamepadDevicesManager.Current.RegisterGamePadManager(self);
 end;
 
-destructor TGamepadManager.Destroy;
+destructor TDGEGamepadManager.Destroy;
 begin
   TGamepadDevicesManager.Current.UnRegisterGamePadManager(self);
   inherited;
 end;
 
-procedure TGamepadManager.DoGamepadAxesChange(const AGamepadID: integer;
+procedure TDGEGamepadManager.DoGamepadAxesChange(const AGamepadID: integer;
 const AAxe: TJoystickAxes; const AValue: single);
 var
   LGamepadID: integer;
@@ -1763,7 +1763,7 @@ begin
       FOnGamepadAxesChange(AGamepadID, AAxe, AValue);
 end;
 
-procedure TGamepadManager.DoGamepadButtonDown(const AGamepadID: integer;
+procedure TDGEGamepadManager.DoGamepadButtonDown(const AGamepadID: integer;
 const AButton: TJoystickButtons);
 var
   LGamepadID: integer;
@@ -1788,7 +1788,7 @@ begin
       FOnGamepadButtonDown(AGamepadID, AButton);
 end;
 
-procedure TGamepadManager.DoGamepadButtonUp(const AGamepadID: integer;
+procedure TDGEGamepadManager.DoGamepadButtonUp(const AGamepadID: integer;
 const AButton: TJoystickButtons);
 var
   LGamepadID: integer;
@@ -1813,7 +1813,7 @@ begin
       FOnGamepadButtonUp(AGamepadID, AButton);
 end;
 
-procedure TGamepadManager.DoGamepadDirectionPadChange(const AGamepadID: integer;
+procedure TDGEGamepadManager.DoGamepadDirectionPadChange(const AGamepadID: integer;
 const AValue: TJoystickDPad);
 var
   LGamepadID: integer;
@@ -1838,7 +1838,7 @@ begin
       FOnGamepadDirectionPadChange(AGamepadID, AValue);
 end;
 
-procedure TGamepadManager.DoLostGamepad(const AGamepadID: integer);
+procedure TDGEGamepadManager.DoLostGamepad(const AGamepadID: integer);
 var
   LGamepadID: integer;
 begin
@@ -1860,7 +1860,7 @@ begin
       FOnGamepadLost(AGamepadID);
 end;
 
-procedure TGamepadManager.DoNewGamepadDetected(const AGamepadID: integer);
+procedure TDGEGamepadManager.DoNewGamepadDetected(const AGamepadID: integer);
 var
   LGamepadID: integer;
 begin
@@ -1882,88 +1882,88 @@ begin
       FOnNewGamepadDetected(AGamepadID);
 end;
 
-function TGamepadManager.GamepadCount: integer;
+function TDGEGamepadManager.GamepadCount: integer;
 begin
   result := TGamepadDevicesManager.Current.GamepadCount;
 end;
 
-function TGamepadManager.GetGamepad(const AID: integer): TGamepadDevice;
+function TDGEGamepadManager.GetGamepad(const AID: integer): TGamepadDevice;
 begin
   result := TGamepadDevicesManager.Current.GetGamepad(AID);
 end;
 
-function TGamepadManager.GetIsSupported: boolean;
+function TDGEGamepadManager.GetIsSupported: boolean;
 begin
   result := TGamepadDevicesManager.Current.IsSupported;
 end;
 
-procedure TGamepadManager.SetEnabled(const Value: boolean);
+procedure TDGEGamepadManager.SetEnabled(const Value: boolean);
 begin
   FEnabled := Value;
 end;
 
-procedure TGamepadManager.SetOnGamepadAxesChange(const Value
+procedure TDGEGamepadManager.SetOnGamepadAxesChange(const Value
   : TOnGamepadAxesChange);
 begin
   FOnGamepadAxesChange := Value;
 end;
 
-procedure TGamepadManager.SetOnGamepadButtonDown(const Value
+procedure TDGEGamepadManager.SetOnGamepadButtonDown(const Value
   : TOnGamepadButtonDown);
 begin
   FOnGamepadButtonDown := Value;
 end;
 
-procedure TGamepadManager.SetOnGamepadButtonUp(const Value: TOnGamepadButtonUp);
+procedure TDGEGamepadManager.SetOnGamepadButtonUp(const Value: TOnGamepadButtonUp);
 begin
   FOnGamepadButtonUp := Value;
 end;
 
-procedure TGamepadManager.SetOnGamepadDirectionPadChange
+procedure TDGEGamepadManager.SetOnGamepadDirectionPadChange
   (const Value: TOnGamepadDirectionPadChange);
 begin
   FOnGamepadDirectionPadChange := Value;
 end;
 
-procedure TGamepadManager.SetOnGamepadLost(const Value: TOnGamepadLost);
+procedure TDGEGamepadManager.SetOnGamepadLost(const Value: TOnGamepadLost);
 begin
   FOnGamepadLost := Value;
 end;
 
-procedure TGamepadManager.SetOnNewGamepadDetected
+procedure TDGEGamepadManager.SetOnNewGamepadDetected
   (const Value: TOnNewGamepadDetected);
 begin
   FOnNewGamepadDetected := Value;
 end;
 
-procedure TGamepadManager.SetSynchronizedEvents(const Value: boolean);
+procedure TDGEGamepadManager.SetSynchronizedEvents(const Value: boolean);
 begin
   FSynchronizedEvents := Value;
 end;
 
-procedure TGamepadManager.SetTagBool(const Value: boolean);
+procedure TDGEGamepadManager.SetTagBool(const Value: boolean);
 begin
   FTagBool := Value;
 end;
 
-procedure TGamepadManager.SetTagFloat(const Value: single);
+procedure TDGEGamepadManager.SetTagFloat(const Value: single);
 begin
   FTagFloat := Value;
 end;
 
-procedure TGamepadManager.SetTagObject(const Value: TObject);
+procedure TDGEGamepadManager.SetTagObject(const Value: TObject);
 begin
   FTagObject := Value;
 end;
 
-procedure TGamepadManager.SetTagString(const Value: string);
+procedure TDGEGamepadManager.SetTagString(const Value: string);
 begin
   FTagString := Value;
 end;
 
 { TGamepad }
 
-constructor TGamepad.Create(AOwner: TComponent);
+constructor TDGEGamepad.Create(AOwner: TComponent);
 begin
   inherited;
   FID := -1;
@@ -1981,7 +1981,7 @@ begin
   FTagObject := nil;
 end;
 
-procedure TGamepad.DoAxeChanged(const AAxeID: integer);
+procedure TDGEGamepad.DoAxeChanged(const AAxeID: integer);
 var
   LID: integer;
   LAxe: TJoystickAxes;
@@ -2009,7 +2009,7 @@ begin
         getGamepadData.Axes[TJoystickAxes(AAxeID)]);
 end;
 
-procedure TGamepad.DoButtonChanged(const AButtonID: integer);
+procedure TDGEGamepad.DoButtonChanged(const AButtonID: integer);
 var
   LID: integer;
   LButton: TJoystickButtons;
@@ -2055,7 +2055,7 @@ begin
     end;
 end;
 
-procedure TGamepad.DoDirectionPadChanged;
+procedure TDGEGamepad.DoDirectionPadChanged;
 var
   LID: integer;
   LDpad: TJoystickDPad;
@@ -2079,7 +2079,7 @@ begin
       FOnDirectionPadChange(FID, getGamepadData.DPad);
 end;
 
-procedure TGamepad.DoLost;
+procedure TDGEGamepad.DoLost;
 var
   LID: integer;
 begin
@@ -2101,95 +2101,95 @@ begin
       FOnLost(FID);
 end;
 
-function TGamepad.GetAxes(const AxeID: TJoystickAxes): single;
+function TDGEGamepad.GetAxes(const AxeID: TJoystickAxes): single;
 begin
   result := getGamepadData.GetAxes(AxeID);
 end;
 
-function TGamepad.GetButtons(const ButtonID: TJoystickButtons): boolean;
+function TDGEGamepad.GetButtons(const ButtonID: TJoystickButtons): boolean;
 begin
   result := getGamepadData.GetButtons(ButtonID);
 end;
 
-function TGamepad.getDPad: TJoystickDPad;
+function TDGEGamepad.getDPad: TJoystickDPad;
 begin
   result := getGamepadData.getDPad;
 end;
 
-function TGamepad.getGamepadData: TGamepadDevice;
+function TDGEGamepad.getGamepadData: TGamepadDevice;
 begin
   result := TGamepadDevicesManager.Current.GetGamepad(FID);
 end;
 
-function TGamepad.GetIsConnected: boolean;
+function TDGEGamepad.GetIsConnected: boolean;
 begin
   result := getGamepadData.isConnected;
 end;
 
-function TGamepad.GetIsSupported: boolean;
+function TDGEGamepad.GetIsSupported: boolean;
 begin
   result := TGamepadDevicesManager.Current.IsSupported;
 end;
 
-procedure TGamepad.SetEnabled(const Value: boolean);
+procedure TDGEGamepad.SetEnabled(const Value: boolean);
 begin
   FEnabled := Value;
 end;
 
-procedure TGamepad.SetID(const Value: integer);
+procedure TDGEGamepad.SetID(const Value: integer);
 begin
   getGamepadData.UnRegisterGamePadComponent(self);
   FID := Value;
   getGamepadData.RegisterGamePadComponent(self);
 end;
 
-procedure TGamepad.SetOnAxesChange(const Value: TOnGamepadAxesChange);
+procedure TDGEGamepad.SetOnAxesChange(const Value: TOnGamepadAxesChange);
 begin
   FOnAxesChange := Value;
 end;
 
-procedure TGamepad.SetOnButtonDown(const Value: TOnGamepadButtonDown);
+procedure TDGEGamepad.SetOnButtonDown(const Value: TOnGamepadButtonDown);
 begin
   FOnButtonDown := Value;
 end;
 
-procedure TGamepad.SetOnButtonUp(const Value: TOnGamepadButtonUp);
+procedure TDGEGamepad.SetOnButtonUp(const Value: TOnGamepadButtonUp);
 begin
   FOnButtonUp := Value;
 end;
 
-procedure TGamepad.SetOnDirectionPadChange(const Value
+procedure TDGEGamepad.SetOnDirectionPadChange(const Value
   : TOnGamepadDirectionPadChange);
 begin
   FOnDirectionPadChange := Value;
 end;
 
-procedure TGamepad.SetOnLost(const Value: TOnGamepadLost);
+procedure TDGEGamepad.SetOnLost(const Value: TOnGamepadLost);
 begin
   FOnLost := Value;
 end;
 
-procedure TGamepad.SetSynchronizedEvents(const Value: boolean);
+procedure TDGEGamepad.SetSynchronizedEvents(const Value: boolean);
 begin
   FSynchronizedEvents := Value;
 end;
 
-procedure TGamepad.SetTagBool(const Value: boolean);
+procedure TDGEGamepad.SetTagBool(const Value: boolean);
 begin
   FTagBool := Value;
 end;
 
-procedure TGamepad.SetTagFloat(const Value: single);
+procedure TDGEGamepad.SetTagFloat(const Value: single);
 begin
   FTagFloat := Value;
 end;
 
-procedure TGamepad.SetTagObject(const Value: TObject);
+procedure TDGEGamepad.SetTagObject(const Value: TObject);
 begin
   FTagObject := Value;
 end;
 
-procedure TGamepad.SetTagString(const Value: string);
+procedure TDGEGamepad.SetTagString(const Value: string);
 begin
   FTagString := Value;
 end;
@@ -2233,7 +2233,7 @@ end;
 
 procedure TGamepadDevice.DoAxeChanged(const AAxeID: integer);
 var
-  GP: TGamepad;
+  GP: TDGEGamepad;
   LID: integer;
   LAxe: TJoystickAxes;
   LAxeValue: single;
@@ -2270,7 +2270,7 @@ end;
 
 procedure TGamepadDevice.DoButtonChanged(const AButtonID: integer);
 var
-  GP: TGamepad;
+  GP: TDGEGamepad;
   LID: integer;
   LButton: TJoystickButtons;
   Copied: boolean;
@@ -2342,7 +2342,7 @@ end;
 
 procedure TGamepadDevice.DoDirectionPadChanged;
 var
-  GP: TGamepad;
+  GP: TDGEGamepad;
   LID: integer;
   LDpad: TJoystickDPad;
 begin
@@ -2380,7 +2380,7 @@ end;
 
 procedure TGamepadDevice.DoLost;
 var
-  GP: TGamepad;
+  GP: TDGEGamepad;
   LID: integer;
 begin
   FIsConnected := false;
@@ -2447,7 +2447,7 @@ begin
   result := TGamepadDevicesManager.Current.IsSupported;
 end;
 
-procedure TGamepadDevice.RegisterGamePadComponent(const Gamepad: TGamepad);
+procedure TGamepadDevice.RegisterGamePadComponent(const Gamepad: TDGEGamepad);
 var
   i: integer;
   found: boolean;
@@ -2584,7 +2584,7 @@ begin
   FTagString := Value;
 end;
 
-procedure TGamepadDevice.UnRegisterGamePadComponent(const Gamepad: TGamepad);
+procedure TGamepadDevice.UnRegisterGamePadComponent(const Gamepad: TDGEGamepad);
 var
   i: integer;
 begin
