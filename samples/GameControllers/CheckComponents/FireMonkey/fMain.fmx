@@ -36,7 +36,7 @@ object Form2: TForm2
       'To move the panel use the DPAD. Click on a game controller butto' +
       'n to activate it when detected. Alt+F4 to close the program.'
   end
-  object GamepadManager1: TGamepadManager
+  object GamepadManager1: TDGEGamepadManager
     SynchronizedEvents = True
     OnNewGamepadDetected = GamepadManager1NewGamepadDetected
     OnGamepadLost = GamepadManager1GamepadLost
@@ -45,7 +45,7 @@ object Form2: TForm2
     Left = 232
     Top = 160
   end
-  object Gamepad1: TGamepad
+  object Gamepad1: TDGEGamepad
     SynchronizedEvents = True
     OnDirectionPadChange = Gamepad1DirectionPadChange
     OnLost = Gamepad1Lost
