@@ -272,9 +272,9 @@ begin
     else
       initJoystick(Joystick);
   except
-    // TODO : find a better way to manage exceptions
     Controllers.ItemAt(JoystickID).isConnected := false;
     initJoystick(Joystick);
+    raise;
   end;
 end;
 
