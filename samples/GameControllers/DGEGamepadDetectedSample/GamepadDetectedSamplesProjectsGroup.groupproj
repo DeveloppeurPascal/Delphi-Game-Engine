@@ -3,6 +3,9 @@
         <ProjectGuid>{C9057311-174D-4155-9D40-447CA03AEF3C}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
+        <Projects Include="FMXByCode\FMXGamepadDetectedByCode.dproj">
+            <Dependencies/>
+        </Projects>
         <Projects Include="FMX\FMXGamepadDetectedSample.dproj">
             <Dependencies/>
         </Projects>
@@ -17,6 +20,15 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
+    <Target Name="FMXGamepadDetectedByCode">
+        <MSBuild Projects="FMXByCode\FMXGamepadDetectedByCode.dproj"/>
+    </Target>
+    <Target Name="FMXGamepadDetectedByCode:Clean">
+        <MSBuild Projects="FMXByCode\FMXGamepadDetectedByCode.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FMXGamepadDetectedByCode:Make">
+        <MSBuild Projects="FMXByCode\FMXGamepadDetectedByCode.dproj" Targets="Make"/>
+    </Target>
     <Target Name="FMXGamepadDetectedSample">
         <MSBuild Projects="FMX\FMXGamepadDetectedSample.dproj"/>
     </Target>
@@ -36,13 +48,13 @@
         <MSBuild Projects="VCL\VCLGamepadDetectedSample.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="FMXGamepadDetectedSample;VCLGamepadDetectedSample"/>
+        <CallTarget Targets="FMXGamepadDetectedByCode;FMXGamepadDetectedSample;VCLGamepadDetectedSample"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="FMXGamepadDetectedSample:Clean;VCLGamepadDetectedSample:Clean"/>
+        <CallTarget Targets="FMXGamepadDetectedByCode:Clean;FMXGamepadDetectedSample:Clean;VCLGamepadDetectedSample:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="FMXGamepadDetectedSample:Make;VCLGamepadDetectedSample:Make"/>
+        <CallTarget Targets="FMXGamepadDetectedByCode:Make;FMXGamepadDetectedSample:Make;VCLGamepadDetectedSample:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
