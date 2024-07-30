@@ -130,6 +130,7 @@
         <DCCReference Include="..\..\..\..\src\Gamolf.RTL.GamepadDetected.pas"/>
         <DCCReference Include="..\..\..\..\src\Gamolf.RTL.Joystick.pas"/>
         <DCCReference Include="..\..\..\..\src\Gamolf.VCL.Joystick.pas"/>
+        <DCCReference Include="..\..\..\..\src\Gamolf.RTL.Joystick.DirectInput.Win.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

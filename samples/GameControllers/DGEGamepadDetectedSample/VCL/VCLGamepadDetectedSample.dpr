@@ -5,7 +5,8 @@ uses
   fMain in 'fMain.pas' {Form2},
   Gamolf.RTL.GamepadDetected in '..\..\..\..\src\Gamolf.RTL.GamepadDetected.pas',
   Gamolf.RTL.Joystick in '..\..\..\..\src\Gamolf.RTL.Joystick.pas',
-  Gamolf.VCL.Joystick in '..\..\..\..\src\Gamolf.VCL.Joystick.pas';
+  Gamolf.VCL.Joystick in '..\..\..\..\src\Gamolf.VCL.Joystick.pas',
+  Gamolf.RTL.Joystick.DirectInput.Win in '..\..\..\..\src\Gamolf.RTL.Joystick.DirectInput.Win.pas';
 
 {$R *.res}
 
