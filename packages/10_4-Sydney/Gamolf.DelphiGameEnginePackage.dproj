@@ -147,6 +147,7 @@
         </DelphiCompile>
         <DCCReference Include="rtl.dcp"/>
         <DCCReference Include="..\..\src\Gamolf.RTL.Joystick.pas"/>
+        <DCCReference Include="..\..\src\Gamolf.RTL.GamepadDetected.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
