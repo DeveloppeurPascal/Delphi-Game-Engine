@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{C9057311-174D-4155-9D40-447CA03AEF3C}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="FMX\FMXGamepadDetectedSample.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="VCL\VCLGamepadDetectedSample.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="FMXGamepadDetectedSample">
+        <MSBuild Projects="FMX\FMXGamepadDetectedSample.dproj"/>
+    </Target>
+    <Target Name="FMXGamepadDetectedSample:Clean">
+        <MSBuild Projects="FMX\FMXGamepadDetectedSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FMXGamepadDetectedSample:Make">
+        <MSBuild Projects="FMX\FMXGamepadDetectedSample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="VCLGamepadDetectedSample">
+        <MSBuild Projects="VCL\VCLGamepadDetectedSample.dproj"/>
+    </Target>
+    <Target Name="VCLGamepadDetectedSample:Clean">
+        <MSBuild Projects="VCL\VCLGamepadDetectedSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VCLGamepadDetectedSample:Make">
+        <MSBuild Projects="VCL\VCLGamepadDetectedSample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="FMXGamepadDetectedSample;VCLGamepadDetectedSample"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="FMXGamepadDetectedSample:Clean;VCLGamepadDetectedSample:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="FMXGamepadDetectedSample:Make;VCLGamepadDetectedSample:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
