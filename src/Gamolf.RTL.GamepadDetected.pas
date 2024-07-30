@@ -2,7 +2,22 @@ unit Gamolf.RTL.GamepadDetected;
 
 interface
 
+{$IF Defined(FRAMEWORK_VCL) or Defined(FRAMEWORK_FMX)}
+// For real projects, with the component code and the visual actions
+{$DEFINE FULLCODE}
+{$ELSE}
+// For other projects and in the IDE, only the code of the non visual component
+{$UNDEF FULLCODE}
+{$ENDIF}
+
 uses
+{$IFDEF FRAMEWORK_FMX}
+  FMX.Objects,
+  FMX.Layouts,
+{$ENDIF}
+{$IFDEF FRAMEWORK_VCL}
+  // TODO : à compléter
+{$ENDIF}
   System.Classes;
 
 type
@@ -39,18 +54,31 @@ type
     procedure SetMarginRight(const Value: integer);
     procedure SetMarginTop(const Value: integer);
   protected
+{$IFDEF FULLCODE}
+    // TODO : à voir en VCL
+    lBackground: TLayout;
+    lContent: TLayout;
+    imgImage: TImage;
+    procedure GamepadLost(const GamepadID: integer);
+    procedure GamepadDetected(const GamepadID: integer);
+    procedure FinishedAnimation(Sender: TObject);
+    procedure RefreshContentLayout;
+    procedure AddGamepadImage(const Detected: boolean);
+{$ENDIF}
   public
     constructor Create(AOwner: TComponent); override;
+    procedure AfterConstruction; override;
+    procedure Test(const OnOff: boolean = true);
   published
     property Enabled: boolean read FEnabled write SetEnabled default true;
     /// <summary>
     /// Width of the GamepadOnOff displayed picture
     /// </summary>
-    property Width: integer read FWidth write SetWidth;
+    property Width: integer read FWidth write SetWidth default 64;
     /// <summary>
     /// Height of the GamepadOnOff displayed picture
     /// </summary>
-    property Height: integer read FHeight write SetHeight;
+    property Height: integer read FHeight write SetHeight default 128;
     property MarginBottom: integer read FMarginBottom write SetMarginBottom
       default 10;
     property MarginLeft: integer read FMarginLeft write SetMarginLeft
@@ -88,12 +116,69 @@ procedure Register;
 
 implementation
 
+uses
+{$IFDEF FRAMEWORK_FMX}
+  FMX.Forms,
+  FMX.Effects,
+  FMX.Ani,
+  FMX.Types,
+{$ENDIF}
+{$IFDEF FRAMEWORK_VCL}
+  // TODO : à compléter
+{$ENDIF}
+{$IFDEF FULLCODE}
+  Gamolf.RTL.Joystick,
+  Olf.Skia.SVGToBitmap,
+{$ENDIF}
+  System.SysUtils;
+
 procedure Register;
 begin
   RegisterComponents('Gamolf', [TDGEGamepadDetected]);
 end;
 
 { TDGEGamepadDetected }
+
+procedure TDGEGamepadDetected.AfterConstruction;
+{$IFDEF FULLCODE}
+  function GetForm(c: TComponent): TCommonCustomForm;
+  begin
+    if not assigned(c) then
+      result := application.mainform
+    else if c is TCommonCustomForm then
+      result := c as TCommonCustomForm
+    else
+      c := GetForm(c.Owner);
+  end;
+
+var
+  GamepadManager: TDGEGamepadManager;
+{$ENDIF}
+begin
+  inherited;
+{$IFDEF FULLCODE}
+  GamepadManager := TDGEGamepadManager.Create(self);
+  GamepadManager.SynchronizedEvents := true;
+  GamepadManager.OnNewGamepadDetected := GamepadDetected;
+  GamepadManager.OnGamepadLost := GamepadLost;
+
+  imgImage := TImage.Create(self);
+  imgImage.Parent := GetForm(Owner);
+  imgImage.HitTest := false;
+  imgImage.Visible := false;
+
+  lBackground := TLayout.Create(self);
+  lBackground.Parent := imgImage.Parent;
+  lBackground.HitTest := false;
+  lBackground.Align := talignlayout.Contents;
+
+  lContent := TLayout.Create(self);
+  lContent.Parent := lBackground;
+  lContent.HitTest := false;
+
+  RefreshContentLayout;
+{$ENDIF}
+end;
 
 constructor TDGEGamepadDetected.Create(AOwner: TComponent);
 begin
@@ -111,6 +196,11 @@ begin
   FMarginTop := 10;
   FMarginLeft := 10;
   FMarginRight := 10;
+{$IFDEF FULLCODE}
+  lBackground := nil;
+  lContent := nil;
+  imgImage := nil;
+{$ENDIF}
 end;
 
 procedure TDGEGamepadDetected.SetDirection(const Value
@@ -179,5 +269,257 @@ procedure TDGEGamepadDetected.SetWidth(const Value: integer);
 begin
   FWidth := Value;
 end;
+
+procedure TDGEGamepadDetected.Test(const OnOff: boolean);
+begin
+{$IFDEF FULLCODE}
+  AddGamepadImage(OnOff);
+{$ENDIF}
+end;
+
+{$IFDEF FULLCODE}
+{$REGION 'Default SVG declaration'}
+// /////////////////////////////////////////////////////////////////////////////
+// Default SVG from Kenney's "Input Prompts" assets pack.
+//
+// License CC0
+//
+// Assets pack : https://www.kenney.nl/assets/input-prompts
+// Author website : https://www.kenney.nl/
+// /////////////////////////////////////////////////////////////////////////////
+
+// ****************************************
+// File generator : SVG Folder to Delphi Unit (1.0)
+// Website : https://svgfolder2delphiunit.olfsoftware.fr/
+// Generation date : 30/07/2024 12:17:18
+//
+// Don't do any change on this file.
+// They will be erased by next generation !
+// ****************************************
+
+const
+  CSVGControllerDisconnected = 0;
+  CSVGControllerGeneric = 1;
+
+type
+{$SCOPEDENUMS ON}
+  TSVGKenneyGamepadIndex = (ControllerDisconnected = CSVGControllerDisconnected,
+    ControllerGeneric = CSVGControllerGeneric);
+
+  TSVGKenneyGamepad = class
+  private
+  class var
+    FTag: integer;
+    FTagBool: boolean;
+    FTagFloat: single;
+    FTagObject: TObject;
+    FTagString: string;
+    class procedure SetTag(const Value: integer); static;
+    class procedure SetTagBool(const Value: boolean); static;
+    class procedure SetTagFloat(const Value: single); static;
+    class procedure SetTagObject(const Value: TObject); static;
+    class procedure SetTagString(const Value: string); static;
+  public const
+    ControllerDisconnected = CSVGControllerDisconnected;
+    ControllerGeneric = CSVGControllerGeneric;
+    class property Tag: integer read FTag write SetTag;
+    class property TagBool: boolean read FTagBool write SetTagBool;
+    class property TagFloat: single read FTagFloat write SetTagFloat;
+    class property TagObject: TObject read FTagObject write SetTagObject;
+    class property TagString: string read FTagString write SetTagString;
+    class function SVG(const Index: integer): string; overload;
+    class function SVG(const Index: TSVGKenneyGamepadIndex): string; overload;
+    class function Count: integer;
+    class constructor Create;
+  end;
+
+var
+  SVGKenneyGamepad: array of String;
+
+  { TSVGKenneyGamepad }
+
+class constructor TSVGKenneyGamepad.Create;
+begin
+  inherited;
+  FTag := 0;
+  FTagBool := false;
+  FTagFloat := 0;
+  FTagObject := nil;
+  FTagString := '';
+end;
+
+class procedure TSVGKenneyGamepad.SetTag(const Value: integer);
+begin
+  FTag := Value;
+end;
+
+class procedure TSVGKenneyGamepad.SetTagBool(const Value: boolean);
+begin
+  FTagBool := Value;
+end;
+
+class procedure TSVGKenneyGamepad.SetTagFloat(const Value: single);
+begin
+  FTagFloat := Value;
+end;
+
+class procedure TSVGKenneyGamepad.SetTagObject(const Value: TObject);
+begin
+  FTagObject := Value;
+end;
+
+class procedure TSVGKenneyGamepad.SetTagString(const Value: string);
+begin
+  FTagString := Value;
+end;
+
+class function TSVGKenneyGamepad.SVG(const Index: integer): string;
+begin
+  if (index < Count) then
+    result := SVGKenneyGamepad[index]
+  else
+    raise Exception.Create('SVG not found. Index out of range.');
+end;
+
+class function TSVGKenneyGamepad.SVG(const Index
+  : TSVGKenneyGamepadIndex): string;
+begin
+  result := SVG(ord(index));
+end;
+
+class function TSVGKenneyGamepad.Count: integer;
+begin
+  result := length(SVGKenneyGamepad);
+end;
+{$ENDREGION}
+
+procedure TDGEGamepadDetected.GamepadLost(const GamepadID: integer);
+begin
+  AddGamepadImage(false);
+end;
+
+procedure TDGEGamepadDetected.GamepadDetected(const GamepadID: integer);
+begin
+  AddGamepadImage(true);
+end;
+
+procedure TDGEGamepadDetected.FinishedAnimation(Sender: TObject);
+var
+  o: TComponent;
+begin
+  if Sender is TFloatAnimation then
+  begin
+    o := (Sender as TFloatAnimation).Parent;
+    tthread.forcequeue(nil,
+      procedure
+      begin
+        o.free;
+      end);
+  end;
+end;
+
+procedure TDGEGamepadDetected.RefreshContentLayout;
+var
+  img: TImage;
+  i: integer;
+begin
+  case FDirection of
+    TDGEGamepadDetectedDirection.Horizontal: // horizontal
+      if FPosition in [TDGEGamepadDetectedPosition.TopLeft,
+        TDGEGamepadDetectedPosition.TopRight] then // TopLeft, TopRight
+        lContent.Align := talignlayout.top
+      else
+        lContent.Align := talignlayout.bottom;
+    TDGEGamepadDetectedDirection.Vertical: // vertical
+      if FPosition in [TDGEGamepadDetectedPosition.TopLeft,
+        TDGEGamepadDetectedPosition.BottomLeft] then // TopLeft, BottomLeft
+        lContent.Align := talignlayout.left
+      else
+        lContent.Align := talignlayout.right;
+  end;
+
+  if FDirection = TDGEGamepadDetectedDirection.Vertical then // vertical
+    lContent.Width := FWidth
+  else // horizontal
+    lContent.Height := FHeight;
+
+  for i := 0 to lContent.ChildrenCount - 1 do
+    if lContent.Children[i] is TImage then
+      case FDirection of
+        TDGEGamepadDetectedDirection.Horizontal:
+          begin
+            if FPosition in [TDGEGamepadDetectedPosition.TopLeft,
+              TDGEGamepadDetectedPosition.BottomLeft] then
+              (lContent.Children[i] as TImage).Align := talignlayout.left
+            else
+              (lContent.Children[i] as TImage).Align := talignlayout.right;
+            (lContent.Children[i] as TImage).Width := FWidth;
+          end;
+      else
+        if FPosition in [TDGEGamepadDetectedPosition.TopLeft,
+          TDGEGamepadDetectedPosition.TopRight] then
+          (lContent.Children[i] as TImage).Align := talignlayout.top
+        else
+          (lContent.Children[i] as TImage).Align := talignlayout.bottom;
+        (lContent.Children[i] as TImage).Height := FHeight;
+end;
+end;
+
+procedure TDGEGamepadDetected.AddGamepadImage(const Detected: boolean);
+var
+  img: TImage;
+  shadow: TShadowEffect;
+  Ani: TFloatAnimation;
+begin
+  img := TImage.Create(self);
+  img.Parent := lContent;
+  RefreshContentLayout;
+
+  if Detected then
+    img.Bitmap.Assign(TOlfSVGBitmapList.Bitmap(TSVGKenneyGamepad.Tag,
+      TSVGKenneyGamepad.ControllerGeneric, round(FWidth), round(FHeight),
+      imgImage.Bitmap.BitmapScale))
+  else
+    img.Bitmap.Assign(TOlfSVGBitmapList.Bitmap(TSVGKenneyGamepad.Tag,
+      TSVGKenneyGamepad.ControllerDisconnected, round(FWidth), round(FHeight),
+      imgImage.Bitmap.BitmapScale));
+
+  shadow := TShadowEffect.Create(img);
+  shadow.Parent := img;
+
+  Ani := TFloatAnimation.Create(img);
+  Ani.Parent := img;
+  Ani.Duration := 5;
+  Ani.Interpolation := TInterpolationType.Bounce;
+  Ani.OnFinish := FinishedAnimation;
+  Ani.PropertyName := 'Opacity';
+  Ani.StartValue := 1;
+  Ani.StopValue := 0;
+  Ani.start;
+
+  lBackground.BringToFront;
+end;
+
+{$ENDIF}
+
+initialization
+
+{$IFDEF FULLCODE}
+{$REGION 'Default SVG initialization'}
+{$IF CompilerVersion >= 36}
+// Delphi 12 Athens
+
+SetLength(SVGKenneyGamepad, 2);
+{$TEXTBLOCK NATIVE XML}
+// TODO : remove the INC file when the code formater will be compatible with multilines string
+{$I 'Gamolf.RTL.GamepadDetected.inc'}
+{$ELSE}
+  SetLength(SVGKenneyGamepad, 0);
+{$MESSAGE WARN 'no default SVG images available before Delphi 12 Athens'}
+{$ENDIF}
+TSVGKenneyGamepad.Tag := TOlfSVGBitmapList.AddAList;
+TOlfSVGBitmapList.AddItem(TSVGKenneyGamepad.Tag, SVGKenneyGamepad);
+{$ENDREGION}
+{$ENDIF}
 
 end.
