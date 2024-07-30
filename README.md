@@ -45,9 +45,13 @@ To download this code repository, we recommend using "git", but you can also dow
 
 This project uses dependencies in the form of sub-modules. They will be absent from the ZIP file. You'll have to download them by hand.
 
-* none
+* [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) must be installed in the ./lib-externes/librairies subfolder.
 
 If you want to use game controllers features for iOS or macOS, don't forget to add the GameController framework to your SDK(s) in Tools/Options/Deployment/SDK and refresh the files.
+
+The components packages need only the RTL package to avoid conflicts during their installation.
+
+For components TDGEGamepadDetected and TDGEHelpBar you need Skia4Delphi enabled in your projects. It's used by unit Olf.RTL.SVGToBitmap.pas from [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) to draw the SVG into images bitmap.
 
 ## License to use this code repository and its contents
 
