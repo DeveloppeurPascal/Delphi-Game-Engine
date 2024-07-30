@@ -158,6 +158,7 @@
         <DCCReference Include="rtl.dcp"/>
         <DCCReference Include="..\..\src\Gamolf.RTL.Joystick.pas"/>
         <DCCReference Include="..\..\src\Gamolf.RTL.Joystick.Deprecated.pas"/>
+        <DCCReference Include="..\..\src\Gamolf.RTL.GamepadDetected.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
