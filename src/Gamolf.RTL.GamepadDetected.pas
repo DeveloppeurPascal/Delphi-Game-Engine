@@ -88,10 +88,6 @@ procedure Register;
 
 implementation
 
-uses
-  FMX.Types;
-// TODO : FMX.Types à retirer lors de l'ajout de la prise en charge de la VCL
-
 procedure Register;
 begin
   RegisterComponents('Gamolf', [TDGEGamepadDetected]);
@@ -183,12 +179,5 @@ procedure TDGEGamepadDetected.SetWidth(const Value: integer);
 begin
   FWidth := Value;
 end;
-
-initialization
-
-// TODO : retirer la restriction au groupe TFMXObject lors de l'ajout de la prise en charge de la VCL
-StartClassGroup(TFMXObject);
-ActivateClassGroup(TFMXObject);
-GroupDescendentsWith(TDGEGamepadDetected, TFMXObject);
 
 end.
