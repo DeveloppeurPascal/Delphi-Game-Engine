@@ -34,6 +34,7 @@ requires
 
 contains
   Gamolf.RTL.Joystick in '..\..\src\Gamolf.RTL.Joystick.pas',
-  Gamolf.RTL.Joystick.Deprecated in '..\..\src\Gamolf.RTL.Joystick.Deprecated.pas';
+  Gamolf.RTL.Joystick.Deprecated in '..\..\src\Gamolf.RTL.Joystick.Deprecated.pas',
+  Gamolf.RTL.GamepadDetected in '..\..\src\Gamolf.RTL.GamepadDetected.pas';
 
 end.
