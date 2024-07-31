@@ -18,7 +18,7 @@ object Form1: TForm1
   end
   object DGEGamepadDetected1: TDGEGamepadDetected
     Width = 128
-    Height = 64
+    Duration = 2.000000000000000000
     Left = 304
     Top = 224
   end
