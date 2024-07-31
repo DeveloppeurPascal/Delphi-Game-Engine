@@ -15,9 +15,6 @@ uses
   FMX.Objects,
   FMX.Layouts,
 {$ENDIF}
-{$IFDEF FRAMEWORK_VCL}
-  // TODO : à compléter
-{$ENDIF}
   System.Classes;
 
 type
@@ -54,11 +51,12 @@ type
     procedure SetMarginRight(const Value: integer);
     procedure SetMarginTop(const Value: integer);
   protected
-{$IFDEF FULLCODE}
-    // TODO : à voir en VCL
+{$IFDEF FRAMEWORK_FMX}
     lBackground: TLayout;
     lContent: TLayout;
     imgImage: TImage;
+{$ENDIF}
+{$IFDEF FULLCODE}
     procedure GamepadLost(const GamepadID: integer);
     procedure GamepadDetected(const GamepadID: integer);
     procedure FinishedAnimation(Sender: TObject);
@@ -78,7 +76,7 @@ type
     /// <summary>
     /// Height of the GamepadOnOff displayed picture
     /// </summary>
-    property Height: integer read FHeight write SetHeight default 128;
+    property Height: integer read FHeight write SetHeight default 64;
     property MarginBottom: integer read FMarginBottom write SetMarginBottom
       default 10;
     property MarginLeft: integer read FMarginLeft write SetMarginLeft
@@ -122,9 +120,13 @@ uses
   FMX.Effects,
   FMX.Ani,
   FMX.Types,
+  FMX.Controls,
 {$ENDIF}
 {$IFDEF FRAMEWORK_VCL}
-  // TODO : à compléter
+  VCL.Forms,
+  VCL.ExtCtrls,
+  VCL.Controls,
+  VCL.Graphics,
 {$ENDIF}
 {$IFDEF FULLCODE}
   Gamolf.RTL.Joystick,
@@ -140,16 +142,20 @@ end;
 { TDGEGamepadDetected }
 
 procedure TDGEGamepadDetected.AfterConstruction;
-{$IFDEF FULLCODE}
+{$IFDEF FRAMEWORK_FMX}
   function GetForm(c: TComponent): TCommonCustomForm;
   begin
     if not assigned(c) then
       result := application.mainform
     else if c is TCommonCustomForm then
       result := c as TCommonCustomForm
+    else if c is tcontrol then
+      result := GetForm((c as tcontrol).Parent)
     else
-      c := GetForm(c.Owner);
+      result := GetForm(c.Owner);
   end;
+{$ENDIF}
+{$IFDEF FULLCODE}
 
 var
   GamepadManager: TDGEGamepadManager;
@@ -161,7 +167,8 @@ begin
   GamepadManager.SynchronizedEvents := true;
   GamepadManager.OnNewGamepadDetected := GamepadDetected;
   GamepadManager.OnGamepadLost := GamepadLost;
-
+{$ENDIF}
+{$IFDEF FRAMEWORK_FMX}
   imgImage := TImage.Create(self);
   imgImage.Parent := GetForm(Owner);
   imgImage.HitTest := false;
@@ -188,7 +195,7 @@ begin
   FTagFloat := 0;
   FTagString := '';
   FTagObject := nil;
-  FWidth := 128;
+  FWidth := 64;
   FHeight := 64;
   FPosition := TDGEGamepadDetectedPosition.TopRight;
   FDirection := TDGEGamepadDetectedDirection.Vertical;
@@ -196,7 +203,7 @@ begin
   FMarginTop := 10;
   FMarginLeft := 10;
   FMarginRight := 10;
-{$IFDEF FULLCODE}
+{$IFDEF FRAMEWORK_FMX}
   lBackground := nil;
   lContent := nil;
   imgImage := nil;
@@ -404,9 +411,12 @@ begin
 end;
 
 procedure TDGEGamepadDetected.FinishedAnimation(Sender: TObject);
+{$IFDEF FRAMEWORK_FMX}
 var
   o: TComponent;
+{$ENDIF}
 begin
+{$IFDEF FRAMEWORK_FMX}
   if Sender is TFloatAnimation then
   begin
     o := (Sender as TFloatAnimation).Parent;
@@ -416,13 +426,17 @@ begin
         o.free;
       end);
   end;
+{$ENDIF}
 end;
 
 procedure TDGEGamepadDetected.RefreshContentLayout;
+{$IFDEF FRAMEWORK_FMX}
 var
   img: TImage;
   i: integer;
+{$ENDIF}
 begin
+{$IFDEF FRAMEWORK_FMX}
   case FDirection of
     TDGEGamepadDetectedDirection.Horizontal: // horizontal
       if FPosition in [TDGEGamepadDetectedPosition.TopLeft,
@@ -463,16 +477,95 @@ begin
           (lContent.Children[i] as TImage).Align := talignlayout.bottom;
         (lContent.Children[i] as TImage).Height := FHeight;
 end;
+{$ENDIF}
 end;
 
 procedure TDGEGamepadDetected.AddGamepadImage(const Detected: boolean);
+{$IFDEF FRAMEWORK_VCL}
+  function GetForm(c: TComponent): TCustomForm;
+  begin
+    if not assigned(c) then
+      result := application.mainform
+    else if c is TCustomForm then
+      result := c as TCustomForm
+    else if c is tcontrol then
+      result := GetForm((c as tcontrol).Parent)
+    else
+      result := GetForm(c.Owner);
+  end;
+{$ENDIF}
+
 var
   img: TImage;
+{$IFDEF FRAMEWORK_FMX}
   shadow: TShadowEffect;
   Ani: TFloatAnimation;
+{$ENDIF}
 begin
   img := TImage.Create(self);
+{$IFDEF FRAMEWORK_VCL}
+  img.Parent := GetForm(self);
+  img.Align := alnone;
+  img.Width := FWidth;
+  img.Height := FHeight;
+  case FPosition of
+    TDGEGamepadDetectedPosition.TopLeft:
+      begin
+        img.left := FMarginLeft;
+        img.top := FMarginTop;
+        img.Anchors := [akTop, akLeft];
+      end;
+    TDGEGamepadDetectedPosition.TopRight:
+      begin
+        img.left := img.Parent.ClientWidth - FMarginRight - img.Width;
+        img.top := FMarginTop;
+        img.Anchors := [akTop, akRight];
+      end;
+    TDGEGamepadDetectedPosition.BottomRight:
+      begin
+        img.left := img.Parent.ClientWidth - FMarginRight - img.Width;
+        img.top := img.Parent.ClientHeight - FMarginBottom - img.Height;
+        img.Anchors := [akBottom, akRight];
+      end;
+    TDGEGamepadDetectedPosition.BottomLeft:
+      begin
+        img.left := FMarginLeft;
+        img.top := img.Parent.ClientHeight - FMarginBottom - img.Height;
+        img.Anchors := [akBottom, akLeft];
+      end;
+  end;
+  if Detected then
+    img.picture.Bitmap.Assign(TOlfSVGBitmapList.Bitmap(TSVGKenneyGamepad.Tag,
+      TSVGKenneyGamepad.ControllerGeneric, round(FWidth), round(FHeight)))
+  else
+    img.picture.Bitmap.Assign(TOlfSVGBitmapList.Bitmap(TSVGKenneyGamepad.Tag,
+      TSVGKenneyGamepad.ControllerDisconnected, round(FWidth), round(FHeight)));
+  img.Visible := true;
+  tthread.CreateAnonymousThread(
+    procedure
+    var
+      Timer: integer;
+    begin
+      Timer := 5000; // TODO : timer
+      while (not tthread.CheckTerminated) and (Timer > 0) do
+      begin
+        sleep(100);
+        Timer := Timer - 100;
+      end;
+      if not tthread.CheckTerminated then
+        tthread.queue(nil,
+          procedure
+          begin
+            try
+              img.free;
+            except
+            end;
+          end);
+    end).start;
+{$ENDIF}
+{$IFDEF FRAMEWORK_FMX}
   img.Parent := lContent;
+
   RefreshContentLayout;
 
   if Detected then
@@ -489,7 +582,7 @@ begin
 
   Ani := TFloatAnimation.Create(img);
   Ani.Parent := img;
-  Ani.Duration := 5;
+  Ani.Duration := 5; // TODO : timer
   Ani.Interpolation := TInterpolationType.Bounce;
   Ani.OnFinish := FinishedAnimation;
   Ani.PropertyName := 'Opacity';
@@ -498,6 +591,7 @@ begin
   Ani.start;
 
   lBackground.BringToFront;
+{$ENDIF}
 end;
 
 {$ENDIF}
