@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{376D1F2C-063E-4C81-8F6B-0750F6261939}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="VCLHelpBarSample\VCLHelpBarSample.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="FMXHelpBarSample\FMXHelpBarSample.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="VCLHelpBarSample">
+        <MSBuild Projects="VCLHelpBarSample\VCLHelpBarSample.dproj"/>
+    </Target>
+    <Target Name="VCLHelpBarSample:Clean">
+        <MSBuild Projects="VCLHelpBarSample\VCLHelpBarSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VCLHelpBarSample:Make">
+        <MSBuild Projects="VCLHelpBarSample\VCLHelpBarSample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FMXHelpBarSample">
+        <MSBuild Projects="FMXHelpBarSample\FMXHelpBarSample.dproj"/>
+    </Target>
+    <Target Name="FMXHelpBarSample:Clean">
+        <MSBuild Projects="FMXHelpBarSample\FMXHelpBarSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FMXHelpBarSample:Make">
+        <MSBuild Projects="FMXHelpBarSample\FMXHelpBarSample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="VCLHelpBarSample;FMXHelpBarSample"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="VCLHelpBarSample:Clean;FMXHelpBarSample:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="VCLHelpBarSample:Make;FMXHelpBarSample:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
