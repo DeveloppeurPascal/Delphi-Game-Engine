@@ -568,6 +568,10 @@ type
   public
     property IsSupported: boolean read GetIsSupported;
     /// <summary>
+    /// TagObject property "in case of" not used in this class
+    /// </summary>
+    property TagObject: TObject read FTagObject write SetTagObject default nil;
+    /// <summary>
     /// Return the gamepad data class
     /// </summary>
     function GetGamepad(const AID: integer): TGamepadDevice;
@@ -622,10 +626,6 @@ type
     /// TagFloat property "in case of" not used in this class
     /// </summary>
     property TagFloat: single read FTagFloat write SetTagFloat;
-    /// <summary>
-    /// TagObject property "in case of" not used in this class
-    /// </summary>
-    property TagObject: TObject read FTagObject write SetTagObject default nil;
     /// <summary>
     /// TagString property "in case of" not used in this class
     /// </summary>
@@ -795,6 +795,10 @@ type
     property Buttons[const ButtonID: TJoystickButtons]: boolean read GetButtons;
     property Axes[const AxeID: TJoystickAxes]: single read GetAxes;
     property DPad: TJoystickDPad read getDPad;
+    /// <summary>
+    /// TagObject property "in case of" not used in this class
+    /// </summary>
+    property TagObject: TObject read FTagObject write SetTagObject default nil;
     constructor Create(AOwner: TComponent); override;
   published
     property ID: integer read FID write SetID default -1;
@@ -825,10 +829,6 @@ type
     /// TagFloat property "in case of" not used in this class
     /// </summary>
     property TagFloat: single read FTagFloat write SetTagFloat;
-    /// <summary>
-    /// TagObject property "in case of" not used in this class
-    /// </summary>
-    property TagObject: TObject read FTagObject write SetTagObject default nil;
     /// <summary>
     /// TagString property "in case of" not used in this class
     /// </summary>

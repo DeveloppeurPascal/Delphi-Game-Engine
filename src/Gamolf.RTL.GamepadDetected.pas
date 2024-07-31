@@ -73,6 +73,10 @@ type
     procedure AddGamepadImage(const Detected: boolean);
 {$ENDIF}
   public
+    /// <summary>
+    /// TagObject property "in case of" not used in this class
+    /// </summary>
+    property TagObject: TObject read FTagObject write SetTagObject default nil;
     constructor Create(AOwner: TComponent); override;
     procedure AfterConstruction; override;
     procedure Test(const OnOff: boolean = true);
@@ -109,10 +113,6 @@ type
     /// TagFloat property "in case of" not used in this class
     /// </summary>
     property TagFloat: single read FTagFloat write SetTagFloat;
-    /// <summary>
-    /// TagObject property "in case of" not used in this class
-    /// </summary>
-    property TagObject: TObject read FTagObject write SetTagObject default nil;
     /// <summary>
     /// TagString property "in case of" not used in this class
     /// </summary>
