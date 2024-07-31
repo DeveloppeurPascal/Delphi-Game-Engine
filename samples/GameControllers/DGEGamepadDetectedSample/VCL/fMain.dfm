@@ -21,10 +21,9 @@ object Form2: TForm2
     OnClick = Button1Click
   end
   object DGEGamepadDetected1: TDGEGamepadDetected
-    Width = 128
     Height = 64
-    Position = TopLeft
-    Left = 304
-    Top = 224
+    Position = BottomRight
+    Left = 432
+    Top = 96
   end
 end

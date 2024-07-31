@@ -12,7 +12,8 @@ uses
   Vcl.Controls,
   Vcl.Forms,
   Vcl.Dialogs,
-  Gamolf.RTL.GamepadDetected, Vcl.StdCtrls;
+  Gamolf.RTL.GamepadDetected,
+  Vcl.StdCtrls;
 
 type
   TForm2 = class(TForm)
