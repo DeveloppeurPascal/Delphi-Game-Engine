@@ -46,6 +46,7 @@ type
     FMarginTop: integer;
     FMarginLeft: integer;
     FMarginRight: integer;
+    FDuration: single;
     procedure SetEnabled(const Value: boolean);
     procedure SetTagBool(const Value: boolean);
     procedure SetTagFloat(const Value: single);
@@ -59,6 +60,7 @@ type
     procedure SetMarginLeft(const Value: integer);
     procedure SetMarginRight(const Value: integer);
     procedure SetMarginTop(const Value: integer);
+    procedure SetDuration(const Value: single);
   protected
 {$IFDEF FRAMEWORK_FMX}
     lBackground: TLayout;
@@ -79,6 +81,9 @@ type
     property TagObject: TObject read FTagObject write SetTagObject default nil;
     constructor Create(AOwner: TComponent); override;
     procedure AfterConstruction; override;
+    /// <summary>
+    /// Use Test() method to simulate a game controller detected or lost event
+    /// </summary>
     procedure Test(const OnOff: boolean = true);
   published
     property Enabled: boolean read FEnabled write SetEnabled default true;
@@ -90,17 +95,42 @@ type
     /// Height of the GamepadOnOff displayed picture
     /// </summary>
     property Height: integer read FHeight write SetHeight default 64;
+    /// <summary>
+    /// Margin between the game controller images and bottom of the form.
+    /// </summary>
     property MarginBottom: integer read FMarginBottom write SetMarginBottom
       default 10;
+    /// <summary>
+    /// Margin between the game controller images and left of the form.
+    /// </summary>
     property MarginLeft: integer read FMarginLeft write SetMarginLeft
       default 10;
+    /// <summary>
+    /// Margin between the game controller images and right of the form.
+    /// </summary>
     property MarginRight: integer read FMarginRight write SetMarginRight
       default 10;
+    /// <summary>
+    /// Margin between the game controller images and top of the form.
+    /// </summary>
     property MarginTop: integer read FMarginTop write SetMarginTop default 10;
+    /// <summary>
+    /// Where you want to have a game controller image when one is detected or lost
+    /// </summary>
     property Position: TDGEGamepadDetectedPosition read FPosition
       write SetPosition default TDGEGamepadDetectedPosition.TopRight;
+    /// <summary>
+    /// Used when more than one game controller event (detected/lost) is visible
+    /// </summary>
+    /// <remarks>
+    /// Only used in FireMonkey projects.
+    /// </remarks>
     property Direction: TDGEGamepadDetectedDirection read FDirection
       write SetDirection default TDGEGamepadDetectedDirection.Vertical;
+    /// <summary>
+    /// Display duration in seconds
+    /// </summary>
+    property Duration: single read FDuration write SetDuration;
     /// <summary>
     /// Tag property "in case of" not used in this class
     /// </summary>
@@ -212,6 +242,7 @@ begin
   FMarginTop := 10;
   FMarginLeft := 10;
   FMarginRight := 10;
+  FDuration := 5;
 {$IFDEF FRAMEWORK_FMX}
   lBackground := nil;
   lContent := nil;
@@ -223,6 +254,11 @@ procedure TDGEGamepadDetected.SetDirection(const Value
   : TDGEGamepadDetectedDirection);
 begin
   FDirection := Value;
+end;
+
+procedure TDGEGamepadDetected.SetDuration(const Value: single);
+begin
+  FDuration := Value;
 end;
 
 procedure TDGEGamepadDetected.SetEnabled(const Value: boolean);
@@ -555,7 +591,7 @@ begin
     var
       Timer: integer;
     begin
-      Timer := 5000; // TODO : timer
+      Timer := round(FDuration * 1000);
       while (not tthread.CheckTerminated) and (Timer > 0) do
       begin
         sleep(100);
@@ -591,7 +627,7 @@ begin
 
   Ani := TFloatAnimation.Create(img);
   Ani.Parent := img;
-  Ani.Duration := 5; // TODO : timer
+  Ani.Duration := FDuration;
   Ani.Interpolation := TInterpolationType.Bounce;
   Ani.OnFinish := FinishedAnimation;
   Ani.PropertyName := 'Opacity';
