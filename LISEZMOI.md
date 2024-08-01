@@ -1,6 +1,6 @@
 # Delphi Game Engine
 
-[This page in english.](README.md)
+[This page in English.](README.md)
 
 FireMonkey est le framework de composants et librairies multiplateforme fourni avec [Delphi](https://www.embarcadero.com/products/delphi). Il permet de développer des logiciels natifs (= compilés) pour Windows, Mac, iOS, Android et Linux à partir d'une seule base de code.
 
