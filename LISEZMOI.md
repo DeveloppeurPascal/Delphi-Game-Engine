@@ -37,7 +37,7 @@ Ce dépôt de code contient un projet développé en langage Pascal Objet sous D
 
 ### Twitch
 
-Suivez les streams de développement de jeux vidéo sur [ma chaîne Twitch](https://www.twitch.tv/patrickpremartin) ou en rediffusion sur [Serial Streameur](https://serialstreameur.fr/jeux-video.php) la plupart du temps en français.
+Suivez mes streams de développement de logiciels, jeux vidéo, applications mobiles et sites web sur [ma chaîne Twitch](https://www.twitch.tv/patrickpremartin) ou en rediffusion sur [Serial Streameur](https://serialstreameur.fr/jeux-video.php) la plupart du temps en français.
 
 ## Installation des codes sources
 
