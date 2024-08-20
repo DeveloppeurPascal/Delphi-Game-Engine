@@ -264,7 +264,7 @@ begin
     RefreshHelpBar;
 
   // Icon for Keyboard
-  img := TImage.Create(self);
+  img := TImage.Create(lContent);
   img.Parent := lContent;
   img.HitTest := false;
   img.TabStop := false;
@@ -277,7 +277,7 @@ begin
   img.WrapMode := TImageWrapMode.Fit;
 
   // Icon for Gamepad
-  img := TImage.Create(self);
+  img := TImage.Create(lContent);
   img.Parent := lContent;
   img.HitTest := false;
   img.TabStop := false;
@@ -292,7 +292,7 @@ begin
   // Text
   if not Text.isempty then
   begin
-    txt := ttext.Create(self);
+    txt := ttext.Create(lContent);
     txt.Parent := lContent;
     txt.HitTest := false;
     txt.TabStop := false;
@@ -378,11 +378,19 @@ begin
 end;
 
 constructor TDGEFMXHelpBar.Create(AOwner: TComponent);
+var
+  LOwner: TComponent;
 begin
   inherited;
+
+  if assigned(AOwner) then
+    LOwner := AOwner
+  else
+    LOwner := self;
+
   FRefreshInProgress := false;
 
-  FTextSettings := TTextSettings.Create(self);
+  FTextSettings := TTextSettings.Create(LOwner);
   FTextSettings.HorzAlign := TTextAlign.leading;
   FTextSettings.VertAlign := TTextAlign.Center;
   FTextSettings.Font.Style := [TFontStyle.fsBold];
@@ -410,11 +418,11 @@ begin
 
   FHeight := 50;
 
-  imgImage := TImage.Create(self);
-  lGlobal := TLayout.Create(self);
-  lHelpBar := TLayout.Create(self);
-  rBackground := TRectangle.Create(self);
-  lContent := TLayout.Create(self);
+  imgImage := TImage.Create(LOwner);
+  lGlobal := TLayout.Create(LOwner);
+  lHelpBar := TLayout.Create(LOwner);
+  rBackground := TRectangle.Create(LOwner);
+  lContent := TLayout.Create(LOwner);
 end;
 
 destructor TDGEFMXHelpBar.Destroy;
