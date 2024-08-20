@@ -267,6 +267,7 @@ begin
   img := TImage.Create(self);
   img.Parent := lContent;
   img.HitTest := false;
+  img.TabStop := false;
   img.Height := lContent.Height;
   img.Width := img.Height;
   img.Bitmap.assign(TOlfSVGBitmapList.Bitmap(FIconKeyBitmapListIndex,
@@ -279,6 +280,7 @@ begin
   img := TImage.Create(self);
   img.Parent := lContent;
   img.HitTest := false;
+  img.TabStop := false;
   img.Height := lContent.Height;
   img.Width := img.Height;
   img.Bitmap.assign(TOlfSVGBitmapList.Bitmap(FIconGamepadBitmapListIndex,
@@ -293,6 +295,7 @@ begin
     txt := ttext.Create(self);
     txt.Parent := lContent;
     txt.HitTest := false;
+    txt.TabStop := false;
     txt.TextSettings.assign(FTextSettings);
     txt.AutoSize := true;
     txt.Text := Text;
@@ -329,22 +332,27 @@ begin
 
   imgImage.Parent := GetForm(Owner);
   imgImage.HitTest := false;
+  imgImage.TabStop := false;
   imgImage.Visible := false;
 
   lGlobal.Parent := imgImage.Parent;
   lGlobal.HitTest := false;
+  lGlobal.TabStop := false;
   lGlobal.Align := TAlignLayout.Contents;
 
   lHelpBar.Parent := lGlobal;
   lHelpBar.HitTest := false;
+  lHelpBar.TabStop := false;
   lHelpBar.OnResize := FormResize;
 
   rBackground.Parent := lHelpBar;
   rBackground.HitTest := false;
+  rBackground.TabStop := false;
   rBackground.position.y := 0;
 
   lContent.Parent := lHelpBar;
   lContent.HitTest := false;
+  lContent.TabStop := false;
   lContent.position.y := 0;
   lContent.BringToFront;
 
