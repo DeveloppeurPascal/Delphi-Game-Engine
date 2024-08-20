@@ -22,8 +22,8 @@
 /// user interface with the keyboard or a game controller, it's the good place.
 ///
 /// ***************************************************************************
-/// File last update : 31/07/2024 15:41:30
-/// Signature : 3031185b29c24cf8d1db313e1e44526821463321
+/// File last update : 2024-08-20T08:32:54.000+02:00
+/// Signature : 03f5149b644fed27c93f77f98c0227c5e46a4c0d
 /// ***************************************************************************
 /// </summary>
 
