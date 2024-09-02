@@ -16,6 +16,8 @@ Vous trouverez des exemples de fonctionnalités classiques sur des jeux vidéos 
 
 Certain de [mes jeux vidéo](https://gamolf.fr) sont aussi disponibles en open source sur GitHub. Vous les trouverez en sous-modules de [ce dépôt](https://github.com/DeveloppeurPascal/DevPas-Games-Pack).
 
+Depuis juillet 2024, un kit de démarrage de codage de jeux sous forme de projets FireMonkey est disponible. Il s'agit du [Gamolf FMX Game Starter Kit](https://github.com/DeveloppeurPascal/Gamolf-FMX-Game-Starter-Kit). Il utilise [Delphi Game Engine](https://github.com/DeveloppeurPascal/Delphi-Game-Engine) pour les routines de base (son, contrôleurs de jeu, interface utilisateur, scores, ...) et vous fournit un modèle de projet Delphi pour créer vos jeux avec de nombreux exemples.
+
 Ce dépôt de code contient un projet développé en langage Pascal Objet sous Delphi. Vous ne savez pas ce qu'est Dephi ni où le télécharger ? Vous en saurez plus [sur ce site web](https://delphi-resources.developpeur-pascal.fr/).
 
 ## Présentations et conférences
