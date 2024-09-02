@@ -35,6 +35,12 @@ This code repository contains a project developed in Object Pascal language unde
 * [Using FireMonkey as a game engine](https://serialstreameur.fr/delphicon-2021-fmx-game-engine.php) (in English)
 * [Utiliser FireMonkey comme moteur de jeux vidéo](https://serialstreameur.fr/webinaire-20211211.php) (in French)
 
+### Dev Days of Summer 2024
+
+* [Make games in Delphi (2024 edition)](https://serialstreameur.fr/make-games-in-delphi-2024-edition.html) (in English)
+* [Make games in Delphi (2024 edition)](https://youtu.be/CAW-wpb9HJg) (live session replay in English)
+* [Faites des jeux en Delphi (v2024)](https://serialstreameur.fr/faites-des-jeux-en-delphi-edition-2024.html) (in French)
+
 ### Twitch
 
 Follow my development streams of software, video games, mobile applications and websites on [my Twitch channel](https://www.twitch.tv/patrickpremartin) or as replays on [Serial Streameur](https://serialstreameur.fr/jeux-video.php) mostly in French.
