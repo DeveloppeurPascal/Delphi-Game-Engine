@@ -33,8 +33,8 @@
 /// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
 ///
 /// ***************************************************************************
-/// File last update : 2025-01-12T18:25:30.000+01:00
-/// Signature : efa14e5044c6ca07300f8bf4d87960d587ee2bc4
+/// File last update : 2025-01-12T18:38:34.000+01:00
+/// Signature : e0ebea03f3d0df30949f4a78b4322bc5e17c05f4
 /// ***************************************************************************
 /// </summary>
 
@@ -434,10 +434,15 @@ begin
 
 {$IFNDEF IDE}
   imgImage := TImage.Create(LOwner);
+  imgImage.Stored := false;
   lGlobal := TLayout.Create(LOwner);
+  lGlobal.Stored := false;
   lHelpBar := TLayout.Create(LOwner);
+  lHelpBar.Stored := false;
   rBackground := TRectangle.Create(LOwner);
+  rBackground.Stored := false;
   lContent := TLayout.Create(LOwner);
+  lContent.Stored := false;
 {$ELSE}
   imgImage := nil;
   lGlobal := nil;
