@@ -91,8 +91,10 @@ Si vous trouvez ce dépôt de code utile et voulez le montrer, merci de faire un
 Vous pouvez utiliser l'un de ces services :
 
 * [GitHub Sponsors](https://github.com/sponsors/DeveloppeurPascal)
-* [Liberapay](https://liberapay.com/PatrickPremartin)
+* [Ko-fi (en français)](https://ko-fi.com/patrick_premartin_fr)
+* [Ko-fi (in English)](https://ko-fi.com/patrick_premartin_en)
 * [Patreon](https://www.patreon.com/patrickpremartin)
+* [Liberapay](https://liberapay.com/PatrickPremartin)
 * [Paypal](https://www.paypal.com/paypalme/patrickpremartin)
 
 ou si vous parlez français vous pouvez [vous abonner à Zone Abo](https://zone-abo.fr/nos-abonnements.php) sur une base mensuelle ou annuelle et avoir en plus accès à de nombreuses ressources en ligne (vidéos et articles).

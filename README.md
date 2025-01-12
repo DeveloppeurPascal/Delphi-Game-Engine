@@ -91,8 +91,10 @@ If you think this project is useful and want to support it, please make a donati
 You can use one of those services :
 
 * [GitHub Sponsors](https://github.com/sponsors/DeveloppeurPascal)
-* [Liberapay](https://liberapay.com/PatrickPremartin)
+* [Ko-fi (en français)](https://ko-fi.com/patrick_premartin_fr)
+* [Ko-fi (in English)](https://ko-fi.com/patrick_premartin_en)
 * [Patreon](https://www.patreon.com/patrickpremartin)
+* [Liberapay](https://liberapay.com/PatrickPremartin)
 * [Paypal](https://www.paypal.com/paypalme/patrickpremartin)
 
 or if you speack french you can [subscribe to Zone Abo](https://zone-abo.fr/nos-abonnements.php) on a monthly or yearly basis and get a lot of resources as videos and articles.
