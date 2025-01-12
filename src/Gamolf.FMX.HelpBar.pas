@@ -3,7 +3,7 @@
 ///
 /// Delphi Game Engine
 ///
-/// Copyright 2021-2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2021-2025 Patrick Prémartin under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -22,8 +22,19 @@
 /// user interface with the keyboard or a game controller, it's the good place.
 ///
 /// ***************************************************************************
-/// File last update : 2024-08-20T08:32:54.000+02:00
-/// Signature : 03f5149b644fed27c93f77f98c0227c5e46a4c0d
+///
+/// Author(s) :
+/// Patrick PREMARTIN
+///
+/// Site :
+/// https://delphigameengine.developpeur-pascal.fr
+///
+/// Project site :
+/// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
+///
+/// ***************************************************************************
+/// File last update : 2025-01-12T18:25:30.000+01:00
+/// Signature : efa14e5044c6ca07300f8bf4d87960d587ee2bc4
 /// ***************************************************************************
 /// </summary>
 
@@ -383,11 +394,14 @@ var
 begin
   inherited;
 
+{$IFNDEF IDE}
   if assigned(AOwner) then
     LOwner := AOwner
   else
     LOwner := self;
-
+{$ELSE}
+  LOwner := nil;
+{$ENDIF}
   FRefreshInProgress := false;
 
   FTextSettings := TTextSettings.Create(LOwner);
@@ -418,11 +432,19 @@ begin
 
   FHeight := 50;
 
+{$IFNDEF IDE}
   imgImage := TImage.Create(LOwner);
   lGlobal := TLayout.Create(LOwner);
   lHelpBar := TLayout.Create(LOwner);
   rBackground := TRectangle.Create(LOwner);
   lContent := TLayout.Create(LOwner);
+{$ELSE}
+  imgImage := nil;
+  lGlobal := nil;
+  lHelpBar := nil;
+  rBackground := nil;
+  lContent := nil;
+{$ENDIF}
 end;
 
 destructor TDGEFMXHelpBar.Destroy;
