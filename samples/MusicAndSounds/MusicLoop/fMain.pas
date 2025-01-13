@@ -3,7 +3,7 @@
 ///
 /// Delphi Game Engine
 ///
-/// Copyright 2021-2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2021-2025 Patrick Prémartin under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -22,8 +22,19 @@
 /// user interface with the keyboard or a game controller, it's the good place.
 ///
 /// ***************************************************************************
-/// File last update : 28/05/2024 12:18:52
-/// Signature : b1f2c569a410f9eb304e8dd670956c9eb95072ea
+///
+/// Author(s) :
+/// Patrick PREMARTIN
+///
+/// Site :
+/// https://delphigameengine.developpeur-pascal.fr
+///
+/// Project site :
+/// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
+///
+/// ***************************************************************************
+/// File last update : 2025-01-13T20:17:14.000+01:00
+/// Signature : 63de7f3c5032225db05f4a2ccc4699b46cbbca54
 /// ***************************************************************************
 /// </summary>
 
@@ -32,10 +43,21 @@ unit fMain;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.SysUtils,
+  System.Types,
+  System.UITypes,
+  System.Classes,
   System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Layouts,
-  FMX.StdCtrls, FMX.Controls.Presentation, FMX.Edit, Gamolf.FMX.MusicLoop,
+  FMX.Types,
+  FMX.Controls,
+  FMX.Forms,
+  FMX.Graphics,
+  FMX.Dialogs,
+  FMX.Layouts,
+  FMX.StdCtrls,
+  FMX.Controls.Presentation,
+  FMX.Edit,
+  Gamolf.FMX.MusicLoop,
   FMX.ListBox;
 
 type
@@ -77,9 +99,7 @@ type
     procedure Button11Click(Sender: TObject);
     procedure Button10Click(Sender: TObject);
   private
-    { Déclarations privées }
   public
-    { Déclarations publiques }
   end;
 
 var
@@ -89,7 +109,8 @@ implementation
 
 {$R *.fmx}
 
-uses System.IOUtils;
+uses
+  System.IOUtils;
 
 procedure TForm1.Button10Click(Sender: TObject);
 begin
@@ -191,7 +212,7 @@ begin
   begin
     MusicLoop := o as tmusicloop;
     if MusicLoop.IsPlaying then
-      MusicLoop.Stop
+      MusicLoop.Pause
     else
       MusicLoop.play;
   end;
@@ -214,14 +235,16 @@ end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  Edit1.Text := tpath.Combine(tpath.GetDocumentsPath,
-    'mp3\2007-BigBeatImpact- 30.mp3');
-  Edit2.Text := tpath.Combine(tpath.GetDocumentsPath, 'mp3\2008-OnTheQ 30.mp3');
-  Edit3.Text := tpath.Combine(tpath.GetDocumentsPath,
-    'mp3\Accentica Stinger4.mp3');
-  Edit4.Text := tpath.Combine(tpath.GetDocumentsPath,
-    'mp3\Dynamic Keys - 30.mp3');
-  Edit5.Text := tpath.Combine(tpath.GetDocumentsPath, 'wav');
+  // TODO : faire un env de test ou ajouter boutons de sélection
+  Edit1.Text := tpath.Combine(tpath.GetMusicPath, 'ZicPlayDemo',
+    '02 Voulez-Vous.mp3');
+  Edit2.Text := tpath.Combine(tpath.GetMusicPath, 'ZicPlayDemo',
+    '08 Chiquitita.mp3');
+  Edit3.Text := tpath.Combine(tpath.GetMusicPath, 'ZicPlayDemo',
+    'Pense à moi comme je t''aime.mp3 ');
+  Edit4.Text := tpath.Combine(tpath.GetMusicPath, 'ZicPlayDemo',
+    'SmoothElements.mp3');
+  Edit5.Text := tpath.Combine(tpath.GetMusicPath, 'wav');
 end;
 
 initialization
