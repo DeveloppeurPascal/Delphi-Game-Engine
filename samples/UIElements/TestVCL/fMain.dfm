@@ -108,7 +108,7 @@ object frmMain: TfrmMain
     TabOrder = 8
     OnClick = Button1Click
   end
-  object GamepadManager1: TGamepadManager
+  object GamepadManager1: TDGEGamepadManager
     SynchronizedEvents = True
     OnNewGamepadDetected = GamepadManager1NewGamepadDetected
     OnGamepadLost = GamepadManager1GamepadLost

@@ -3,7 +3,7 @@
 ///
 /// Delphi Game Engine
 ///
-/// Copyright 2021-2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2021-2025 Patrick Prémartin under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -22,8 +22,19 @@
 /// user interface with the keyboard or a game controller, it's the good place.
 ///
 /// ***************************************************************************
-/// File last update : 27/07/2024 13:50:34
-/// Signature : a406936737f82f3ee5f24146b9b0fe9914cf65bc
+///
+/// Author(s) :
+/// Patrick PREMARTIN
+///
+/// Site :
+/// https://delphigameengine.developpeur-pascal.fr
+///
+/// Project site :
+/// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
+///
+/// ***************************************************************************
+/// File last update : 2025-01-13T19:52:27.882+01:00
+/// Signature : c0505ca7d6dc2959d4aea6be0c636f0637c43d75
 /// ***************************************************************************
 /// </summary>
 
@@ -53,7 +64,7 @@ uses
 type
   TfrmMain = class(TForm)
     Memo1: TMemo;
-    GamepadManager1: TGamepadManager;
+    GamepadManager1: TDGEGamepadManager;
     GridPanelLayout1: TGridPanelLayout;
     Button1: TButton;
     Button2: TButton;

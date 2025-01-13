@@ -3,7 +3,7 @@
 ///
 /// Delphi Game Engine
 ///
-/// Copyright 2021-2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2021-2025 Patrick Prémartin under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -22,8 +22,19 @@
 /// user interface with the keyboard or a game controller, it's the good place.
 ///
 /// ***************************************************************************
-/// File last update : 27/07/2024 13:10:02
-/// Signature : c2942620f74ff42a538ef231208fc4b512b99e44
+///
+/// Author(s) :
+/// Patrick PREMARTIN
+///
+/// Site :
+/// https://delphigameengine.developpeur-pascal.fr
+///
+/// Project site :
+/// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
+///
+/// ***************************************************************************
+/// File last update : 2025-01-13T19:52:26.827+01:00
+/// Signature : 189762a6da6cb008feca8ce0e61da30d24bd51dc
 /// ***************************************************************************
 /// </summary>
 
@@ -39,7 +50,7 @@ uses
 
 type
   TdmUIElements = class(TDataModule)
-    GamepadManager1: TGamepadManager;
+    GamepadManager1: TDGEGamepadManager;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
     procedure GamepadManager1ButtonDown(const GamepadID: Integer;

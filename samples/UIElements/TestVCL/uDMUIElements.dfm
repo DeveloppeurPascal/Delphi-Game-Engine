@@ -3,7 +3,7 @@ object dmUIElements: TdmUIElements
   OnDestroy = DataModuleDestroy
   Height = 480
   Width = 640
-  object GamepadManager1: TGamepadManager
+  object GamepadManager1: TDGEGamepadManager
     SynchronizedEvents = True
     OnButtonDown = GamepadManager1ButtonDown
     OnDirectionPadChange = GamepadManager1DirectionPadChange
