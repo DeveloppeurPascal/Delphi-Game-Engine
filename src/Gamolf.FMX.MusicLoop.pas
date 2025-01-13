@@ -3,7 +3,7 @@
 ///
 /// Delphi Game Engine
 ///
-/// Copyright 2021-2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2021-2025 Patrick Prémartin under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -22,8 +22,19 @@
 /// user interface with the keyboard or a game controller, it's the good place.
 ///
 /// ***************************************************************************
-/// File last update : 28/05/2024 12:18:52
-/// Signature : 1ab765f21e7f2b653883ef26da6053e6c332d722
+///
+/// Author(s) :
+/// Patrick PREMARTIN
+///
+/// Site :
+/// https://delphigameengine.developpeur-pascal.fr
+///
+/// Project site :
+/// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
+///
+/// ***************************************************************************
+/// File last update : 2025-01-13T20:04:58.000+01:00
+/// Signature : 9109a47297052b28a1aee1b671256ec20f2a6935
 /// ***************************************************************************
 /// </summary>
 
@@ -45,7 +56,9 @@ unit Gamolf.FMX.MusicLoop;
 interface
 
 uses
-  FMX.Types, FMX.Media, System.Generics.Collections;
+  FMX.Types,
+  FMX.Media,
+  System.Generics.Collections;
 
 type
   /// <summary>
@@ -227,7 +240,9 @@ function SoundList: TSoundList;
 
 implementation
 
-uses System.IOUtils, System.SysUtils;
+uses
+  System.IOUtils,
+  System.SysUtils;
 
 function MusicLoop: TMusicLoop;
 begin
@@ -414,6 +429,7 @@ procedure TMusicLoop.Stop;
 begin
   FAudioPaused := false;
   audioOn := false;
+  MediaPlayer.CurrentTime := 0;
 end;
 
 { TSoundList }
