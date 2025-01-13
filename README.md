@@ -91,8 +91,7 @@ If you think this project is useful and want to support it, please make a donati
 You can use one of those services :
 
 * [GitHub Sponsors](https://github.com/sponsors/DeveloppeurPascal)
-* [Ko-fi (en français)](https://ko-fi.com/patrick_premartin_fr)
-* [Ko-fi (in English)](https://ko-fi.com/patrick_premartin_en)
+* Ko-fi [in French](https://ko-fi.com/patrick_premartin_fr) or [in English](https://ko-fi.com/patrick_premartin_en)
 * [Patreon](https://www.patreon.com/patrickpremartin)
 * [Liberapay](https://liberapay.com/PatrickPremartin)
 * [Paypal](https://www.paypal.com/paypalme/patrickpremartin)
