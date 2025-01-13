@@ -91,8 +91,7 @@ Si vous trouvez ce dépôt de code utile et voulez le montrer, merci de faire un
 Vous pouvez utiliser l'un de ces services :
 
 * [GitHub Sponsors](https://github.com/sponsors/DeveloppeurPascal)
-* [Ko-fi (en français)](https://ko-fi.com/patrick_premartin_fr)
-* [Ko-fi (in English)](https://ko-fi.com/patrick_premartin_en)
+* Ko-fi [en français](https://ko-fi.com/patrick_premartin_fr) ou [en anglais](https://ko-fi.com/patrick_premartin_en)
 * [Patreon](https://www.patreon.com/patrickpremartin)
 * [Liberapay](https://liberapay.com/PatrickPremartin)
 * [Paypal](https://www.paypal.com/paypalme/patrickpremartin)
