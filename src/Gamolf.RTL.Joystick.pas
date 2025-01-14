@@ -3,7 +3,7 @@
 ///
 /// Delphi Game Engine
 ///
-/// Copyright 2021-2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2021-2025 Patrick Prémartin under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -22,8 +22,19 @@
 /// user interface with the keyboard or a game controller, it's the good place.
 ///
 /// ***************************************************************************
-/// File last update : 31/07/2024 11:23:12
-/// Signature : f2fdf34bbb41c0e469cf69c8bc3c801a11ded352
+///
+/// Author(s) :
+/// Patrick PREMARTIN
+///
+/// Site :
+/// https://delphigameengine.developpeur-pascal.fr
+///
+/// Project site :
+/// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
+///
+/// ***************************************************************************
+/// File last update : 2025-01-14T16:49:54.000+01:00
+/// Signature : 0a3039bc6cbb6f9bc6e520f43aaf3a70a9506728
 /// ***************************************************************************
 /// </summary>
 
@@ -451,8 +462,10 @@ type
     procedure SetEnabled(const Value: boolean);
   protected
     constructor Create;
+    {$HINTS OFF}
     destructor Destroy; override;
     procedure Execute;
+    {$HINTS ON}
     procedure RegisterGamePadDevice(const Gamepad: TGamepadDevice);
     procedure UnRegisterGamePadDevice(const Gamepad: TGamepadDevice);
     procedure RegisterGamePadManager(const Manager: TDGEGamepadManager);

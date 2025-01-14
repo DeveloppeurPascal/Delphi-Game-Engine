@@ -3,7 +3,7 @@
 ///
 /// Delphi Game Engine
 ///
-/// Copyright 2021-2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2021-2025 Patrick Prémartin under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -22,8 +22,19 @@
 /// user interface with the keyboard or a game controller, it's the good place.
 ///
 /// ***************************************************************************
-/// File last update : 28/05/2024 12:18:52
-/// Signature : 16c2aaba21d99eeaac5eebaec9cea62b62f1c9a4
+///
+/// Author(s) :
+/// Patrick PREMARTIN
+///
+/// Site :
+/// https://delphigameengine.developpeur-pascal.fr
+///
+/// Project site :
+/// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
+///
+/// ***************************************************************************
+/// File last update : 2025-01-14T17:02:42.000+01:00
+/// Signature : bb7c2bb623901dfaff2d2466e5ecf4fb7dc07824
 /// ***************************************************************************
 /// </summary>
 
@@ -445,7 +456,6 @@ begin
         s2 := b as TScore
       else
         raise exception.Create('Wrong type for B.');
-      result := 0;
       result := string.compare(s1.Pseudo, s2.Pseudo, true);
       if result = 0 then
         if s1.Level < s2.Level then
@@ -475,7 +485,6 @@ begin
         s2 := b as TScore
       else
         raise exception.Create('Wrong type for B.');
-      result := 0;
       result := string.compare(s1.Pseudo, s2.Pseudo, true);
       if result = 0 then
         if s1.Level < s2.Level then

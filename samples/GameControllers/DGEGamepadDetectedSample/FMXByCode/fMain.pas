@@ -3,7 +3,7 @@
 ///
 /// Delphi Game Engine
 ///
-/// Copyright 2021-2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2021-2025 Patrick Prémartin under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -22,8 +22,19 @@
 /// user interface with the keyboard or a game controller, it's the good place.
 ///
 /// ***************************************************************************
-/// File last update : 30/07/2024 14:23:12
-/// Signature : 5cd3f7aeafd6d30f8ffa5d529f137d889b7a7c96
+///
+/// Author(s) :
+/// Patrick PREMARTIN
+///
+/// Site :
+/// https://delphigameengine.developpeur-pascal.fr
+///
+/// Project site :
+/// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
+///
+/// ***************************************************************************
+/// File last update : 2025-01-14T16:57:08.000+01:00
+/// Signature : 1410a4fc9c96f0b6ac7646153d057737e61d5c98
 /// ***************************************************************************
 /// </summary>
 
@@ -166,7 +177,6 @@ end;
 
 procedure TForm3.RefreshContentLayout;
 var
-  img: TImage;
   i: Integer;
 begin
   case cbDirection.ItemIndex of

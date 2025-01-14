@@ -3,7 +3,7 @@
 ///
 /// Delphi Game Engine
 ///
-/// Copyright 2021-2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2021-2025 Patrick Prémartin under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -22,8 +22,19 @@
 /// user interface with the keyboard or a game controller, it's the good place.
 ///
 /// ***************************************************************************
-/// File last update : 26/07/2024 14:44:28
-/// Signature : 12f2fafa0440d01cf111b02e869fceff00bcb86f
+///
+/// Author(s) :
+/// Patrick PREMARTIN
+///
+/// Site :
+/// https://delphigameengine.developpeur-pascal.fr
+///
+/// Project site :
+/// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
+///
+/// ***************************************************************************
+/// File last update : 2025-01-14T16:55:36.000+01:00
+/// Signature : 00dc0d496a21eda04ca2984e3d10d930b88eb24e
 /// ***************************************************************************
 /// </summary>
 
@@ -195,8 +206,9 @@ begin
       case ErrNum of
         MMSYSERR_NOERROR:
           begin
+            // Transtypage en LongWord ajouté pour éliminer un avertissement du compilateur
             if (length(Joystick.Axes) < 6) or
-              (length(Joystick.Buttons) < FTabDevCaps[JoystickID]
+              (longword(length(Joystick.Buttons)) < FTabDevCaps[JoystickID]
               .JoyCapsW.wNumButtons) then
               initJoystick(Joystick);
 
@@ -264,8 +276,9 @@ begin
             end;
 
             // simulation du clic sur gachette de gauche (quand ce n'est pas pris en charge par DirectInput)
+            // Transtypage en LongWord ajouté pour éliminer un avertissement du compilateur
             if (FTabDevCaps[JoystickID].JoyCapsW.wNumButtons <
-              ord(TJoystickButtons.LeftTrigger)) and
+              longword(ord(TJoystickButtons.LeftTrigger))) and
               (Joystick.Axes[ord(tjoystickaxes.LeftTrigger)] > 0.3) then
             begin
               Joystick.Buttons[ord(TJoystickButtons.LeftTrigger)] := true;
@@ -276,8 +289,9 @@ begin
             end;
 
             // simulation du clic sur gachette de droite (quand ce n'est pas pris en charge par DirectInput)
+            // Transtypage en LongWord ajouté pour éliminer un avertissement du compilateur
             if (FTabDevCaps[JoystickID].JoyCapsW.wNumButtons <
-              ord(TJoystickButtons.righttrigger)) and
+              longword(ord(TJoystickButtons.righttrigger))) and
               (Joystick.Axes[ord(tjoystickaxes.righttrigger)] > 0.3) then
             begin
               Joystick.Buttons[ord(TJoystickButtons.righttrigger)] := true;

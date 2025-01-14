@@ -33,8 +33,8 @@
 /// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
 ///
 /// ***************************************************************************
-/// File last update : 2025-01-13T20:04:58.000+01:00
-/// Signature : 9109a47297052b28a1aee1b671256ec20f2a6935
+/// File last update : 2025-01-14T16:59:50.000+01:00
+/// Signature : 5b27248cf34100907ee09fda9986e76f7d373a3e
 /// ***************************************************************************
 /// </summary>
 
@@ -467,7 +467,6 @@ end;
 
 function TSoundList.Add(SoundID: integer; Filename: string): boolean;
 begin
-  result := false;
   if Filename.IsEmpty or (not tfile.Exists(Filename)) then
     raise exception.Create('File "' + Filename + '" not found ! (SoundID=' +
       SoundID.ToString + ')');

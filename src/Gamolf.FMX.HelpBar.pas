@@ -33,8 +33,8 @@
 /// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
 ///
 /// ***************************************************************************
-/// File last update : 2025-01-12T18:38:34.000+01:00
-/// Signature : e0ebea03f3d0df30949f4a78b4322bc5e17c05f4
+/// File last update : 2025-01-14T17:09:22.226+01:00
+/// Signature : 8207efb25058fdf71f7ef6c624763c14f88b296e
 /// ***************************************************************************
 /// </summary>
 
@@ -102,7 +102,9 @@ type
     procedure SetIconKeyBitmapListIndex(const Value: word);
     procedure SetBackgroundPadding(const Value: TBounds);
     procedure SetHeight(const Value: single);
+{$IFNDEF IDE}
     procedure FormResize(Sender: TObject);
+{$ENDIF}
   protected
     lGlobal: TLayout;
     lHelpBar: TLayout;
@@ -462,10 +464,12 @@ begin
   inherited;
 end;
 
+{$IFNDEF IDE}
 procedure TDGEFMXHelpBar.FormResize(Sender: TObject);
 begin
   RefreshHelpBar;
 end;
+{$ENDIF}
 
 procedure TDGEFMXHelpBar.GamepadDetected(const GamepadID: integer);
 begin

@@ -3,7 +3,7 @@
 ///
 /// Delphi Game Engine
 ///
-/// Copyright 2021-2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2021-2025 Patrick Prémartin under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -22,8 +22,19 @@
 /// user interface with the keyboard or a game controller, it's the good place.
 ///
 /// ***************************************************************************
-/// File last update : 28/05/2024 12:18:52
-/// Signature : 4584291ebbd92f74ced71663dfde565f0b1528f0
+///
+/// Author(s) :
+/// Patrick PREMARTIN
+///
+/// Site :
+/// https://delphigameengine.developpeur-pascal.fr
+///
+/// Project site :
+/// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
+///
+/// ***************************************************************************
+/// File last update : 2025-01-14T17:02:40.000+01:00
+/// Signature : 77a99c61de1977aa011010178fa83c9a19e2651c
 /// ***************************************************************************
 /// </summary>
 
@@ -121,7 +132,6 @@ end;
 function score_add(pseudo: string; points: cardinal;
   niveau: cardinal = 0): boolean;
 begin
-  result := false;
   if (not assigned(score_liste)) then
     score_load;
   result := score_liste.Add(pseudo, points, niveau, false);
@@ -166,7 +176,7 @@ score_liste := nil;
 nom_editeur := CCompanyName;
 nom_logiciel := CSoftwareName;
 
-{$MESSAGE WARN 'deprecated unit, use Gamolf.RTLVersion.Scores'}
+{$MESSAGE WARN 'deprecated unit, use Gamolf.RTL.Scores version'}
 
 finalization
 
