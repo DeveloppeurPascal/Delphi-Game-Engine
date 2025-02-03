@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project Version="1.0">
+  <Title>Delphi Game Engine</Title>
+  <Summary>Libraries, classes and components to simplify game coding in Delphi VCL and FireMonkey projects</Summary>
+  <Author>Patrick PREMARTIN</Author>
+  <Email>patrick@premartin.fr</Email>
+  <Copyright>(c) 2021-2025 Patrick PREMARTIN</Copyright>
+  <Comment/>
+  <Language>2057</Language>
+  <Charset>1</Charset>
+  <HeaderHtml>&lt;%TopicTitle%&gt;</HeaderHtml>
+  <FooterHtml>&lt;a href="https://delphigameengine.developpeur-pascal.fr/" target="_blank"&gt;Delphi Game Engine&lt;/a&gt; (c) 2021-2025 &lt;a href="https://patrick.premartin.fr" target="_blank"&gt;Patrick PREMARTIN&lt;/a&gt; - Powered by &lt;a href="https://devjetsoftware.com/products/documentation-insight/" target="_blank"&gt;DocInsight&lt;/a&gt;</FooterHtml>
+  <CustomDefines/>
+  <ShowImplementationSection>false</ShowImplementationSection>
+  <ShowPrivateMembers>false</ShowPrivateMembers>
+  <ShowProtectedMembers>true</ShowProtectedMembers>
+  <ShowInheritedMembers>true</ShowInheritedMembers>
+  <ShowPropertyAccessors>true</ShowPropertyAccessors>
+  <FileNamePolicy>0</FileNamePolicy>
+  <CompilerVersion>27</CompilerVersion>
+  <TargetPlatform>0</TargetPlatform>
+  <Sources>
+    <Source>.\GameControllers\CheckComponents\FireMonkey\FMXCheckConfigProject.dpr</Source>
+    <Source>.\GameControllers\CheckComponents\VCL\VCLCheckConfigProject.dpr</Source>
+    <Source>.\GameControllers\DGEGamepadDetectedSample\FMX\FMXGamepadDetectedSample.dpr</Source>
+    <Source>.\GameControllers\DGEGamepadDetectedSample\FMXByCode\FMXGamepadDetectedByCode.dpr</Source>
+    <Source>.\GameControllers\DGEGamepadDetectedSample\VCL\VCLGamepadDetectedSample.dpr</Source>
+    <Source>.\GameControllers\Joystick\Joystick.dpr</Source>
+    <Source>.\GameControllers\Joystick-WinAPI\Joystick_WinAPI_DirectInput.dpr</Source>
+    <Source>.\HelpBar\FMXHelpBarSample\FMXHelpBarSample.dpr</Source>
+    <Source>.\HelpBar\VCLHelpBarSample\VCLHelpBarSample.dpr</Source>
+    <Source>.\MusicAndSounds\MusicLoop\MusicLoop.dpr</Source>
+    <Source>.\ScoresAndHallOfFame\OldScores\OldScoresSample.dpr</Source>
+    <Source>.\ScoresAndHallOfFame\Scores\ScoresSample.dpr</Source>
+    <Source>.\UIElements\TestFMX\TestUIElementsFMX.dpr</Source>
+    <Source>.\UIElements\TestVCL\TestUIElementsVCL.dpr</Source>
+  </Sources>
+  <Outputs>
+    <Output Type="HTML">
+      <Active>true</Active>
+      <OutputDirectory>..\docs</OutputDirectory>
+    </Output>
+    <Output Type="CHM">
+      <Active>true</Active>
+      <OutputFileName>..\DelphiGameEngine.chm</OutputFileName>
+    </Output>
+    <Output Type="MSHELP2">
+      <Active>false</Active>
+      <OutputFileName>build\docs\mshelp2\SampleProjectGroup.HxS</OutputFileName>
+      <Namespace>SampleProjectGroup</Namespace>
+      <TitleID>library</TitleID>
+    </Output>
+    <Output Type="HelpAndManual">
+      <Active>false</Active>
+      <OutputFileName>build\docs\hm\SampleProjectGroup.hmxp</OutputFileName>
+    </Output>
+  </Outputs>
+</Project>
