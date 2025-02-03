@@ -1,0 +1,38 @@
+div#content {
+  padding-top: 0px;
+  padding-left: 0px;
+  clear: both;
+}
+
+#footer {
+  margin-bottom: 10px;
+}
+
+h1.title {
+  margin-top: 5px !important;
+  font-family: "Segoe UI Semibold", "Segoe UI", "Lucida Grande", Verdana, Arial,
+    Helvetica, sans-serif;
+  font-size: 1.43em !important;
+}
+
+.collapsibleAreaTitle {
+  font-size: 1.43em !important;
+}
+
+.collapsibleAreaIcon
+{
+    margin-top: 0.57em !important;
+}
+
+h4.subHeading {
+  margin-top: 8px;
+  margin-bottom: 5px;
+}
+
+.sectionHeader {
+  margin-bottom: 5px;
+}
+
+.sectionContent {
+  padding-bottom: 5px;
+}
