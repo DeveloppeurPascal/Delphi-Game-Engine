@@ -1,0 +1,192 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{E3B91503-C170-4AFF-8528-78EE5D6258AC}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="GameControllers\CheckComponents\FireMonkey\FMXCheckConfigProject.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="GameControllers\CheckComponents\VCL\VCLCheckConfigProject.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="GameControllers\DGEGamepadDetectedSample\FMX\FMXGamepadDetectedSample.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="GameControllers\DGEGamepadDetectedSample\FMXByCode\FMXGamepadDetectedByCode.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="GameControllers\DGEGamepadDetectedSample\VCL\VCLGamepadDetectedSample.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="GameControllers\Joystick\Joystick.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="GameControllers\Joystick-WinAPI\Joystick_WinAPI_DirectInput.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="HelpBar\FMXHelpBarSample\FMXHelpBarSample.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="HelpBar\VCLHelpBarSample\VCLHelpBarSample.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="MusicAndSounds\MusicLoop\MusicLoop.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ScoresAndHallOfFame\OldScores\OldScoresSample.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ScoresAndHallOfFame\Scores\ScoresSample.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="UIElements\TestFMX\TestUIElementsFMX.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="UIElements\TestVCL\TestUIElementsVCL.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="FMXCheckConfigProject">
+        <MSBuild Projects="GameControllers\CheckComponents\FireMonkey\FMXCheckConfigProject.dproj"/>
+    </Target>
+    <Target Name="FMXCheckConfigProject:Clean">
+        <MSBuild Projects="GameControllers\CheckComponents\FireMonkey\FMXCheckConfigProject.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FMXCheckConfigProject:Make">
+        <MSBuild Projects="GameControllers\CheckComponents\FireMonkey\FMXCheckConfigProject.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="VCLCheckConfigProject">
+        <MSBuild Projects="GameControllers\CheckComponents\VCL\VCLCheckConfigProject.dproj"/>
+    </Target>
+    <Target Name="VCLCheckConfigProject:Clean">
+        <MSBuild Projects="GameControllers\CheckComponents\VCL\VCLCheckConfigProject.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VCLCheckConfigProject:Make">
+        <MSBuild Projects="GameControllers\CheckComponents\VCL\VCLCheckConfigProject.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FMXGamepadDetectedSample">
+        <MSBuild Projects="GameControllers\DGEGamepadDetectedSample\FMX\FMXGamepadDetectedSample.dproj"/>
+    </Target>
+    <Target Name="FMXGamepadDetectedSample:Clean">
+        <MSBuild Projects="GameControllers\DGEGamepadDetectedSample\FMX\FMXGamepadDetectedSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FMXGamepadDetectedSample:Make">
+        <MSBuild Projects="GameControllers\DGEGamepadDetectedSample\FMX\FMXGamepadDetectedSample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FMXGamepadDetectedByCode">
+        <MSBuild Projects="GameControllers\DGEGamepadDetectedSample\FMXByCode\FMXGamepadDetectedByCode.dproj"/>
+    </Target>
+    <Target Name="FMXGamepadDetectedByCode:Clean">
+        <MSBuild Projects="GameControllers\DGEGamepadDetectedSample\FMXByCode\FMXGamepadDetectedByCode.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FMXGamepadDetectedByCode:Make">
+        <MSBuild Projects="GameControllers\DGEGamepadDetectedSample\FMXByCode\FMXGamepadDetectedByCode.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="VCLGamepadDetectedSample">
+        <MSBuild Projects="GameControllers\DGEGamepadDetectedSample\VCL\VCLGamepadDetectedSample.dproj"/>
+    </Target>
+    <Target Name="VCLGamepadDetectedSample:Clean">
+        <MSBuild Projects="GameControllers\DGEGamepadDetectedSample\VCL\VCLGamepadDetectedSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VCLGamepadDetectedSample:Make">
+        <MSBuild Projects="GameControllers\DGEGamepadDetectedSample\VCL\VCLGamepadDetectedSample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Joystick">
+        <MSBuild Projects="GameControllers\Joystick\Joystick.dproj"/>
+    </Target>
+    <Target Name="Joystick:Clean">
+        <MSBuild Projects="GameControllers\Joystick\Joystick.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Joystick:Make">
+        <MSBuild Projects="GameControllers\Joystick\Joystick.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Joystick_WinAPI_DirectInput">
+        <MSBuild Projects="GameControllers\Joystick-WinAPI\Joystick_WinAPI_DirectInput.dproj"/>
+    </Target>
+    <Target Name="Joystick_WinAPI_DirectInput:Clean">
+        <MSBuild Projects="GameControllers\Joystick-WinAPI\Joystick_WinAPI_DirectInput.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Joystick_WinAPI_DirectInput:Make">
+        <MSBuild Projects="GameControllers\Joystick-WinAPI\Joystick_WinAPI_DirectInput.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="FMXHelpBarSample">
+        <MSBuild Projects="HelpBar\FMXHelpBarSample\FMXHelpBarSample.dproj"/>
+    </Target>
+    <Target Name="FMXHelpBarSample:Clean">
+        <MSBuild Projects="HelpBar\FMXHelpBarSample\FMXHelpBarSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="FMXHelpBarSample:Make">
+        <MSBuild Projects="HelpBar\FMXHelpBarSample\FMXHelpBarSample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="VCLHelpBarSample">
+        <MSBuild Projects="HelpBar\VCLHelpBarSample\VCLHelpBarSample.dproj"/>
+    </Target>
+    <Target Name="VCLHelpBarSample:Clean">
+        <MSBuild Projects="HelpBar\VCLHelpBarSample\VCLHelpBarSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="VCLHelpBarSample:Make">
+        <MSBuild Projects="HelpBar\VCLHelpBarSample\VCLHelpBarSample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="MusicLoop">
+        <MSBuild Projects="MusicAndSounds\MusicLoop\MusicLoop.dproj"/>
+    </Target>
+    <Target Name="MusicLoop:Clean">
+        <MSBuild Projects="MusicAndSounds\MusicLoop\MusicLoop.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MusicLoop:Make">
+        <MSBuild Projects="MusicAndSounds\MusicLoop\MusicLoop.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="OldScoresSample">
+        <MSBuild Projects="ScoresAndHallOfFame\OldScores\OldScoresSample.dproj"/>
+    </Target>
+    <Target Name="OldScoresSample:Clean">
+        <MSBuild Projects="ScoresAndHallOfFame\OldScores\OldScoresSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="OldScoresSample:Make">
+        <MSBuild Projects="ScoresAndHallOfFame\OldScores\OldScoresSample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ScoresSample">
+        <MSBuild Projects="ScoresAndHallOfFame\Scores\ScoresSample.dproj"/>
+    </Target>
+    <Target Name="ScoresSample:Clean">
+        <MSBuild Projects="ScoresAndHallOfFame\Scores\ScoresSample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ScoresSample:Make">
+        <MSBuild Projects="ScoresAndHallOfFame\Scores\ScoresSample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TestUIElementsFMX">
+        <MSBuild Projects="UIElements\TestFMX\TestUIElementsFMX.dproj"/>
+    </Target>
+    <Target Name="TestUIElementsFMX:Clean">
+        <MSBuild Projects="UIElements\TestFMX\TestUIElementsFMX.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TestUIElementsFMX:Make">
+        <MSBuild Projects="UIElements\TestFMX\TestUIElementsFMX.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TestUIElementsVCL">
+        <MSBuild Projects="UIElements\TestVCL\TestUIElementsVCL.dproj"/>
+    </Target>
+    <Target Name="TestUIElementsVCL:Clean">
+        <MSBuild Projects="UIElements\TestVCL\TestUIElementsVCL.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TestUIElementsVCL:Make">
+        <MSBuild Projects="UIElements\TestVCL\TestUIElementsVCL.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="FMXCheckConfigProject;VCLCheckConfigProject;FMXGamepadDetectedSample;FMXGamepadDetectedByCode;VCLGamepadDetectedSample;Joystick;Joystick_WinAPI_DirectInput;FMXHelpBarSample;VCLHelpBarSample;MusicLoop;OldScoresSample;ScoresSample;TestUIElementsFMX;TestUIElementsVCL"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="FMXCheckConfigProject:Clean;VCLCheckConfigProject:Clean;FMXGamepadDetectedSample:Clean;FMXGamepadDetectedByCode:Clean;VCLGamepadDetectedSample:Clean;Joystick:Clean;Joystick_WinAPI_DirectInput:Clean;FMXHelpBarSample:Clean;VCLHelpBarSample:Clean;MusicLoop:Clean;OldScoresSample:Clean;ScoresSample:Clean;TestUIElementsFMX:Clean;TestUIElementsVCL:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="FMXCheckConfigProject:Make;VCLCheckConfigProject:Make;FMXGamepadDetectedSample:Make;FMXGamepadDetectedByCode:Make;VCLGamepadDetectedSample:Make;Joystick:Make;Joystick_WinAPI_DirectInput:Make;FMXHelpBarSample:Make;VCLHelpBarSample:Make;MusicLoop:Make;OldScoresSample:Make;ScoresSample:Make;TestUIElementsFMX:Make;TestUIElementsVCL:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
