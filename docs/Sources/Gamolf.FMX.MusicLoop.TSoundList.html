@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Delphi Game Engine: Gamolf.FMX.MusicLoop: Class TSoundList</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<h2><a href="index.html">Delphi Game Engine</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li></ul></div><div class="content">
+<span id="TSoundList"></span><h1 class="cio">Class TSoundList</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="Gamolf.FMX.MusicLoop.html">Gamolf.FMX.MusicLoop</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TSoundList = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Class to manage all sounds (or musics) of a game Use it if you want to register sounds once and play them as many time you need </p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TSoundList</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class var <strong><a href="Gamolf.FMX.MusicLoop.TSoundList.html#FCurrent">FCurrent</a></strong>: <a href="Gamolf.FMX.MusicLoop.TSoundList.html">TSoundList</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>var <strong><a href="Gamolf.FMX.MusicLoop.TSoundList.html#FSounds">FSounds</a></strong>: TDictionary&lt;integer, string&gt;;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code><strong><a href="Gamolf.FMX.MusicLoop.TSoundList.html#FPlayers">FPlayers</a></strong>: TObjectList&lt;<a href="Gamolf.FMX.MusicLoop.TMusicLoop.html">TMusicLoop</a>&gt;;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="Gamolf.FMX.MusicLoop.TSoundList.html#Create">Create</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="Gamolf.FMX.MusicLoop.TSoundList.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="Gamolf.FMX.MusicLoop.TSoundList.html#Current">Current</a></strong>: <a href="Gamolf.FMX.MusicLoop.TSoundList.html">TSoundList</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.FMX.MusicLoop.TSoundList.html#Add">Add</a></strong>(Filename: string): integer; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.FMX.MusicLoop.TSoundList.html#Add">Add</a></strong>(SoundID: integer; Filename: string): boolean; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.FMX.MusicLoop.TSoundList.html#Play">Play</a></strong>(SoundID: integer; Loop: boolean = false): integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.FMX.MusicLoop.TSoundList.html#Stop">Stop</a></strong>(PlayerID: integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.FMX.MusicLoop.TSoundList.html#Mute">Mute</a></strong>(SoundID: integer);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.FMX.MusicLoop.TSoundList.html#MuteAll">MuteAll</a></strong>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.MusicLoop.TSoundList.html#Volume">Volume</a></strong>: <a href="Gamolf.FMX.MusicLoop.html#TVolumeSonore">TVolumeSonore</a> read FVolume write SetVolume;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FCurrent"></span><code>class var <strong>FCurrent</strong>: <a href="Gamolf.FMX.MusicLoop.TSoundList.html">TSoundList</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FSounds"></span><code>var <strong>FSounds</strong>: TDictionary&lt;integer, string&gt;;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ List of sounds/musics filenames </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="FPlayers"></span><code><strong>FPlayers</strong>: TObjectList&lt;<a href="Gamolf.FMX.MusicLoop.TMusicLoop.html">TMusicLoop</a>&gt;;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ List of TMusicLoop players used to play those sounds/musics </p>
+</td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Create an instance of a TSoundList or use &quot;TSoundList.Current&quot; to use the default one </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Destroy this instance </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Current"></span><code>class function <strong>Current</strong>: <a href="Gamolf.FMX.MusicLoop.TSoundList.html">TSoundList</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the instance of the default sound list to use it as a singleton </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Add"></span><code>function <strong>Add</strong>(Filename: string): integer; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add the &quot;filename&quot; sound to the available sounds list and return it's index </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Add"></span><code>function <strong>Add</strong>(SoundID: integer; Filename: string): boolean; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add the &quot;filename&quot; sound to the available sounds list at the SoundID position and return True if it's ok </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Play"></span><code>function <strong>Play</strong>(SoundID: integer; Loop: boolean = false): integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Play the sound &quot;SoundID&quot;, in a loop or not, and return its Player ID If the sound is played, the result is &gt;= 0 If it returns -1, an error happened </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Stop"></span><code>procedure <strong>Stop</strong>(PlayerID: integer);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Stop a player by its PlayerID </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Mute"></span><code>procedure <strong>Mute</strong>(SoundID: integer);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Stop all players playing the SoundID </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="MuteAll"></span><code>procedure <strong>MuteAll</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Stop all active players </p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Volume"></span><code>property <strong>Volume</strong>: <a href="Gamolf.FMX.MusicLoop.html#TVolumeSonore">TVolumeSonore</a> read FVolume write SetVolume;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set or get volume level for all sounds / musics of this TSoundList </p>
+</td></tr>
+</table>
+<a href="https://delphigameengine.developpeur-pascal.fr/" target="_blank">Delphi Game Engine</a> (c) 2021-2025 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Delphi Game Engine: Gamolf.FMX.HelpBar: Class TDGEFMXHelpBar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<h2><a href="index.html">Delphi Game Engine</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li></ul></div><div class="content">
+<span id="TDGEFMXHelpBar"></span><h1 class="cio">Class TDGEFMXHelpBar</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="Gamolf.FMX.HelpBar.html">Gamolf.FMX.HelpBar</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TDGEFMXHelpBar = class(TFMXObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Help bar component </p>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt><code>ComponentPlatformsAttribute</code>(pfidWindows or pfidOSX or pfidLinux or
+    pfidAndroid or pfidiOS)</dt>
+  <dd></dd>
+</dl>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TFMXObject</li>
+<li class="thisitem">TDGEFMXHelpBar</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#lGlobal">lGlobal</a></strong>: TLayout;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#lHelpBar">lHelpBar</a></strong>: TLayout;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#lContent">lContent</a></strong>: TLayout;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#rBackground">rBackground</a></strong>: TRectangle;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#imgImage">imgImage</a></strong>: TImage;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#GamepadLost">GamepadLost</a></strong>(const GamepadID: integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#GamepadDetected">GamepadDetected</a></strong>(const GamepadID: integer);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#GetNewX">GetNewX</a></strong>(const WithRightMargin: boolean = true): single;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#Create">Create</a></strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#AfterConstruction">AfterConstruction</a></strong>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#RefreshHelpBar">RefreshHelpBar</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#OpenHelpBar">OpenHelpBar</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#CloseHelpBar">CloseHelpBar</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#AddItem">AddItem</a></strong>(const SVGKeyIndex, SVGGamepadIndex: integer); overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#AddItem">AddItem</a></strong>(const SVGKeyIndex, SVGGamepadIndex: integer; const Text: string); overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#Clear">Clear</a></strong>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#GamepadMode">GamepadMode</a></strong>: boolean read FGamepadMode write SetGamepadMode;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#TextSettings">TextSettings</a></strong>: TTextSettings read FTextSettings
+      write SetTextSettings;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#IconMarginRight">IconMarginRight</a></strong>: single read FIconMarginRight
+      write SetIconMarginRight;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#IconKeyBitmapListIndex">IconKeyBitmapListIndex</a></strong>: word read FIconKeyBitmapListIndex
+      write SetIconKeyBitmapListIndex default 0;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#IconGamepadBitmapListIndex">IconGamepadBitmapListIndex</a></strong>: word read FIconGamepadBitmapListIndex
+      write SetIconGamepadBitmapListIndex default 0;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#TextMarginRight">TextMarginRight</a></strong>: single read FTextMarginRight
+      write SetTextMarginRight;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#BackgroundFill">BackgroundFill</a></strong>: TBrush read FBackgroundFill
+      write SetBackgroundFill;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#BackgroundOpacity">BackgroundOpacity</a></strong>: single read FBackgroundOpacity
+      write SetBackgroundOpacity;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#BackgroundXRadius">BackgroundXRadius</a></strong>: single read FBackgroundXRadius
+      write SetBackgroundXRadius;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#BackgroundYRadius">BackgroundYRadius</a></strong>: single read FBackgroundYRadius
+      write SetBackgroundYRadius;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#BackgroundPadding">BackgroundPadding</a></strong>: TBounds read FBackgroundPadding
+      write SetBackgroundPadding;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#BackgroundStroke">BackgroundStroke</a></strong>: TStrokeBrush read FBackgroundStroke
+      write SetBackgroundStroke;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#HorzAlign">HorzAlign</a></strong>: <a href="Gamolf.FMX.HelpBar.html#TDGEFMXHelpBarHorzAlign">TDGEFMXHelpBarHorzAlign</a> read FHorzAlign
+      write SetHorzAlign default <a href="Gamolf.FMX.HelpBar.html#Center">TDGEFMXHelpBarHorzAlign.Center</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#VertAlign">VertAlign</a></strong>: <a href="Gamolf.FMX.HelpBar.html#TDGEFMXHelpBarVertAlign">TDGEFMXHelpBarVertAlign</a> read FVertAlign
+      write SetVertAlign default <a href="Gamolf.FMX.HelpBar.html#Bottom">TDGEFMXHelpBarVertAlign.Bottom</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#Margins">Margins</a></strong>: TBounds read FMargins write SetMargins;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.HelpBar.TDGEFMXHelpBar.html#Height">Height</a></strong>: single read FHeight write SetHeight;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="lGlobal"></span><code><strong>lGlobal</strong>: TLayout;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="lHelpBar"></span><code><strong>lHelpBar</strong>: TLayout;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="lContent"></span><code><strong>lContent</strong>: TLayout;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="rBackground"></span><code><strong>rBackground</strong>: TRectangle;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="imgImage"></span><code><strong>imgImage</strong>: TImage;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GamepadLost"></span><code>procedure <strong>GamepadLost</strong>(const GamepadID: integer);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GamepadDetected"></span><code>procedure <strong>GamepadDetected</strong>(const GamepadID: integer);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="GetNewX"></span><code>function <strong>GetNewX</strong>(const WithRightMargin: boolean = true): single;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AfterConstruction"></span><code>procedure <strong>AfterConstruction</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RefreshHelpBar"></span><code>procedure <strong>RefreshHelpBar</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OpenHelpBar"></span><code>procedure <strong>OpenHelpBar</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Clear the help bar content and show it </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CloseHelpBar"></span><code>procedure <strong>CloseHelpBar</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Hide the help bar </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddItem"></span><code>procedure <strong>AddItem</strong>(const SVGKeyIndex, SVGGamepadIndex: integer); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an image to the Help Bar </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AddItem"></span><code>procedure <strong>AddItem</strong>(const SVGKeyIndex, SVGGamepadIndex: integer; const Text: string); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add an image and text to the Help Bar </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Clear"></span><code>procedure <strong>Clear</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Empty the Help bar content layout </p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GamepadMode"></span><code>property <strong>GamepadMode</strong>: boolean read FGamepadMode write SetGamepadMode;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TextSettings"></span><code>property <strong>TextSettings</strong>: TTextSettings read FTextSettings
+      write SetTextSettings;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="IconMarginRight"></span><code>property <strong>IconMarginRight</strong>: single read FIconMarginRight
+      write SetIconMarginRight;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Icons properties &lt;summary&gt;
+
+<p>&lt;/summary&gt;</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="IconKeyBitmapListIndex"></span><code>property <strong>IconKeyBitmapListIndex</strong>: word read FIconKeyBitmapListIndex
+      write SetIconKeyBitmapListIndex default 0;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="IconGamepadBitmapListIndex"></span><code>property <strong>IconGamepadBitmapListIndex</strong>: word read FIconGamepadBitmapListIndex
+      write SetIconGamepadBitmapListIndex default 0;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TextMarginRight"></span><code>property <strong>TextMarginRight</strong>: single read FTextMarginRight
+      write SetTextMarginRight;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Texts properties &lt;summary&gt;
+
+<p>&lt;/summary&gt;</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="BackgroundFill"></span><code>property <strong>BackgroundFill</strong>: TBrush read FBackgroundFill
+      write SetBackgroundFill;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Background properties &lt;summary&gt;
+
+<p>&lt;/summary&gt;</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="BackgroundOpacity"></span><code>property <strong>BackgroundOpacity</strong>: single read FBackgroundOpacity
+      write SetBackgroundOpacity;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="BackgroundXRadius"></span><code>property <strong>BackgroundXRadius</strong>: single read FBackgroundXRadius
+      write SetBackgroundXRadius;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="BackgroundYRadius"></span><code>property <strong>BackgroundYRadius</strong>: single read FBackgroundYRadius
+      write SetBackgroundYRadius;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="BackgroundPadding"></span><code>property <strong>BackgroundPadding</strong>: TBounds read FBackgroundPadding
+      write SetBackgroundPadding;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="BackgroundStroke"></span><code>property <strong>BackgroundStroke</strong>: TStrokeBrush read FBackgroundStroke
+      write SetBackgroundStroke;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Background stroke properties &lt;summary&gt;
+
+<p>&lt;/summary&gt;</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="HorzAlign"></span><code>property <strong>HorzAlign</strong>: <a href="Gamolf.FMX.HelpBar.html#TDGEFMXHelpBarHorzAlign">TDGEFMXHelpBarHorzAlign</a> read FHorzAlign
+      write SetHorzAlign default <a href="Gamolf.FMX.HelpBar.html#Center">TDGEFMXHelpBarHorzAlign.Center</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+Help bar properties &lt;summary&gt;
+
+<p>&lt;/summary&gt;</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="VertAlign"></span><code>property <strong>VertAlign</strong>: <a href="Gamolf.FMX.HelpBar.html#TDGEFMXHelpBarVertAlign">TDGEFMXHelpBarVertAlign</a> read FVertAlign
+      write SetVertAlign default <a href="Gamolf.FMX.HelpBar.html#Bottom">TDGEFMXHelpBarVertAlign.Bottom</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Margins"></span><code>property <strong>Margins</strong>: TBounds read FMargins write SetMargins;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p></p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Height"></span><code>property <strong>Height</strong>: single read FHeight write SetHeight;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+
+
+<p></p>
+</td></tr>
+</table>
+<a href="https://delphigameengine.developpeur-pascal.fr/" target="_blank">Delphi Game Engine</a> (c) 2021-2025 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

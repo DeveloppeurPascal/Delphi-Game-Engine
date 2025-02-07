@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Delphi Game Engine: Gamolf.RTL.Joystick.DirectInput.Win: Class TGamolfJoystickWinDirectInputService</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<h2><a href="index.html">Delphi Game Engine</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li></ul></div><div class="content">
+<span id="TGamolfJoystickWinDirectInputService"></span><h1 class="cio">Class TGamolfJoystickWinDirectInputService</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Fields">Fields</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="Gamolf.RTL.Joystick.DirectInput.Win.html">Gamolf.RTL.Joystick.DirectInput.Win</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TGamolfJoystickWinDirectInputService = class(<a class="normal" href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html">TGamolfCustomJoystickService</a>)</code></p>
+<h2 class="description">Description</h2>
+<div class="nodescription">No description available, ancestor TGamolfCustomJoystickService description follows</div><p>
+ Platform service to access to joystick/gamepad controllers on a computer </p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TInterfacedObject</li>
+<li class="ancestor"><a class="normal" href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html">TGamolfCustomJoystickService</a></li>
+<li class="thisitem">TGamolfJoystickWinDirectInputService</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Fields"></span><h3 class="summary">Fields</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.DirectInput.Win.TGamolfJoystickWinDirectInputService.html#FNbControllers">FNbControllers</a></strong>: byte;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.DirectInput.Win.TGamolfJoystickWinDirectInputService.html#StartDiscovery">StartDiscovery</a></strong>; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Joystick.DirectInput.Win.TGamolfJoystickWinDirectInputService.html#Count">Count</a></strong>: byte; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Joystick.DirectInput.Win.TGamolfJoystickWinDirectInputService.html#isConnected">isConnected</a></strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>): boolean; override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.DirectInput.Win.TGamolfJoystickWinDirectInputService.html#getInfo">getInfo</a></strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; var Joystick: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>); override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Joystick.DirectInput.Win.TGamolfJoystickWinDirectInputService.html#hasDPad">hasDPad</a></strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>): boolean; override;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Fields</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="FNbControllers"></span><code><strong>FNbControllers</strong>: byte;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StartDiscovery"></span><code>procedure <strong>StartDiscovery</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Scan for available devices (if some are already used, their ID could change) </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Count"></span><code>function <strong>Count</strong>: byte; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Return the number of joysticks managed by the system </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="isConnected"></span><code>function <strong>isConnected</strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>): boolean; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Return &quot;true&quot; if the JoystickID controller is connected and available </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="getInfo"></span><code>procedure <strong>getInfo</strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; var Joystick: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>); override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Return a TJoystickInfo for the JoystickID controller </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="hasDPad"></span><code>function <strong>hasDPad</strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>): boolean; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Check if the game controller has a DPad/POV button </p>
+</td></tr>
+</table>
+<a href="https://delphigameengine.developpeur-pascal.fr/" target="_blank">Delphi Game Engine</a> (c) 2021-2025 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

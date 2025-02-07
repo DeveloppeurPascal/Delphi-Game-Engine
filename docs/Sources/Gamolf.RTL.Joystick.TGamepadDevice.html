@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Delphi Game Engine: Gamolf.RTL.Joystick: Class TGamepadDevice</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<h2><a href="index.html">Delphi Game Engine</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li></ul></div><div class="content">
+<span id="TGamepadDevice"></span><h1 class="cio">Class TGamepadDevice</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="Gamolf.RTL.Joystick.html">Gamolf.RTL.Joystick</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TGamepadDevice = class(TInterfacedObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Gamepad class to access data from each gamepad detected on the system </p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TInterfacedObject</li>
+<li class="thisitem">TGamepadDevice</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#SetNewJoystickInfo">SetNewJoystickInfo</a></strong>(const NewJoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#DoAxeChanged">DoAxeChanged</a></strong>(const AAxeID: integer);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#DoButtonChanged">DoButtonChanged</a></strong>(const AButtonID: integer);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#DoDirectionPadChanged">DoDirectionPadChanged</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#DoLost">DoLost</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#RegisterGamePadComponent">RegisterGamePadComponent</a></strong>(const Gamepad: <a href="Gamolf.RTL.Joystick.TDGEGamepad.html">TDGEGamepad</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#UnRegisterGamePadComponent">UnRegisterGamePadComponent</a></strong>(const Gamepad: <a href="Gamolf.RTL.Joystick.TDGEGamepad.html">TDGEGamepad</a>);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#Create">Create</a></strong>(const AID: integer);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#ID">ID</a></strong>: integer read FID;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#IsSupported">IsSupported</a></strong>: boolean read GetIsSupported;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#Enabled">Enabled</a></strong>: boolean read FEnabled write SetEnabled;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#isConnected">isConnected</a></strong>: boolean read GetIsConnected write SetIsConnected;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#hasDPad">hasDPad</a></strong>: boolean read FhasDPAD;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#Buttons">Buttons</a></strong>[constButtonID:<a href="Gamolf.RTL.Joystick.html#TJoystickButtons">TJoystickButtons</a>]: boolean read GetButtons;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#Axes">Axes</a></strong>[constAxeID:<a href="Gamolf.RTL.Joystick.html#TJoystickAxes">TJoystickAxes</a>]: single read GetAxes;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#DPad">DPad</a></strong>: <a href="Gamolf.RTL.Joystick.html#TJoystickDPad">TJoystickDPad</a> read getDPad;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#SynchronizedEvents">SynchronizedEvents</a></strong>: boolean read FSynchronizedEvents
+      write SetSynchronizedEvents;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#OnGamepadButtonUp">OnGamepadButtonUp</a></strong>: <a href="Gamolf.RTL.Joystick.html#TOnGamepadButtonUp">TOnGamepadButtonUp</a> read FOnButtonUp
+      write SetOnButtonUp;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#OnGamepadButtonDown">OnGamepadButtonDown</a></strong>: <a href="Gamolf.RTL.Joystick.html#TOnGamepadButtonDown">TOnGamepadButtonDown</a> read FOnButtonDown
+      write SetOnButtonDown;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#OnGamepadAxesChange">OnGamepadAxesChange</a></strong>: <a href="Gamolf.RTL.Joystick.html#TOnGamepadAxesChange">TOnGamepadAxesChange</a> read FOnAxesChange
+      write SetOnAxesChange;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#OnGamepadDirectionPadChange">OnGamepadDirectionPadChange</a></strong>: <a href="Gamolf.RTL.Joystick.html#TOnGamepadDirectionPadChange">TOnGamepadDirectionPadChange</a>
+      read FOnDirectionPadChange write SetOnDirectionPadChange;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#OnGamepadLost">OnGamepadLost</a></strong>: <a href="Gamolf.RTL.Joystick.html#TOnGamepadLost">TOnGamepadLost</a> read FOnLost write SetOnLost;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#Tag">Tag</a></strong>: integer read FTag write SetTag;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#TagBool">TagBool</a></strong>: boolean read FTagBool write SetTagBool;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#TagFloat">TagFloat</a></strong>: single read FTagFloat write SetTagFloat;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#TagObject">TagObject</a></strong>: TObject read FTagObject write SetTagObject;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.Joystick.TGamepadDevice.html#TagString">TagString</a></strong>: string read FTagString write SetTagString;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="SetNewJoystickInfo"></span><code>procedure <strong>SetNewJoystickInfo</strong>(const NewJoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoAxeChanged"></span><code>procedure <strong>DoAxeChanged</strong>(const AAxeID: integer);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoButtonChanged"></span><code>procedure <strong>DoButtonChanged</strong>(const AButtonID: integer);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoDirectionPadChanged"></span><code>procedure <strong>DoDirectionPadChanged</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="DoLost"></span><code>procedure <strong>DoLost</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="RegisterGamePadComponent"></span><code>procedure <strong>RegisterGamePadComponent</strong>(const Gamepad: <a href="Gamolf.RTL.Joystick.TDGEGamepad.html">TDGEGamepad</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="UnRegisterGamePadComponent"></span><code>procedure <strong>UnRegisterGamePadComponent</strong>(const Gamepad: <a href="Gamolf.RTL.Joystick.TDGEGamepad.html">TDGEGamepad</a>);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(const AID: integer);</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ID"></span><code>property <strong>ID</strong>: integer read FID;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsSupported"></span><code>property <strong>IsSupported</strong>: boolean read GetIsSupported;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Enabled"></span><code>property <strong>Enabled</strong>: boolean read FEnabled write SetEnabled;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="isConnected"></span><code>property <strong>isConnected</strong>: boolean read GetIsConnected write SetIsConnected;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="hasDPad"></span><code>property <strong>hasDPad</strong>: boolean read FhasDPAD;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Buttons"></span><code>property <strong>Buttons</strong>[constButtonID:<a href="Gamolf.RTL.Joystick.html#TJoystickButtons">TJoystickButtons</a>]: boolean read GetButtons;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Axes"></span><code>property <strong>Axes</strong>[constAxeID:<a href="Gamolf.RTL.Joystick.html#TJoystickAxes">TJoystickAxes</a>]: single read GetAxes;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DPad"></span><code>property <strong>DPad</strong>: <a href="Gamolf.RTL.Joystick.html#TJoystickDPad">TJoystickDPad</a> read getDPad;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SynchronizedEvents"></span><code>property <strong>SynchronizedEvents</strong>: boolean read FSynchronizedEvents
+      write SetSynchronizedEvents;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Execute events in main thread or in the thread used by the gamepad manager </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnGamepadButtonUp"></span><code>property <strong>OnGamepadButtonUp</strong>: <a href="Gamolf.RTL.Joystick.html#TOnGamepadButtonUp">TOnGamepadButtonUp</a> read FOnButtonUp
+      write SetOnButtonUp;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnGamepadButtonDown"></span><code>property <strong>OnGamepadButtonDown</strong>: <a href="Gamolf.RTL.Joystick.html#TOnGamepadButtonDown">TOnGamepadButtonDown</a> read FOnButtonDown
+      write SetOnButtonDown;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnGamepadAxesChange"></span><code>property <strong>OnGamepadAxesChange</strong>: <a href="Gamolf.RTL.Joystick.html#TOnGamepadAxesChange">TOnGamepadAxesChange</a> read FOnAxesChange
+      write SetOnAxesChange;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnGamepadDirectionPadChange"></span><code>property <strong>OnGamepadDirectionPadChange</strong>: <a href="Gamolf.RTL.Joystick.html#TOnGamepadDirectionPadChange">TOnGamepadDirectionPadChange</a>
+      read FOnDirectionPadChange write SetOnDirectionPadChange;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnGamepadLost"></span><code>property <strong>OnGamepadLost</strong>: <a href="Gamolf.RTL.Joystick.html#TOnGamepadLost">TOnGamepadLost</a> read FOnLost write SetOnLost;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Tag"></span><code>property <strong>Tag</strong>: integer read FTag write SetTag;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Tag property &quot;in case of&quot; not used in this class </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TagBool"></span><code>property <strong>TagBool</strong>: boolean read FTagBool write SetTagBool;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ TagBool property &quot;in case of&quot; not used in this class </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TagFloat"></span><code>property <strong>TagFloat</strong>: single read FTagFloat write SetTagFloat;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ TagFloat property &quot;in case of&quot; not used in this class </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TagObject"></span><code>property <strong>TagObject</strong>: TObject read FTagObject write SetTagObject;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ TagObject property &quot;in case of&quot; not used in this class </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TagString"></span><code>property <strong>TagString</strong>: string read FTagString write SetTagString;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ TagString property &quot;in case of&quot; not used in this class </p>
+</td></tr>
+</table>
+<a href="https://delphigameengine.developpeur-pascal.fr/" target="_blank">Delphi Game Engine</a> (c) 2021-2025 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

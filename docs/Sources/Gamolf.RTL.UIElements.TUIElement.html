@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Delphi Game Engine: Gamolf.RTL.UIElements: Class TUIElement</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<h2><a href="index.html">Delphi Game Engine</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li></ul></div><div class="content">
+<span id="TUIElement"></span><h1 class="cio">Class TUIElement</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="Gamolf.RTL.UIElements.html">Gamolf.RTL.UIElements</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TUIElement = class(TInterfacedObject)</code></p>
+<h2 class="description">Description</h2>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TInterfacedObject</li>
+<li class="thisitem">TUIElement</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#Paint">Paint</a></strong>(const AIsFocused: boolean); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#Create">Create</a></strong>(const AOwner: <a href="Gamolf.RTL.UIElements.TUIElementsList.html">TUIElementsList</a>); overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#Create">Create</a></strong>(const AOwner: <a href="Gamolf.RTL.UIElements.TUIElementsList.html">TUIElementsList</a>; const AOnClickProc: <a href="Gamolf.RTL.UIElements.html#TNotifyProc">TNotifyProc</a>); overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#Create">Create</a></strong>(const AOwner: <a href="Gamolf.RTL.UIElements.TUIElementsList.html">TUIElementsList</a>; const AOnClick: TNotifyEvent); overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#Create">Create</a></strong>(const AOwner: <a href="Gamolf.RTL.UIElements.TUIElementsList.html">TUIElementsList</a>; const ABounds: <a href="Gamolf.RTL.UIElements.html#TUIElementBounds">TUIElementBounds</a>; const AOnClickProc: <a href="Gamolf.RTL.UIElements.html#TNotifyProc">TNotifyProc</a> = nil); overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#Create">Create</a></strong>(const AOwner: <a href="Gamolf.RTL.UIElements.TUIElementsList.html">TUIElementsList</a>; const ABounds: <a href="Gamolf.RTL.UIElements.html#TUIElementBounds">TUIElementBounds</a>; const AOnClick: TNotifyEvent); overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#DoClick">DoClick</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#DoPaint">DoPaint</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#KeyDown">KeyDown</a></strong>(var Key: Word; var KeyChar: WideChar; const Shift: TShiftState); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#GamepadButtonDown">GamepadButtonDown</a></strong>(const Button: <a href="Gamolf.RTL.Joystick.html#TJoystickButtons">TJoystickButtons</a>; var Handled: boolean); virtual;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#SetFocus">SetFocus</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#ResetFocus">ResetFocus</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#Bounds">Bounds</a></strong>: <a href="Gamolf.RTL.UIElements.html#TUIElementBounds">TUIElementBounds</a> read FBounds write SetBounds;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#RightItem">RightItem</a></strong>: <a href="Gamolf.RTL.UIElements.TUIElement.html">TUIElement</a> read FRightItem write SetRightItem;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#BottomItem">BottomItem</a></strong>: <a href="Gamolf.RTL.UIElements.TUIElement.html">TUIElement</a> read FBottomItem write SetBottomItem;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#LeftItem">LeftItem</a></strong>: <a href="Gamolf.RTL.UIElements.TUIElement.html">TUIElement</a> read FLeftItem write SetLeftItem;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#TopItem">TopItem</a></strong>: <a href="Gamolf.RTL.UIElements.TUIElement.html">TUIElement</a> read FTopItem write SetTopItem;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#IsFocused">IsFocused</a></strong>: boolean read FIsFocused write SetIsFocused;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#GamePadButtons">GamePadButtons</a></strong>: <a href="Gamolf.RTL.Joystick.html#TJoystickButtonsSet">TJoystickButtonsSet</a> read FGamePadButtons
+      write SetGamePadButtons;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#KeyShortcuts">KeyShortcuts</a></strong>: <a href="Gamolf.RTL.UIElements.TUIKeyShortCutList.html">TUIKeyShortCutList</a> read FKeyShortcuts;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#OnClick">OnClick</a></strong>: TNotifyEvent read FOnClick write SetOnClick;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#OnClickProc">OnClickProc</a></strong>: <a href="Gamolf.RTL.UIElements.html#TNotifyProc">TNotifyProc</a> read FOnClickProc write SetOnClickProc;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#OnPaint">OnPaint</a></strong>: TNotifyEvent read FOnPaint write SetOnPaint;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#OnPaintProc">OnPaintProc</a></strong>: <a href="Gamolf.RTL.UIElements.html#TNotifyProc">TNotifyProc</a> read FOnPaintProc write SetOnPaintProc;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#Tag">Tag</a></strong>: integer read FTag write SetTag;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#TagBool">TagBool</a></strong>: boolean read FTagBool write SetTagBool;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#TagFloat">TagFloat</a></strong>: single read FTagFloat write SetTagFloat;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#TagObject">TagObject</a></strong>: TObject read FTagObject write SetTagObject;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.UIElements.TUIElement.html#TagString">TagString</a></strong>: string read FTagString write SetTagString;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Paint"></span><code>procedure <strong>Paint</strong>(const AIsFocused: boolean); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(const AOwner: <a href="Gamolf.RTL.UIElements.TUIElementsList.html">TUIElementsList</a>); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(const AOwner: <a href="Gamolf.RTL.UIElements.TUIElementsList.html">TUIElementsList</a>; const AOnClickProc: <a href="Gamolf.RTL.UIElements.html#TNotifyProc">TNotifyProc</a>); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(const AOwner: <a href="Gamolf.RTL.UIElements.TUIElementsList.html">TUIElementsList</a>; const AOnClick: TNotifyEvent); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(const AOwner: <a href="Gamolf.RTL.UIElements.TUIElementsList.html">TUIElementsList</a>; const ABounds: <a href="Gamolf.RTL.UIElements.html#TUIElementBounds">TUIElementBounds</a>; const AOnClickProc: <a href="Gamolf.RTL.UIElements.html#TNotifyProc">TNotifyProc</a> = nil); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(const AOwner: <a href="Gamolf.RTL.UIElements.TUIElementsList.html">TUIElementsList</a>; const ABounds: <a href="Gamolf.RTL.UIElements.html#TUIElementBounds">TUIElementBounds</a>; const AOnClick: TNotifyEvent); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoClick"></span><code>procedure <strong>DoClick</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DoPaint"></span><code>procedure <strong>DoPaint</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="KeyDown"></span><code>procedure <strong>KeyDown</strong>(var Key: Word; var KeyChar: WideChar; const Shift: TShiftState); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GamepadButtonDown"></span><code>procedure <strong>GamepadButtonDown</strong>(const Button: <a href="Gamolf.RTL.Joystick.html#TJoystickButtons">TJoystickButtons</a>; var Handled: boolean); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+If Handled is True, the button won't be propagated to the gamepad devices and components</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="SetFocus"></span><code>procedure <strong>SetFocus</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ResetFocus"></span><code>procedure <strong>ResetFocus</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Bounds"></span><code>property <strong>Bounds</strong>: <a href="Gamolf.RTL.UIElements.html#TUIElementBounds">TUIElementBounds</a> read FBounds write SetBounds;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="RightItem"></span><code>property <strong>RightItem</strong>: <a href="Gamolf.RTL.UIElements.TUIElement.html">TUIElement</a> read FRightItem write SetRightItem;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="BottomItem"></span><code>property <strong>BottomItem</strong>: <a href="Gamolf.RTL.UIElements.TUIElement.html">TUIElement</a> read FBottomItem write SetBottomItem;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="LeftItem"></span><code>property <strong>LeftItem</strong>: <a href="Gamolf.RTL.UIElements.TUIElement.html">TUIElement</a> read FLeftItem write SetLeftItem;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TopItem"></span><code>property <strong>TopItem</strong>: <a href="Gamolf.RTL.UIElements.TUIElement.html">TUIElement</a> read FTopItem write SetTopItem;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsFocused"></span><code>property <strong>IsFocused</strong>: boolean read FIsFocused write SetIsFocused;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="GamePadButtons"></span><code>property <strong>GamePadButtons</strong>: <a href="Gamolf.RTL.Joystick.html#TJoystickButtonsSet">TJoystickButtonsSet</a> read FGamePadButtons
+      write SetGamePadButtons;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="KeyShortcuts"></span><code>property <strong>KeyShortcuts</strong>: <a href="Gamolf.RTL.UIElements.TUIKeyShortCutList.html">TUIKeyShortCutList</a> read FKeyShortcuts;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+TODO : pouvoir gérer un texte associé à chaque bouton (permettant de les lister depuis le layout en cours dans la liste des zones afin de les proposer à l'écran)</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnClick"></span><code>property <strong>OnClick</strong>: TNotifyEvent read FOnClick write SetOnClick;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnClickProc"></span><code>property <strong>OnClickProc</strong>: <a href="Gamolf.RTL.UIElements.html#TNotifyProc">TNotifyProc</a> read FOnClickProc write SetOnClickProc;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnPaint"></span><code>property <strong>OnPaint</strong>: TNotifyEvent read FOnPaint write SetOnPaint;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="OnPaintProc"></span><code>property <strong>OnPaintProc</strong>: <a href="Gamolf.RTL.UIElements.html#TNotifyProc">TNotifyProc</a> read FOnPaintProc write SetOnPaintProc;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Tag"></span><code>property <strong>Tag</strong>: integer read FTag write SetTag;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TagBool"></span><code>property <strong>TagBool</strong>: boolean read FTagBool write SetTagBool;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TagFloat"></span><code>property <strong>TagFloat</strong>: single read FTagFloat write SetTagFloat;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TagObject"></span><code>property <strong>TagObject</strong>: TObject read FTagObject write SetTagObject;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TagString"></span><code>property <strong>TagString</strong>: string read FTagString write SetTagString;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<a href="https://delphigameengine.developpeur-pascal.fr/" target="_blank">Delphi Game Engine</a> (c) 2021-2025 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

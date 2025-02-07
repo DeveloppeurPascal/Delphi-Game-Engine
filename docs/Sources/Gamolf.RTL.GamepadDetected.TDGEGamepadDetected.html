@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Delphi Game Engine: Gamolf.RTL.GamepadDetected: Class TDGEGamepadDetected</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<h2><a href="index.html">Delphi Game Engine</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li></ul></div><div class="content">
+<span id="TDGEGamepadDetected"></span><h1 class="cio">Class TDGEGamepadDetected</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="Gamolf.RTL.GamepadDetected.html">Gamolf.RTL.GamepadDetected</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TDGEGamepadDetected = class(TComponent)</code></p>
+<h2 class="description">Description</h2>
+<h6 class="description_section">Attributes</h6>
+<dl class="attributes">
+  <dt><code>ComponentPlatformsAttribute</code>(pfidWindows or pfidOSX or pfidLinux or
+    pfidAndroid or pfidiOS)</dt>
+  <dd></dd>
+</dl>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor">TPersistent</li>
+<li class="ancestor">TComponent</li>
+<li class="thisitem">TDGEGamepadDetected</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#Create">Create</a></strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#AfterConstruction">AfterConstruction</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#Test">Test</a></strong>(const OnOff: boolean = true);</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#TagObject">TagObject</a></strong>: TObject read FTagObject write SetTagObject default nil;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#Enabled">Enabled</a></strong>: boolean read FEnabled write SetEnabled default true;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#Width">Width</a></strong>: integer read FWidth write SetWidth default 64;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#Height">Height</a></strong>: integer read FHeight write SetHeight default 64;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#MarginBottom">MarginBottom</a></strong>: integer read FMarginBottom write SetMarginBottom
+      default 10;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#MarginLeft">MarginLeft</a></strong>: integer read FMarginLeft write SetMarginLeft
+      default 10;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#MarginRight">MarginRight</a></strong>: integer read FMarginRight write SetMarginRight
+      default 10;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#MarginTop">MarginTop</a></strong>: integer read FMarginTop write SetMarginTop default 10;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#Position">Position</a></strong>: <a href="Gamolf.RTL.GamepadDetected.html#TDGEGamepadDetectedPosition">TDGEGamepadDetectedPosition</a> read FPosition
+      write SetPosition default <a href="Gamolf.RTL.GamepadDetected.html#TopRight">TDGEGamepadDetectedPosition.TopRight</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#Direction">Direction</a></strong>: <a href="Gamolf.RTL.GamepadDetected.html#TDGEGamepadDetectedDirection">TDGEGamepadDetectedDirection</a> read FDirection
+      write SetDirection default <a href="Gamolf.RTL.GamepadDetected.html#Vertical">TDGEGamepadDetectedDirection.Vertical</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#Duration">Duration</a></strong>: single read FDuration write SetDuration;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#Tag">Tag</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#TagBool">TagBool</a></strong>: boolean read FTagBool write SetTagBool default false;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#TagFloat">TagFloat</a></strong>: single read FTagFloat write SetTagFloat;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.RTL.GamepadDetected.TDGEGamepadDetected.html#TagString">TagString</a></strong>: string read FTagString write SetTagString;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>(AOwner: TComponent); override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="AfterConstruction"></span><code>procedure <strong>AfterConstruction</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Test"></span><code>procedure <strong>Test</strong>(const OnOff: boolean = true);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Use Test() method to simulate a game controller detected or lost event </p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="TagObject"></span><code>property <strong>TagObject</strong>: TObject read FTagObject write SetTagObject default nil;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ TagObject property &quot;in case of&quot; not used in this class </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Enabled"></span><code>property <strong>Enabled</strong>: boolean read FEnabled write SetEnabled default true;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Width"></span><code>property <strong>Width</strong>: integer read FWidth write SetWidth default 64;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Width of the GamepadOnOff displayed picture </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Height"></span><code>property <strong>Height</strong>: integer read FHeight write SetHeight default 64;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Height of the GamepadOnOff displayed picture </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="MarginBottom"></span><code>property <strong>MarginBottom</strong>: integer read FMarginBottom write SetMarginBottom
+      default 10;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Margin between the game controller images and bottom of the form. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="MarginLeft"></span><code>property <strong>MarginLeft</strong>: integer read FMarginLeft write SetMarginLeft
+      default 10;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Margin between the game controller images and left of the form. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="MarginRight"></span><code>property <strong>MarginRight</strong>: integer read FMarginRight write SetMarginRight
+      default 10;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Margin between the game controller images and right of the form. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="MarginTop"></span><code>property <strong>MarginTop</strong>: integer read FMarginTop write SetMarginTop default 10;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Margin between the game controller images and top of the form. </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Position"></span><code>property <strong>Position</strong>: <a href="Gamolf.RTL.GamepadDetected.html#TDGEGamepadDetectedPosition">TDGEGamepadDetectedPosition</a> read FPosition
+      write SetPosition default <a href="Gamolf.RTL.GamepadDetected.html#TopRight">TDGEGamepadDetectedPosition.TopRight</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Where you want to have a game controller image when one is detected or lost </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Direction"></span><code>property <strong>Direction</strong>: <a href="Gamolf.RTL.GamepadDetected.html#TDGEGamepadDetectedDirection">TDGEGamepadDetectedDirection</a> read FDirection
+      write SetDirection default <a href="Gamolf.RTL.GamepadDetected.html#Vertical">TDGEGamepadDetectedDirection.Vertical</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Used when more than one game controller event (detected/lost) is visible </p>
+<p>
+
+
+<p>Only used in FireMonkey projects.</p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Duration"></span><code>property <strong>Duration</strong>: single read FDuration write SetDuration;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Display duration in seconds </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="Tag"></span><code>property <strong>Tag</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Tag property &quot;in case of&quot; not used in this class </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TagBool"></span><code>property <strong>TagBool</strong>: boolean read FTagBool write SetTagBool default false;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ TagBool property &quot;in case of&quot; not used in this class </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TagFloat"></span><code>property <strong>TagFloat</strong>: single read FTagFloat write SetTagFloat;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ TagFloat property &quot;in case of&quot; not used in this class </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="published.gif" alt="Published" title="Published"></a></td>
+<td class="itemcode"><span id="TagString"></span><code>property <strong>TagString</strong>: string read FTagString write SetTagString;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ TagString property &quot;in case of&quot; not used in this class </p>
+</td></tr>
+</table>
+<a href="https://delphigameengine.developpeur-pascal.fr/" target="_blank">Delphi Game Engine</a> (c) 2021-2025 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

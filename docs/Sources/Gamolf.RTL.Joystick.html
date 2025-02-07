@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Delphi Game Engine: Gamolf.RTL.Joystick</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<h2><a href="index.html">Delphi Game Engine</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li></ul></div><div class="content">
+<h1 class="unit">Unit Gamolf.RTL.Joystick</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Uses">Uses</a></div><div class="one_section"><a class="section" href="#PasDoc-Classes">Classes, Interfaces, Objects and Records</a></div><div class="one_section"><a class="section" href="#PasDoc-FuncsProcs">Functions and Procedures</a></div><div class="one_section"><a class="section" href="#PasDoc-Types">Types</a></div><div class="one_section">Constants</div><div class="one_section">Variables</div></div>
+<span id="PasDoc-Description"></span><h2 class="description">Description</h2>
+<p>
+ ***************************************************************************
+
+<p>Delphi Game Engine
+
+<p>Copyright 2021-2025 Patrick Prémartin under AGPL 3.0 license.
+
+<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+<p>***************************************************************************
+
+<p>Delphi Game Engine contains libraries and components to use in VCL or FireMonkey game (or classic) projects.
+
+<p>If you want to play sounds or musics, use game controllers, pilot your user interface with the keyboard or a game controller, it's the good place.
+
+<p>***************************************************************************
+
+<p>Author(s) : Patrick PREMARTIN
+
+<p>Site : <a href="https://delphigameengine.developpeur-pascal.fr">https://delphigameengine.developpeur-pascal.fr</a>
+
+<p>Project site : <a href="https://github.com/DeveloppeurPascal/Delphi-Game-Engine">https://github.com/DeveloppeurPascal/Delphi-Game-Engine</a>
+
+<p>*************************************************************************** File last update : 2025-01-14T16:49:54.000+01:00 Signature : 0a3039bc6cbb6f9bc6e520f43aaf3a70a9506728 *************************************************************************** </p>
+<span id="PasDoc-Uses"></span><h2 class="uses">Uses</h2>
+<ul class="useslist"><li>System.Generics.Collections</li><li>System.Classes</li><li>System.SysUtils</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Classes"></span><h3 class="cio">Classes, Interfaces, Objects and Records</h3>
+<table class="classestable wide_list">
+<tr class="listheader">
+<th class="itemname">Name</th>
+<th class="itemdesc">Description</th>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="Gamolf.RTL.Joystick.EJoystickServiceException.html"><code>EJoystickServiceException</code></a></td>
+<td class="itemdesc"> Base class for all Joystick exceptions </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="Gamolf.RTL.Joystick.EJoystickUnpluggedException.html"><code>EJoystickUnpluggedException</code></a></td>
+<td class="itemdesc"> Raised if the controller is not available </td>
+</tr>
+<tr class="list">
+<td class="itemname">Record&nbsp;<a class="bold" href="Gamolf.RTL.Joystick.TJoystickInfo.html"><code>TJoystickInfo</code></a></td>
+<td class="itemdesc"> Joystick/gamepad controller datas </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Interface&nbsp;<a class="bold" href="Gamolf.RTL.Joystick.IGamolfJoystickService.html"><code>IGamolfJoystickService</code></a></td>
+<td class="itemdesc"> Platform service to access to joystick/gamepad controllers on a computer </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html"><code>TGamolfCustomJoystickService</code></a></td>
+<td class="itemdesc"> Platform service to access to joystick/gamepad controllers on a computer </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="Gamolf.RTL.Joystick.TGamepadDevicesManager.html"><code>TGamepadDevicesManager</code></a></td>
+<td class="itemdesc"> Gamepad manager class, to use as a singleton. </td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="Gamolf.RTL.Joystick.TDGEGamepadManager.html"><code>TDGEGamepadManager</code></a></td>
+<td class="itemdesc"> Gamepad manager component </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="Gamolf.RTL.Joystick.TGamepadManagerList.html"><code>TGamepadManagerList</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="Gamolf.RTL.Joystick.TGamepadDevice.html"><code>TGamepadDevice</code></a></td>
+<td class="itemdesc"> Gamepad class to access data from each gamepad detected on the system </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="Gamolf.RTL.Joystick.TGamepadDeviceDict.html"><code>TGamepadDeviceDict</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+<tr class="list">
+<td class="itemname">Class&nbsp;<a class="bold" href="Gamolf.RTL.Joystick.TDGEGamepad.html"><code>TDGEGamepad</code></a></td>
+<td class="itemdesc"> Gamepad component </td>
+</tr>
+<tr class="list2">
+<td class="itemname">Class&nbsp;<a class="bold" href="Gamolf.RTL.Joystick.TDGEGamepadList.html"><code>TDGEGamepadList</code></a></td>
+<td class="itemdesc">&nbsp;</td>
+</tr>
+</table>
+<span id="PasDoc-FuncsProcs"></span><h3 class="summary">Functions and Procedures</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.html#Register">Register</a></strong>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Types"></span><h3 class="summary">Types</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TJoystickButtons">TJoystickButtons</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TJoystickButtonsSet">TJoystickButtonsSet</a></strong> = set of <a href="Gamolf.RTL.Joystick.html#TJoystickButtons">TJoystickButtons</a>;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TJoystickDPad">TJoystickDPad</a></strong> = (...);</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TJoystickAxes">TJoystickAxes</a></strong> = (...);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TJoystickAxesSet">TJoystickAxesSet</a></strong> = set of <a href="Gamolf.RTL.Joystick.html#TJoystickAxes">TJoystickAxes</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a></strong> = byte;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TButtonID">TButtonID</a></strong> = byte;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TJoystickInfosCallbackProc">TJoystickInfosCallbackProc</a></strong> = reference to procedure(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>;
+    var JoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>; hadError: boolean);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TJoystickInfosCallbackEvent">TJoystickInfosCallbackEvent</a></strong> = procedure(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; var JoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>; hadError: boolean) of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TJoystickInfosConnectedCallbackProc">TJoystickInfosConnectedCallbackProc</a></strong> = reference to procedure
+    (JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; var JoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TJoystickInfosConnectedCallbackEvent">TJoystickInfosConnectedCallbackEvent</a></strong> = procedure(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; var JoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>) of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TJoystickErrorCallbackProc">TJoystickErrorCallbackProc</a></strong> = reference to procedure(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>);</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TJoystickErrorCallbackEvent">TJoystickErrorCallbackEvent</a></strong> = procedure(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>) of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TOnNewGamepadDetected">TOnNewGamepadDetected</a></strong> = procedure(const GamepadID: integer) of object;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TOnGamepadLost">TOnGamepadLost</a></strong> = procedure(const GamepadID: integer) of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TOnGamepadButtonUp">TOnGamepadButtonUp</a></strong> = procedure(const GamepadID: integer; const Button: <a href="Gamolf.RTL.Joystick.html#TJoystickButtons">TJoystickButtons</a>) of object;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TOnGamepadButtonDown">TOnGamepadButtonDown</a></strong> = procedure(const GamepadID: integer; const Button: <a href="Gamolf.RTL.Joystick.html#TJoystickButtons">TJoystickButtons</a>) of object;</code></td>
+</tr>
+<tr class="list2">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TOnGamepadAxesChange">TOnGamepadAxesChange</a></strong> = procedure(const GamepadID: integer; const Axe: <a href="Gamolf.RTL.Joystick.html#TJoystickAxes">TJoystickAxes</a>; const Value: single) of object;</code></td>
+</tr>
+<tr class="list">
+<td class="itemcode"><code><strong><a href="Gamolf.RTL.Joystick.html#TOnGamepadDirectionPadChange">TOnGamepadDirectionPadChange</a></strong> = procedure(const GamepadID: integer; const Value: <a href="Gamolf.RTL.Joystick.html#TJoystickDPad">TJoystickDPad</a>) of object;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Functions and Procedures</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="Register"></span><code>procedure <strong>Register</strong>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<h3 class="detail">Types</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJoystickButtons"></span><code><strong>TJoystickButtons</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ ID for game controllers buttons (when it's know by the API) </p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="A">A</span></li>
+<li>
+<span id="B">B</span></li>
+<li>
+<span id="X">X</span></li>
+<li>
+<span id="Y">Y</span></li>
+<li>
+<span id="LeftShoulder">LeftShoulder</span></li>
+<li>
+<span id="RightShoulder">RightShoulder</span></li>
+<li>
+<span id="Options">Options</span></li>
+<li>
+<span id="Menu">Menu</span></li>
+<li>
+<span id="LeftThumbStick">LeftThumbStick</span></li>
+<li>
+<span id="RightThumbStick">RightThumbStick</span></li>
+<li>
+<span id="Home">Home</span></li>
+<li>
+<span id="LeftTrigger">LeftTrigger</span></li>
+<li>
+<span id="RightTrigger">RightTrigger</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJoystickButtonsSet"></span><code><strong>TJoystickButtonsSet</strong> = set of <a href="Gamolf.RTL.Joystick.html#TJoystickButtons">TJoystickButtons</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJoystickDPad"></span><code><strong>TJoystickDPad</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ DPad standard values (from 0 to 365° and 65535 when not value is selected) </p>
+<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="Top">Top = 0</span></li>
+<li>
+<span id="TopRight">TopRight = 45</span></li>
+<li>
+<span id="RightTop">RightTop = 45</span></li>
+<li>
+<span id="Right">Right = 90</span></li>
+<li>
+<span id="BottomRight">BottomRight = 135</span></li>
+<li>
+<span id="RightBottom">RightBottom = 135</span></li>
+<li>
+<span id="Bottom">Bottom = 180</span></li>
+<li>
+<span id="BottomLeft">BottomLeft = 225</span></li>
+<li>
+<span id="LeftBottom">LeftBottom = 225</span></li>
+<li>
+<span id="Left">Left = 270</span></li>
+<li>
+<span id="LeftTop">LeftTop = 315</span></li>
+<li>
+<span id="TopLeft">TopLeft = 315</span></li>
+<li>
+<span id="Center">Center = 65535</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJoystickAxes"></span><code><strong>TJoystickAxes</strong> = (...);</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;<h6 class="description_section">Values</h6>
+<ul>
+<li>
+<span id="LeftStickX">LeftStickX = 0</span></li>
+<li>
+<span id="X">X = 0</span></li>
+<li>
+<span id="LeftStickY">LeftStickY = 1</span></li>
+<li>
+<span id="Y">Y = 1</span></li>
+<li>
+<span id="RightStickX">RightStickX = 2</span></li>
+<li>
+<span id="U">U = 2</span></li>
+<li>
+<span id="RightStickY">RightStickY = 3</span></li>
+<li>
+<span id="R">R = 3</span></li>
+<li>
+<span id="LeftTrigger">LeftTrigger = 4</span></li>
+<li>
+<span id="Z">Z = 4</span></li>
+<li>
+<span id="RightTrigger">RightTrigger = 5</span></li>
+<li>
+<span id="V">V = 5</span></li>
+</ul>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJoystickAxesSet"></span><code><strong>TJoystickAxesSet</strong> = set of <a href="Gamolf.RTL.Joystick.html#TJoystickAxes">TJoystickAxes</a>;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJoystickID"></span><code><strong>TJoystickID</strong> = byte;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ Type for Joystick ID </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TButtonID"></span><code><strong>TButtonID</strong> = byte;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ Type for Button ID </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJoystickInfosCallbackProc"></span><code><strong>TJoystickInfosCallbackProc</strong> = reference to procedure(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>;
+    var JoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>; hadError: boolean);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ Signature for a callback procedure used to get game controller infos </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJoystickInfosCallbackEvent"></span><code><strong>TJoystickInfosCallbackEvent</strong> = procedure(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; var JoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>; hadError: boolean) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ Signature for a callback method used to get game controller infos </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJoystickInfosConnectedCallbackProc"></span><code><strong>TJoystickInfosConnectedCallbackProc</strong> = reference to procedure
+    (JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; var JoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ Signature for a callback procedure used to get connected game controller infos </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJoystickInfosConnectedCallbackEvent"></span><code><strong>TJoystickInfosConnectedCallbackEvent</strong> = procedure(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; var JoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ Signature for a callback method used to get connected game controller infos </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJoystickErrorCallbackProc"></span><code><strong>TJoystickErrorCallbackProc</strong> = reference to procedure(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>);</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ Signature for a callback procedure used to signal an error for the game controller JoystickID </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TJoystickErrorCallbackEvent"></span><code><strong>TJoystickErrorCallbackEvent</strong> = procedure(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+<p>
+ Signature for a callback method used to signal an error for the game controller JoystickID </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnNewGamepadDetected"></span><code><strong>TOnNewGamepadDetected</strong> = procedure(const GamepadID: integer) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnGamepadLost"></span><code><strong>TOnGamepadLost</strong> = procedure(const GamepadID: integer) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnGamepadButtonUp"></span><code><strong>TOnGamepadButtonUp</strong> = procedure(const GamepadID: integer; const Button: <a href="Gamolf.RTL.Joystick.html#TJoystickButtons">TJoystickButtons</a>) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnGamepadButtonDown"></span><code><strong>TOnGamepadButtonDown</strong> = procedure(const GamepadID: integer; const Button: <a href="Gamolf.RTL.Joystick.html#TJoystickButtons">TJoystickButtons</a>) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnGamepadAxesChange"></span><code><strong>TOnGamepadAxesChange</strong> = procedure(const GamepadID: integer; const Axe: <a href="Gamolf.RTL.Joystick.html#TJoystickAxes">TJoystickAxes</a>; const Value: single) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="itemcode"><span id="TOnGamepadDirectionPadChange"></span><code><strong>TOnGamepadDirectionPadChange</strong> = procedure(const GamepadID: integer; const Value: <a href="Gamolf.RTL.Joystick.html#TJoystickDPad">TJoystickDPad</a>) of object;</code></td>
+</tr>
+<tr><td colspan="1">
+&nbsp;</td></tr>
+</table>
+<a href="https://delphigameengine.developpeur-pascal.fr/" target="_blank">Delphi Game Engine</a> (c) 2021-2025 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

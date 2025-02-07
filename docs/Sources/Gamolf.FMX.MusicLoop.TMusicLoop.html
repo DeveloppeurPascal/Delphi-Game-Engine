@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Delphi Game Engine: Gamolf.FMX.MusicLoop: Class TMusicLoop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<h2><a href="index.html">Delphi Game Engine</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li></ul></div><div class="content">
+<span id="TMusicLoop"></span><h1 class="cio">Class TMusicLoop</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section"><a class="section" href="#PasDoc-Properties">Properties</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="Gamolf.FMX.MusicLoop.html">Gamolf.FMX.MusicLoop</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TMusicLoop = class(TObject)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Class to play an individual sound or a music (as background loop or not) </p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="thisitem">TMusicLoop</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#Create">Create</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#Load">Load</a></strong>(Filename: string): <a href="Gamolf.FMX.MusicLoop.TMusicLoop.html">TMusicLoop</a>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#Play">Play</a></strong>(Filename: string; LectureEnBoucle: boolean = true); overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#Play">Play</a></strong>(LectureEnBoucle: boolean = true); overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#PlaySound">PlaySound</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#Stop">Stop</a></strong>;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#Pause">Pause</a></strong>;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#isPaused">isPaused</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#IsPlaying">IsPlaying</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#IsActive">IsActive</a></strong>: boolean;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#CurrentTimeInSeconds">CurrentTimeInSeconds</a></strong>: integer;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#DurationInSeconds">DurationInSeconds</a></strong>: integer;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>class function <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#Current">Current</a></strong>: <a href="Gamolf.FMX.MusicLoop.TMusicLoop.html">TMusicLoop</a>;</code></td>
+</tr>
+</table>
+<span id="PasDoc-Properties"></span><h3 class="summary">Properties</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#tag">tag</a></strong>: integer read Ftag write Settag;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#audioActif">audioActif</a></strong>: boolean read FaudioActif write SetaudioActif;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#audioOn">audioOn</a></strong>: boolean read FaudioOn write SetaudioOn;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#audioEnBoucle">audioEnBoucle</a></strong>: boolean read FaudioEnBoucle write SetaudioEnBoucle;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#AudioPaused">AudioPaused</a></strong>: boolean read FAudioPaused write SetAudioPaused;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#Filename">Filename</a></strong>: string read getFileName;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>property <strong><a href="Gamolf.FMX.MusicLoop.TMusicLoop.html#Volume">Volume</a></strong>: <a href="Gamolf.FMX.MusicLoop.html#TVolumeSonore">TVolumeSonore</a> read getVolume write SetVolume;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Create an instance of a TMusicLoop or use &quot;TMusicLoop.Current&quot; to use the default one </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Destroy this instance </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Load"></span><code>function <strong>Load</strong>(Filename: string): <a href="Gamolf.FMX.MusicLoop.TMusicLoop.html">TMusicLoop</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Load a music or sound (file formats depend on the operating system). You can try MP3 for music and WAV for sounds </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Play"></span><code>procedure <strong>Play</strong>(Filename: string; LectureEnBoucle: boolean = true); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Load and play a sound or music </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Play"></span><code>procedure <strong>Play</strong>(LectureEnBoucle: boolean = true); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Play current soound or music in an infinite loop or one time </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="PlaySound"></span><code>procedure <strong>PlaySound</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Just play current sound once time </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Stop"></span><code>procedure <strong>Stop</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Stop current play (sound or music) </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Pause"></span><code>procedure <strong>Pause</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Stop the music or restart it if it was paused </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="isPaused"></span><code>function <strong>isPaused</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Return true if the music is in pause </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsPlaying"></span><code>function <strong>IsPlaying</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Check if a sound or music is playing </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="IsActive"></span><code>function <strong>IsActive</strong>: boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Check if a sound or music file is loaded </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="CurrentTimeInSeconds"></span><code>function <strong>CurrentTimeInSeconds</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Return current playing time in seconds </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="DurationInSeconds"></span><code>function <strong>DurationInSeconds</strong>: integer;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Return the music duration in seconds </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Current"></span><code>class function <strong>Current</strong>: <a href="Gamolf.FMX.MusicLoop.TMusicLoop.html">TMusicLoop</a>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the instance of the default music loop to use it as a singleton </p>
+</td></tr>
+</table>
+<h3 class="detail">Properties</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="tag"></span><code>property <strong>tag</strong>: integer read Ftag write Settag;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="audioActif"></span><code>property <strong>audioActif</strong>: boolean read FaudioActif write SetaudioActif;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="audioOn"></span><code>property <strong>audioOn</strong>: boolean read FaudioOn write SetaudioOn;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="audioEnBoucle"></span><code>property <strong>audioEnBoucle</strong>: boolean read FaudioEnBoucle write SetaudioEnBoucle;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="protected.gif" alt="Protected" title="Protected"></a></td>
+<td class="itemcode"><span id="AudioPaused"></span><code>property <strong>AudioPaused</strong>: boolean read FAudioPaused write SetAudioPaused;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Filename"></span><code>property <strong>Filename</strong>: string read getFileName;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Volume"></span><code>property <strong>Volume</strong>: <a href="Gamolf.FMX.MusicLoop.html#TVolumeSonore">TVolumeSonore</a> read getVolume write SetVolume;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Set or get volume level for current playing sound or music </p>
+</td></tr>
+</table>
+<a href="https://delphigameengine.developpeur-pascal.fr/" target="_blank">Delphi Game Engine</a> (c) 2021-2025 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>

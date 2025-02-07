@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Delphi Game Engine: Gamolf.RTL.Joystick: Class TGamolfCustomJoystickService</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 0.16.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<div class="container"><div class="navigation">
+<h2><a href="index.html">Delphi Game Engine</a></h2><ul><li><a href="AllUnits.html">Units</a></li><li><a href="ClassHierarchy.html">Class Hierarchy</a></li><li><a href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li><a href="AllTypes.html">Types</a></li><li><a href="AllVariables.html">Variables</a></li><li><a href="AllConstants.html">Constants</a></li><li><a href="AllFunctions.html">Functions and Procedures</a></li><li><a href="AllIdentifiers.html">Identifiers</a></li></ul></div><div class="content">
+<span id="TGamolfCustomJoystickService"></span><h1 class="cio">Class TGamolfCustomJoystickService</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section">Fields</div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div><div class="one_section">Properties</div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="Gamolf.RTL.Joystick.html">Gamolf.RTL.Joystick</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TGamolfCustomJoystickService = class(TInterfacedObject, <a class="normal" href="Gamolf.RTL.Joystick.IGamolfJoystickService.html">IGamolfJoystickService</a>)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Platform service to access to joystick/gamepad controllers on a computer </p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TInterfacedObject</li>
+<li class="thisitem">TGamolfCustomJoystickService</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>constructor <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#Create">Create</a></strong>; virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>destructor <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#Destroy">Destroy</a></strong>; override;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#initJoystick">initJoystick</a></strong>(var Joystick: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>); virtual;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#StartDiscovery">StartDiscovery</a></strong>; virtual; abstract;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#Count">Count</a></strong>: byte; virtual; abstract;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#isConnected">isConnected</a></strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>): boolean; virtual; abstract;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#getInfo">getInfo</a></strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; var Joystick: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>); virtual; abstract;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#isPressed">isPressed</a></strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; ButtonID: <a href="Gamolf.RTL.Joystick.html#TButtonID">TButtonID</a>): boolean;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#getXY">getXY</a></strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; var X, Y: single);</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#getX">getX</a></strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>): single;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#getY">getY</a></strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>): single;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#getZ">getZ</a></strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>): single;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#getDPad">getDPad</a></strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; FromXYWhenNoDPadAvailable: boolean = false): word;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#hasDPad">hasDPad</a></strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>): boolean; virtual; abstract;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#isDPad">isDPad</a></strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; JoystickDPad: <a href="Gamolf.RTL.Joystick.html#TJoystickDPad">TJoystickDPad</a>) : boolean; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#isDPad">isDPad</a></strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; JoystickDPads: array of <a href="Gamolf.RTL.Joystick.html#TJoystickDPad">TJoystickDPad</a>): boolean; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#isDPad">isDPad</a></strong>(DPad: word; JoystickDPad: <a href="Gamolf.RTL.Joystick.html#TJoystickDPad">TJoystickDPad</a>): boolean; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#isDPad">isDPad</a></strong>(DPad: word; JoystickDPads: array of <a href="Gamolf.RTL.Joystick.html#TJoystickDPad">TJoystickDPad</a>) : boolean; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#getDPadFromXY">getDPadFromXY</a></strong>(X, Y: single): word;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#getXYFromDPad">getXYFromDPad</a></strong>(DPad: word; var X, Y: single);</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#ForEach">ForEach</a></strong>(var JoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>; CallbackProc: <a href="Gamolf.RTL.Joystick.html#TJoystickInfosCallbackProc">TJoystickInfosCallbackProc</a>); overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#ForEach">ForEach</a></strong>(var JoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>; CallbackEvent: <a href="Gamolf.RTL.Joystick.html#TJoystickInfosCallbackEvent">TJoystickInfosCallbackEvent</a>); overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#ForEachConnectedDevice">ForEachConnectedDevice</a></strong>(var JoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>; CallbackProc: <a href="Gamolf.RTL.Joystick.html#TJoystickInfosConnectedCallbackProc">TJoystickInfosConnectedCallbackProc</a>; ErrorCallbackProc: <a href="Gamolf.RTL.Joystick.html#TJoystickErrorCallbackProc">TJoystickErrorCallbackProc</a> = nil); overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#ForEachConnectedDevice">ForEachConnectedDevice</a></strong>(var JoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>; CallbackEvent: <a href="Gamolf.RTL.Joystick.html#TJoystickInfosConnectedCallbackEvent">TJoystickInfosConnectedCallbackEvent</a>; ErrorCallbackEvent: <a href="Gamolf.RTL.Joystick.html#TJoystickErrorCallbackEvent">TJoystickErrorCallbackEvent</a> = nil); overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Joystick.TGamolfCustomJoystickService.html#hasJoystickButtonsAPI">hasJoystickButtonsAPI</a></strong>: boolean; virtual;</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Create"></span><code>constructor <strong>Create</strong>; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Destroy"></span><code>destructor <strong>Destroy</strong>; override;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="initJoystick"></span><code>procedure <strong>initJoystick</strong>(var Joystick: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>); virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Reset Joystick structure </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="StartDiscovery"></span><code>procedure <strong>StartDiscovery</strong>; virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Scan for availale devices (if some are already used, their ID could change) </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Count"></span><code>function <strong>Count</strong>: byte; virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Return the number of joysticks managed by the system </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="isConnected"></span><code>function <strong>isConnected</strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>): boolean; virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Return &quot;true&quot; if the JoystickID controller is connected and available </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="getInfo"></span><code>procedure <strong>getInfo</strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; var Joystick: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>); virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Return a TJoystick for the JoystickID controller </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="isPressed"></span><code>function <strong>isPressed</strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; ButtonID: <a href="Gamolf.RTL.Joystick.html#TButtonID">TButtonID</a>): boolean;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Check if button &quot;ButtonID&quot; from controller &quot;JoystickID&quot; is pressed or not </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="getXY"></span><code>procedure <strong>getXY</strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; var X, Y: single);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Return X,Y axes values for JoystickID controller </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="getX"></span><code>function <strong>getX</strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>): single;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Return X axes values for JoystickID controller </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="getY"></span><code>function <strong>getY</strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>): single;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Return Y axes values for JoystickID controller </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="getZ"></span><code>function <strong>getZ</strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>): single;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Return Z axes values for JoystickID controller </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="getDPad"></span><code>function <strong>getDPad</strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; FromXYWhenNoDPadAvailable: boolean = false): word;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Return the DPad value between (0-359° or 65535) Compare it to Top, TopRight/RightTop, Right, BottomRight/RightBottom, Bottom, BottomLeft/LeftBottom, Left, LeftTop/TopLeft, Center values from TJoystickDPad enumeration </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="hasDPad"></span><code>function <strong>hasDPad</strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>): boolean; virtual; abstract;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Check if the game controller has a DPad/POV button </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="isDPad"></span><code>function <strong>isDPad</strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; JoystickDPad: <a href="Gamolf.RTL.Joystick.html#TJoystickDPad">TJoystickDPad</a>) : boolean; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Check is the DPad / POV is in a standard position for a JoystickID or in general </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="isDPad"></span><code>function <strong>isDPad</strong>(JoystickID: <a href="Gamolf.RTL.Joystick.html#TJoystickID">TJoystickID</a>; JoystickDPads: array of <a href="Gamolf.RTL.Joystick.html#TJoystickDPad">TJoystickDPad</a>): boolean; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="isDPad"></span><code>function <strong>isDPad</strong>(DPad: word; JoystickDPad: <a href="Gamolf.RTL.Joystick.html#TJoystickDPad">TJoystickDPad</a>): boolean; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="isDPad"></span><code>function <strong>isDPad</strong>(DPad: word; JoystickDPads: array of <a href="Gamolf.RTL.Joystick.html#TJoystickDPad">TJoystickDPad</a>) : boolean; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+&nbsp;</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="getDPadFromXY"></span><code>function <strong>getDPadFromXY</strong>(X, Y: single): word;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get orientation (like DPad) from (x,y) axis </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="getXYFromDPad"></span><code>procedure <strong>getXYFromDPad</strong>(DPad: word; var X, Y: single);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Get the values for (x,y) axis from a DPad/POV orientation </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ForEach"></span><code>procedure <strong>ForEach</strong>(var JoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>; CallbackProc: <a href="Gamolf.RTL.Joystick.html#TJoystickInfosCallbackProc">TJoystickInfosCallbackProc</a>); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Loop on all game controllers and call the procedure with infos for each one </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ForEach"></span><code>procedure <strong>ForEach</strong>(var JoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>; CallbackEvent: <a href="Gamolf.RTL.Joystick.html#TJoystickInfosCallbackEvent">TJoystickInfosCallbackEvent</a>); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Loop on all game controllers and call the method with infos for each one </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ForEachConnectedDevice"></span><code>procedure <strong>ForEachConnectedDevice</strong>(var JoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>; CallbackProc: <a href="Gamolf.RTL.Joystick.html#TJoystickInfosConnectedCallbackProc">TJoystickInfosConnectedCallbackProc</a>; ErrorCallbackProc: <a href="Gamolf.RTL.Joystick.html#TJoystickErrorCallbackProc">TJoystickErrorCallbackProc</a> = nil); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Loop on all game controllers and call the procedure with infos for each connected device </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="ForEachConnectedDevice"></span><code>procedure <strong>ForEachConnectedDevice</strong>(var JoystickInfo: <a href="Gamolf.RTL.Joystick.TJoystickInfo.html">TJoystickInfo</a>; CallbackEvent: <a href="Gamolf.RTL.Joystick.html#TJoystickInfosConnectedCallbackEvent">TJoystickInfosConnectedCallbackEvent</a>; ErrorCallbackEvent: <a href="Gamolf.RTL.Joystick.html#TJoystickErrorCallbackEvent">TJoystickErrorCallbackEvent</a> = nil); overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Loop on all game controllers and call the method with infos for each connected device </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="hasJoystickButtonsAPI"></span><code>function <strong>hasJoystickButtonsAPI</strong>: boolean; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Override this function and return true for platforms where buttons place are known. By default, it's false; </p>
+<p>
+
+
+<p>If &quot;true&quot; use TJoystickButtons enumeration to check if a button is pressed. If &quot;false&quot; use buttons ID to check if a button is pressed.</p>
+</td></tr>
+</table>
+<a href="https://delphigameengine.developpeur-pascal.fr/" target="_blank">Delphi Game Engine</a> (c) 2021-2025 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 0.16.0</a>. </em>
+</span>
+</div></div></body></html>
