@@ -38,11 +38,11 @@
   <Outputs>
     <Output Type="HTML">
       <Active>true</Active>
-      <OutputDirectory>..\docs</OutputDirectory>
+      <OutputDirectory>..\docs\Samples</OutputDirectory>
     </Output>
     <Output Type="CHM">
       <Active>true</Active>
-      <OutputFileName>..\DelphiGameEngine.chm</OutputFileName>
+      <OutputFileName>.\DelphiGameEngine.chm</OutputFileName>
     </Output>
     <Output Type="MSHELP2">
       <Active>false</Active>
