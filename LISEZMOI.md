@@ -57,7 +57,13 @@ Ce projet utilise des dépendances sous forme de sous modules. Ils seront absent
 
 ## Documentation et assistance
 
-La documentation technique du projet, générée avec [DocInsight](https://devjetsoftware.com/products/documentation-insight/), est disponible dans le dossier ./docs et sur [GitHub Pages](https://developpeurpascal.github.io/Delphi-Game-Engine). D'autres informations et des liens connexes sont disponibles sur [le site web du projet](https://delphigameengine.developpeur-pascal.fr).
+Je passe par des commentaires au format [XMLDOC](https://docwiki.embarcadero.com/RADStudio/fr/Commentaires_de_documentation_XML) dans Delphi pour documenter mes projets. Ils sont reconnus par Help Insight qui propose de l'aide à la saisie en temps réel dans l'éditeur de code.
+
+J'utilise régulièrement l'outil [DocInsight](https://devjetsoftware.com/products/documentation-insight/) pour les saisir et contrôler leur formatage.
+
+L'export de la documentation est fait en HTML par [DocInsight](https://devjetsoftware.com/products/documentation-insight/) ou [PasDoc](https://pasdoc.github.io) vers le dossier /docs du dépôt. Vous y avez aussi [accès en ligne](https://developpeurpascal.github.io/Delphi-Game-Engine) grâce à l'hébergement offert par GitHub Pages.
+
+D'autres informations (tutoriels, articles, vidéos, FAQ, présentations et liens) sont disponibles sur [le site web du projet](https://delphigameengine.developpeur-pascal.fr/) ou [le devlog du projet](https://developpeur-pascal.fr/delphi-game-engine.html).
 
 Si vous voulez utiliser les fonctionnalités de contrôleur de jeu sur iOS et macOS, pensez à ajouter le framework GameController à vos SDK(s) dans Outils/options/Déploiement/SDK puis mettre à jour leurs fichiers.
 
@@ -65,7 +71,7 @@ Les paquets des composants ne dépendent de rien d'autre que la RTL pour limiter
 
 Pour les composants TDGEGamepadDetected et TDGEHelpBar vous devrez également activer Skia4Delphi sur votre projet. C'est utilisé par l'unité Olf.RTL.SVGToBitmap.pas de [DeveloppeurPascal/librairies](https://github.com/DeveloppeurPascal/librairies) pour dessiner les images SVG.
 
-Si vous avez besoin d'explications ou d'aide pour utiliser ce projet dans les vôtres, n'hésitez pas à [me contacter](https://developpeur-pascal.fr/nous-contacter.php). Je pourrai soit vous orienter vers une ressource en ligne, soit vous proposer une assistance sous forme de prestation ou gratuite selon les cas. Vous pouvez aussi me faire signe à l'occasion d'une conférence ou d'une présentation en ligne.
+Si vous avez besoin d'explications ou d'aide pour comprendre ou utiliser certaines parties de ce projet dans le vôtre, n'hésitez pas à [me contacter](https://developpeur-pascal.fr/nous-contacter.php). Je pourrai soit vous orienter vers une ressource en ligne, soit vous proposer une assistance sous forme de prestation payante ou gratuite selon les cas. Vous pouvez aussi me faire signe à l'occasion d'une conférence ou pendant une présentation en ligne.
 
 ## Compatibilité
 
