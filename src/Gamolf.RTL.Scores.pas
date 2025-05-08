@@ -33,8 +33,8 @@
 /// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
 ///
 /// ***************************************************************************
-/// File last update : 2025-05-08T18:55:46.000+02:00
-/// Signature : 2ac85c0b4e504f81abc4f69321417c1dd7ece24c
+/// File last update : 2025-05-08T19:04:22.000+02:00
+/// Signature : 26e311aee1326d72862828f410b06be063718a71
 /// ***************************************************************************
 /// </summary>
 
@@ -132,6 +132,16 @@ type
     /// <summary>
     /// Add a new score to the list
     /// </summary>
+    function Add(APoints: cardinal; ALevel: cardinal; ASaveList: boolean = true)
+      : boolean; overload;
+    /// <summary>
+    /// Add a new score to the list
+    /// </summary>
+    function Add(APoints: cardinal; ASaveList: boolean = true)
+      : boolean; overload;
+    /// <summary>
+    /// Add a new score to the list
+    /// </summary>
     function Add(APseudo: string; APoints: cardinal; ASaveList: boolean = true)
       : boolean; overload;
     /// <summary>
@@ -142,8 +152,9 @@ type
     /// <summary>
     /// Return old default file name (from u_scores.pas) for compatibility reasons
     /// </summary>
-    function GetOldScoreFileName(EditorName: string = '';
-      GameName: string = ''): string; deprecated 'use GetScoreFileName but the filepath changed, check before loosing old saved scores';
+    function GetOldScoreFileName(EditorName: string = ''; GameName: string = '')
+      : string; deprecated
+      'use GetScoreFileName but the filepath changed, check before loosing old saved scores';
     /// <summary>
     /// Sort the scores list by pseudo in alphabetical order
     /// (and level+score if same pseudo is present more than once time)
@@ -242,6 +253,17 @@ begin
   result := Add(APseudo, APoints, 0, ASaveList);
 end;
 
+function TScoreList<T>.Add(APoints: cardinal; ASaveList: boolean): boolean;
+begin
+  result := Add('No name', APoints, ASaveList);
+end;
+
+function TScoreList<T>.Add(APoints, ALevel: cardinal;
+  ASaveList: boolean): boolean;
+begin
+  result := Add('No name', APoints, ALevel, ASaveList);
+end;
+
 constructor TScoreList<T>.Create(EditorName, GameName: string;
   ScoreFileName: string);
 var
@@ -274,31 +296,30 @@ end;
 
 function TScoreList<T>.GetScoreFileName: string;
 begin
-  if FEditorName.IsEmpty and FGameName.IsEmpty then
+  if FEditorName.isempty and FGameName.isempty then
     raise exception.Create('Needs at least an Editor or Game name.');
 
 {$IF Defined(DEBUG) or Defined(IOS)}
-  Result := TPath.GetDocumentsPath;
+  result := tpath.GetDocumentsPath;
 {$ELSE IF Defined(RELEASE)}
-  Result := TPath.GetHomePath;
+  result := tpath.GetHomePath;
 {$ELSE}
 {$MESSAGE FATAL 'not implemented'}
 {$ENDIF}
   //
-  if not FEditorName.IsEmpty then
+  if not FEditorName.isempty then
 {$IFDEF DEBUG}
-    Result := TPath.Combine(Result, FEditorName + '-DEBUG');
+    result := tpath.Combine(result, FEditorName + '-DEBUG');
 {$ELSE}
-    Result := TPath.Combine(Result, FEditorName);
+    result := tpath.Combine(result, FEditorName);
 {$ENDIF}
   //
-  if not FGameName.IsEmpty then
+  if not FGameName.isempty then
 {$IFDEF DEBUG}
-    Result := TPath.Combine(Result, FGameName + '-DEBUG');
+    result := tpath.Combine(result, FGameName + '-DEBUG');
 {$ELSE}
-    Result := TPath.Combine(Result, FGameName);
+    result := tpath.Combine(result, FGameName);
 {$ENDIF}
-
   result := tpath.Combine(result, FScoreFileName);
 end;
 
