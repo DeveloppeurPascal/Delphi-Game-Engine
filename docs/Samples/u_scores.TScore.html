@@ -68,6 +68,24 @@
 <h1 class="title">TScore Class</h1>
 <div id="mainSection">
 <div id="mainBody">
+<div id="summarySection" class="section">
+<input class="tagName" type="hidden" value="summary" />
+<div id="summaryHeader" class="sectionHeader">
+<div>
+<a href="javascript:void(0)" class="collapsibleAreaHref" title="Collapse">
+<span class="collapsibleAreaIcon collapsibleAreaExpanding">
+<!---->
+</span>
+<span class="collapsibleAreaTitle">Summary</span>
+</a>
+</div>
+</div>
+<div id="summaryContent" class="sectionContent" contenteditable="false">
+<p>
+Class to manage one score (current score or score from a scores list)
+</p>
+</div>
+</div>
 <strong>Unit</strong>:  <a href="u_scores.html" title="">u_scores</a><br />
 <div id="inheritanceHierarchySection" class="section">
 <div id="inheritanceHierarchyHeader" class="sectionHeader">
@@ -102,8 +120,8 @@
         The TScore
  type exposes the following members.
       </p>
-<div id="IDI0DNXAVNQVRPL4VPCSBXLADSUEPRAT4JT11JNCLJ3303CYAZRFOSection" class="section">
-<div id="IDI0DNXAVNQVRPL4VPCSBXLADSUEPRAT4JT11JNCLJ3303CYAZRFOHeader" class="sectionHeader">
+<div id="group-PropertiesSection" class="section">
+<div id="group-PropertiesHeader" class="sectionHeader">
 <div>
 <a href="javascript:void(0)" class="collapsibleAreaHref" title="Collapse">
 <span class="collapsibleAreaIcon collapsibleAreaExpanding">
@@ -113,12 +131,12 @@
 </a>
 </div>
 </div>
-<div id="IDI0DNXAVNQVRPL4VPCSBXLADSUEPRAT4JT11JNCLJ3303CYAZRFOContent" class="sectionContent" contenteditable="false">
+<div id="group-PropertiesContent" class="sectionContent" contenteditable="false">
 <div class="tableSection"><div class="libraryMemberFilter"><div class="filterContainer"><span class="FocusMe">Show: </span><label><input type="checkbox" class="libraryFilterInherited" checked="checked" value="Inherit" />
 Inherited
                 </label><label><input type="checkbox" class="libraryFilterProtected" checked="checked" value="Protected" />
 Protected
-                </label></div></div><table id="IDI0DNXAVNQVRPL4VPCSBXLADSUEPRAT4JT11JNCLJ3303CYAZRFO"><colgroup><col width="60px" /><col width="20%" /></colgroup><tbody><tr><th class="iconColumn"> </th><th class="nameColumn">Name</th><th class="descriptionColumn">Description</th></tr><tr class="inherited "><td><img src="themes/legacy/images/pubproperty.gif" title="public property" /></td><td class="memberId" data-id="P:Gamolf.RTL.Scores.TScore.Level"><input type="hidden" value="P:Gamolf.RTL.Scores.TScore.Level" /><a href="Gamolf.RTL.Scores.TScore.Level.html" title="Gamolf.RTL.Scores.TScore.Level">Level</a></td><td><div class="memberSummary" data-id="P:Gamolf.RTL.Scores.TScore.Level"><p>
+                </label></div></div><table id="group-Properties"><colgroup><col width="60px" /><col width="20%" /></colgroup><tbody><tr><th class="iconColumn"> </th><th class="nameColumn">Name</th><th class="descriptionColumn">Description</th></tr><tr class="inherited "><td><img src="themes/legacy/images/pubproperty.gif" title="public property" /></td><td class="memberId" data-id="P:Gamolf.RTL.Scores.TScore.Level"><input type="hidden" value="P:Gamolf.RTL.Scores.TScore.Level" /><a href="Gamolf.RTL.Scores.TScore.Level.html" title="Gamolf.RTL.Scores.TScore.Level">Level</a></td><td><div class="memberSummary" data-id="P:Gamolf.RTL.Scores.TScore.Level"><p>
 Level number
  (Inherited from 
                         <a href="Gamolf.RTL.Scores.TScore.html" title="">Gamolf.RTL.Scores.TScore</a>
@@ -138,7 +156,34 @@ User name or pseudo
 Score uploaded to the synchronization server on the Internet (or a local network)
  (Inherited from 
                         <a href="Gamolf.RTL.Scores.TScore.html" title="">Gamolf.RTL.Scores.TScore</a>
-.)</p></div></td></tr><tr class="member"><td><img src="themes/legacy/images/pubproperty.gif" title="public property" /></td><td class="memberId" data-id="P:u_scores.TScore.niveau"><input type="hidden" value="P:u_scores.TScore.niveau" /><a href="u_scores.TScore.niveau.html" title="u_scores.TScore.niveau">niveau</a></td><td><div class="memberSummary" data-id="P:u_scores.TScore.niveau"><p /></div></td></tr><tr class="member"><td><img src="themes/legacy/images/pubproperty.gif" title="public property" /></td><td class="memberId" data-id="P:u_scores.TScore.pseudo_modere"><input type="hidden" value="P:u_scores.TScore.pseudo_modere" /><a href="u_scores.TScore.pseudo_modere.html" title="u_scores.TScore.pseudo_modere">pseudo_modere</a></td><td><div class="memberSummary" data-id="P:u_scores.TScore.pseudo_modere"><p /></div></td></tr><tr class="member"><td><img src="themes/legacy/images/pubproperty.gif" title="public property" /></td><td class="memberId" data-id="P:u_scores.TScore.score_transfere"><input type="hidden" value="P:u_scores.TScore.score_transfere" /><a href="u_scores.TScore.score_transfere.html" title="u_scores.TScore.score_transfere">score_transfere</a></td><td><div class="memberSummary" data-id="P:u_scores.TScore.score_transfere"><p /></div></td></tr></tbody></table><a href="#mainBody">Top</a></div>
+.)</p></div></td></tr><tr class="member"><td><img src="themes/legacy/images/pubproperty.gif" title="public property" /></td><td class="memberId" data-id="P:u_scores.TScore.niveau"><input type="hidden" value="P:u_scores.TScore.niveau" /><a href="u_scores.TScore.niveau.html" title="u_scores.TScore.niveau">niveau</a></td><td><div class="memberSummary" data-id="P:u_scores.TScore.niveau"><p>
+Game level
+</p></div></td></tr><tr class="member"><td><img src="themes/legacy/images/pubproperty.gif" title="public property" /></td><td class="memberId" data-id="P:u_scores.TScore.pseudo_modere"><input type="hidden" value="P:u_scores.TScore.pseudo_modere" /><a href="u_scores.TScore.pseudo_modere.html" title="u_scores.TScore.pseudo_modere">pseudo_modere</a></td><td><div class="memberSummary" data-id="P:u_scores.TScore.pseudo_modere"><p>
+True if the user pseudo has been moderated. False by default.
+</p></div></td></tr><tr class="member"><td><img src="themes/legacy/images/pubproperty.gif" title="public property" /></td><td class="memberId" data-id="P:u_scores.TScore.score_transfere"><input type="hidden" value="P:u_scores.TScore.score_transfere" /><a href="u_scores.TScore.score_transfere.html" title="u_scores.TScore.score_transfere">score_transfere</a></td><td><div class="memberSummary" data-id="P:u_scores.TScore.score_transfere"><p>
+True if this score has been sent to the scores management server on Internet.
+</p></div></td></tr></tbody></table><a href="#mainBody">Top</a></div>
+</div>
+</div>
+<div id="remarksSection" class="section">
+<input class="tagName" type="hidden" value="remarks" />
+<div id="remarksHeader" class="sectionHeader">
+<div>
+<a href="javascript:void(0)" class="collapsibleAreaHref" title="Collapse">
+<span class="collapsibleAreaIcon collapsibleAreaExpanding">
+<!---->
+</span>
+<span class="collapsibleAreaTitle">Remarks</span>
+</a>
+</div>
+</div>
+<div id="remarksContent" class="sectionContent" contenteditable="false">
+<p>
+Use this class if you used u_score.pas from the
+"DeveloppeurPascal/Librairies" project in the past.
+
+It's recommanded to move to Gamolf.RTL.Scores unit and class.
+</p>
 </div>
 </div>
 </div>

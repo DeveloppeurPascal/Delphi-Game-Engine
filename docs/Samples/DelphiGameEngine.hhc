@@ -11744,10 +11744,6 @@
                                           </UL>
                                   </UL>
                               <LI> <OBJECT type="text/sitemap">
-                                  <param name="Name" value="TScoreList">
-                                  <param name="Local" value="Gamolf.RTL.Scores.TScoreList.html">
-                                  </OBJECT>
-                              <LI> <OBJECT type="text/sitemap">
                                   <param name="Name" value="TScoreList&lt;T&gt;">
                                   <param name="Local" value="Gamolf.RTL.Scores.TScoreList(T).html">
                                   </OBJECT>
@@ -11781,6 +11777,14 @@
                                                       <LI> <OBJECT type="text/sitemap">
                                                           <param name="Name" value="Add(string,cardinal,boolean)">
                                                           <param name="Local" value="Gamolf.RTL.Scores.TScoreList(T).Add(string,cardinal,boolean).html">
+                                                          </OBJECT>
+                                                      <LI> <OBJECT type="text/sitemap">
+                                                          <param name="Name" value="Add(cardinal,boolean)">
+                                                          <param name="Local" value="Gamolf.RTL.Scores.TScoreList(T).Add(cardinal,boolean).html">
+                                                          </OBJECT>
+                                                      <LI> <OBJECT type="text/sitemap">
+                                                          <param name="Name" value="Add(cardinal,cardinal,boolean)">
+                                                          <param name="Local" value="Gamolf.RTL.Scores.TScoreList(T).Add(cardinal,cardinal,boolean).html">
                                                           </OBJECT>
                                                   </UL>
                                               <LI> <OBJECT type="text/sitemap">
@@ -11825,6 +11829,15 @@
                                                   </OBJECT>
                                           </UL>
                                   </UL>
+                          </UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Types">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TScoreList">
+                                  <param name="Local" value="Gamolf.RTL.Scores.TScoreList.html">
+                                  </OBJECT>
                           </UL>
                   </UL>
               <LI> <OBJECT type="text/sitemap">
@@ -11927,6 +11940,11 @@
                                                   </OBJECT>
                                           </UL>
                                   </UL>
+                          </UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Types">
+                          </OBJECT>
+                          <UL>
                               <LI> <OBJECT type="text/sitemap">
                                   <param name="Name" value="TScoreListe">
                                   <param name="Local" value="u_scores.TScoreListe.html">
@@ -11997,10 +12015,6 @@
                                           </UL>
                                   </UL>
                               <LI> <OBJECT type="text/sitemap">
-                                  <param name="Name" value="TScoreList">
-                                  <param name="Local" value="Gamolf.RTL.Scores.TScoreList.html">
-                                  </OBJECT>
-                              <LI> <OBJECT type="text/sitemap">
                                   <param name="Name" value="TScoreList&lt;T&gt;">
                                   <param name="Local" value="Gamolf.RTL.Scores.TScoreList(T).html">
                                   </OBJECT>
@@ -12034,6 +12048,14 @@
                                                       <LI> <OBJECT type="text/sitemap">
                                                           <param name="Name" value="Add(string,cardinal,boolean)">
                                                           <param name="Local" value="Gamolf.RTL.Scores.TScoreList(T).Add(string,cardinal,boolean).html">
+                                                          </OBJECT>
+                                                      <LI> <OBJECT type="text/sitemap">
+                                                          <param name="Name" value="Add(cardinal,boolean)">
+                                                          <param name="Local" value="Gamolf.RTL.Scores.TScoreList(T).Add(cardinal,boolean).html">
+                                                          </OBJECT>
+                                                      <LI> <OBJECT type="text/sitemap">
+                                                          <param name="Name" value="Add(cardinal,cardinal,boolean)">
+                                                          <param name="Local" value="Gamolf.RTL.Scores.TScoreList(T).Add(cardinal,cardinal,boolean).html">
                                                           </OBJECT>
                                                   </UL>
                                               <LI> <OBJECT type="text/sitemap">
@@ -12078,6 +12100,15 @@
                                                   </OBJECT>
                                           </UL>
                                   </UL>
+                          </UL>
+                      <LI> <OBJECT type="text/sitemap">
+                          <param name="Name" value="Types">
+                          </OBJECT>
+                          <UL>
+                              <LI> <OBJECT type="text/sitemap">
+                                  <param name="Name" value="TScoreList">
+                                  <param name="Local" value="Gamolf.RTL.Scores.TScoreList.html">
+                                  </OBJECT>
                           </UL>
                   </UL>
               <LI> <OBJECT type="text/sitemap">

@@ -55,6 +55,14 @@
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Scores.TScoreList.html#Add">Add</a></strong>(APoints: cardinal; ALevel: cardinal; ASaveList: boolean = true) : boolean; overload;</code></td>
+</tr>
+<tr class="list2">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Scores.TScoreList.html#Add">Add</a></strong>(APoints: cardinal; ASaveList: boolean = true) : boolean; overload;</code></td>
+</tr>
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Scores.TScoreList.html#Add">Add</a></strong>(APseudo: string; APoints: cardinal; ASaveList: boolean = true) : boolean; overload;</code></td>
 </tr>
 <tr class="list2">
@@ -63,7 +71,7 @@
 </tr>
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Scores.TScoreList.html#GetOldScoreFileName">GetOldScoreFileName</a></strong>(EditorName: string = ''; GameName: string = ''): string;</code></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Scores.TScoreList.html#GetOldScoreFileName">GetOldScoreFileName</a></strong>(EditorName: string = ''; GameName: string = '') : string; deprecated 'use GetScoreFileName but the filepath changed, check before loosing old saved scores';</code></td>
 </tr>
 <tr class="list2">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
@@ -147,6 +155,26 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Add"></span><code>function <strong>Add</strong>(APoints: cardinal; ALevel: cardinal; ASaveList: boolean = true) : boolean; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add a new score to the list </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
+<td class="itemcode"><span id="Add"></span><code>function <strong>Add</strong>(APoints: cardinal; ASaveList: boolean = true) : boolean; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add a new score to the list </p>
+</td></tr>
+</table>
+<table class="detail wide_list">
+<tr class="list">
+<td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
 <td class="itemcode"><span id="Add"></span><code>function <strong>Add</strong>(APseudo: string; APoints: cardinal; ASaveList: boolean = true) : boolean; overload;</code></td>
 </tr>
 <tr><td colspan="2">
@@ -167,10 +195,10 @@
 <table class="detail wide_list">
 <tr class="list">
 <td class="visibility"><a href="legend.html"><img  src="public.gif" alt="Public" title="Public"></a></td>
-<td class="itemcode"><span id="GetOldScoreFileName"></span><code>function <strong>GetOldScoreFileName</strong>(EditorName: string = ''; GameName: string = ''): string;</code></td>
+<td class="itemcode"><span id="GetOldScoreFileName"></span><code>function <strong>GetOldScoreFileName</strong>(EditorName: string = ''; GameName: string = '') : string; deprecated 'use GetScoreFileName but the filepath changed, check before loosing old saved scores';</code></td>
 </tr>
 <tr><td colspan="2">
-<p>
+<p class="hint_directive">Warning: this symbol is deprecated: use GetScoreFileName but the filepath changed, check before loosing old saved scores</p><p>
  Return old default file name (from u_scores.pas) for compatibility reasons </p>
 </td></tr>
 </table>
