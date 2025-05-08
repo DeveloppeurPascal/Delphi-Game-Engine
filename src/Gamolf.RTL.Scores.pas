@@ -33,8 +33,8 @@
 /// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
 ///
 /// ***************************************************************************
-/// File last update : 2025-01-14T17:02:42.000+01:00
-/// Signature : bb7c2bb623901dfaff2d2466e5ecf4fb7dc07824
+/// File last update : 2025-05-08T18:43:30.000+02:00
+/// Signature : 8db85a1cb8d81d830484a74f3725935fd653ea79
 /// ***************************************************************************
 /// </summary>
 
@@ -54,7 +54,8 @@ unit Gamolf.RTL.Scores;
 }
 interface
 
-uses system.generics.collections;
+uses
+  system.generics.collections;
 
 type
   /// <summary>
@@ -172,7 +173,11 @@ type
 
 implementation
 
-uses system.classes, system.SysUtils, system.ioutils, system.Types,
+uses
+  system.classes,
+  system.SysUtils,
+  system.ioutils,
+  system.Types,
   system.generics.Defaults;
 
 { TScore }
