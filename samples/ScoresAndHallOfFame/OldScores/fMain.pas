@@ -3,7 +3,7 @@
 ///
 /// Delphi Game Engine
 ///
-/// Copyright 2021-2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2021-2025 Patrick Prémartin under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -22,8 +22,19 @@
 /// user interface with the keyboard or a game controller, it's the good place.
 ///
 /// ***************************************************************************
-/// File last update : 28/05/2024 12:18:52
-/// Signature : 6bee90a43663c6efab27506a1cb5f5bd8452f1c3
+///
+/// Author(s) :
+/// Patrick PREMARTIN
+///
+/// Site :
+/// https://delphigameengine.developpeur-pascal.fr
+///
+/// Project site :
+/// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
+///
+/// ***************************************************************************
+/// File last update : 2025-05-08T18:40:46.000+02:00
+/// Signature : 73e8697a60a43a09284f925f2951ec589bd9f557
 /// ***************************************************************************
 /// </summary>
 
@@ -32,10 +43,22 @@ unit fMain;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.SysUtils,
+  System.Types,
+  System.UITypes,
+  System.Classes,
   System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Memo.Types,
-  FMX.StdCtrls, FMX.Edit, FMX.Controls.Presentation, FMX.ScrollBox, FMX.Memo,
+  FMX.Types,
+  FMX.Controls,
+  FMX.Forms,
+  FMX.Graphics,
+  FMX.Dialogs,
+  FMX.Memo.Types,
+  FMX.StdCtrls,
+  FMX.Edit,
+  FMX.Controls.Presentation,
+  FMX.ScrollBox,
+  FMX.Memo,
   FMX.Layouts;
 
 type
@@ -49,9 +72,7 @@ type
     procedure btnAddScoreClick(Sender: TObject);
     procedure btnDisplayScoreListClick(Sender: TObject);
   private
-    { Déclarations privées }
   public
-    { Déclarations publiques }
   end;
 
 var
@@ -61,7 +82,8 @@ implementation
 
 {$R *.fmx}
 
-uses u_scores;
+uses
+  u_scores;
 
 procedure TForm1.btnAddScoreClick(Sender: TObject);
 begin
