@@ -33,8 +33,8 @@
 /// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
 ///
 /// ***************************************************************************
-/// File last update : 2025-01-14T17:02:40.000+01:00
-/// Signature : 77a99c61de1977aa011010178fa83c9a19e2651c
+/// File last update : 2025-05-08T18:40:44.000+02:00
+/// Signature : f3a1866ae371421a223437354b161b4745ff109d
 /// ***************************************************************************
 /// </summary>
 
@@ -57,9 +57,19 @@ unit u_scores;
 }
 interface
 
-uses Gamolf.RTL.Scores;
+uses
+  Gamolf.RTL.Scores;
 
 type
+  /// <summary>
+  /// Class to manage one score (current score or score from a scores list)
+  /// </summary>
+  /// <remarks>
+  /// Use this class if you used u_score.pas from the
+  /// "DeveloppeurPascal/Librairies" project in the past.
+  ///
+  /// It's recommanded to move to Gamolf.RTL.Scores unit and class.
+  /// </remarks>
   TScore = class(Gamolf.RTL.Scores.TScore)
   private
     function GetNiveau: cardinal;
@@ -69,22 +79,50 @@ type
     procedure SetPseudoModere(const Value: boolean);
     procedure SetScoreTransfere(const Value: boolean);
   public
+    /// <summary>
+    /// Game level
+    /// </summary>
     property niveau: cardinal read GetNiveau write SetNiveau;
+    /// <summary>
+    /// True if the user pseudo has been moderated. False by default.
+    /// </summary>
+    /// <remarks>
+    /// It was supposed to be used with a scores management server on Internet.
+    /// </remarks>
     property pseudo_modere: boolean read GetPseudoModere write SetPseudoModere;
+    /// <summary>
+    /// True if this score has been sent to the scores management server on Internet.
+    /// </summary>
     property score_transfere: boolean read GetScoreTransfere
       write SetScoreTransfere;
   end;
 
+  /// <summary>
+  /// List of scores items
+  /// </summary>
   TScoreListe = Gamolf.RTL.Scores.TScoreList<TScore>;
 
+  /// <summary>
+  /// Initialize default scores list and load it from the storrage
+  /// </summary>
 procedure score_init(editeur, logiciel: string);
+/// <summary>
+/// Get the default scores list
+/// </summary>
 function score_liste_get: TScoreListe;
+/// <summary>
+/// Add a score to the default scores list
+/// </summary>
 function score_add(pseudo: string; points: cardinal;
   niveau: cardinal = 0): boolean;
 
 implementation
 
-uses system.classes, system.SysUtils, system.ioutils, system.Types;
+uses
+  system.classes,
+  system.SysUtils,
+  system.ioutils,
+  system.Types;
 
 Const
   CCompanyName = 'OlfSoftware';
