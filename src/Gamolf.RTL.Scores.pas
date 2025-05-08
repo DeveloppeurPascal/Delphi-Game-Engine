@@ -33,8 +33,8 @@
 /// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
 ///
 /// ***************************************************************************
-/// File last update : 2025-05-08T18:43:30.000+02:00
-/// Signature : 8db85a1cb8d81d830484a74f3725935fd653ea79
+/// File last update : 2025-05-08T18:55:46.000+02:00
+/// Signature : 2ac85c0b4e504f81abc4f69321417c1dd7ece24c
 /// ***************************************************************************
 /// </summary>
 
@@ -143,7 +143,7 @@ type
     /// Return old default file name (from u_scores.pas) for compatibility reasons
     /// </summary>
     function GetOldScoreFileName(EditorName: string = '';
-      GameName: string = ''): string;
+      GameName: string = ''): string; deprecated 'use GetScoreFileName but the filepath changed, check before loosing old saved scores';
     /// <summary>
     /// Sort the scores list by pseudo in alphabetical order
     /// (and level+score if same pseudo is present more than once time)
@@ -273,20 +273,32 @@ begin
 end;
 
 function TScoreList<T>.GetScoreFileName: string;
-var
-  Suffixe: string;
 begin
-{$IFDEF DEBUG}
-  result := tpath.GetDocumentsPath;
-  Suffixe := '-debug';
+  if FEditorName.IsEmpty and FGameName.IsEmpty then
+    raise exception.Create('Needs at least an Editor or Game name.');
+
+{$IF Defined(DEBUG) or Defined(IOS)}
+  Result := TPath.GetDocumentsPath;
+{$ELSE IF Defined(RELEASE)}
+  Result := TPath.GetHomePath;
 {$ELSE}
-  result := tpath.GetHomePath;
-  Suffixe := '';
+{$MESSAGE FATAL 'not implemented'}
 {$ENDIF}
-  if not FEditorName.isempty then
-    result := tpath.Combine(result, FEditorName + Suffixe);
-  if not FGameName.isempty then
-    result := tpath.Combine(result, FGameName + Suffixe);
+  //
+  if not FEditorName.IsEmpty then
+{$IFDEF DEBUG}
+    Result := TPath.Combine(Result, FEditorName + '-DEBUG');
+{$ELSE}
+    Result := TPath.Combine(Result, FEditorName);
+{$ENDIF}
+  //
+  if not FGameName.IsEmpty then
+{$IFDEF DEBUG}
+    Result := TPath.Combine(Result, FGameName + '-DEBUG');
+{$ELSE}
+    Result := TPath.Combine(Result, FGameName);
+{$ENDIF}
+
   result := tpath.Combine(result, FScoreFileName);
 end;
 
