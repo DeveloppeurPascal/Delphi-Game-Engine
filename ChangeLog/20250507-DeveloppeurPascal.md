@@ -13,3 +13,7 @@
 * updated default path for score files
 * fixed default path for iOS (TPath.GetHomePath is read only for this platform)
 * added the possibility to add scores without a user pseudo
+
+## others
+
+* updated developer doc
