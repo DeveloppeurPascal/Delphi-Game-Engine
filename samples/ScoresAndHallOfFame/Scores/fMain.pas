@@ -3,7 +3,7 @@
 ///
 /// Delphi Game Engine
 ///
-/// Copyright 2021-2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2021-2025 Patrick Prémartin under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -22,8 +22,19 @@
 /// user interface with the keyboard or a game controller, it's the good place.
 ///
 /// ***************************************************************************
-/// File last update : 28/05/2024 12:18:52
-/// Signature : 38ad7699c0f4adef9f570f25c291b98076954106
+///
+/// Author(s) :
+/// Patrick PREMARTIN
+///
+/// Site :
+/// https://delphigameengine.developpeur-pascal.fr
+///
+/// Project site :
+/// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
+///
+/// ***************************************************************************
+/// File last update : 2025-05-08T18:42:34.000+02:00
+/// Signature : 4c0fd3228004957a08e371d1118fb198a21f2dfe
 /// ***************************************************************************
 /// </summary>
 
@@ -32,11 +43,24 @@ unit fMain;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.SysUtils,
+  System.Types,
+  System.UITypes,
+  System.Classes,
   System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Memo.Types,
-  FMX.Layouts, FMX.Edit, FMX.StdCtrls, FMX.Controls.Presentation, FMX.ScrollBox,
-  FMX.Memo, Gamolf.RTL.Scores;
+  FMX.Types,
+  FMX.Controls,
+  FMX.Forms,
+  FMX.Graphics,
+  FMX.Dialogs,
+  FMX.Memo.Types,
+  FMX.Layouts,
+  FMX.Edit,
+  FMX.StdCtrls,
+  FMX.Controls.Presentation,
+  FMX.ScrollBox,
+  FMX.Memo,
+  Gamolf.RTL.Scores;
 
 type
   TForm1 = class(TForm)
@@ -57,9 +81,7 @@ type
     procedure btnSortByPointClick(Sender: TObject);
   private
     procedure DisplayScoreList;
-    { Déclarations privées }
   public
-    { Déclarations publiques }
     ScoreList: TScoreList;
   end;
 
