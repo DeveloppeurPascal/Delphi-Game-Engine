@@ -33,8 +33,8 @@
 /// https://github.com/DeveloppeurPascal/Delphi-Game-Engine
 ///
 /// ***************************************************************************
-/// File last update : 2025-05-08T18:42:34.000+02:00
-/// Signature : 4c0fd3228004957a08e371d1118fb198a21f2dfe
+/// File last update : 2025-05-08T19:04:22.000+02:00
+/// Signature : 6a8e07c04096f2246a28d90db60b21cf8ac20d86
 /// ***************************************************************************
 /// </summary>
 
@@ -99,21 +99,43 @@ var
 begin
   pseudo := Edit1.Text.Trim;
   points := random(maxint);
-  if random(100) < 50 then
+  if pseudo.IsEmpty then
   begin
-    if ScoreList.Add(pseudo, points, false) then
-      Memo1.Lines.Add('Add score : ' + pseudo + ' => ' + points.ToString)
+    if random(100) < 50 then
+    begin
+      if ScoreList.Add(points, false) then
+        Memo1.Lines.Add('Add score : ' + points.ToString)
+      else
+        Memo1.Lines.Add('Score not added');
+    end
     else
-      Memo1.Lines.Add('Score not added : ' + pseudo);
+    begin
+      level := random(maxint);
+      if ScoreList.Add(points, level, false) then
+        Memo1.Lines.Add('Add score : ' + points.ToString + ' (level ' +
+          level.ToString + ')')
+      else
+        Memo1.Lines.Add('Score not added');
+    end;
   end
   else
   begin
-    level := random(maxint);
-    if ScoreList.Add(pseudo, points, level, false) then
-      Memo1.Lines.Add('Add score : ' + pseudo + ' => ' + points.ToString +
-        ' (level ' + level.ToString + ')')
+    if random(100) < 50 then
+    begin
+      if ScoreList.Add(pseudo, points, false) then
+        Memo1.Lines.Add('Add score : ' + pseudo + ' => ' + points.ToString)
+      else
+        Memo1.Lines.Add('Score not added : ' + pseudo);
+    end
     else
-      Memo1.Lines.Add('Score not added : ' + pseudo);
+    begin
+      level := random(maxint);
+      if ScoreList.Add(pseudo, points, level, false) then
+        Memo1.Lines.Add('Add score : ' + pseudo + ' => ' + points.ToString +
+          ' (level ' + level.ToString + ')')
+      else
+        Memo1.Lines.Add('Score not added : ' + pseudo);
+    end;
   end;
 end;
 
