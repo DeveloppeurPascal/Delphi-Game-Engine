@@ -1,31 +1,42 @@
-﻿/// <summary>
-/// ***************************************************************************
-///
-/// Delphi Game Engine
-///
-/// Copyright 2021-2024 Patrick Prémartin under AGPL 3.0 license.
-///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-/// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-/// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-/// DEALINGS IN THE SOFTWARE.
-///
-/// ***************************************************************************
-///
-/// Delphi Game Engine contains libraries and components to use in VCL or
-/// FireMonkey game (or classic) projects.
-///
-/// If you want to play sounds or musics, use game controllers, pilot your
-/// user interface with the keyboard or a game controller, it's the good place.
-///
-/// ***************************************************************************
-/// File last update : 27/07/2024 13:10:24
-/// Signature : 428280a5270eb07edee745c927866f2fc22493be
-/// ***************************************************************************
-/// </summary>
+﻿(* C2PP
+  ***************************************************************************
+
+  Delphi Game Engine
+
+  Copyright 2021-2025 Patrick Prémartin under AGPL 3.0 license.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+  DEALINGS IN THE SOFTWARE.
+
+  ***************************************************************************
+
+  Delphi Game Engine contains libraries and components to use in VCL or
+  FireMonkey game (or classic) projects.
+
+  If you want to play sounds or musics, use game controllers, pilot your
+  user interface with the keyboard or a game controller, it's the good place.
+
+  ***************************************************************************
+
+  Author(s) :
+  Patrick PREMARTIN
+
+  Site :
+  https://delphigameengine.developpeur-pascal.fr
+
+  Project site :
+  https://github.com/DeveloppeurPascal/Delphi-Game-Engine
+
+  ***************************************************************************
+  File last update : 2025-02-09T11:03:40.000+01:00
+  Signature : fa1d834b9380e31109ca493e60e6320b15197a3a
+  ***************************************************************************
+*)
 
 program TestUIElementsVCL;
 
