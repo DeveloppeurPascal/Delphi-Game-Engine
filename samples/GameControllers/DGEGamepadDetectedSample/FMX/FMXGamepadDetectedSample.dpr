@@ -33,8 +33,8 @@
   https://github.com/DeveloppeurPascal/Delphi-Game-Engine
 
   ***************************************************************************
-  File last update : 2025-02-09T11:03:40.000+01:00
-  Signature : 69b0ad0fb7c12ef805b94a1dc8e17471e2a538d2
+  File last update : 2025-09-19T19:59:16.000+02:00
+  Signature : aad3c14d02ab73138506f4d891ea02827fdecc03
   ***************************************************************************
 *)
 
@@ -57,7 +57,7 @@ uses
 {$R *.res}
 
 begin
-  GlobalUseSkia := True;
+  GlobalUseSkia := False;
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);
   Application.Run;
