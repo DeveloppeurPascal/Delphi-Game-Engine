@@ -14,7 +14,7 @@ It comes from years of game development for fun and [live coding sessions on Twi
 
 You can find examples of classic game features in [Delphi FMX Game Snippets](https://github.com/DeveloppeurPascal/Delphi-FMX-Game-Snippets) if you are looking for inspiration.
 
-Some of [my video games](https://gamolf.fr) are open sourced on GitHub. Find them as submodules of [this repository](https://github.com/DeveloppeurPascal/DevPas-Games-Pack).
+Some of [my video games](https://gamolf.fr) are open sourced on GitHub. Find them as submodules of [this repository](https://github.com/DeveloppeurPascal/Delphi-Games-Pack).
 
 Since July 2024, a game coding starter kit in the form of FireMonkey projects is available. This is the [Gamolf FMX Game Starter Kit](https://github.com/DeveloppeurPascal/Gamolf-FMX-Game-Starter-Kit). It uses [Delphi Game Engine](https://github.com/DeveloppeurPascal/Delphi-Game-Engine) for the basic routines (sound, game controllers, user interface, scores, ...) and provides you with a Delphi project template to create your own games, with numerous examples.
 
