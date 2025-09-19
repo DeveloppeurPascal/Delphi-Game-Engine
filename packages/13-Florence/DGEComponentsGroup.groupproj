@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{9BB9BB86-AD1D-42FF-92DD-8505DA31D175}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Gamolf.DelphiGameEnginePackage.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Gamolf.DelphiGameEngineFMXPackage.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Gamolf_DelphiGameEnginePackage">
+        <MSBuild Projects="Gamolf.DelphiGameEnginePackage.dproj"/>
+    </Target>
+    <Target Name="Gamolf_DelphiGameEnginePackage:Clean">
+        <MSBuild Projects="Gamolf.DelphiGameEnginePackage.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Gamolf_DelphiGameEnginePackage:Make">
+        <MSBuild Projects="Gamolf.DelphiGameEnginePackage.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Gamolf_DelphiGameEngineFMXPackage">
+        <MSBuild Projects="Gamolf.DelphiGameEngineFMXPackage.dproj"/>
+    </Target>
+    <Target Name="Gamolf_DelphiGameEngineFMXPackage:Clean">
+        <MSBuild Projects="Gamolf.DelphiGameEngineFMXPackage.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Gamolf_DelphiGameEngineFMXPackage:Make">
+        <MSBuild Projects="Gamolf.DelphiGameEngineFMXPackage.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Gamolf_DelphiGameEnginePackage;Gamolf_DelphiGameEngineFMXPackage"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Gamolf_DelphiGameEnginePackage:Clean;Gamolf_DelphiGameEngineFMXPackage:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Gamolf_DelphiGameEnginePackage:Make;Gamolf_DelphiGameEngineFMXPackage:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
