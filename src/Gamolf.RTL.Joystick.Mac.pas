@@ -33,8 +33,8 @@
   https://github.com/DeveloppeurPascal/Delphi-Game-Engine
 
   ***************************************************************************
-  File last update : 2025-02-09T11:03:38.745+01:00
-  Signature : fa5523fdc9a83cade1de0086ab62934b74e7bcc8
+  File last update : 2025-09-19T19:58:28.000+02:00
+  Signature : 5e009282c6da56b3364bbe93a5c76fbcfdc156b7
   ***************************************************************************
 *)
 
@@ -110,7 +110,7 @@ uses
   iosapi.GameController,
   iosapi.Helpers;
 {$ELSE}
-macapi.Foundation,
+  macapi.Foundation,
   macapi.CocoaTypes,
   macapi.GameController;
 {$ENDIF}
@@ -212,14 +212,28 @@ end;
 constructor TGamolfJoystickService.Create;
 begin
   inherited;
+{$IF Defined(IOS) and (CompilerVersion>=37.0)}
+  // Since Delphi 13 Florence the use of NStringToId() function is not needed.
   TNSNotificationCenter.wrap(TNSNotificationCenter.OCClass.defaultCenter)
-    .addObserver(ControllersNotificationHandler.GetObjectID,
+  .addObserver(ControllersNotificationHandler.GetObjectID,
+    sel_getUid('ControllerDidConnect:'),
+    GCControllerDidConnectNotification, nil);
+  TNSNotificationCenter.wrap(TNSNotificationCenter.OCClass.defaultCenter)
+  .addObserver(ControllersNotificationHandler.GetObjectID,
+    sel_getUid('ControllerDidDisconnect:'),
+    GCControllerDidDisconnectNotification, nil);
+{$MESSAGE HINT 'IOS'}
+{$ELSE}
+{$MESSAGE HINT 'ELSE'}
+  TNSNotificationCenter.wrap(TNSNotificationCenter.OCClass.defaultCenter)
+  .addObserver(ControllersNotificationHandler.GetObjectID,
     sel_getUid('ControllerDidConnect:'),
     nsstringtoid(GCControllerDidConnectNotification), nil);
   TNSNotificationCenter.wrap(TNSNotificationCenter.OCClass.defaultCenter)
-    .addObserver(ControllersNotificationHandler.GetObjectID,
+  .addObserver(ControllersNotificationHandler.GetObjectID,
     sel_getUid('ControllerDidDisconnect:'),
     nsstringtoid(GCControllerDidDisconnectNotification), nil);
+{$ENDIF}
 end;
 
 procedure TGamolfJoystickService.getInfo(JoystickID: TJoystickID;
@@ -247,17 +261,17 @@ begin
       if (length(Joystick.Axes) < 6) then
         setlength(Joystick.Axes, 6);
       Joystick.Axes[ord(tjoystickaxes.LeftStickX)] :=
-        LExtendedGamepad.leftThumbstick.xAxis.Value;
+      LExtendedGamepad.leftThumbstick.xAxis.Value;
       Joystick.Axes[ord(tjoystickaxes.LeftStickY)] :=
-        -LExtendedGamepad.leftThumbstick.yAxis.Value;
+      -LExtendedGamepad.leftThumbstick.yAxis.Value;
       Joystick.Axes[ord(tjoystickaxes.RightStickX)] :=
-        LExtendedGamepad.rightThumbstick.xAxis.Value;
+      LExtendedGamepad.rightThumbstick.xAxis.Value;
       Joystick.Axes[ord(tjoystickaxes.RightStickY)] :=
-        -LExtendedGamepad.rightThumbstick.yAxis.Value;
+      -LExtendedGamepad.rightThumbstick.yAxis.Value;
       Joystick.Axes[ord(tjoystickaxes.LeftTrigger)] :=
-        LExtendedGamepad.LeftTrigger.Value;
+      LExtendedGamepad.LeftTrigger.Value;
       Joystick.Axes[ord(tjoystickaxes.RightTrigger)] :=
-        LExtendedGamepad.RightTrigger.Value;
+      LExtendedGamepad.RightTrigger.Value;
       //
       // Initialize buttons list
       //
@@ -327,7 +341,7 @@ begin
     result := false
   else
     result := (LController.extendedGamepad <> nil) or
-      (LController.microGamepad <> nil);
+    (LController.microGamepad <> nil);
 end;
 
 function TGamolfJoystickService.hasJoystickButtonsAPI: boolean;
@@ -343,7 +357,7 @@ end;
 procedure TGamolfJoystickService.StartDiscovery;
 begin
   TGCController.OCClass.startWirelessControllerDiscoveryWithCompletionHandler
-    (WirelessControllerDiscoveryFinished);
+  (WirelessControllerDiscoveryFinished);
 end;
 
 procedure TGamolfJoystickService.WirelessControllerDiscoveryFinished;
@@ -368,7 +382,7 @@ end;
 { TControllersNotificationHandler }
 
 procedure TControllersNotificationHandler.ControllerDidConnect
-  (ANotification: pointer); cdecl;
+(ANotification: pointer); cdecl;
 var
   LNotification: nsnotification;
   LController: GCController;
@@ -384,7 +398,7 @@ begin
 end;
 
 procedure TControllersNotificationHandler.ControllerDidDisconnect
-  (ANotification: pointer); cdecl;
+(ANotification: pointer); cdecl;
 // var
 // LNotification: nsnotification;
 // LController: GCController;
@@ -511,13 +525,13 @@ end;
 
 initialization
 
-Controllers := TControllers.Create;
-ControllersNotificationHandler := TControllersNotificationHandler.Create;
+  Controllers := TControllers.Create;
+  ControllersNotificationHandler := TControllersNotificationHandler.Create;
 
 finalization
 
-ControllersNotificationHandler.Free;
-Controllers.Free;
+  ControllersNotificationHandler.Free;
+  Controllers.Free;
 {$ELSE}
 
 implementation
@@ -525,3 +539,4 @@ implementation
 {$ENDIF}
 
 end.
+
