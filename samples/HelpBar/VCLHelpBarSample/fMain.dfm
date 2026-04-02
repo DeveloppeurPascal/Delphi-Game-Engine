@@ -11,4 +11,19 @@ object Form1: TForm1
   Font.Name = 'Segoe UI'
   Font.Style = []
   TextHeight = 15
+  object Label1: TLabel
+    Left = 0
+    Top = 0
+    Width = 624
+    Height = 441
+    Align = alClient
+    Caption = 
+      'feature noit implemented in VCL, the sample will be updated when' +
+      ' it will be available'
+    WordWrap = True
+    ExplicitLeft = 184
+    ExplicitTop = 128
+    ExplicitWidth = 241
+    ExplicitHeight = 121
+  end
 end
