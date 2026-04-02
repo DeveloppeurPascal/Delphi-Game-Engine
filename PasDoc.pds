@@ -44,6 +44,11 @@ VizGraphClasses=0
 VizGraphUses=0
 CheckSpelling=0
 LatexGraphicsPackage=0
+ImplementationComments=0
+InheritedMembers=0
+Bootstrap=1
+Markdown=0
+AutoBackComments=0
 
 [Defines]
 Count=2
@@ -55,7 +60,7 @@ Count=0
 
 [Footer]
 Count=1
-Item_0=<a href="https://delphigameengine.developpeur-pascal.fr/" target="_blank">Delphi Game Engine</a> (c) 2021-2025 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
+Item_0=<a href="https://delphigameengine.developpeur-pascal.fr/" target="_blank">Delphi Game Engine</a> (c) 2021-2026 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
 
 [AutoLinkExclude]
 Count=0
