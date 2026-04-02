@@ -1,122 +1,294 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html class="layout layout-holy-grail" lang="en-us" dir="ltr">
+
 <head>
-  <title>Delphi Game Engine</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="generator" content="DocInsight">
-  <link type="text/css" rel="stylesheet" media="all" href="themes/legacy/css/reset.css" />
-  <link type="text/css" rel="stylesheet" media="all" href="themes/legacy/css/smoothness/jquery-ui.css" />
-  <script type="text/javascript" src="themes/legacy/js/jquery.min.js"></script>
-  <script type="text/javascript" src="themes/legacy/js/jquery-migrate.min.js"></script>
-  <script type="text/javascript" src="themes/legacy/js/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="themes/legacy/js/splitter.js"></script>
-
-  <style type="text/css">
-    html, body {
-		margin:0;
-		padding:0;
-		height:100%;
-		overflow:hidden;
-    }
-
-    #navigationLayout {
-		min-width: 200px;
-		height: 100%;
-    }
-
-    #contentLayout {
-		min-width: 300px;
-		height: 100%;
-		background-color: #eee;
-    }
-
-    #navigationFrame, #contentFrame {
-      height:100%; width:100%; border:none;
-    }
-
-	#main {
-		height: 100%;
-		width: 100%;
-		border: none;
-	}
-	#main div {
-		overflow-x: auto;
-		overflow-y: hidden;
-	}
-	.vsplitbar {
-		height: 100%;
-		width: 1px;
-		background: #b6b6b6;
-		background-image: url(images/vgrabber.gif);
-		background-repeat: no-repeat;
-		background-position: center;
-	}
-    .cover {
-		position:absolute;
-		width:100%;
-		height:100%;
-		top:0;
-		left:0;
-		z-index:99;
-		background-color:#fff;
-		filter:alpha(opacity=30);
-		opacity:0.01;
-		display:none;
-	}
-
-  </style>
-
-  <script type="text/javascript">
-	var resizeTimer;
-
-	function realignWindow() {
-		if (! $(".vsplitbar").hasClass("active"))
-			$("#main").trigger("resize");
-	}
-
-	$(function() {
-		$("#main").splitter({
-			splitVertical: true,
-			// outline: true,
-            sizeLeft: 300
-        });
-		$(window).resize(
-			function () {
-				clearTimeout(resizeTimer);
-				resizeTimer = setTimeout(realignWindow, 10);
-			}
-		);
-	});
-
-  </script>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delphi Game Engine ProjectGroup</title>
+  <meta name="color-scheme" content="light dark" />
+  <meta name="generator" content="DocInsight" />
+  <meta name="toc-key" content="toc-packages" />
+  <meta name="search-index" content="toc&#x2f;search-index.js" />
+  <meta name="uid" content="index" />
+  <link rel="stylesheet" href="static/css/learn.css" />
+  <script src="static/js/index-learn.js"></script>
+  <script src="toc/toc-packages.js"></script>
 </head>
-<body>
+
+<body id="body" class="layout-body">
+  <header id="header" class="layout-body-header">
+    <div class="site-header display-flex align-items-center ">
+      <span class="margin-left-none icon logo">
+      </span>
+      <a href="index.html" class="site-header-brand padding-left-none">
+        <span>Delphi Game Engine</span>
+      </a>
+
+      <nav aria-label="site header nav" class="site-header-nav display-flex align-items-center gap-xxs">
+        <ul class="display-none display-flex-tablet justify-content-space-between gap-xxs">
+          <li>
+            <a class="color-text font-size-sm" href="index.html">API Reference</a>
+          </li>
+        </ul>
+
+        <form role="search" aria-label="Search" id="search-container" class="margin-left-xss margin-left-lg-tablet">
+          <div class="autocomplete display-block">
+            <div class="position-relative">
+              <input class="input input-icon input-sm" type="text" placeholder="Search" aria-expanded="true"
+                aria-activedescendant="">
+              <span class="icon search" aria-hidden="true"></span>
+            </div>
+            <ul role="listbox" id="search-suggestions"
+              class="autocomplete-suggestions is-vertically-scrollable padding-xxs" aria-label="Suggestions" hidden>
+            </ul>
+          </div>
+        </form>
+
+        <button id="color-mode-toggle" title="Toggle color mode" class="button button-clear margin-left-auto">
+          <span class="icon color-mode">
+          </span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section id="layout-body-menu" class="layout-body-menu display-flex">
+    <div id="left-container"
+      class="left-container display-none display-block-tablet padding-inline-sm padding-bottom-sm width-full">
+      <nav id="affixed-left-container" class="margin-top-sm-tablet position-sticky display-flex flex-direction-column"
+        aria-label="Primary">
+      </nav>
+    </div>
+  </section>
+
+  <main id="main" role="main" class="layout-body-main">
+    <article class="padding-sm padding-top-none padding-top-sm-tablet">
+      <div id="article-header"
+        class="align-items-center display-flex background-color-body margin-bottom-xs display-none-print">
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumbs">
+          </ol>
+        </nav>
+
+        <div id="page-actions" class="display-flex flex-wrap-no-wrap margin-left-auto">
+        </div>
+      </div>
+
+      <div class="content">
+        <h1>Delphi Game Engine ProjectGroup</h1>
+
+        <nav id="center-doc-outline" class="doc-outline is-hidden-desktop display-none-print margin-bottom-sm"
+          aria-label="On this page">
+          <h2 id="on-this-page" class="title is-6 margin-block-xs">
+            On this page
+          </h2>
+          <ol id="content-well-in-this-article-list2" class="border-left padding-left-xxs">
+            <li class="">
+              <a href="#packages">Packages</a>
+            </li>
+          </ol>
+        </nav>
+        
 
 
-<div id="main">
 
-	<div id="navigationLayout">
-		<iframe name="navigationFrame" id="navigationFrame" src="toc.html" seamless="seamless" title="Navigation Frame" frameborder="0">
-		</iframe>
-		<!--
-		-->
-	</div>
 
-	<div id="contentLayout">
-	  <script type="text/javascript">
-		var defaultTopic = "Delphi-Game-Engine.html";
-		if (location.href.lastIndexOf("?") > 0)
-			defaultTopic = location.href.substring(location.href.lastIndexOf("?")+1,location.href.length).replace(/:/g,"");
-		document.write('<iframe name="contentFrame" id="contentFrame" src="' + defaultTopic + '" seamless="seamless" title="Content Frame" frameborder="0">');
-	  </script>
-	  <noscript>
-		<iframe name="contentFrame" id="contentFrame" src="Delphi-Game-Engine.html" seamless="seamless" title="Content Frame" frameborder="0">
-		</iframe>
-	  </noscript>
-	</div>
-</div>
-<div class="cover" id="cover"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="member-group">
+  <h2 id="packages">Packages</h2>
+  <div class="has-inner-focus">
+    <table class="table table-sm margin-top-none">
+      <tbody>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="FMXCheckConfigProject.html" class="cref">FMXCheckConfigProject</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+            
+          </td>
+          </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="FMXGamepadDetectedByCode.html" class="cref">FMXGamepadDetectedByCode</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+            
+          </td>
+          </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="FMXGamepadDetectedSample.html" class="cref">FMXGamepadDetectedSample</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+            
+          </td>
+          </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="FMXHelpBarSample.html" class="cref">FMXHelpBarSample</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+            
+          </td>
+          </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="Joystick.html" class="cref">Joystick</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+            
+          </td>
+          </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="Joystick_WinAPI_DirectInput.html" class="cref">Joystick_WinAPI_DirectInput</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+            
+          </td>
+          </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="MusicLoop.html" class="cref">MusicLoop</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+            
+          </td>
+          </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="OldScoresSample.html" class="cref">OldScoresSample</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+            
+          </td>
+          </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="ScoresSample.html" class="cref">ScoresSample</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+            
+          </td>
+          </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="TestUIElementsFMX.html" class="cref">TestUIElementsFMX</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+            
+          </td>
+          </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="TestUIElementsVCL.html" class="cref">TestUIElementsVCL</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+            
+          </td>
+          </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="VCLCheckConfigProject.html" class="cref">VCLCheckConfigProject</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+            
+          </td>
+          </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="VCLGamepadDetectedSample.html" class="cref">VCLGamepadDetectedSample</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+            
+          </td>
+          </tr>
+        <tr>
+          <td>
+            <span class="break-text">
+              <a href="VCLHelpBarSample.html" class="cref">VCLHelpBarSample</a>
+            </span>
+          </td>
+          <td class="has-text-wrap">
+            
+          </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+      </div>
+    </article>
+  </main>
+
+  <aside id="layout-body-aside" class="layout-body-aside" aria-label="Page Outline">
+    <div id="additional-resources" class="right-container padding-sm display-none display-block-desktop height-full"
+      role="complementary" aria-label="Additional resources">
+      <div id="affixed-right-container" class="position-sticky">
+        <nav id="side-doc-outline" class="doc-outline padding-bottom-xs margin-bottom-xs" aria-label="On this page">
+          <h2 class="title is-6 margin-top-xxs margin-bottom-xs">
+            On this page
+          </h2>
+          <ol id="right-rail-on-this-page-list">
+            <li
+              class="border-left-md padding-left-xxs  border-color-primary">
+              <a href="#packages"
+                class="font-weight-semibold color-text">Packages</a>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </aside>
+
+
+  <footer id="footer" class="layout-body-footer footer-layout uhf-container  has-padding
+    border-top" role="contentinfo">
+    <a href="https://delphigameengine.developpeur-pascal.fr/" target="_blank">Delphi Game Engine</a> (c) 2021-2026 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://devjetsoftware.com/products/documentation-insight/" target="_blank">DocInsight</a>
+  </footer>
 
 </body>
-</html>
 
+</html>

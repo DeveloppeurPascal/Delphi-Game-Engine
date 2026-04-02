@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Delphi Game Engine: Gamolf.RTL.Scores: Class TScoreList</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="PasDoc 1.0.2">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="StyleSheet" type="text/css" href="bootstrap.min.css">
+<link rel="StyleSheet" type="text/css" href="pasdoc.css">
+</head>
+<body>
+<nav class="navbar d-md-none sticky-top bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Delphi Game Engine</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarNav" aria-controls="sidebarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+<div class="offcanvas-md offcanvas-start navigation" tabindex="-1" id="sidebarNav" data-bs-scroll="true">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Delphi Game Engine</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarNav" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body py-2">
+<h2><a href="index.html">Delphi Game Engine</a></h2><ul class="nav flex-column px-3"><li class="nav-item"><a class="nav-link px-2 py-1" href="AllUnits.html">Units</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="ClassHierarchy.html">Class Hierarchy</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllClasses.html">Classes, Interfaces, Objects and Records</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllTypes.html">Types</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllVariables.html">Variables</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllConstants.html">Constants</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllFunctions.html">Functions and Procedures</a></li><li class="nav-item"><a class="nav-link px-2 py-1" href="AllIdentifiers.html">Identifiers</a></li></ul></div></div>
+<main class="pasdoc-content content">
+<div class="container-fluid py-3 px-4">
+<span id="TScoreList"></span><h1 class="cio">Class TScoreList</h1>
+<div class="sections">
+<div class="one_section"><a class="section" href="#PasDoc-Description">Description</a></div><div class="one_section"><a class="section" href="#PasDoc-Hierarchy">Hierarchy</a></div><div class="one_section"><a class="section" href="#PasDoc-Methods">Methods</a></div></div>
+<span id="PasDoc-Description"></span><h2 class="unit">Unit</h2>
+<p class="unitlink">
+<a href="Gamolf.RTL.Scores.html">Gamolf.RTL.Scores</a></p>
+<h2 class="declaration">Declaration</h2>
+<p class="declaration">
+<code>type TScoreList&lt;T:TScore,constructor&gt; = class(TObjectList&lt;T&gt;)</code></p>
+<h2 class="description">Description</h2>
+<p>
+ Generic list of scores registered for a game (use TScoreList if you don't need the genericity) </p>
+<span id="PasDoc-Hierarchy"></span><h2 class="hierarchy">Hierarchy</h2>
+<ul class="hierarchy"><li class="ancestor">TObject</li>
+<li class="ancestor">TList</li>
+<li class="ancestor">TObjectList</li>
+<li class="thisitem">TScoreList</li></ul><h2 class="overview">Overview</h2>
+<span id="PasDoc-Methods"></span><h3 class="summary">Methods</h3>
+<table class="summary wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>constructor <strong><a href="Gamolf.RTL.Scores.TScoreList.generic.html#Create-string-string-string-">Create</a></strong>(EditorName, GameName: string; ScoreFileName: string = 'score.dat'); overload; virtual;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Scores.TScoreList.generic.html#Save">Save</a></strong>;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Scores.TScoreList.generic.html#SaveToFile-string-">SaveToFile</a></strong>(AFileName: string);</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Scores.TScoreList.generic.html#Load">Load</a></strong>;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Scores.TScoreList.generic.html#LoadFromFile-string-">LoadFromFile</a></strong>(AFileName: string);</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Scores.TScoreList.generic.html#GetScoreFileName">GetScoreFileName</a></strong>: string;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Scores.TScoreList.generic.html#Add-cardinal-cardinal-boolean-">Add</a></strong>(APoints: cardinal; ALevel: cardinal; ASaveList: boolean = true) : boolean; overload;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Scores.TScoreList.generic.html#Add-cardinal-boolean-">Add</a></strong>(APoints: cardinal; ASaveList: boolean = true) : boolean; overload;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Scores.TScoreList.generic.html#Add-string-cardinal-boolean-">Add</a></strong>(APseudo: string; APoints: cardinal; ASaveList: boolean = true) : boolean; overload;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Scores.TScoreList.generic.html#Add-string-cardinal-cardinal-boolean-">Add</a></strong>(APseudo: string; APoints: cardinal; ALevel: cardinal; ASaveList: boolean = true): boolean; overload;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>function <strong><a href="Gamolf.RTL.Scores.TScoreList.generic.html#GetOldScoreFileName-string-string-">GetOldScoreFileName</a></strong>(EditorName: string = ''; GameName: string = '') : string; deprecated 'use GetScoreFileName but the filepath changed, check before loosing old saved scores';</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Scores.TScoreList.generic.html#SortByPseudoAsc">SortByPseudoAsc</a></strong>;</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Scores.TScoreList.generic.html#SortByPseudoDesc">SortByPseudoDesc</a></strong>;</code></td>
+</tr>
+<tr class="list2 visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Scores.TScoreList.generic.html#SortByPointsAsc-boolean-">SortByPointsAsc</a></strong>(WithLevel: boolean = true);</code></td>
+</tr>
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><code>procedure <strong><a href="Gamolf.RTL.Scores.TScoreList.generic.html#SortByPointsDesc-boolean-">SortByPointsDesc</a></strong>(WithLevel: boolean = true);</code></td>
+</tr>
+</table>
+<h2 class="description">Description</h2>
+<h3 class="detail">Methods</h3>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Create-string-string-string-"></span><code>constructor <strong>Create</strong>(EditorName, GameName: string; ScoreFileName: string = 'score.dat'); overload; virtual;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Scores list constructor </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Save"></span><code>procedure <strong>Save</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Save the list of scores in the default file (GetScoreFileName) </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SaveToFile-string-"></span><code>procedure <strong>SaveToFile</strong>(AFileName: string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Save the list of scores in AFileName (and create the path if needed and possible) </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Load"></span><code>procedure <strong>Load</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Load the list of scores from the default file (GetScoreFileName) </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="LoadFromFile-string-"></span><code>procedure <strong>LoadFromFile</strong>(AFileName: string);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Load the list of scores from FileName (if it exists) </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="GetScoreFileName"></span><code>function <strong>GetScoreFileName</strong>: string;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Return default file name for the file list storrage </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Add-cardinal-cardinal-boolean-"></span><code>function <strong>Add</strong>(APoints: cardinal; ALevel: cardinal; ASaveList: boolean = true) : boolean; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add a new score to the list </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Add-cardinal-boolean-"></span><code>function <strong>Add</strong>(APoints: cardinal; ASaveList: boolean = true) : boolean; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add a new score to the list </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Add-string-cardinal-boolean-"></span><code>function <strong>Add</strong>(APseudo: string; APoints: cardinal; ASaveList: boolean = true) : boolean; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add a new score to the list </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="Add-string-cardinal-cardinal-boolean-"></span><code>function <strong>Add</strong>(APseudo: string; APoints: cardinal; ALevel: cardinal; ASaveList: boolean = true): boolean; overload;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Add a new score to the list </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="GetOldScoreFileName-string-string-"></span><code>function <strong>GetOldScoreFileName</strong>(EditorName: string = ''; GameName: string = '') : string; deprecated 'use GetScoreFileName but the filepath changed, check before loosing old saved scores';</code></td>
+</tr>
+<tr><td colspan="2">
+<p class="hint_directive">Warning: this symbol is deprecated: use GetScoreFileName but the filepath changed, check before loosing old saved scores</p><p>
+ Return old default file name (from u_scores.pas) for compatibility reasons </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SortByPseudoAsc"></span><code>procedure <strong>SortByPseudoAsc</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sort the scores list by pseudo in alphabetical order (and level+score if same pseudo is present more than once time) </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SortByPseudoDesc"></span><code>procedure <strong>SortByPseudoDesc</strong>;</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sort the scores list by pseudo in inverse alphabetical order (and level+score if same pseudo is present more than once time) </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SortByPointsAsc-boolean-"></span><code>procedure <strong>SortByPointsAsc</strong>(WithLevel: boolean = true);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sort the scores list by level / points / pseudo (bottom from top) </p>
+</td></tr>
+</table>
+<table class="detail visibility-public wide_list">
+<tr class="list visibility-public">
+<td class="visibility"><span class="badge vis-public">Public</span></td>
+<td class="itemcode"><span id="SortByPointsDesc-boolean-"></span><code>procedure <strong>SortByPointsDesc</strong>(WithLevel: boolean = true);</code></td>
+</tr>
+<tr><td colspan="2">
+<p>
+ Sort the scores list by level / points / pseudo (top from bottom) </p>
+</td></tr>
+</table>
+<a href="https://delphigameengine.developpeur-pascal.fr/" target="_blank">Delphi Game Engine</a> (c) 2021-2026 <a href="https://patrick.premartin.fr" target="_blank">Patrick PREMARTIN</a> - Powered by <a href="https://pasdoc.github.io/" target="_blank">PasDoc</a>
+<hr><span class="appinfo"><em>Generated by <a href="https://pasdoc.github.io/">PasDoc 1.0.2</a>. </em>
+</span>
+</div></main>
+<script src="bootstrap.bundle.min.js"></script>
+</body></html>
