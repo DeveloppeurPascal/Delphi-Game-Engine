@@ -2,16 +2,20 @@
   ***************************************************************************
 
   Delphi Game Engine
+  Copyright (c) 2021-2026 Patrick PREMARTIN
 
-  Copyright 2021-2025 Patrick Prémartin under AGPL 3.0 license.
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
 
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-  DEALINGS IN THE SOFTWARE.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License
+  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
   ***************************************************************************
 
@@ -33,7 +37,7 @@
   https://github.com/DeveloppeurPascal/Delphi-Game-Engine
 
   ***************************************************************************
-  File last update : 2025-09-19T19:59:16.000+02:00
+  File last update : 2025-11-16T19:19:38.000+01:00
   Signature : aad3c14d02ab73138506f4d891ea02827fdecc03
   ***************************************************************************
 *)
