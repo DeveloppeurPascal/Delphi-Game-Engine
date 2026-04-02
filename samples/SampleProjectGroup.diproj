@@ -4,20 +4,22 @@
   <Summary>Libraries, classes and components to simplify game coding in Delphi VCL and FireMonkey projects</Summary>
   <Author>Patrick PREMARTIN</Author>
   <Email>patrick@premartin.fr</Email>
-  <Copyright>(c) 2021-2025 Patrick PREMARTIN</Copyright>
+  <Copyright>(c) 2021-2026 Patrick PREMARTIN</Copyright>
   <Comment/>
   <Language>2057</Language>
   <Charset>1</Charset>
+  <Theme>Learn</Theme>
   <HeaderHtml>&lt;%TopicTitle%&gt;</HeaderHtml>
-  <FooterHtml>&lt;a href="https://delphigameengine.developpeur-pascal.fr/" target="_blank"&gt;Delphi Game Engine&lt;/a&gt; (c) 2021-2025 &lt;a href="https://patrick.premartin.fr" target="_blank"&gt;Patrick PREMARTIN&lt;/a&gt; - Powered by &lt;a href="https://devjetsoftware.com/products/documentation-insight/" target="_blank"&gt;DocInsight&lt;/a&gt;</FooterHtml>
+  <FooterHtml>&lt;a href="https://delphigameengine.developpeur-pascal.fr/" target="_blank"&gt;Delphi Game Engine&lt;/a&gt; (c) 2021-2026 &lt;a href="https://patrick.premartin.fr" target="_blank"&gt;Patrick PREMARTIN&lt;/a&gt; - Powered by &lt;a href="https://devjetsoftware.com/products/documentation-insight/" target="_blank"&gt;DocInsight&lt;/a&gt;</FooterHtml>
   <CustomDefines/>
+  <GlobalSearchPaths>false</GlobalSearchPaths>
   <ShowImplementationSection>false</ShowImplementationSection>
   <ShowPrivateMembers>false</ShowPrivateMembers>
   <ShowProtectedMembers>true</ShowProtectedMembers>
   <ShowInheritedMembers>true</ShowInheritedMembers>
   <ShowPropertyAccessors>true</ShowPropertyAccessors>
   <FileNamePolicy>0</FileNamePolicy>
-  <CompilerVersion>27</CompilerVersion>
+  <CompilerVersion>28</CompilerVersion>
   <TargetPlatform>0</TargetPlatform>
   <Sources>
     <Source>.\GameControllers\CheckComponents\FireMonkey\FMXCheckConfigProject.dpr</Source>
